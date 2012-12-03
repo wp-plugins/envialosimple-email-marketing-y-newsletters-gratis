@@ -1,5 +1,5 @@
 === EnvialoSimple: Email Marketing y Newsletters GRATIS ===
-Contributors: dattatec
+Contributors: dattatec.com
 Tags: email,email marketing,emailing,newsletter,envialosimple,plugin,editor visual,drag,drop,importar,contactos,posts,wysiwyg
 Requires at least: 3.0.1
 Tested up to: 3.4
