@@ -1,0 +1,179 @@
+
+/* BOOTSTRAP RESET*/
+
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+.hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.restoreNormalCss article,
+.restoreNormalCss aside,
+.restoreNormalCss details,
+.restoreNormalCss figcaption,
+.restoreNormalCss figure,
+.restoreNormalCss footer,
+.restoreNormalCss header,
+.restoreNormalCss hgroup,
+.restoreNormalCss nav,
+.restoreNormalCss section {
+  display: block;
+}
+.restoreNormalCss audio,
+.restoreNormalCss canvas,
+.restoreNormalCss video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+.restoreNormalCss html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+.restoreNormalCss a:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.restoreNormalCss a:hover,
+.restoreNormalCss a:active {
+  outline: 0;
+}
+.restoreNormalCss sub,
+.restoreNormalCss sup {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+}
+.restoreNormalCss sup {
+  top: -0.5em;
+}
+.restoreNormalCss sub {
+  bottom: -0.25em;
+}
+.restoreNormalCss img {
+  /* Responsive images (ensure images don't scale beyond their parents) */
+
+  max-width: 100%;
+  /* Part 1: Set a maxium relative to the parent */
+
+  width: auto\9;
+  /* IE7-8 need help adjusting responsive images */
+
+
+
+  vertical-align: middle;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+.restoreNormalCss #map_canvas img {
+  max-width: none;
+}
+.restoreNormalCss button,
+.restoreNormalCss input,
+.restoreNormalCss select,
+.restoreNormalCss textarea {
+  margin: 0;
+  font-size: 100%;
+  vertical-align: middle;
+}
+.restoreNormalCss button,
+.restoreNormalCss input {
+  *overflow: visible;
+  line-height: normal;
+}
+.restoreNormalCss button::-moz-focus-inner,
+.restoreNormalCss input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+.restoreNormalCss button,
+.restoreNormalCss input[type="button"],
+.restoreNormalCss input[type="reset"],
+.restoreNormalCss input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+.restoreNormalCss input[type="search"] {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-appearance: textfield;
+}
+.restoreNormalCss input[type="search"]::-webkit-search-decoration,
+.restoreNormalCss input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+.restoreNormalCss textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+/* COMMON RESET*/
+.restoreNormalCss{
+	line-height:normal;
+}
+.restoreNormalCss * {
+	margin: auto;
+	padding: auto;
+	/*border: none;*/
+	outline: none;
+	vertical-align: none;
+	border-collapse: separate;
+	border-spacing: 2px;
+	line-height: inherit;
+}
+
+.restoreNormalCss table[border]{border-spacing: 0px;}
+.restoreNormalCss table { margin:0;   }
+.restoreNormalCss h1 { font-size:138.5%;   }
+.restoreNormalCss h2 {  font-size:123.1%;  }
+.restoreNormalCss h3 {  font-size:108%;   }
+.restoreNormalCss h1, .restoreNormalCss h2, .restoreNormalCss h3 {  margin:1em 0; }
+.restoreNormalCss h1, .restoreNormalCss h2, .restoreNormalCss h3, .restoreNormalCss h4, .restoreNormalCss h5, .restoreNormalCss h6, .restoreNormalCss strong { font-weight:bold;  }
+.restoreNormalCss abbr, .restoreNormalCss acronym { cursor:help; }
+.restoreNormalCss em { font-style:italic; }
+.restoreNormalCss blockquote, .restoreNormalCss ul, .restoreNormalCss ol, .restoreNormalCss dl { margin:1em; }
+.restoreNormalCss ol, .restoreNormalCss ul, .restoreNormalCss dl { margin-left:2em; }
+.restoreNormalCss ol li { list-style: decimal outside;	 }
+.restoreNormalCss ul li { list-style: disc outside; }
+.restoreNormalCss dl dd { margin-left:1em; }
+.restoreNormalCss th, .restoreNormalCss td { line-height: normal; }
+.restoreNormalCss th { font-weight:bold; text-align:center; }
+.restoreNormalCss caption { margin-bottom:.5em; text-align:center; }
+.restoreNormalCss p, .restoreNormalCss fieldset, .restoreNormalCss table {  }
+.restoreNormalCss a { text-decoration: underline; color: #2200C1 }
+.restoreNormalCss p { margin: 1em 0; }
+.restoreNormalCss img{
+	display:block;border: none;
+	max-width:inherit;
+}
+.attachmentsContainer img,
+.restoreNormalCss img.inline{
+	display:inline !important;
+	border: none;
+	max-width:inherit;
+}

@@ -1,0 +1,115 @@
+.restoreNormalCss{
+	line-height:normal;
+}
+.restoreNormalCss * {
+	line-height: inherit;
+}
+.restoreNormalCss img{
+	display:block;
+	border: none;
+	max-width:inherit;
+}
+.attachmentsContainer img,
+.restoreNormalCss img.inline{
+	display:inline !important;
+	border: none;
+	max-width:inherit;
+}
+
+
+
+.wysiwyg-imgWrapper,
+.wysiwyg-attachmentWrapper{
+	line-height:0px;
+	cursor:pointer;
+	display:inline;
+	background: url(../imagenes/highlight.png) center center repeat transparent;
+	border:solid 2px #FBFFBA;
+	position:absolute;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.ie-lte9 .wysiwyg-imgWrapper,
+.ie-lte9 .wysiwyg-attachmentWrapper{
+	border:none;
+}
+.wysiwyg-imgWrapper img,
+.wysiwyg-attachmentWrapper img{
+	display:block;
+	border: none;
+}
+.wysiwyg-imgWrapper img.inline,
+.wysiwyg-attachmentWrapper img.inline{
+	display:inline !important;
+	border: none;
+}
+.imgToolContainer,
+.attachmentToolContainer{
+	display: none;
+	position: absolute;
+	display: block;
+	width: 65px;
+	height: 40px;
+}
+.attachmentToolContainer{
+	width: 103px;
+}
+.wysiwyg-imgWrapper .imgTool,
+.wysiwyg-attachmentWrapper .attachmentTool{
+	color:#FFFFFF;
+	border-radius: 3px;
+	box-shadow: 0 1px 1px #444;
+	height: 25px;
+	margin-top: 3px;
+	overflow: hidden;
+	position: absolute;
+	text-indent: -100px;
+	width: 25px;
+
+	-moz-transition: all .2s ease;
+	-o-transition: all .2s ease;
+	-webkit-transition: all .2s ease;
+	-ms-transition: all .2s ease;
+	transition: all .2s ease;
+	cursor:pointer;
+	border:solid 2px #FFFFFF;
+}
+.wysiwyg-attachmentWrapper .attachmentTool {
+	bottom: -5px;
+}
+.wysiwyg-imgWrapper .imgTool:hover,
+.wysiwyg-attachmentWrapper .attachmentTool:hover{
+	box-shadow: 0 1px 1px #444, 0 14px 0 -3px rgba(255, 255, 255, 0.3) inset
+}
+
+.wysiwyg-imgWrapper .imgTool.edit,
+.wysiwyg-attachmentWrapper .attachmentTool.edit{
+	margin-left: 35px;
+	background: url(../imagenes/items-table-sprite.png) -125px -74px no-repeat #ED8E00;
+}
+
+.wysiwyg-imgWrapper .imgTool.delete,
+.wysiwyg-attachmentWrapper .attachmentTool.delete{
+	background: url(../imagenes/items-table-sprite.png) -127px -54px no-repeat #888;
+}
+
+.wysiwyg-attachmentWrapper .attachmentTool.edit{
+	margin-left: 70px;
+}
+
+.wysiwyg-attachmentWrapper .attachmentTool.delete{
+	margin-left: 35px;
+}
+ 
+
+.wysiwyg-attachmentWrapper .attachmentTool.changeColor{
+	background: url(../imagenes/items-table-sprite.png) -127px -100px no-repeat #E9E9E9;
+	
+}
+.wysiwyg.restoreNormalCss table:hover td,
+.wysiwyg.restoreNormalCss table:hover th{
+	outline: dashed 1px #CCC;
+}

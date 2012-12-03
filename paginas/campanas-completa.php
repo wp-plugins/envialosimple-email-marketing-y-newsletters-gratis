@@ -1,0 +1,177 @@
+<?php
+
+	include_once(ENVIALO_DIR."/clases/EnvialoSimple.php");
+	include_once(ENVIALO_DIR."/clases/Campanas.php");
+	include_once(ENVIALO_DIR."/clases/Contactos.php");
+
+
+	function isCheck($valor){
+		if($valor){
+			return "Sí";
+		}else{
+			return "No";
+		}
+	}
+
+	$ev = new EnvialoSimple();
+	$ev->checkSetup();
+
+    include_once(ENVIALO_DIR."/paginas/header.php");    
+    $ca = new Campanas();	
+	if(isset($_GET["idCampana"])){
+		$idCampana = filter_var($_GET["idCampana"],FILTER_SANITIZE_NUMBER_INT);		
+		$camp = $ca->traerCampana($idCampana);
+		if(isset($camp["success"])){
+			$c = $camp["campaign"];
+		}else{
+			
+            $msg = "<p>No se puede establecer la conexión con el servidor.</p>                    
+                    <p><a href='#' class='button-primary'>Vuelva a intentarlo</a></p>";
+            									
+			echo $msg;
+			die();
+		}
+	}    
+	$template = $ca->traerCuerpoCampana($idCampana);		
+
+    if(isset($_GET["e"])){
+        $fechaEnvio =$_GET["e"];
+    }
+   		
+?>
+
+	
+<div class="wrap">
+    
+	
+	<form name="form-completa" id="form-completa" action="<?php echo get_admin_url()."admin.php?page=envialo-simple-nuevo";?>" method="post">
+	    <input name="CampaignName" type="hidden" id="CampaignName" value="<?php echo $c["Name"];?>" >
+	    <input name="CampaignSubject" type="hidden" id="CampaignSubject"  value="<?php echo $c["Subject"];?>" />	    
+	    <input name="FromID" type="hidden" value="<?php echo $c["From"]["EmailID"]?>" id="FromID" />        
+        <input name="ReplyToID" id="ReplyToID" type="hidden" value="<?php $c["ReplyTo"]["EmailID"]?>">   
+        
+        <select name="MailListsIds[]" style="display:none" style="width: 388px;" multiple="multiple" >        
+                <?php                                                                                                                              
+                        foreach ($c["maillists"]["rows"] as $list) {                                            
+                            echo "<option selected='selected' value='{$list['MailListID']}' ></option>";
+                        }                                             
+                ?>
+        </select>       
+	    
+	    
+     <div id="poststuff">
+
+	    <div id="post-body" class="metabox-holder columns-2">
+
+		    <div id="post-body-content">          
+                                 
+               <!-- contenido campañas-->       
+    
+              <div id="postdivrich" class="postarea">
+                    <div id='ifr-completo' style="border: 1px solid #838383;border-radius: 4px;" class="restoreNormalCss">
+                    <?php
+                        echo $template;
+                    ?>
+                    </div>
+                    <input type="hidden" name="contenidoAnterior" id="contenidoNews" value=""/>
+                </div>       
+    
+               <!-- /contenido campañas-->
+
+            </div><!-- post body content-->
+
+       <div id="postbox-container-1" class="postbox-container">
+		        <div id="side-sortables" class="meta-box-sortables ui-sortable">
+		          <div id="acciones" class="postbox ">
+               <h3><span>Acciones</span></h3>
+                <div class="inside">
+                    <div class="submitbox" id="submitpost">
+                        <div >                            
+                            <div>
+                                
+                                <div class="misc-pub-section curtime" style="border-bottom:0;">
+                                                                     
+                                       <input type="submit" class="button-primary" value="Crear nuevo newsletter a partir de este" />
+                                </div>                             
+
+                            </div>
+                            <div class="clear"></div>
+                        </div>                       
+                    </div>
+                </div>
+                </div>
+                
+                 <div id="acciones" class="postbox ">
+                    <h3><span>Detalles</span></h3>
+                    <div class="inside">
+                        <div class="submitbox" id="submitpost">
+                            <div>                            
+                                <div id="misc-publishing-actions">                                    
+                                    
+                                         <dl>
+                                           <dt>Estado del Newsletter:</dt>
+                                           <dd>Completado</dd>
+                                           
+                                           <dt>Enviado el:</dt>
+                                           <dd><?php echo $fechaEnvio ?></dd>
+                                           
+                                           <dt>Asunto del Mensaje:</dt>
+                                           <dd><?php echo $c["Subject"];?></dd>
+                                           
+                                           <dt>Remitente(From):</dt>
+                                           <dd><?php echo $c["ReplyTo"]["Name"]. " (".$c["ReplyTo"]["EmailAddress"].")"; ?></dd>
+                                           
+                                           <dt>Responder a :</dt>
+                                           <dd><?php echo $c["ReplyTo"]["Name"]. " (".$c["ReplyTo"]["EmailAddress"].")";  ?></dd>
+                                           
+                                           <dt>Listas de Destinatarios:</dt>
+                                           <dd>
+                                               <ul style="margin: 0;">
+                                                   <?php
+                                                     foreach ($c["maillists"]["rows"] as $list) {                                            
+                                                        echo "<li >{$list['Name']} ( {$list['MemberCount']} Destinatarios)</li>";
+                                                     }                    
+                                                   ?>
+                                               </ul>
+                                           </dd>
+                                       </dl>
+                                           
+                                           <ul id="opciones-avanzadas-detalle">
+                                               <li><span>Agregar al Archivo público:</span> <?php echo isCheck($c["AddToPublicArchive"]);?></li>
+                                               <li><span>Seguir Enlaces:</span> <?php echo isCheck($c["TrackLinkClicks"]);?></li>
+                                               <li><span>Contar Aperturas:</span> <?php echo isCheck($c["TrackReads"]);?></li>
+                                               <li><span>Usar Google Analytics:</span>  <?php echo isCheck($c["TrackAnalitics"]);?></li>
+                                               <li><span>Enviar informe al finalizar:</span> <?php echo isCheck($c["SendStateReport"]);?> </li>                                               
+                                           </ul>
+                                                                                     
+                                       
+                                    
+          
+    
+                                </div>
+                                <div class="clear"></div>
+                            </div>                       
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+             </div> <!-- sortable-->
+		    </div><!--post box cointaner1-->
+	      </div><!--post body-->
+		 </div><!--post stuff-->
+		 </form>
+		<div style="clear: both"> </div>
+</div><!--wrap-->
+
+
+<script type="text/jscript">
+    
+    jQuery("#form-completa").submit(function(){        
+        jQuery("input,select").prop("disabled",null)
+        jQuery("#contenidoNews").val(jQuery("#ifr-completo").html());        
+    });
+    
+    
+</script>
