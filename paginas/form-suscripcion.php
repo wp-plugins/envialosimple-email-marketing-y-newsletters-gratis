@@ -49,8 +49,8 @@
        
 ?>
 
-<link rel="stylesheet"  href="<?php echo plugins_url("envialo-simple/css/miniColors.css"); ?>" type="text/css" media="all" />
-<script type="text/javascript"  src="<?php echo plugins_url("envialo-simple/js/miniColors.js"); ?>"></script>
+<link rel="stylesheet"  href="<?php echo plugins_url("envialosimple-email-marketing-y-newsletters-gratis/css/miniColors.css"); ?>" type="text/css" media="all" />
+<script type="text/javascript"  src="<?php echo plugins_url("envialosimple-email-marketing-y-newsletters-gratis/js/miniColors.js"); ?>"></script>
 
 <script type="text/javascript">
     var AdministratorID = "<?php echo $AdministratorID?>";    
@@ -295,7 +295,7 @@
                 <h3>
                     Vista Previa 
                     <div id="actualizar-preview" >Actualizar 
-                        <img style="height: 15px;" src="<?php echo plugins_url("envialo-simple/imagenes/refresh.png") ?>" alt="refresh">
+                        <img style="height: 15px;" src="<?php echo plugins_url("envialosimple-email-marketing-y-newsletters-gratis/imagenes/refresh.png") ?>" alt="refresh">
                     </div>
                 </h3>                
                     <div id="contenedor-vista-previa"></div>                

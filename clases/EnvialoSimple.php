@@ -145,7 +145,7 @@ class EnvialoSimple {
                     $htmlImg .= '<div><img name="' . $attachmenturl . '" src="' . $attachmentimage[0] . '" alt=""  /></a></div>';
                 }
             } else {
-                $htmlImg .= '<div><img src="' . plugins_url('envialo-simple/imagenes/300x200.jpg') . '" alt="" height="150" width="150" /></a></div>';
+                $htmlImg .= '<div><img src="' . plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/300x200.jpg') . '" alt="" height="150" width="150" /></a></div>';
             }
             $postContentResumido =  wp_trim_words($p->post_content, 30, "...<br /><a target='_blank' style='text-decoration:underline' class='ver-mas-post' href='{$p->guid}'>Ver Más</a><br /><br />");
             $html .= "  <div class='post'>

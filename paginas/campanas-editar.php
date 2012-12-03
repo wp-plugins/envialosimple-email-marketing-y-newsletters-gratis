@@ -167,21 +167,21 @@
 		}
 	}
     ?>
-    <link rel="stylesheet"  href="<?php echo  plugins_url( "envialo-simple/css/templateEditorRestoreNormalCss.css"); ?>" type="text/css" media="all" />
-    <link rel="stylesheet"  href="<?php echo  plugins_url( "envialo-simple/css/templateEditor.css"); ?>" type="text/css" media="all" />
-    <link rel="stylesheet"  href="<?php echo  plugins_url( "envialo-simple/css/jquery.wysiwyg.css"); ?>" type="text/css" media="all" />
-    <link rel="stylesheet"  href="<?php echo  plugins_url( "envialo-simple/css/jPicker-1.1.6.css"); ?>" type="text/css" media="all" />
-    <link rel="stylesheet"  href="<?php echo  plugins_url( "envialo-simple/css/common.combined.css"); ?>" type="text/css" media="all" />
+    <link rel="stylesheet"  href="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/css/templateEditorRestoreNormalCss.css"); ?>" type="text/css" media="all" />
+    <link rel="stylesheet"  href="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/css/templateEditor.css"); ?>" type="text/css" media="all" />
+    <link rel="stylesheet"  href="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/css/jquery.wysiwyg.css"); ?>" type="text/css" media="all" />
+    <link rel="stylesheet"  href="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/css/jPicker-1.1.6.css"); ?>" type="text/css" media="all" />
+    <link rel="stylesheet"  href="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/css/common.combined.css"); ?>" type="text/css" media="all" />
     
  
-    <script type="text/javascript"  src="<?php echo  plugins_url( "envialo-simple/js/common.combined.js"); ?>"></script> 
-    <script type="text/javascript"  src="<?php echo  plugins_url( "envialo-simple/js/contentEditor.js"); ?>"></script>
-    <script type="text/javascript"  src="<?php echo  plugins_url( "envialo-simple/js/contentEdit.js"); ?>"></script>
-    <script type="text/javascript"  src="<?php echo  plugins_url( "envialo-simple/js/jquery.wysiwyg.js"); ?>"></script>
-    <script type="text/javascript"  src="<?php echo  plugins_url( "envialo-simple/js/bootstrap.js"); ?>"></script>
-    <script type="text/javascript"  src="<?php echo  plugins_url( "envialo-simple/js/simplemodal.1.4.3.js"); ?>"></script>
-    <script type="text/javascript"  src="<?php echo  plugins_url( "envialo-simple/js/jpicker-1.1.6.js"); ?>"></script>
-    <script type="text/javascript"  src="<?php echo  plugins_url( "envialo-simple/js/wysiwygExtras.js"); ?>"></script>
+    <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/common.combined.js"); ?>"></script>
+    <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/contentEditor.js"); ?>"></script>
+    <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/contentEdit.js"); ?>"></script>
+    <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/jquery.wysiwyg.js"); ?>"></script>
+    <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/bootstrap.js"); ?>"></script>
+    <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/simplemodal.1.4.3.js"); ?>"></script>
+    <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/jpicker-1.1.6.js"); ?>"></script>
+    <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/wysiwygExtras.js"); ?>"></script>
     
     
     <script xmlns="" language="javascript" type="text/javascript">              
@@ -592,45 +592,45 @@
                             <h3 style="cursor: pointer!important" >Contenido WordPress</h3>
                             <div id="contenedor-wp">
                                 <div id="cont1wp" class="drag-contenido">
-                                    <img src="<?php echo plugins_url('envialo-simple/imagenes/icon1.gif')?>" />
+                                    <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon1.gif')?>" />
                                 </div>
                                 <div id="cont2wp" class="drag-contenido">
-                                    <img src="<?php echo plugins_url('envialo-simple/imagenes/icon2.gif')?>" />
+                                    <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon2.gif')?>" />
                                 </div>
                                 <div id="cont3wp" class="drag-contenido">
-                                    <img src="<?php echo plugins_url('envialo-simple/imagenes/icon3.gif')?>" />
+                                    <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon3.gif')?>" />
                                     </div>
                                 <div id="cont4wp" class="drag-contenido">
-                                    <img src="<?php echo plugins_url('envialo-simple/imagenes/icon4.gif')?>" />
+                                    <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon4.gif')?>" />
                                 </div>
 
                             </div>
                             <h3 style="cursor: pointer!important" >Contenido Estático</h3>
                             <div id="contenedor-estatico" style="height: 150px;">
                                 <div id="cont1" class="drag-contenido">
-                                    <img src="<?php echo plugins_url('envialo-simple/imagenes/icon1.gif')?>" />
+                                    <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon1.gif')?>" />
                                 </div>
                                 <div id="cont2" class="drag-contenido">
-                                    <img src="<?php echo plugins_url('envialo-simple/imagenes/icon2.gif')?>" />
+                                    <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon2.gif')?>" />
                                 </div>
                                 <div id="cont3" class="drag-contenido">
-                                    <img src="<?php echo plugins_url('envialo-simple/imagenes/icon3.gif')?>" />
+                                    <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon3.gif')?>" />
                                 </div>
 
                                 <div id="cont4" class="drag-contenido">
-                                    <img src="<?php echo plugins_url('envialo-simple/imagenes/icon4.gif')?>" />
+                                    <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon4.gif')?>" />
                                     </div>
                                 <div id="cont5" class="drag-contenido">
-                                    <img src="<?php echo plugins_url('envialo-simple/imagenes/icon5.gif')?>" />
+                                    <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon5.gif')?>" />
                                 </div>
                                 <div id="cont6" class="drag-contenido">
-                                    <img src="<?php echo plugins_url('envialo-simple/imagenes/icon6.gif')?>" />
+                                    <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon6.gif')?>" />
                                 </div>
                                 <div id="cont7" class="drag-contenido">
-                                    <img src="<?php echo plugins_url('envialo-simple/imagenes/icon7.gif')?>" />
+                                    <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon7.gif')?>" />
                                 </div>
                                 <div id="cont8" class="drag-contenido">
-                                    <img src="<?php echo plugins_url('envialo-simple/imagenes/icon8.gif')?>" />
+                                    <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon8.gif')?>" />
                                 </div>
                             </div>
                         </div>

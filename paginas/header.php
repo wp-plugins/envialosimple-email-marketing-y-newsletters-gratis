@@ -4,18 +4,18 @@
         
 	}
 ?>
-<link rel="stylesheet"  href="<?php echo plugins_url("envialo-simple/css/smoothness/jquery-ui.css"); ?>" type="text/css" media="all" />
-<link rel="stylesheet"  href="<?php echo plugins_url("envialo-simple/css/chosen.css"); ?>" type="text/css" media="all" />
-<link rel="stylesheet"  href="<?php echo plugins_url("envialo-simple/css/estilos.css"); ?>" type="text/css" media="all" />
+<link rel="stylesheet"  href="<?php echo plugins_url("envialosimple-email-marketing-y-newsletters-gratis/css/smoothness/jquery-ui.css"); ?>" type="text/css" media="all" />
+<link rel="stylesheet"  href="<?php echo plugins_url("envialosimple-email-marketing-y-newsletters-gratis/css/chosen.css"); ?>" type="text/css" media="all" />
+<link rel="stylesheet"  href="<?php echo plugins_url("envialosimple-email-marketing-y-newsletters-gratis/css/estilos.css"); ?>" type="text/css" media="all" />
 
 <script type="text/javascript">
-    var urlHandler =  "<?php echo plugins_url('envialo-simple/handler.php')?>";
+    var urlHandler =  "<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/handler.php')?>";
     var CampaignID =  "<?php echo $idCampana; ?>";
-    var urlSubidaImagenes = "<?php echo plugins_url("envialo-simple/php/subidaImagenes.php") ?>";
+    var urlSubidaImagenes = "<?php echo plugins_url("envialosimple-email-marketing-y-newsletters-gratis/php/subidaImagenes.php") ?>";
     var urlAdmin = "<?php echo get_admin_url()?>";
-    var urlCss = "<?php echo plugins_url('envialo-simple/css/') ?>";
-    var urlImg = "<?php echo plugins_url('envialo-simple/imagenes/') ?>";
-    var urlColorPicker = "<?php echo plugins_url('envialo-simple/imagenes/colorpicker/') ?>";
+    var urlCss = "<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/css/') ?>";
+    var urlImg = "<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/') ?>";
+    var urlColorPicker = "<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/colorpicker/') ?>";
     var rolUsuario = "<?php echo $envios['role']?>"
     
     var dominio = "<?php echo site_url(); ?>";
@@ -23,12 +23,12 @@
         return text;
     }
 </script>
-<script type="text/javascript"  src="<?php echo plugins_url("envialo-simple/js/chosen.jquery.min.js"); ?>"></script>
-<script type="text/javascript"  src="<?php echo plugins_url("envialo-simple/js/scripts.js"); ?>"></script>
+<script type="text/javascript"  src="<?php echo plugins_url("envialosimple-email-marketing-y-newsletters-gratis/js/chosen.jquery.min.js"); ?>"></script>
+<script type="text/javascript"  src="<?php echo plugins_url("envialosimple-email-marketing-y-newsletters-gratis/js/scripts.js"); ?>"></script>
 
 
 <div id="cargando" class="ui-widget-overlay">
-    <img src="<?php echo plugins_url('envialo-simple/imagenes/throbber.gif'); ?>" />
+    <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/throbber.gif'); ?>" />
 </div>
 
 

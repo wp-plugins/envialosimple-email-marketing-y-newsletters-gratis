@@ -25,7 +25,7 @@ function aviso_admin() {
 }
 
 function agregar_menues() {
-    add_menu_page('Envialo Simple', 'Envialo Simple', 'add_users', 'envialo-simple', 'mostrarPagina', plugins_url('envialo-simple/imagenes/icono.png'), 81.8);
+    add_menu_page('Envialo Simple', 'Envialo Simple', 'add_users', 'envialo-simple', 'mostrarPagina', plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icono.png'), 81.8);
     add_submenu_page('envialo-simple', 'Newsletters', 'Newsletters', 'add_users', 'envialo-simple', '');
     add_submenu_page('envialo-simple', 'Crear Newsletter', 'Crear Newsletter', 'add_users', 'envialo-simple-nuevo', 'mostrarCrearNews');
     add_submenu_page('envialo-simple', 'Listas y Contactos', 'Listas y Contactos', 'add_users', 'envialo-simple-listas', 'mostrarListasyContactos');

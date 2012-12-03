@@ -39,7 +39,7 @@ include_once (ENVIALO_DIR . "/paginas/header.php");
 
                 </div>
 
-                <form action="<?php echo plugins_url('envialo-simple/handler.php')?>" method="post" name="form-conf" id="form-conf" class="add:users: validate">
+                <form action="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/handler.php')?>" method="post" name="form-conf" id="form-conf" class="add:users: validate">
                     <input type="hidden" name="accion" value="traerToken"/>
                     <input type="hidden"  name="admin_url" value="<?php echo get_admin_url() ?>"/>
                     <table class="form-table">
@@ -146,7 +146,7 @@ jQuery.post(urlHandler , {accion:"testToken",token:clave},function(json){
     usuario = jQuery("input[name=username]").val()
     pass = jQuery("input[name=password]").val()
 
-    jQuery.post("<?php echo plugins_url('envialo-simple/handler.php')?>",{accion:"traerToken",username:usuario,password:pass},function(json){
+    jQuery.post("<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/handler.php')?>",{accion:"traerToken",username:usuario,password:pass},function(json){
 
     if(json.success){
 

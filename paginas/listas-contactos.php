@@ -104,7 +104,7 @@
             
             var idLista = jQuery(this).attr("name");
             
-            jQuery.post("<?php echo plugins_url('envialo-simple/handler.php')?>",{accion:"sincronizarContactos",MailListID:idLista},function(json){
+            jQuery.post("<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/handler.php')?>",{accion:"sincronizarContactos",MailListID:idLista},function(json){
                 
                 if(json.success){                   
                     alert("Se Sincronizaron Correctamente tus Contactos de Wordpress con la Lista seleccionada."  );
