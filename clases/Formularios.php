@@ -62,7 +62,7 @@
                     $i=0 ;      
                     foreach ($forms['list']['item'] as $f) {
                             
-                        $urlIframe =  plugins_url("envialosimple-email-marketing-y-newsletters-gratis/paginas/vista-previa-form.php?AdministratorID={$forms['AdministratorID']}&FormID={$f['FormID']}");
+                        $urlIframe =  plugins_url("envialosimple-email-marketing-y-newsletters-gratis/paginas/vista-previa-form.php?AdministratorID={$forms['AdministratorID']}&FormID={$f['FormID']}");  
                                                           
                         $html .= "<div class='contenedor-form'>
                                       <div class='vista-previa'>

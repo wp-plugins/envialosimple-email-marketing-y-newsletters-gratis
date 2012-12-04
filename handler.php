@@ -29,6 +29,7 @@ function DEFINE_date_create_from_format(){
 if( !function_exists("date_create_from_format") )
   DEFINE_date_create_from_format();
 
+$principal = dirname(__FILE__) . '/envialosimple-email-marketing-y-newsletters-gratis.php';
 
 include_once("clases/EnvialoSimple.php");
 include_once("clases/Contactos.php");
@@ -311,6 +312,50 @@ switch ($accion) {
         echo json_encode($ev->dejarFeedback($_POST["mensaje"]));
         
     break;
+    
+    case "copypaste":
+        $ev->checkSetup();
+        
+        $co = new Contactos();
+        if($co->importarCopyPaste($_POST['CopyPaste'])){
+            echo $co->importarPreProcess();
+        }else{
+            echo json_encode(array("error","importarCopyPaste"));
+        }
+        
+    break;
+    
+    case "uploadFile":
+        
+     $ev->checkSetup();
+     $co = new Contactos();
+     
+     if ($co->importarUploadFile($_POST["file"],plugin_dir_path($principal))){
+        echo $co->importarPreProcess();   
+     }else{
+        echo json_encode(array("error","importarFile"));
+     }   
+     
+        
+        
+    break;
+    
+    case "processCopy":               
+        $ev->checkSetup();        
+        $co = new Contactos();
+        
+        echo $co->importarProcessCopy($_POST['MailListsIds'], $_POST["corresponder"]["campos"]);            
+        
+    break;
+    
+    case "processFile":
+        $ev->checkSetup();        
+        $co = new Contactos();
+        
+        echo $co->importarProcessFile($_POST['MailListsIds'], $_POST["corresponder"]["campos"]);
+        
+        
+        break;
 
 	default:
     break;

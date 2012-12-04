@@ -73,7 +73,7 @@ margin-right: 15px;
 margin-top: 15px;
 border: 1px solid #7CC6E9;
 border-radius: 4px;
-padding: 6px;
+padding: 20px;
 background: #DBECF4;
 text-align: center;
 height: auto;
@@ -312,6 +312,12 @@ overflow: hidden;
 
 /*importar contactos*/
 
+#contenedor-importacion{
+	overflow: hidden;
+width: 750px;
+margin: 0 auto;
+}
+
 #imagenCsv{
 	background:url(../imagenes/iconosImport.png);
 width: 90px;
@@ -347,7 +353,41 @@ margin: 20px;
 height: 100px;
 }
 
-/*configuracion*/
+#contenedor-campos-csv{	
+	width: 97%;
+	margin: 20px auto;
+	display:none;
+	
+}
+
+#contenedor-tabla-csv{
+	overflow: auto;
+	border: 1px solid #EEE;
+padding: 5px 0 0 15px;
+}
+
+#tabla-campos-csv tbody tr td{
+	border-top: 1px solid #EEE;
+	border-left: 1px solid #EEE;
+}
+#tabla-campos-csv tbody tr td:hover{
+	background-color:#eee;
+}
+
+#tabla-campos-csv{
+	border: none;
+	border-collapse: separate;
+	border-spacing: 0;
+}
+#tabla-campos-csv select{
+	margin: 0 10px 6px 10px;
+}
+
+#reportes-importacion{
+	display:none;
+}
+/*listas*/
+
 .boton-sincronizar {
 display: block;
 height: 14px;
@@ -360,6 +400,17 @@ margin-top: 2px;
 float: left;
 }
 
+.boton-importar-contacto{
+	display: block;
+height: 14px;
+line-height: 14px !important;
+text-align: center;
+font-size: 13px !important;
+margin-bottom: 5px;
+margin-top: 2px;
+float: left;
+margin-left: 20px;
+}
 
 .boton-agregar-contacto {
 display: block;
@@ -374,7 +425,7 @@ float: left;
 margin-left: 20px;
 }
 
-
+/*configuracion*/
 
 .boton-cuenta {
 	margin-bottom: 50px;

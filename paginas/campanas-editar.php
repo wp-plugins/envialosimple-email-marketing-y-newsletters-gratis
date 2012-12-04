@@ -174,7 +174,7 @@
     <link rel="stylesheet"  href="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/css/common.combined.css"); ?>" type="text/css" media="all" />
     
  
-    <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/common.combined.js"); ?>"></script>
+    <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/common.combined.js"); ?>"></script> 
     <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/contentEditor.js"); ?>"></script>
     <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/contentEdit.js"); ?>"></script>
     <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/jquery.wysiwyg.js"); ?>"></script>

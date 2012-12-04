@@ -10,7 +10,7 @@
 
 <script type="text/javascript">
     var urlHandler =  "<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/handler.php')?>";
-    var CampaignID =  "<?php echo $idCampana; ?>";
+    var CampaignID =  "<?php if (isset($idCampana)){echo $idCampana;}; ?>";
     var urlSubidaImagenes = "<?php echo plugins_url("envialosimple-email-marketing-y-newsletters-gratis/php/subidaImagenes.php") ?>";
     var urlAdmin = "<?php echo get_admin_url()?>";
     var urlCss = "<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/css/') ?>";

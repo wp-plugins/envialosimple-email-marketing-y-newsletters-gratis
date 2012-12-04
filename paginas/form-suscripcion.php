@@ -63,8 +63,8 @@
     
     <form id="form-editar-form" action="#" method="post">
         
-        <input name="FormID" value="<?php echo $f['form']['FormID'] ?>" type="hidden"/>
-        <input name="EmailID" value="<?php echo $f['email']['EmailID'] ?>" type="hidden"/>
+        <input name="FormID" value="<?php if(isset($f['form']['FormID'])) echo $f['form']['FormID'] ?>" type="hidden"/>
+        <input name="EmailID" value="<?php if (isset($f['email']['EmailID']))echo $f['email']['EmailID'] ?>" type="hidden"/>
               <div id="poststuff">
                   <div id="post-body" class="metabox-holder columns-2">
 
@@ -105,7 +105,11 @@
                                                 }
                                             }                                                                                           
                                         ?>
-                                    </select>            
+                                        
+                                    </select>
+                                    <div style="display: inline-block;position: relative;top: -9px;left: 10px;" >
+                                        <a href="#" id="crear-lista">Crear Nueva</a>
+                                    </div>            
                                 </td>            
                             </tr>                      
                             <tr valign="top">
@@ -142,7 +146,7 @@
                                       <tr valign="top">
                                         <th scope="row"><label for="titulo-form">Título:</label></th>
                                         <td>
-                                            <input type="text" value="<?php echo $f['form']['Title'] ?>" name="Title" id="titulo-form" style="width: 250px"/>
+                                            <input type="text" value="<?php if(isset($f['form']['Title']))echo $f['form']['Title'] ?>" name="Title" id="titulo-form" style="width: 250px"/>
                                         </td>                                
                                     </tr>
                                     <tr>
@@ -176,8 +180,12 @@
                                         <tbody>
                                             
                                             <?php 
-                                                
-                                               echo $ev->mostrarCamposPersonalizados($f['form']['CustomfieldsIds']['item']);
+                                                if(isset($f['form']['CustomfieldsIds']['item'])){
+                                                    echo $ev->mostrarCamposPersonalizados($f['form']['CustomfieldsIds']['item']);     
+                                                }else{
+                                                    echo $ev->mostrarCamposPersonalizados();
+                                                }
+                                               
                                             ?>
                                             <tr class="addCampoTr"></tr>                                                        
                                             <tr>                                
@@ -266,14 +274,14 @@
                                     <tr>
                                         <th scope="row"><label for="ShowPoweredBy">Logo EnvialoSimple</label></th>
                                         <td>
-                                          <input type="checkbox" name="ShowPoweredBy" <?php echo ($f['form']['ShowPoweredBy']) ? 'checked="checked"': ""; ?> value="1" style="width: 40px" />               
+                                          <input type="checkbox" name="ShowPoweredBy" <?php if(isset($f['form']['ShowPoweredBy']))echo ($f['form']['ShowPoweredBy']) ? 'checked="checked"': ""; ?> value="1" style="width: 40px" />               
                                         </td>
                                         
                                     </tr>
                                      <tr>
                                         <th scope="row"><label for="SubscribeDobleOptIN">Doble Opt-In</label></th>
                                         <td>
-                                          <input type="checkbox" name="SubscribeDobleOptIN" <?php echo ($f['form']['SubscribeDobleOptIN']) ? 'checked="checked"': ""; ?> value="1" style="width: 40px" />¿Requiere confirmación de suscripción?               
+                                          <input type="checkbox" name="SubscribeDobleOptIN" <?php if (isset($f['form']['SubscribeDobleOptIN'])) echo ($f['form']['SubscribeDobleOptIN']) ? 'checked="checked"': ""; ?> value="1" style="width: 40px" />¿Requiere confirmación de suscripción?               
                                         </td>                                        
                                     </tr>
                                     </table>                                     
@@ -376,6 +384,20 @@
     </div>
     
    
+    <div id="modal-crear-lista">
+        
+        <form action="#" id="form-crear-lista" method="post">
+            <p>Escribí el Nombre de tu Nueva Lista de Contactos.</p>
+            <label for="nombre-lista">Nombre</label>
+            <input type="hidden" name="accion" value="crear-lista"/>
+            <input type="text" id="nombre-lista" name="nombre-lista"  style="margin-bottom: 20px" value=""/><br />
+            
+            <div style="width:180px;margin: 0 auto 0 auto;">
+                <input type="submit" value="Crear Lista" class="button-primary"/>
+                <input type="reset" value="Cancelar" class="button-secondary" id="cerrar-modal"/>    
+            </div>          
+        </form> 
+    </div>
     
 </div><!-- display none-->
 
@@ -387,6 +409,58 @@
     var alertarPageLeave = false;       
          
     jQuery(document).ready(function(){
+        
+        //agregar lista
+        
+        jQuery("#form-crear-lista").submit(function(event){
+            
+                event.preventDefault();
+                
+                if(checkVacio(jQuery("input[name=nombre-lista]"))){
+                    
+                    return false;
+                }else{
+                
+                var nombre = jQuery("input[name=nombre-lista]").val();  
+                                                    
+                jQuery.post(urlHandler,{accion:"crearLista",nombreLista:nombre},function(json){
+                        if(json.root.ajaxResponse.success){
+                            console.log(json);
+                            var lista = json.root.ajaxResponse.maillist;
+                            jQuery("#MailListsIds").append("<option value='"+lista.MailListID+"'>"+lista.MailListName+"</option>")
+                            jQuery("#MailListsIds").val(lista.MailListID);
+                            
+                            jQuery("#MailListsIds").trigger("liszt:updated");                            
+                            alert("Lista Agregada Correctamente!")                            
+                            jQuery( "#modal-crear-lista" ).dialog("close");
+                        }else{
+                            alert("Error al Crear la Lista.");
+                        }                        
+                    },"json");
+                }             
+        });
+        
+        jQuery( "#modal-crear-lista" ).dialog({
+            autoOpen: false,
+            height: 180,
+            width: 320,
+            dialogClass: 'fixed-dialog',
+            modal: true,
+            title:"Crear Lista"         
+            
+        });
+        jQuery("#cerrar-modal").click(function(){
+            jQuery( "#modal-crear-lista" ).dialog( "close" );
+            
+        }); 
+        
+        jQuery("#crear-lista").click(function(){
+            jQuery( "#modal-crear-lista" ).dialog( "open" );
+        })
+        
+        //</agregar lista
+        
+        
         
         mostrarBotonObtenerCodigo()
         
@@ -838,6 +912,19 @@
     
         
     }
+    
+    
+   
+     function checkVacio(obj){
+        
+        if(obj.val() == ""){
+            obj.css("border","1px solid red");
+            return true;
+        }else{
+            obj.css("border","1px solid #DFDFDF");
+            return false;
+        }
+    }  
     
   
     

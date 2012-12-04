@@ -171,14 +171,7 @@
             
             jQuery("#form-agregar-contacto input[type=text]").not("input[name=Email]").each(function(){
                    
-                   /*if(checkVacio(jQuery(this))){  
-                       check = false;
-                              jQuery("#msj-agregar-contacto").show(150).removeClass("msjError").removeClass("msjExito").addClass("msjError").html("Por favor Completa todos los Campos.");                  
-                        return false;
-                        
-                 
-                    }*/
-                       
+               
                     campos.push(jQuery(this).val());                                 
                 });
             

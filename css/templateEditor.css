@@ -773,7 +773,7 @@ div#eyeconColorPickerContainer{
 */
 .comboBlock-container.personalizationWizard{
 	position: fixed;
-	margin: 0 0 0 338px;
+	margin: 36px 0 0 338px;
 	display: none;
 	top: 77px;
 }
@@ -805,7 +805,7 @@ div#eyeconColorPickerContainer{
 */
 .comboBlock-container.personalizationWizardSocialSharing{
 	position: fixed;
-	margin: 0 0 0 303px;
+	margin: 36px 0 0 303px;
 	display: none;
 	top: 77px;
 }
@@ -840,7 +840,7 @@ div#eyeconColorPickerContainer{
 */
 .comboBlock-container.fontFaceCombo{
 	position: fixed;
-	margin: 0 0 0 233px;
+	margin: 36px 0 0 233px;
 	display: none;
 	top: 39px;
 
@@ -871,7 +871,7 @@ div#eyeconColorPickerContainer{
 */
 .comboBlock-container.fontSizeCombo {
 	position: fixed;
-	margin: 0 0 0 197px;
+	margin: 36px 0 0 197px;
 	display: none;
 	top: 39px;
 }

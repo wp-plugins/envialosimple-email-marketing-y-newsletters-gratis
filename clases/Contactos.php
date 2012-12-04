@@ -131,25 +131,25 @@ class Contactos {
             									<th scope='col' id='cb' class='manage-column column-cb check-column' style=''></th>        									
             									<th class='manage-column column-title sortable desc' style='height:30px;width: 250px;' >Nombre</th>
             									<th class='manage-column column-title sortable desc' style='width: 220px;'>Contactos (Total/Activos)</th>            									
-            									<th class='manage-column column-title sortable desc' style='text-align: center;width: 370px;'>Acciones</th>
-            									
+            									<th class='manage-column column-title sortable desc' style='text-align: center;width: 565px;'>Acciones</th>            									
             								</tr>	
         								</thead>        														
         								<tbody>";
 
                 foreach ($listas[0]['item'] as $item) {
-
+                    $url = $url = get_admin_url() . "admin.php?page=envialo-simple-listas&MailListsIds=";
                     $html .= "<tr>
-        								<td></td>
+    								<td></td>
+    								
+    								<td><span class='row-title'>{$item["Name"]}</span></td>
+    								<td>{$item["MemberCount"]} / {$item["ActiveMemberCount"]}</td>        								
+    								<td>
+    								    <a href='#' name='{$item["MailListID"]}' class='boton-sincronizar button-secondary' title='Agregar los Contactos de Wordpress a la Lista de Envialo Simple '>Agregar Usuarios de Wordpress </a> 
+    								    <a href='#' name='{$item["MailListID"]}' class='boton-agregar-contacto button-secondary' title='Agregar Contacto a la Lista de Envialo Simple '>Agregar Contacto</a>
+    								    <a href='{$url}{$item["MailListID"]}' name='{$item["MailListID"]}' class='button-secondary boton-importar-contacto' title='Importar Contactos '>Importar Contactos</a>
+    								</td>
         								
-        								<td><a href='' class='row-title'>{$item["Name"]}</a></td>
-        								<td>{$item["MemberCount"]} / {$item["ActiveMemberCount"]}</td>        								
-        								<td>
-        								    <a href='' name='{$item["MailListID"]}' class='boton-sincronizar button-secondary' title='Agregar los Contactos de Wordpress a la Lista de Envialo Simple '>Agregar Usuarios de Wordpress </a> 
-        								    <a href='' name='{$item["MailListID"]}' class='boton-agregar-contacto button-secondary' title='Agregar Contacto a la Lista de Envialo Simple '>Agregar Contacto</a>
-        								</td>
-        								
-        							</tr>";
+							</tr>";
 
                 }
 
@@ -214,47 +214,133 @@ class Contactos {
     
     function importarSelectSource($MailListsIds){
             
-        $parametros['MailListsIds'] = array($MailListsIds);
-         
-            
-        $respuesta = json_decode($this->curlJson($parametros, URL_BASE_API."/maillist/selectsource"),TRUE);
-        
-        
-        if(isset($respuesta['root']['ajaxResponse']['success'])){
-            
+        $parametros['MailListsIds'] = array($MailListsIds);            
+        $respuesta = json_decode($this->curlJson($parametros, URL_BASE_API."/maillist/selectsource"),TRUE);        
+        if(isset($respuesta['root']['ajaxResponse']['success'])){            
             return TRUE;
+        }else{
+            return FALSE;
+        }                     
+    }    
+    
+    function importarCopyPaste($CopyPaste){
+            
+        $parametros = array();
+        $parametros['CopyPaste'] = $CopyPaste;
+        
+        $respuesta = json_decode($this->curlJson($parametros, URL_BASE_API."/maillist/copypaste"),TRUE);
+        
+        if(isset($respuesta['root']['ajaxResponse']['success'])){            
+            return TRUE;            
         }else{
             return FALSE;
         }
         
-                     
-    }    
+        
+        
+    }
     
-    function curlJson($parametros, $url, $esGet = FALSE) {
+    function importarUploadFile($nombreArchivo,$path){
+        $parametros = array();
+        
+        $pathCompleta = $path ."php/uploads/".$nombreArchivo;        
+        
+        if(file_exists($pathCompleta)){
+            
+            $parametros['qqfile'] = "@".$pathCompleta;
+        
+       
+        $respuesta = $this->curlJson($parametros, URL_BASE_API."/maillist/uploadfile",FALSE ,TRUE);
+        
+        return $respuesta;         
+           
+        }else{
+            
+            return "no es archivo";
+        }
+        
+        
+        
+        
+    }
+
+    function importarPreProcess(){
+        $parametros = array();
+        $parametros['Delimiter'] = ",";
+        $parametros['Qualifier'] = "";
+        
+        $respuesta = $this->curlJson($parametros, URL_BASE_API."/maillist/preprocess"); 
+        
+        return $respuesta;
+        
+    }
+    
+    function importarProcessCopy($MailListsIds,$correspondencias){
+              
+          $parametros = array();
+          $parametros['MailListsIds']= array($MailListsIds);
+          $parametros['Delimiter'] = ",";
+          $parametros['Qualifier'] = "";
+                        
+          foreach ($correspondencias as $c) {
+             $parametros =  array_merge($parametros,$c);              
+          }
+                
+          $respuesta = $this->curlJson($parametros, URL_BASE_API."/maillist/processcopypaste");          
+          return $respuesta;              
+        
+    }
+    
+    
+     function importarProcessFile($MailListsIds,$correspondencias){
+              
+          $parametros = array();
+          $parametros['MailListsIds']= array($MailListsIds);
+          $parametros['Delimiter'] = ",";
+          $parametros['Qualifier'] = "";
+                        
+          foreach ($correspondencias as $c) {
+             $parametros =  array_merge($parametros,$c);              
+          }
+                
+          $respuesta = $this->curlJson($parametros, URL_BASE_API."/maillist/processfile");          
+          return $respuesta;              
+        
+    }
+    
+    function curlJson($parametros, $url, $esGet = FALSE, $esArchivo = FALSE) {
         $cookie = "cookie.txt";
 
         $parametros["APIKey"] = $GLOBALS["APIKey"];
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
-
         curl_setopt($ch, CURLOPT_USERAGENT, "WP-Plugin EnvialoSimple");
         curl_setopt($ch, CURLOPT_TIMEOUT, 60);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
         curl_setopt($ch, CURLOPT_COOKIEJAR, $cookie);
         curl_setopt($ch, CURLOPT_REFERER, $url);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($parametros));
-
-        if ($esGet) {
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);        
+        
+         if ($esGet) {
             curl_setopt($ch, CURLOPT_HTTPGET, 1);
         } else {
             curl_setopt($ch, CURLOPT_POST, 1);
+        }       
+        
+        if($esArchivo){                           
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $parametros);            
+        }else{
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($parametros));
+            
         }
+        
+
 
         $resultado = curl_exec($ch);
-
+  
         if (curl_errno($ch)) {
 
             return json_encode(array("root" => array("ajaxResponse" => array("curlError" => curl_errno($ch)))));

@@ -513,7 +513,7 @@ class EnvialoSimple {
         }        
     }    
     
-    function mostrarCamposPersonalizados($camposExistentes){
+    function mostrarCamposPersonalizados($camposExistentes = array()){
             $html = "";   
             $campos = $this->traerCamposPersonalizados();              
             
