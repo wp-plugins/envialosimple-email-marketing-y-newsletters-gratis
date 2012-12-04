@@ -1,4 +1,4 @@
-=== EnvialoSimple: Email Marketing y Newsletters ===
+=== EnvialoSimple: Email Marketing y Newsletters GRATIS ===
 Contributors: dattatec.com
 Tags: email,email marketing,emailing,newsletter,envialosimple,plugin,editor visual,drag,drop,importar,contactos,posts,wysiwyg
 Requires at least: 3.0.1
@@ -11,38 +11,49 @@ El plugin de EnvialoSimple te permitirá crear y enviar Newsletters de calidad p
 
 == Description ==
 
-✔ **Envía Newsletters GRATIS** Te regalamos 1.000 envíos mensuales para que envíes tus Newsletters y hagas crecer tus visitas.
+**Envía Newsletters GRATIS** Te regalamos 1.000 envíos mensuales para que envíes tus Newsletters y hagas crecer tus visitas.
 
-✔ **Simple e Intuitivo** Gracias a su interfaz minimalista e intuitiva, podrás crear y enviar Newsletters de forma práctica y eficiente.
+✔ Editas arrastrando y soltando, y sin conocimientos de HTML.
 
-✔ **Completos y poderosos reportes** Accede a estadísticas de aperturas, clicks, rebotes, suscripciones, ubicación geográfica, cliente de correo, y mucho más.
+✔ Seleccion de más de 200 Plantillas.
 
-✔ **Rápido y Eficaz** Una infraestructura especialmente desarrollada para que tus Newsletters lleguen a la bandeja de entrada de tus suscriptores, en tiempo y forma.
+✔ Importación de Contactos Wordpress con 1 click.
 
-✔ **Editor de Contenido WYSIWYG** Te permite incluir tus posts de Wordpress arrastrando y soltando, y sin conocimientos de HTML.
+✔ Newsletters enviados a través de la más robusta infraestructura.
 
-✔ **Más de 200 plantillas gratuitas** Una extensa galería de diseños de calidad profesional, categorizados y listos para usar con tus newsletters.
+✔ Envíos inmediatos o programables.
 
-✔ **Gestión de listas y contactos** Importa tus contactos de Wordpress y arma listas de Email para enviarles tus Newsletters.
+✔ Sin límites de envíos ni de contactos.
 
-✔ **Vista Previa** Visualiza como tus destinatarios verán el contenido del Newsletter, antes de enviarlo.
+✔ Instalacion y configuracion rápida y amigable.
 
-✔ **Soporte tecnico** Soporte técnico las 24 hs y los 365 días del año.
+✔ Reportes y estadísticas avanzadas.
+
+
+
+= Características Generales =
+
+* **Simple e Intuitivo** Gracias a su interfaz minimalista e intuitiva, podrás crear y enviar Newsletters de forma práctica y eficiente.
+
+* **Completos y poderosos reportes** Accede a estadísticas de aperturas, clicks, rebotes, suscripciones, ubicación geográfica, cliente de correo, y mucho más.
+
+* **Rápido y Eficaz** Una infraestructura especialmente desarrollada para que tus Newsletters lleguen a la bandeja de entrada de tus suscriptores, en tiempo y forma.
+
+* **Editor de Contenido WYSIWYG** Te permite incluir tus posts de Wordpress arrastrando y soltando, y sin conocimientos de HTML.
+
+* **Más de 200 plantillas gratuitas** Una extensa galería de diseños de calidad profesional, categorizados y listos para usar con tus newsletters.
+
+* **Gestión de listas y contactos** Importa tus contactos de Wordpress y arma listas de Email para enviarles tus Newsletters.
+
+* **Vista Previa** Visualiza como tus destinatarios verán el contenido del Newsletter, antes de enviarlo.
+
+* **Soporte tecnico** Soporte técnico las 24 hs y los 365 días del año.
 
 
 Si aún no tienes cuenta de EnvialoSimple, podrás crear una en forma gratuita desde el plugin y obtendrás 1.000 envíos mensuales de regalo.
 
-= Características Generales: =
-* Editas arrastrando y soltando, y sin conocimientos de HTML.
-* Seleccion de más de 200 Plantillas.
-* Importación de Contactos Wordpress con 1 click.
-* Newsletters enviados a través de la más robusta infraestructura.
-* Envíos inmediatos o programables.
-* Sin límites de envíos ni de contactos.
-* Instalacion y configuracion rápida y amigable.
-* Reportes y estadísticas avanzadas.
 
-Más información del producto en: [EnvialoSimple](http://envialosimple.com)
+Más información del producto en: [EnvialoSimple](http://envialosimple.com/envialosimple-wordpress-plugin)
 
 == Installation ==
 
