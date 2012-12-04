@@ -31,8 +31,8 @@
             
 		}else{
 			
-            $msg = "<p>No se puede establecer la conexión con el servidor.</p>                    
-                    <p><a href='#' class='button-primary'>Vuelva a intentarlo</a></p>";            									
+            $msg = "<p>"._e("No se puede establecer la conexión con el servidor.","envialo-simple")."</p>                    
+                    <p><a href='#' class='button-primary'>"._e('Vuelva a intentarlo','envialo-simple')."</a></p>";            									
 			echo $msg;
 			die();
 		}
@@ -88,16 +88,9 @@
             }
         }
         
-       
-        
-        
-        
         $c["responder-check"] = isset($_POST["responder-check"])?1:0;
 		
-		
-		
-        
-        
+		        
 	}else{
 		//Cuando es nueva
 		$c = array();
@@ -187,7 +180,7 @@
     <script xmlns="" language="javascript" type="text/javascript">              
         TemplateEditor.setCurrentRecordID(jQuery('input#currentRecordID').val());
         
-           var alertarPageLeave = <?php echo $alertarPageLeave?>;
+        var alertarPageLeave = <?php echo $alertarPageLeave?>;
      
         jQuery(window).bind('beforeunload', function() {
             
@@ -204,9 +197,7 @@
     </script>
 
 
-<div class="wrap">
-    
-    
+<div class="wrap">    
     
 		<div id="msj-respuesta" class="mensaje" style="width: 55%">
 		</div>
@@ -228,13 +219,13 @@
                             <input name="CampaignName" type="hidden" id="CampaignName" style="width: 270px" value="<?php echo $c["Name"];?>" class="regular-text validar">
                            
                             <tr valign="top">
-                                <th scope="row"><label for="CampaignSubject">Asunto del Mensaje</label></th>
+                                <th scope="row"><label for="CampaignSubject"><?php _e('Asunto del Mensaje','envialo-simple') ?> </label></th>
                                 <td>
                                     <input type="text" id="CampaignSubject" name="CampaignSubject" style="width: 386px;" value="<?php echo htmlspecialchars($c["Subject"]);?>" class="validar" />
                                 </td>
                             </tr>
                             <tr valign="top">
-                                <th scope="row"><label for="FromID">Remitente(From)</label></th>
+                                <th scope="row"><label for="FromID"><?php _e('Remitente','envialo-simple') ?></label></th>
                                 <td>
                                 <select name="FromID" id="FromID">            
                                     <?php
@@ -247,16 +238,16 @@
                                                 }
                                             }
                                          ?>
-                                <option value="agregar" class="selectCrear">+ Agregar Nuevo Email ..</option>
+                                <option value="agregar" class="selectCrear"><?php _e('+ Agregar Nuevo Email ..','envialo-simple') ?> </option>
                                 </select>   <br />
                                     <div id="responder-contenedor" style="margin: 5px 0 0 5px;">
                                         <input type="checkbox" name="responder-check" id="responder-check" style="margin-right: 5px;" <?php echo isCheck($c["responder-check"]);?>   /> 
-                                        <label for="responder-check" >Utilizar una direcci&oacute;n de respuesta distinta</label>
+                                        <label for="responder-check"><?php _e('Utilizar una direcci&oacute;n de respuesta distinta','envialo-simple'); ?> </label>
                                     </div>
                                  </td>
                             </tr>
                             <tr valign="top" id="responder-fila" style="display:none">
-                                <th scope="row"><label for="ReplyToID">Responder a </label></th>
+                                <th scope="row"><label for="ReplyToID"><?php _e('Responder a','envialo-simple') ?>  </label></th>
                                 <td>
                                 <select name="ReplyToID" id="ReplyToID">
             
@@ -271,11 +262,11 @@
                                                 }
                                             }
                                          ?>
-                                    <option value="agregar" class="selectCrear">+ Agregar Nuevo Email ..</option>     
+                                    <option value="agregar" class="selectCrear"><?php _e('+ Agregar Nuevo Email ..','envialo-simple') ?></option>     
                                 </select></td>
                             </tr>
                             <tr>
-                                <th scope="row"><label for="MailListsIds">Lista de Destinatarios</label></th>
+                                <th scope="row"><label for="MailListsIds"> <?php _e('Lista de Destinatarios','envialo-simple') ?></label></th>
                                 <td>
                                     <select name="MailListsIds[]" id="MailListsIds" style="width: 388px;" multiple="multiple" class="validar">
             
@@ -313,7 +304,7 @@
            if($seleccionarPlantilla){                
          ?>      
             <div id="ifr-vacio" class="abrir-modal-plantillas">                        
-                <span class="abrir-modal-plantillas" >Click para seleccionar una plantilla y comenzar!</span>
+                <span class="abrir-modal-plantillas" > <?php _e('Click para seleccionar una plantilla y comenzar!','envialo-simple') ?> </span>
             </div>          
                    
         <?php
@@ -324,19 +315,18 @@
             <div data-containername="editorBlocksContainer" data-recordid="88">
                 <div data-containername="templateEditorRuler"><span class="ruler"></span></div>
                     <div data-containername="templateEditorContainer">
-                        <div class="savingThrobber" style="display: none; ">Guardando</div>
-                        <div data-containername="templateEditorThrobber" style="display: none; ">Cargando</div>
+                        <div class="savingThrobber" style="display: none; "> <?php _e('Guardando','envialo-simple') ?></div>
+                        <div data-containername="templateEditorThrobber" style="display: none; "><?php _e('Cargando','envialo-simple') ?></div>
                     
                         <div data-containername="htmlEditorContainer">
                             <div data-containername="secondaryTemplateEditorNav" style="display:none">
-                                <div data-containername="modifyTemplateBoundaryBackgroundColor">Color de fondo del e-mail</div>
-                                <div data-containername="modifyTemplateSourceCode">Modificar código fuente</div>
+                                <div data-containername="modifyTemplateBoundaryBackgroundColor"><?php _e('Color de fondo del e-mail','envialo-simple') ?></div>
+                                <div data-containername="modifyTemplateSourceCode"><?php _e('Modificar código fuente','envialo-simple') ?></div>
                             </div>
                             <div data-containername="templateEditorBody" class="restoreNormalCss" style="display: block; ">
                                 
                                 <?php 
-                                    echo $template;
-                                
+                                    echo $template;                                
                                 ?>
                             </div>
                         </div>
@@ -345,9 +335,9 @@
                         </div>
                         <div data-containername="sourceCodeEditorContainer">
                             <span data-containername="sourceCodeEditor-Label">
-                                    <span class="sourceCodeEditor-title">&lt; Edición del código fuente &gt;</span>
+                                    <span class="sourceCodeEditor-title">&lt; <?php _e('Edición del código fuente','envialo-simple') ?> &gt;</span>
                                     <span class="sourceCodeEditor-action">
-                                        <a href="#" data-containername="sourceCode-applyChanges" data-toolaction="sourceCode-applyChanges">Aplicar cambios en el código fuente</a>
+                                        <a href="#" data-containername="sourceCode-applyChanges" data-toolaction="sourceCode-applyChanges"><?php _e('Aplicar cambios en el código fuente','envialo-simple') ?></a>
                                         <span class="sourceCodeEditor-close" data-toolaction="sourceCodeEditor-close"> x </span>
                                     </span>
                             </span>
@@ -374,58 +364,58 @@
        <div id="postbox-container-1" class="postbox-container">
 	       <div id="side-sortables" class="meta-box-sortables ui-sortable">
 		      <div id="acciones" class="postbox ">
-                <h3><span>Acciones</span></h3>
+                <h3><span><?php _e('Acciones','envialo-simple') ?></span></h3>
                 <div class="inside">
                     <div class="submitbox" id="submitpost">
                         <div id="minor-publishing" style="border:0">
                             <div id="minor-publishing-actions">
                                 <div id="save-action">                                   
-                                    <div id="guardar-cambios-bt" style="float:left;height:15px!important;line-height: 15px;font-weight: bold; " class="button-secondary">Guardar cambios</div>
+                                    <div id="guardar-cambios-bt" style="float:left;height:15px!important;line-height: 15px;font-weight: bold; " class="button-secondary"><?php _e('Guardar cambios','envialo-simple') ?></div>
                                 </div>
                                 <div id="preview-action">
-                                    <a  class="preview button previsualizar-news" name="<?php echo $idCampana;?>" href="#" >Previsualizar</a>
+                                    <a  class="preview button previsualizar-news" name="<?php echo $idCampana;?>" href="#" ><?php _e('Previsualizar','envialo-simple') ?></a>
                                 </div>
                                 <div class="clear"></div>
                             </div>
                             <div id="misc-publishing-actions">
                                 <div class="misc-pub-section">
-                                    <label for="post_status">Estado del Newsletter:</label>
+                                    <label for="post_status"><?php _e('Estado del Newsletter:','envialo-simple') ?></label>
                                     <?php
                                         $estado ="";
                                         $enviada = FALSE;
                                         if($c["Status"] == "Draft"){
-                                            $estado = "Borrador";
-                                            $accion = "Enviar!";
+                                            $estado = __('Borrador','envialo-simple');
+                                            $accion = __('Enviar!','envialo-simple');
                                         }else if($c["Status"] == "Active"){
-                                            $estado = "Activo";
+                                            $estado = __('Activo','envialo-simple');
                                         }else if($c["Status"] == "Completed"){
-                                            $estado = "Completado";
+                                            $estado = __('Completado','envialo-simple');
                                             $enviada = TRUE;
                                         }else if($c["Status"] == "Paused"){
-                                            $accion = "Reanudar!";
-                                            $estado = "Pausado";
+                                            $accion = __('Reanudar!','envialo-simple');
+                                            $estado = __('Pausado','envialo-simple');
                                         }
                                     ?>
                                     <span id="estado-campana" style="font-weight: bold;"><?php echo $estado; ?></span>
 
                                 </div>
                                 <div class="misc-pub-section">
-                                   <a href="#" id="opciones-avanzadas-bt">Opciones Avanzadas</a>
+                                   <a href="#" id="opciones-avanzadas-bt"><?php _e('Opciones Avanzadas','envialo-simple') ?></a>
                                    <div style="margin-top:5px;display:none;" id="opciones-avanzadas">
-                                        <input type="checkbox" class="check-avanzado" name="AddToPublicArchive" value="1" title="Agregar al Archivo público" <?php echo isCheck($c["AddToPublicArchive"]);?>>
-                                        Agregar al Archivo público
+                                        <input type="checkbox" class="check-avanzado" name="AddToPublicArchive" value="1" title="<?php _e('Agregar al Archivo público','envialo-simple') ?>" <?php echo isCheck($c["AddToPublicArchive"]);?>>
+                                        <?php _e('Agregar al Archivo público','envialo-simple') ?>
                                         <br />
-                                        <input type="checkbox" class="check-avanzado" name="TrackLinkClicks" value="1" title="Seguir Enlaces" <?php echo isCheck($c["TrackLinkClicks"]);?>>
-                                        Seguir Enlaces
+                                        <input type="checkbox" class="check-avanzado" name="TrackLinkClicks" value="1" title="<?php _e('Seguir Enlaces','envialo-simple') ?>" <?php echo isCheck($c["TrackLinkClicks"]);?>>
+                                        <?php _e('Seguir Enlaces','envialo-simple') ?>
                                         <br />
-                                        <input type="checkbox" class="check-avanzado" name="TrackReads" value="1" title="Contar Aperturas" <?php echo isCheck($c["TrackReads"]);?>>
-                                        Contar Aperturas
+                                        <input type="checkbox" class="check-avanzado" name="TrackReads" value="1" title="<?php _e('Contar Aperturas','envialo-simple') ?>" <?php echo isCheck($c["TrackReads"]);?>>
+                                        <?php _e('Contar Aperturas','envialo-simple') ?>
                                         <br />
-                                        <input type="checkbox" class="check-avanzado" name="TrackAnalitics" value="1" title="Usar Google Analytics" <?php echo isCheck($c["TrackAnalitics"]);?> >
-                                        Usar Google Analytics
+                                        <input type="checkbox" class="check-avanzado" name="TrackAnalitics" value="1" title="<?php _e('Usar Google Analytics','envialo-simple') ?>" <?php echo isCheck($c["TrackAnalitics"]);?> >
+                                        <?php _e('Usar Google Analytics','envialo-simple') ?>
                                         <br />
-                                        <input type="checkbox" class="check-avanzado" name="SendStateReport" value="1" title="Enviar informe al finalizar" <?php echo isCheck($c["SendStateReport"]);?>>
-                                        Enviar informe al finalizar
+                                        <input type="checkbox" class="check-avanzado" name="SendStateReport" value="1" title="<?php _e('Enviar informe al finalizar','envialo-simple') ?>" <?php echo isCheck($c["SendStateReport"]);?>>
+                                        <?php _e('Enviar informe al finalizar','envialo-simple') ?>
                                         <br />
                                    </div>
                                </div>
@@ -434,26 +424,26 @@
                                       <?php
                                         $optionSelect= "";
                                         switch ($c["schedule"]["ScheduleType"]) {
-                                            case 'Send Now':
-                                                $enviar = "Enviar <b>Ahora</b>";
+                                            case 'Send Now':                                                            
+                                                $enviar = __('Enviar <b>Ahora</b>','envialo-simple');
                                                 $optionSelect = '
-                                                <option selected="selected" value="0" >Enviar Ahora</option>
-                                                <option value="1">Envío Programado</option>';                                                
+                                                <option selected="selected" value="0" >'.__('Enviar Ahora','envialo-simple').'</option>
+                                                <option value="1">'.__('Envío Programado','envialo-simple').'</option>';                                                
                                                 $programado = "display:none";
                                                 break;
                                             case 'One time scheduled':
-                                                $enviar = "Envío <b>Programado</b>";
+                                                $enviar =  __('Envío <b>Programado</b>','envialo-simple');
                                                 $optionSelect = '
-                                                <option value="0" >Enviar Ahora</option>
-                                                <option selected="selected" value="1">Envío Programado</option>';                                                
+                                                <option value="0" >'.__('Enviar Ahora','envialo-simple').'</option>
+                                                <option selected="selected" value="1">'.__('Envío Programado','envialo-simple').'</option>';                                                
                                                 $programado = "display:inline-block;margin: 5px 0 5px 15px;padding-left:27px;";
                                                 break;
                                             
                                             default:
-                                                $enviar = "Enviar <b>Ahora</b>";
+                                                $enviar = __('Enviar <b>Ahora</b>','envialo-simple');
                                                 $optionSelect = '
-                                                <option selected="selected" value="0" >Enviar Ahora</option>
-                                                <option value="1">Envío Programado</option>';                                                
+                                                <option selected="selected" value="0" >'.__('Enviar Ahora','envialo-simple').'</option>
+                                                <option value="1">'.__('Envío Programado','envialo-simple').'</option>';                                                
                                                 $programado = "display:none";
                                                                                                 
                                                 break;
@@ -465,11 +455,11 @@
                                            $fechaEnvio =$_GET["e"];
                                        } ?>
 
-                                        <span id="timestamp"><?php echo "Enviada el ".$fechaEnvio; ?></span>
+                                        <span id="timestamp"><?php printf (__('Enviada el %','envialo-simple'),$fechaEnvio); ?></span>
 
                                     <?php }else{ ?>
                                         <span id="timestamp"><?php echo $enviar; ?></span>
-                                        <a href="#" class="edit-timestamp" id="editar-programacion-envio">Editar</a>
+                                        <a href="#" class="edit-timestamp" id="editar-programacion-envio"><?php _e('Editar','envialo-simple') ?></a>
                                     <?php } ?>
                                 </div>
 
@@ -572,24 +562,24 @@
                 <!-- contenido campaña-->
 
                 <div id="estilo" class="postbox">
-                    <h3 style="cursor:default"><span>Diseño</span></h3>
+                    <h3 style="cursor:default"><span><?php _e('Diseño','envialo-simple') ?></span></h3>
                     <div class="inside">
                                 <a style="text-decoration:none"  class="abrir-modal-plantillas" id="seleccionar-plantilla-bt" href="#">
                                     <div class="button-secondary" style="width: 140px;margin: 15px;">
-                                        Seleccionar Otra Plantilla
+                                        <?php _e('Seleccionar Otra Plantilla','envialo-simple') ?>
                                     </div> 
                                 </a>
                      </div>
                 </div>
 
                 <div id="contenido" class="postbox " style="display: block; ">
-                    <h3 style="cursor:default"><span>Contenido</span></h3>
+                    <h3 style="cursor:default"><span><?php _e('Contenido','envialo-simple') ?></span></h3>
                     <div class="inside">
                         <div class="submitbox" id="submitpost">
 
                     <div class="misc-pub-section" style="border:0">
                        <div id="acordeon">
-                            <h3 style="cursor: pointer!important" >Contenido WordPress</h3>
+                            <h3 style="cursor: pointer!important" ><?php _e('Contenido WordPress','envialo-simple') ?></h3>
                             <div id="contenedor-wp">
                                 <div id="cont1wp" class="drag-contenido">
                                     <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon1.gif')?>" />
@@ -605,7 +595,7 @@
                                 </div>
 
                             </div>
-                            <h3 style="cursor: pointer!important" >Contenido Estático</h3>
+                            <h3 style="cursor: pointer!important" ><?php _e('Contenido Estático','envialo-simple') ?></h3>
                             <div id="contenedor-estatico" style="height: 150px;">
                                 <div id="cont1" class="drag-contenido">
                                     <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon1.gif')?>" />
@@ -661,10 +651,10 @@
     <div id="modal-agregar-email">        
         <form id="form-agregar-email" action="#" method="post">            
             <div id="label-error-mail-admin" class="mensaje"></div>            
-            <label for="nombreEmailAdmin">Nombre</label><br />
+            <label for="nombreEmailAdmin"><?php _e('Nombre:','envialo-simple') ?></label><br />
             <input type="text"  name="nombreEmailAdmin" id="nombreEmailAdmin"/><br />            
             
-            <label for="emailAdmin">Email:</label><br />
+            <label for="emailAdmin"><?php _e('Email:','envialo-simple') ?></label><br />
             <input type="text"  name="emailAdmin" id="emailAdmin"/><br />            
             <input type="submit" value="Agregar" class="button-primary" style="margin-top: 20px;margin-bottom: 10px;"/>
             <input type="reset" value="Cancelar" class="button-secondary" onclick='jQuery("#modal-agregar-email").dialog("close")'/>
@@ -674,8 +664,7 @@
         
     </div>
     
-    <div id="modal-insertar-img">
-        
+    <div id="modal-insertar-img">    
         
         <iframe  style="width:660px;height:500px;" id="contenedor-wp-media"></iframe>
         
@@ -685,16 +674,16 @@
         <div class="editar-img-contenedor" >            
            <div class="editar-img-campos fl">
                 <p>
-                  <label>Url de Imagen:</label><br />
+                  <label><?php _e('Url de Imagen:','envialo-simple') ?></label><br />
                   <span class="fl" id="urlImagen"></span><input type="submit" style="float: left;width:100px;margin-left: 10px;" class="button-secondary" id="editar-img-cambiar" value="Cambiar Imagen" />
                 </p>  
                 <div style="clear:both;"></div>
                 <p>
-                    <label>Enlace:</label><br />
+                    <label><?php _e('Enlace:','envialo-simple') ?></label><br />
                     <input type="text" name="enlaceImagen"/>
                 </p>                
                 <p>
-                    <label>Texto Alternativo:</label><br />
+                    <label><?php _e('Texto Alternativo:','envialo-simple') ?></label><br />
                     <input type="text" name="altImagen"/>
                 </p> 
                
@@ -702,39 +691,39 @@
            <div style="clear:both"></div>  
         <div id="editar-propiedades">            
             
-                <p style="text-decoration: underline;">Tama&ntildeo</p>
+                <p style="text-decoration: underline;"><?php _e('Tama&ntildeo','envialo-simple') ?></p>
                 <input type="hidden" value="" name="isIframe"/>
                 
                 <div class="fl">
-                    <label>Ancho(px):</label><br />
+                    <label><?php _e('Ancho(px):','envialo-simple') ?></label><br />
                     <input type="text" class="editar-img-input"  name="ancho" />
                 </div>
                 <div class="fl" style="margin-left: 20px;">
-                    <label>Alto(px):</label><br />
+                    <label><?php _e('Alto(px):','envialo-simple') ?></label><br />
                     <input type="text" class="editar-img-input" name="alto" />                
                 </div>
                 <div style="clear:both"></div>
                 <p>
-                    <label><input type="checkbox" name="editar-img-proporcion"/>&nbsp;&nbsp;Mantener proporción</label>    
+                    <label><input type="checkbox" name="editar-img-proporcion"/>&nbsp;&nbsp;<?php _e('Mantener proporción','envialo-simple') ?></label>    
                 </p>
                                           
                 
-                <p style="text-decoration: underline;">Alineación</p>
-                <input type="radio" name="align" id="izq" value="izq"><label for="izq">&nbsp;Izquierda</label><br />
-                <input type="radio" name="align" id="cen" value="cen"><label for="cen">&nbsp;Centro</label><br />
-                <input type="radio" name="align" id="der" value="der"><label for="der">&nbsp;Derecha</label><br />
-                <input type="radio" name="align" id="none" value="none"><label for="der">&nbsp;Ninguna</label><br />
+                <p style="text-decoration: underline;"><?php _e('Alineación','envialo-simple') ?></p>
+                <input type="radio" name="align" id="izq" value="izq"><label for="izq">&nbsp;<?php _e('Izquierda','envialo-simple') ?></label><br />
+                <input type="radio" name="align" id="cen" value="cen"><label for="cen">&nbsp;<?php _e('Centro','envialo-simple') ?></label><br />
+                <input type="radio" name="align" id="der" value="der"><label for="der">&nbsp;<?php _e('Derecha','envialo-simple') ?></label><br />
+                <input type="radio" name="align" id="none" value="none"><label for="der">&nbsp;<?php _e('Ninguna','envialo-simple') ?></label><br />
                 <br /><br />
                 
         </div> 
         <div id="vista-previa-img" ></div>
         
         <div style="clear:both"></div>
-        <span style="font-size: 11px;margin-left: 155px;">Para editar el tamaño proporcionalmente, mantenga apretada la tecla Shift al arrastrar.</span>
+        <span style="font-size: 11px;margin-left: 155px;"><?php _e('Para editar el tamaño proporcionalmente, mantenga apretada la tecla Shift al arrastrar.','envialo-simple') ?></span>
         <div class="editar-img-botones">
                         
-            <input type="reset" style="float:right;float: right;margin-right: 18px;" value="Cancelar" class="button-secondary" onclick="jQuery('#modal-editar-img').dialog('close');return false;"/>
-            <input type="submit" style="float:right" id="modal-editar-img-aceptar" value="Aceptar" class="button-primary"  />
+            <input type="reset" style="float:right;float: right;margin-right: 18px;" value="<?php _e('Cancelar','envialo-simple') ?>" class="button-secondary" onclick="jQuery('#modal-editar-img').dialog('close');return false;"/>
+            <input type="submit" style="float:right" id="modal-editar-img-aceptar" value="<?php _e('Aceptar','envialo-simple') ?>" class="button-primary"  />
             
         </div>
        </div> 
