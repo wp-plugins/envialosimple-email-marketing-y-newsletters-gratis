@@ -93,7 +93,7 @@
                                 
                     return $html;
             }else{
-                return "<p>Aquí podrás Crear y Configurar formularios de suscripción donde luego, tus visitantes podrán suscribirse para recibir tus Newsletters.</p>";
+                return "<p>".__('Aquí podrás Crear y Configurar formularios de suscripción donde luego, tus visitantes podrán suscribirse para recibir tus Newsletters.','envialo-simple')."</p>";
                 
             }
                      

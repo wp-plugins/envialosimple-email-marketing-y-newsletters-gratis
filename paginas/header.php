@@ -38,7 +38,7 @@
 		    <div><?php printf(__('Tienes %d Envíos Disponibles','envialo-simple'),$envios['credits']["availableCredits"]); if($envios['role'] == 'free'){_e('para este mes.','envialo-simple');} ?></div>			
 			<?php if(!$envios['white_label']): ?>
 				<?php if($envios['role'] == 'free'): ?>
-					<a href="#" id="abrir-modal-creditos" style="width:180px" class="button-secondary"><?php _e('Actualizar a Versión PREMIUM','envialo-simple') ?></a>
+					<a href="#" id="abrir-modal-creditos"class="button-secondary"><?php _e('Actualizar a Versión PREMIUM','envialo-simple') ?></a>
 				<?php else: ?>
 					<a href="#" id="abrir-modal-creditos"  class="button-secondary"><?php _e('Comprar Más','envialo-simple') ?></a>
 				<?php endif; ?>

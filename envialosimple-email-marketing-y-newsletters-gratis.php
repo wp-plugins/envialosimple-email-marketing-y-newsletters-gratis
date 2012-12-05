@@ -31,10 +31,10 @@ function aviso_admin() {
 function agregar_menues() {
     add_menu_page('Envialo Simple', 'Envialo Simple', 'add_users', 'envialo-simple', 'mostrarPagina', plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icono.png'), 81.8);
     add_submenu_page('envialo-simple', 'Newsletters', 'Newsletters', 'add_users', 'envialo-simple', '');
-    add_submenu_page('envialo-simple', 'Crear Newsletter', 'Crear Newsletter', 'add_users', 'envialo-simple-nuevo', 'mostrarCrearNews');
-    add_submenu_page('envialo-simple', 'Listas y Contactos', 'Listas y Contactos', 'add_users', 'envialo-simple-listas', 'mostrarListasyContactos');
-    add_submenu_page('envialo-simple', 'Formulario de Suscripción', 'Formulario de Suscripción', 'add_users', 'envialo-simple-formulario', 'mostrarFormSuscripcion');
-    add_submenu_page('envialo-simple', 'Configuración', 'Configuración', 'add_users', 'envialo-simple-configuracion', 'mostrarConfiguracion');
+    add_submenu_page('envialo-simple', __('Crear Newsletter','envialo-simple'), __('Crear Newsletter','envialo-simple'), 'add_users', 'envialo-simple-nuevo', 'mostrarCrearNews');
+    add_submenu_page('envialo-simple', __('Listas y Contactos','envialo-simple'), __('Listas y Contactos','envialo-simple'), 'add_users', 'envialo-simple-listas', 'mostrarListasyContactos');
+    add_submenu_page('envialo-simple', __('Formulario de Suscripción','envialo-simple'), __('Formulario de Suscripción','envialo-simple'), 'add_users', 'envialo-simple-formulario', 'mostrarFormSuscripcion');
+    add_submenu_page('envialo-simple', __('Configuración','envialo-simple'), __('Configuración','envialo-simple'), 'add_users', 'envialo-simple-configuracion', 'mostrarConfiguracion');
 }
 
 function cargarscripts() {

@@ -24,7 +24,7 @@ function DEFINE_date_create_from_format(){
     $new_schedule = new DateTime($ymd);
    return $new_schedule;
   }
-}
+} 
 
 if( !function_exists("date_create_from_format") )
   DEFINE_date_create_from_format();

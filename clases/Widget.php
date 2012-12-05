@@ -12,7 +12,7 @@ class Widget extends WP_Widget {
         parent::__construct(
             'widget', // Base ID
             'Formulario Suscripción EnvialoSimple', // Name
-            array( 'description' => "Arrastra y Suelta este Bloque en la Barra de Widgets para Seleccionar tu Formulario de Suscripción.", ) // Args
+            array( 'description' => __('Arrastra y Suelta este Bloque en la Barra de Widgets para Seleccionar tu Formulario de Suscripción.','envialo-simple'), ) // Args
         );
     }
 
@@ -85,7 +85,7 @@ class Widget extends WP_Widget {
         ?>
         <p>
          <input type="hidden" name="<?php echo $this->get_field_name('AdministratorID'); ?>" value="<?php echo $AdministratorID; ?>" />   
-         <label for="<?php echo $this->get_field_id( 'FormID' ); ?>">Formularios Disponibles:</label>    
+         <label for="<?php echo $this->get_field_id( 'FormID' ); ?>"><?php _e('Formularios Disponibles:','envialo-simple')?></label>    
          <select id="<?php echo $this->get_field_id( 'FormID' ); ?>" name="<?php echo $this->get_field_name('FormID'); ?>">
              <option>Seleccionar..</option>
              <?php 

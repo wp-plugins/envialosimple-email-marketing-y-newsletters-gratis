@@ -26,7 +26,7 @@ class EnvialoSimple {
             if ($respuesta["existenTablas"]) {
                 //Se debe configurar y guardar token, mostrar configuracion
                 echo "<div style='background-color:#FFFBCC; border:#E6DB55 1px solid; color:#555555; border-radius:3px; padding:5px 10px; margin:20px 15px 10px 0; text-align:left'>
-                        Redireccionando a Configuración Inicial..
+                        ".__('Redireccionando a Configuración Inicial..','envialo-simple')."
                       </div>
                       <script>
                           window.location = '{$amindURL}admin.php?page=envialo-simple-configuracion&setup=true';
@@ -35,7 +35,7 @@ class EnvialoSimple {
                 //crear tablas y redir a config
                 $this->crearTablaClavesBD();
                 echo "<div style='background-color:#FFFBCC; border:#E6DB55 1px solid; color:#555555; border-radius:3px; padding:5px 10px; margin:20px 15px 10px 0; text-align:left'>
-                          Creando Tablas y Redireccionando a Configuración Inicial..
+                          ".__('Creando Tablas y Redireccionando a Configuración Inicial..','envialo-simple')."
                       </div>
                        <script>
                            window.location = '{$amindURL}admin.php?page=envialo-simple-configuracion&setup=true'
@@ -147,7 +147,7 @@ class EnvialoSimple {
             } else {
                 $htmlImg .= '<div><img src="' . plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/300x200.jpg') . '" alt="" height="150" width="150" /></a></div>';
             }
-            $postContentResumido =  wp_trim_words($p->post_content, 30, "...<br /><a target='_blank' style='text-decoration:underline' class='ver-mas-post' href='{$p->guid}'>Ver Más</a><br /><br />");
+            $postContentResumido =  wp_trim_words($p->post_content, 30, "...<br /><a target='_blank' style='text-decoration:underline' class='ver-mas-post' href='{$p->guid}'>".__('Ver Más','envialo-simple')."</a><br /><br />");
             $html .= "  <div class='post'>
                             <div class='contenedor-checkbox-post fl'>
                                 <input type='checkbox' name='{$p->ID}' class='checkbox-post' />
@@ -211,7 +211,7 @@ class EnvialoSimple {
     function traerEnviosDisponibles() {
         $respuesta = json_decode($this->curlJson('', URL_BASE_API . "/administrator/status"), TRUE);
         if (!$respuesta["root"]["ajaxResponse"]["success"]) {
-            $this->errorMsg = 'No se puedo recuperar los creditos disponibles: ';
+            $this->errorMsg = __('No se puedo recuperar los creditos disponibles:','envialo-simple');
             return false;
         }
         $result = array();
@@ -237,8 +237,8 @@ class EnvialoSimple {
 					<table id='tabla-precios-envios'>
 						<thead>
 							<tr>
-								<td style='width: 300px;font-weight: bold;'>Cantidad de Envíos</td>
-								<td style='font-weight: bold'>Precio Paquete</td>
+								<td style='width: 300px;font-weight: bold;'>".__('Cantidad de Envíos','envialo-simple')."</td>
+								<td style='font-weight: bold'>".__('Precio Paquete','envialo-simple')."</td>
 							</tr>
 						</thead>
 						<tbody>";
@@ -256,11 +256,11 @@ class EnvialoSimple {
                 $i++;
             }
             $html .= "</tbody></table>
-				<input type='submit' id='comprar-envios' class='button-primary' value='Comprar Envíos'/>
+				<input type='submit' id='comprar-envios' class='button-primary' value='".__('Comprar Envíos','envialo-simple')."'/>
 					</form>";
             return $html;
         } else {
-            return "Error al Traer los Precios";
+            return __('Error al Traer los Precios','envialo-simple');
         }
     }
 
@@ -323,18 +323,18 @@ class EnvialoSimple {
         $plantillas = $this->traerPlantillas($limit, $retrieveList, $offset, $filterListByCategory,$filterListByCategory2);
         if (isset($plantillas["success"]) && $plantillas["success"]) {
             $html = "<div id='filtros-plantillas'>
-                         <label>Filtrar por Categorías</label>
+                         <label>".__('Filtrar por Categorías','envialo-simple')."</label>
                          <select class='select-categorias'>
-                            <option value='0'>Seleccionar..</option>
+                            <option value='0'>".__('Seleccionar..','envialo-simple')."</option>
                             {$htmlCat}
                         </select>
                         &nbsp;&nbsp;
-                        <label>Filtrar por Color</label>
+                        <label>".__('Filtrar por Color','envialo-simple')."</label>
                         <select class='select-categorias'>
-                            <option value='0'>Seleccionar..</option>
+                            <option value='0'>".__('Seleccionar..','envialo-simple')."</option>
                             {$htmlCol}
                         </select>
-                         <div class='button-secondary' style='float: right;margin-right: 10px;margin-top: 2px;' id='cerrar-modal-plantillas'>Cancelar</div>
+                         <div class='button-secondary' style='float: right;margin-right: 10px;margin-top: 2px;' id='cerrar-modal-plantillas'>".__('Cancelar','envialo-simple')."</div>
                     </div>
                     <div id='tabla-plantillas'>
                         <table name='wp-list-table widefat fixed posts'>
@@ -343,7 +343,7 @@ class EnvialoSimple {
                                     <td>
                                         <a class='plantilla-click' name='0000_new-blank_600px' href='#' >
                                             <div class='plantilla' >
-                                                <div id='plantilla-blanco'>En Blanco</div>
+                                                <div id='plantilla-blanco'>".__('En Blanco','envialo-simple')."</div>
                                                 <br />
                                             </div>
                                         </a>
@@ -398,7 +398,7 @@ class EnvialoSimple {
             }
             return $html;
         } else {
-            return "Error al Traer las Plantillas";
+            return __('Error al Traer las Plantillas','envialo-simple');
         }
     }
 

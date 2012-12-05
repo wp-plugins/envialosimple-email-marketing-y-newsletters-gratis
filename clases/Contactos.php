@@ -129,9 +129,9 @@ class Contactos {
         								<thead>
             								<tr>
             									<th scope='col' id='cb' class='manage-column column-cb check-column' style=''></th>        									
-            									<th class='manage-column column-title sortable desc' style='height:30px;width: 250px;' >Nombre</th>
-            									<th class='manage-column column-title sortable desc' style='width: 220px;'>Contactos (Total/Activos)</th>            									
-            									<th class='manage-column column-title sortable desc' style='text-align: center;width: 565px;'>Acciones</th>            									
+            									<th class='manage-column column-title sortable desc' style='height:30px;width: 250px;' >".__('Nombre','envialo-simple')."</th>
+            									<th class='manage-column column-title sortable desc' style='width: 220px;'>".__('Contactos (Total/Activos)','envialo-simple')."</th>            									
+            									<th class='manage-column column-title sortable desc' style='text-align: center;width: 565px;'>".__('Acciones','envialo-simple')."</th>            									
             								</tr>	
         								</thead>        														
         								<tbody>";
@@ -144,9 +144,9 @@ class Contactos {
     								<td><span class='row-title'>{$item["Name"]}</span></td>
     								<td>{$item["MemberCount"]} / {$item["ActiveMemberCount"]}</td>        								
     								<td>
-    								    <a href='#' name='{$item["MailListID"]}' class='boton-sincronizar button-secondary' title='Agregar los Contactos de Wordpress a la Lista de Envialo Simple '>Agregar Usuarios de Wordpress </a> 
-    								    <a href='#' name='{$item["MailListID"]}' class='boton-agregar-contacto button-secondary' title='Agregar Contacto a la Lista de Envialo Simple '>Agregar Contacto</a>
-    								    <a href='{$url}{$item["MailListID"]}' name='{$item["MailListID"]}' class='button-secondary boton-importar-contacto' title='Importar Contactos '>Importar Contactos</a>
+    								    <a href='#' name='{$item["MailListID"]}' class='boton-sincronizar button-secondary' title='Agregar los Contactos de Wordpress a la Lista de Envialo Simple '>".__('Agregar Usuarios de Wordpress','envialo-simple')."</a> 
+    								    <a href='#' name='{$item["MailListID"]}' class='boton-agregar-contacto button-secondary' title='Agregar Contacto a la Lista de Envialo Simple '>".__('Agregar Contacto','envialo-simple')."</a>
+    								    <a href='{$url}{$item["MailListID"]}' name='{$item["MailListID"]}' class='button-secondary boton-importar-contacto' title='Importar Contactos '>".__('Importar Contactos','envialo-simple')."</a>
     								</td>
         								
 							</tr>";
@@ -196,7 +196,7 @@ class Contactos {
             } else {
 
                 $html = "";
-                $html .= '<div class="wp-caption">Aún No tenés Listas Creadas. <a href="" class="button-secondary action">Crear Nueva Lista</a> </div>';
+                $html .= '<div class="wp-caption">Aún No tenés Listas Creadas. <a href="" class="button-secondary action">'.__('Crear Nueva Lista','envialo-simple').'</a> </div>';
 
                 return array(TRUE, $html);
             }
@@ -204,7 +204,7 @@ class Contactos {
         } else {
 
             $html = "";
-            $html .= '<br /><div class="mensaje msjError" style="display:inline">No se pudo recuperar las Listas de Contacto. Por Favor Intente Nuevamente</div><p>En caso de persistir el error, reconfigure el Plugin</p>';
+            $html .= '<br /><div class="mensaje msjError" style="display:inline">'.__('No se pudo recuperar las Listas de Contacto. Por Favor Intente Nuevamente','envialo-simple').'</div><p>'.__('En caso de persistir el error, reconfigure el Plugin','envialo-simple').'</p>';
 
             return array(FALSE, $html);
         }
