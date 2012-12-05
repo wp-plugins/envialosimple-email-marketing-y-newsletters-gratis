@@ -241,9 +241,8 @@ switch ($accion) {
         
     break;
     case "refrescarNews":
-        $ev->checkSetup();        
-        $ca = new Campanas();        
-        echo $ca->mostrarCampanas($_POST["pagina"],$_POST["filtro"]);
+        $ev->checkSetup();
+        include_once(ENVIALO_DIR."/paginas/tablaCampanas.php");
     break;    
 
     //Formulario

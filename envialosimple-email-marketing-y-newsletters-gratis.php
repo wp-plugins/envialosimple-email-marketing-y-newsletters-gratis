@@ -15,8 +15,12 @@ define('ENVIALO_DIR', dirname(__FILE__));
 add_action('admin_enqueue_scripts', 'cargarscripts');
 add_action('admin_menu', 'agregar_menues');
 add_action( 'widgets_init', create_function( '', 'register_widget( "widget" );' ) );
+add_action('plugins_loaded', 'cargar_traduccion');
 
 
+function cargar_traduccion() { 
+ load_plugin_textdomain('envialo-simple', false, basename( dirname( __FILE__ ) ) . '/languages' );
+}
 
 
 function aviso_admin() {

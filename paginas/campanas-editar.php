@@ -29,8 +29,7 @@
                 $c["responder-check"] = 1;
             }
             
-		}else{
-			
+		}else{			
             $msg = "<p>"._e("No se puede establecer la conexión con el servidor.","envialo-simple")."</p>                    
                     <p><a href='#' class='button-primary'>"._e('Vuelva a intentarlo','envialo-simple')."</a></p>";            									
 			echo $msg;

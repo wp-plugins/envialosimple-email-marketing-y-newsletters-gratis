@@ -1,6 +1,6 @@
 <div style="display:none">
     <div id="modal-plantillas">
-        <h2>Seleccionar Plantilla</h2>
+        <h2><?php _e('Seleccionar Plantilla','envialo-simple') ?></h2>
         <div id="contenedor-plantillas">
             <?php
             print_r($ev -> mostrarPlantillas());
@@ -10,36 +10,24 @@
     <div class="dropeable"></div>
     <div id="modal-agregar-contenido">
         <div id="seleccion-posts">
-            <h2>Seleccione los Post que desea Incluir</h2>
+            <h2><?php _e('Seleccione los Post que desea Incluir','envialo-simple') ?></h2>
             <div id="barra-seleccion-posts">
-                <label style="margin-right: 10px;margin-left: 10px" class="fl">Filtrar Por Categoría</label>
+                <label style="margin-right: 10px;margin-left: 10px" class="fl"><?php _e('Filtrar Por Categoría','envialo-simple') ?></label>
                 <select id="select-categoria-post" class="fl">
-                    <option>Seleccionar</option>
+                    <option><?php _e('Seleccionar','envialo-simple') ?></option>
                     <?php echo $ev -> mostrarCategoriasWP(); ?>
                 </select>
-                <a href="#" id="modal-agregar-ok" class="button-primary fl" style="margin-left: 140px;margin-right: 10px;">Aceptar</a>
+                <a href="#" id="modal-agregar-ok" class="button-primary fl" style="margin-left: 140px;margin-right: 10px;"><?php _e('Aceptar','envialo-simple') ?></a>
                 <div class="button-secondary fl" id="modal-agregar-cancelar" >
-                    Cancelar
+                    <?php _e('Cancelar','envialo-simple') ?>
                 </div>
             </div>
             <div id="contenedor-posts">
                 
             </div>
         </div>
-    </div>
-    <div class="opciones-bloque" id="opciones-bloque" style="display:none;position: absolute;margin-left:auto;margin-right: auto;width:450px;">
-        <span class="duplicar-bloque-bt"><img title="Duplicar Bloque" alt="duplicar" src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/duplicar.png')?>" /></span>
-        <span class="editar-bloque-bt"><img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/editar.png')?>" title="Editar Bloque" alt="editar"/></span>
-        <span class="eliminar-bloque-bt"><img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/eliminar.png')?>" title="Eliminar Bloque" alt="eliminar" /></span>
-        <span class="guardar-bloque-bt" style="display:none"><img title="Guardar" alt="guardar" src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/guardar.png')?>" /></span>
-        <span class="cambiar-bg-bt"><img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/colorBg.png')?>" title="Cambiar Color de Fondo" alt="colorbg"/></span>
-        <div class="color-picker-modal" style="display:none">
-            <input class="input-colorpicker" type="text" />
-        </div>
-    </div>
-    <div class="opciones-bloque-eliminar" style="display:none;position: absolute; ">
-        <span class="eliminar-bloque-bt">Eliminar</span>
-    </div>
+    </div>   
+   
     <div id="contenido-1">
         <table width="600" border="0" align="center" cellpadding="20" cellspacing="0" class="tobBlock tobClonable tobRemovable" style="background-color:transparent;">
             <tbody>

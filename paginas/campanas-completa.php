@@ -25,11 +25,10 @@
 			$c = $camp["campaign"];
 		}else{
 			
-            $msg = "<p>No se puede establecer la conexión con el servidor.</p>                    
-                    <p><a href='#' class='button-primary'>Vuelva a intentarlo</a></p>";
-            									
-			echo $msg;
-			die();
+            $msg = "<p>"._e("No se puede establecer la conexión con el servidor.","envialo-simple")."</p>                    
+                    <p><a href='#' class='button-primary'>"._e('Vuelva a intentarlo','envialo-simple')."</a></p>";                                              
+            echo $msg;
+            die();
 		}
 	}    
 	$template = $ca->traerCuerpoCampana($idCampana);		
@@ -83,15 +82,13 @@
        <div id="postbox-container-1" class="postbox-container">
 		        <div id="side-sortables" class="meta-box-sortables ui-sortable">
 		          <div id="acciones" class="postbox ">
-               <h3><span>Acciones</span></h3>
+               <h3><span><?php _e('Acciones','envialo-simple') ?></span></h3>
                 <div class="inside">
                     <div class="submitbox" id="submitpost">
                         <div >                            
-                            <div>
-                                
-                                <div class="misc-pub-section curtime" style="border-bottom:0;">
-                                                                     
-                                       <input type="submit" class="button-primary" value="Crear nuevo newsletter a partir de este" />
+                            <div>                                
+                                <div class="misc-pub-section curtime" style="border-bottom:0;">                                                                     
+                                    <input type="submit" class="button-primary" value="<?php _e('Crear nuevo newsletter a partir de este','envialo-simple') ?>" />
                                 </div>                             
 
                             </div>
@@ -102,29 +99,29 @@
                 </div>
                 
                  <div id="acciones" class="postbox ">
-                    <h3><span>Detalles</span></h3>
+                    <h3><span><?php _e('Detalles','envialo-simple') ?></span></h3>
                     <div class="inside">
                         <div class="submitbox" id="submitpost">
                             <div>                            
                                 <div id="misc-publishing-actions">                                    
                                     
                                          <dl>
-                                           <dt>Estado del Newsletter:</dt>
-                                           <dd>Completado</dd>
+                                           <dt><?php _e('Estado del Newsletter:','envialo-simple') ?></dt>
+                                           <dd><?php _e('Completado','envialo-simple') ?></dd>
                                            
-                                           <dt>Enviado el:</dt>
+                                           <dt><?php _e('Enviado el:','envialo-simple') ?></dt>
                                            <dd><?php echo $fechaEnvio ?></dd>
                                            
-                                           <dt>Asunto del Mensaje:</dt>
+                                           <dt><?php _e('Asunto del Mensaje:','envialo-simple') ?></dt>
                                            <dd><?php echo $c["Subject"];?></dd>
                                            
-                                           <dt>Remitente(From):</dt>
+                                           <dt><?php _e('Remitente:','envialo-simple') ?></dt>
                                            <dd><?php echo $c["ReplyTo"]["Name"]. " (".$c["ReplyTo"]["EmailAddress"].")"; ?></dd>
                                            
-                                           <dt>Responder a :</dt>
+                                           <dt><?php _e('Responder a :','envialo-simple') ?></dt>
                                            <dd><?php echo $c["ReplyTo"]["Name"]. " (".$c["ReplyTo"]["EmailAddress"].")";  ?></dd>
                                            
-                                           <dt>Listas de Destinatarios:</dt>
+                                           <dt><?php _e('Listas de Destinatarios:','envialo-simple') ?></dt>
                                            <dd>
                                                <ul style="margin: 0;">
                                                    <?php
@@ -137,15 +134,12 @@
                                        </dl>
                                            
                                            <ul id="opciones-avanzadas-detalle">
-                                               <li><span>Agregar al Archivo público:</span> <?php echo isCheck($c["AddToPublicArchive"]);?></li>
-                                               <li><span>Seguir Enlaces:</span> <?php echo isCheck($c["TrackLinkClicks"]);?></li>
-                                               <li><span>Contar Aperturas:</span> <?php echo isCheck($c["TrackReads"]);?></li>
-                                               <li><span>Usar Google Analytics:</span>  <?php echo isCheck($c["TrackAnalitics"]);?></li>
-                                               <li><span>Enviar informe al finalizar:</span> <?php echo isCheck($c["SendStateReport"]);?> </li>                                               
-                                           </ul>
-                                                                                     
-                                       
-                                    
+                                               <li><span><?php _e('Agregar al Archivo público:','envialo-simple') ?></span> <?php echo isCheck($c["AddToPublicArchive"]);?></li>
+                                               <li><span><?php _e('Seguir Enlaces:','envialo-simple') ?></span> <?php echo isCheck($c["TrackLinkClicks"]);?></li>
+                                               <li><span><?php _e('Contar Aperturas:','envialo-simple') ?></span> <?php echo isCheck($c["TrackReads"]);?></li>
+                                               <li><span><?php _e('Usar Google Analytics:','envialo-simple') ?></span>  <?php echo isCheck($c["TrackAnalitics"]);?></li>
+                                               <li><span><?php _e('Enviar informe al finalizar:','envialo-simple') ?></span> <?php echo isCheck($c["SendStateReport"]);?> </li>                                               
+                                           </ul>                                    
           
     
                                 </div>

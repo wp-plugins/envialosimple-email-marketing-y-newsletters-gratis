@@ -13,21 +13,23 @@ El plugin de EnvialoSimple te permitirá crear y enviar Newsletters de calidad p
 
 **Envía Newsletters GRATIS** Te regalamos 1.000 envíos mensuales para que envíes tus Newsletters y hagas crecer tus visitas.
 
-✔ Editas arrastrando y soltando, y sin conocimientos de HTML.
+✔ Edición "Arrastrar y Soltar"
 
-✔ Seleccion de más de 200 Plantillas.
+✔Más de 200 Templates profesionales
 
-✔ Importación de Contactos Wordpress con 1 click.
+✔ Newsletters personalizables
 
-✔ Newsletters enviados a través de la más robusta infraestructura.
+✔ Reportes completos
 
-✔ Envíos inmediatos o programables.
+✔ Importación de Contactos
 
-✔ Sin límites de envíos ni de contactos.
+✔ Robusta plataforma de envío
 
-✔ Instalacion y configuracion rápida y amigable.
+✔ Form de Suscripción con widget
 
-✔ Reportes y estadísticas avanzadas.
+✔ Programación de Envíos
+
+✔ Instalacion rápida y amigable
 
 
 

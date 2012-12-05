@@ -35,9 +35,9 @@
         
     }else{        
         $f = array();
-        $f['form']['Name'] = "Nuevo Formulario de Suscripción";
-        $f['form']['LabelEmailAddress'] = 'Direccion de email:';
-        $f['form']['LabelSubmit'] = 'Suscribir';
+        $f['form']['Name'] = __('Nuevo Formulario de Suscripción','envialo-simple');
+        $f['form']['LabelEmailAddress'] = __('Direccion de email:','envialo-simple');
+        $f['form']['LabelSubmit'] = __('Suscribir','envialo-simple');
         $f['form']['BackgroundColor'] = '#E9E9E9';
         $f['form']['Width'] = "200";
         $f['form']['Font'] = 'Arial';
@@ -57,7 +57,7 @@
 </script>
 
 <div class="wrap">
-    <h3>Formulario de Suscripción a Newsletter.</h3>
+    <h3><?php _e('Formulario de Suscripción a Newsletter.','envialo-simple') ?></h3>
     
     <div class="mensaje" style="width: 60%"></div>
     
@@ -70,17 +70,16 @@
 
                       <div id="post-body-content">                        
                         <table class="form-table">
-                        <tbody>
-                            
+                        <tbody>                            
                             <tr valign="top">
-                                <th scope="row"><label for="nombre-form">Nombre Formulario:</label></th>
+                                <th scope="row"><label for="nombre-form"><?php _e('Nombre Formulario:','envialo-simple') ?></label></th>
                                 <td>
                                     <input type="text" value="<?php echo $f['form']['Name'] ?>" name="Name" id="nombre-form" style="width: 250px"/>
                                 </td>                                
                             </tr>
                           
                                <tr>
-                                <th scope="row"><label for="MailListsIds">Lista de Destinatarios</label></th>
+                                <th scope="row"><label for="MailListsIds"><?php _e('Lista de Destinatarios','envialo-simple') ?></label></th>
                                 <td>
                                     <select name="MailListsIds[]" id="MailListsIds" style="width: 250px" multiple="multiple" class="validar">
             
@@ -90,7 +89,7 @@
             
                                             if(count($f['form']["MailListsIds"]["item"]) == 0){            
                                                 foreach ($listas[0]["item"] as $l) {            
-                                                    echo "<option value='{$l['MailListID']}'>{$l['Name']} ({$l['MemberCount']} Destinatarios)</option>";
+                                                    echo "<option value='{$l['MailListID']}'>{$l['Name']} ({$l['MemberCount']} ".__('Destinatarios','envialo-simple').")</option>";
                                                 }            
                                             }else{            
                                                 foreach ($listas[0]['item'] as $l) {
@@ -101,56 +100,56 @@
                                                         }
             
                                                     }
-                                                    echo "<option {$selected} value='{$l['MailListID']}' >{$l['Name']} ({$l['MemberCount']} Destinatarios)</option>";            
+                                                    echo "<option {$selected} value='{$l['MailListID']}' >{$l['Name']} ({$l['MemberCount']} ".__('Destinatarios','envialo-simple').")</option>";            
                                                 }
                                             }                                                                                           
                                         ?>
                                         
                                     </select>
                                     <div style="display: inline-block;position: relative;top: -9px;left: 10px;" >
-                                        <a href="#" id="crear-lista">Crear Nueva</a>
+                                        <a href="#" id="crear-lista"><?php _e('Crear Nueva','envialo-simple') ?></a>
                                     </div>            
                                 </td>            
                             </tr>                      
                             <tr valign="top">
-                                <th scope="row"><label for="FromID">Remitente Email Confirmación:</label></th>
+                                <th scope="row"><label for="FromID"><?php _e('Remitente Email Confirmación:','envialo-simple') ?></label></th>
                                 <td>
                                 <select name="FromID" id="FromID" style="width: 250px">            
                                     <?php
                                         echo $htmlSelectEmailAdminFrom;        
                                      ?>
-                                    <option class="selectCrear" value="agregar">+ Agregar Nuevo Email ..</option>
+                                    <option class="selectCrear" value="agregar"><?php _e('+ Agregar Nuevo Email ..','envialo-simple') ?></option>
                                 </select>   <br />
                                     <div id="responder-contenedor" style="margin: 5px 0 0 5px;">
                                         <input type="checkbox" name="responder-check" id="responder-check" style="margin-right: 5px;"  /> 
-                                        <label for="responder-check" >Utilizar una direcci&oacute;n de respuesta distinta</label>
+                                        <label for="responder-check" ><?php _e('Utilizar una direcci&oacute;n de respuesta distinta','envialo-simple') ?></label>
                                     </div>
                                  </td>
                             </tr>
                             <tr valign="top" id="responder-fila" style="display:none">
-                                <th scope="row"><label for="ReplyToID">Responder a :</label></th>
+                                <th scope="row"><label for="ReplyToID"><?php _e('Responder a :','envialo-simple') ?></label></th>
                                 <td>
                                 <select name="ReplyToID" id="ReplyToID">            
                                     <?php                                                       
                                        echo $htmlSelectEmailAdminReply;
                                     ?>
-                                    <option class="selectCrear" value="agregar">+ Agregar Nuevo Email ..</option>     
+                                    <option class="selectCrear" value="agregar"><?php _e('+ Agregar Nuevo Email ..','envialo-simple') ?></option>     
                                 </select></td>
                             </tr>
                             
                             </table>
-                            <a href="#" id="mostrar-op-av">Opciones Avanzadas</a>
+                            <a href="#" id="mostrar-op-av"><?php _e('Opciones Avanzadas','envialo-simple') ?></a>
                             <div id="opciones-avanzadas-suscripcion">
                                 <div class="form-avanzado">
                                     <table class="form-table">
                                       <tr valign="top">
-                                        <th scope="row"><label for="titulo-form">Título:</label></th>
+                                        <th scope="row"><label for="titulo-form"><?php _e('Título:','envialo-simple') ?></label></th>
                                         <td>
                                             <input type="text" value="<?php if(isset($f['form']['Title']))echo $f['form']['Title'] ?>" name="Title" id="titulo-form" style="width: 250px"/>
                                         </td>                                
                                     </tr>
                                     <tr>
-                                        <th scope="row"><label for="textoBt">Etiqueta Campo Email:</label></th>
+                                        <th scope="row"><label for="textoBt"><?php _e('Etiqueta Campo Email:','envialo-simple') ?></label></th>
                                         <td>
                                           <input type="text" name="LabelEmailAddress" value="<?php echo $f['form']['LabelEmailAddress'] ?>" style="width: 250px" />               
                                         </td>
@@ -158,7 +157,7 @@
                                     </tr>
                                     
                                     <tr>
-                                        <th scope="row"><label for="textoBt">Texto del Botón:</label></th>
+                                        <th scope="row"><label for="textoBt"><?php _e('Texto del Botón:','envialo-simple') ?></label></th>
                                         <td>
                                             <input type="text" name="LabelSubmit" value="<?php echo $f['form']['LabelSubmit'] ?>" id="textoBt" style="width: 250px"/>            
                                         </td>            
@@ -172,9 +171,9 @@
                                     <table id="tabla-campos-form" class="form-table">
                                         <thead>
                                             <tr>
-                                                <td style="width: 218px;">Campos Personalizados:</td>
-                                                <td style="font-weight: bold;width: 250px" >Nombre del Campo</td>                                                                            
-                                                <td style="font-weight: bold;width: 250px">Eliminar</td>
+                                                <td style="width: 218px;"><?php _e('Campos Personalizados:','envialo-simple') ?></td>
+                                                <td style="font-weight: bold;width: 250px" ><?php _e('Nombre del Campo','envialo-simple') ?></td>                                                                            
+                                                <td style="font-weight: bold;width: 250px"><?php _e('Eliminar','envialo-simple') ?></td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -190,7 +189,7 @@
                                             <tr class="addCampoTr"></tr>                                                        
                                             <tr>                                
                                                 <td>
-                                                    <a href="#" id="agregarCampo">Añadir Campo</a>
+                                                    <a href="#" id="agregarCampo"><?php _e('Añadir Campo','envialo-simple') ?></a>
                                                 </td>
                                             </tr>
                                  
@@ -200,7 +199,7 @@
                                  <div class="form-avanzado">
                                     <table class="form-table">
                                     <tr>
-                                        <th scope="row"><label for="BackgroundColor">Color de Fondo:</label></th>
+                                        <th scope="row"><label for="BackgroundColor"><?php _e('Color de Fondo:','envialo-simple') ?></label></th>
                                         <td>
                                           <input type="text" name="BackgroundColor" value="<?php echo $f['form']['BackgroundColor'] ?>" style="width: 60px" />               
                                         </td>
@@ -208,18 +207,14 @@
                                     </tr>
                                     
                                     <tr>
-                                        <th scope="row"><label for="Width">Ancho (px)</label></th>
+                                        <th scope="row"><label for="Width"><?php _e('Ancho (px)','envialo-simple') ?></label></th>
                                         <td>
                                             <input type="text" name="Width" value="<?php echo $f['form']['Width'] ?>"  style="width: 60px;float:left"/>     
-                                            <!--<div class="upDownContainer fl" >
-                                                <div class="arrowUp" ></div>
-                                                <div class="arrowDown" ></div>
-                                            </div>-->       
                                         </td>            
                                     </tr>
                                     
                                       <tr>
-                                        <th scope="row"><label for="Font">Letra / Fuente</label></th>
+                                        <th scope="row"><label for="Font"><?php _e('Letra / Fuente','envialo-simple') ?></label></th>
                                         <td>
                                             <input type="text" name="Font" value="<?php echo stripslashes($f['form']['Font']) ?>"  style="width: 180px;float:left"/> 
                                             
@@ -249,19 +244,13 @@
                                     </tr>
                                     
                                       <tr>
-                                        <th scope="row"><label for="FontSize">Letra / Tamaño (px)</label></th>
+                                        <th scope="row"><label for="FontSize"><?php _e('Letra / Tamaño (px)','envialo-simple') ?></label></th>
                                         <td>
-                                            <input type="text" name="FontSize" value="<?php echo $f['form']['FontSize'] ?>"  style="width: 60px" class="fl"/> 
-                                            
-                                                <!--<div class="upDownContainer fl" >
-                                                    <div class="arrowUp" ></div>
-                                                    <div class="arrowDown" ></div>
-                                                </div>-->
-                                                      
+                                            <input type="text" name="FontSize" value="<?php echo $f['form']['FontSize'] ?>"  style="width: 60px" class="fl"/>                                                                                              
                                         </td>            
                                     </tr>
                                      <tr>
-                                        <th scope="row"><label for="FontColor">Letra / Color</label></th>
+                                        <th scope="row"><label for="FontColor"><?php _e('Letra / Color','envialo-simple') ?></label></th>
                                         <td>
                                             <input type="text" name="FontColor" value="<?php echo $f['form']['FontColor'] ?>"  style="width: 60px"/>            
                                         </td>            
@@ -272,16 +261,16 @@
                                  <div class="form-avanzado">
                                      <table class="form-table">
                                     <tr>
-                                        <th scope="row"><label for="ShowPoweredBy">Logo EnvialoSimple</label></th>
+                                        <th scope="row"><label for="ShowPoweredBy"><?php _e('Logo EnvialoSimple','envialo-simple') ?></label></th>
                                         <td>
                                           <input type="checkbox" name="ShowPoweredBy" <?php if(isset($f['form']['ShowPoweredBy']))echo ($f['form']['ShowPoweredBy']) ? 'checked="checked"': ""; ?> value="1" style="width: 40px" />               
                                         </td>
                                         
                                     </tr>
                                      <tr>
-                                        <th scope="row"><label for="SubscribeDobleOptIN">Doble Opt-In</label></th>
+                                        <th scope="row"><label for="SubscribeDobleOptIN"><?php _e('Doble Opt-In','envialo-simple') ?></label></th>
                                         <td>
-                                          <input type="checkbox" name="SubscribeDobleOptIN" <?php if (isset($f['form']['SubscribeDobleOptIN'])) echo ($f['form']['SubscribeDobleOptIN']) ? 'checked="checked"': ""; ?> value="1" style="width: 40px" />¿Requiere confirmación de suscripción?               
+                                          <input type="checkbox" name="SubscribeDobleOptIN" <?php if (isset($f['form']['SubscribeDobleOptIN'])) echo ($f['form']['SubscribeDobleOptIN']) ? 'checked="checked"': ""; ?> value="1" style="width: 40px" /><?php _e('¿Requiere confirmación de suscripción?','envialo-simple') ?>              
                                         </td>                                        
                                     </tr>
                                     </table>                                     
@@ -293,16 +282,16 @@
        <div id="postbox-container-1" class="postbox-container">
            <div id="side-sortables" class="meta-box-sortables ui-sortable">
               <div id="acciones" class="postbox ">
-                <h3><span>Acciones</span></h3>                
-                    <input style="margin: 20px;" type="submit" id="guardar-cambios-form" value="Guardar Cambios" class="button-primary"/>
+                <h3><span><?php _e('Acciones    ','envialo-simple') ?></span></h3>                
+                    <input style="margin: 20px;" type="submit" id="guardar-cambios-form" value="<?php _e('Guardar Cambios','envialo-simple') ?>" class="button-primary"/>
                     
-                    <input type="submit" class="obtener-codigo button-secondary" name="obtener-codigo" value="Obtener Código" />                
+                    <input type="submit" class="obtener-codigo button-secondary" name="obtener-codigo" value="<?php _e('Obtener Código','envialo-simple') ?>" />                
                 </div>
                 
                 <div id="preview" class="postbox ">
                 <h3>
-                    Vista Previa 
-                    <div id="actualizar-preview" >Actualizar 
+                    <?php _e('Vista Previa','envialo-simple') ?> 
+                    <div id="actualizar-preview" ><?php _e('Actualizar','envialo-simple') ?> 
                         <img style="height: 15px;" src="<?php echo plugins_url("envialosimple-email-marketing-y-newsletters-gratis/imagenes/refresh.png") ?>" alt="refresh">
                     </div>
                 </h3>                
@@ -323,13 +312,13 @@
      <div id="modal-agregar-email">        
         <form id="form-agregar-email" action="#" method="post">            
             <div id="label-error-mail-admin" class="mensaje"></div>            
-            <label for="nombreEmailAdmin">Nombre</label><br />
+            <label for="nombreEmailAdmin"><?php _e('Nombre','envialo-simple') ?></label><br />
             <input type="text"  name="nombreEmailAdmin" id="nombreEmailAdmin"/><br />            
             
-            <label for="emailAdmin">Email:</label><br />
+            <label for="emailAdmin"><?php _e('Email:','envialo-simple') ?></label><br />
             <input type="text"  name="emailAdmin" id="emailAdmin"/><br />            
-            <input type="submit" value="Agregar" class="button-primary" style="margin-top: 20px;margin-bottom: 10px;"/>
-            <input type="reset" value="Cancelar" class="button-secondary" onclick='jQuery("#modal-agregar-email").dialog("close")'/>
+            <input type="submit" value="<?php _e('Agregar','envialo-simple') ?>" class="button-primary" style="margin-top: 20px;margin-bottom: 10px;"/>
+            <input type="reset" value="<?php _e('Cancelar','envialo-simple') ?>" class="button-secondary" onclick='jQuery("#modal-agregar-email").dialog("close")'/>
             
         </form>
         
@@ -338,29 +327,29 @@
     
     
     <div id="modal-obtener-codigo" style="top:50%">
-          <p>Copia y pega éste código en el lugar de tu blog donde desees visualizar el Formulario de Suscripción.</p>
+          <p><?php _e('Copia y pega éste código en el lugar de tu blog donde desees visualizar el Formulario de Suscripción.','envialo-simple') ?></p>
         
         <textarea style="width: 555px;height: 70px;">        
-            <script type='text/javascript' src='http://v2.envialosimple.com/form/show/AdministratorID//FormID//format/widget'></script>
+            <script type='text/javascript' src='http://v2.envialosimple.com/form/show/AdministratorID//FormID   /format/widget'></script>
         </textarea>
         
         
-        <p>Para utilizar el Formulario de Suscripción como <span style="font-weight: bold;">Widget</span>, realiza los siguientes pasos:</p>
+        <p><?php _e('Para utilizar el Formulario de Suscripción como <b>Widget</b>, realiza los siguientes pasos:','envialo-simple') ?></p>
         
         <ol>
             
-            <li>Ingresa al Menú <span style="font-weight: bold">Apariencia</span>.</li>
-            <li>Selecciona el ítem <span style="font-weight: bold">Widgets</span>.</li>
-            <li>Arrastra y suelta un nuevo Bloque <span style="font-weight: bold">Formulario Suscripción EnvialoSimple</span> en la Barra de Widgets de tu preferencia.</li>
-            <li>Selecciona el Formulario que desees utilizar.</li>
-            <li>Guarda los cambios.</li>
-            <li>El Formulario aparecerá como Widget en la Barra que seleccionaste y estará listo para usar.</li>
+            <li><?php _e('Ingresa al Menú <b>Apariencia</b>.','envialo-simple') ?></li>
+            <li><?php _e('Selecciona el ítem <b>Widgets</b>.','envialo-simple') ?></li>
+            <li><?php _e('Arrastra y suelta un nuevo Bloque <b>Formulario Suscripción EnvialoSimple</b> en la Barra de Widgets de tu preferencia.','envialo-simple') ?></li>
+            <li><?php _e('Selecciona el Formulario que desees utilizar.','envialo-simple') ?></li>
+            <li><?php _e('Guarda los cambios.','envialo-simple') ?></li>
+            <li><?php _e('El Formulario aparecerá como Widget en la Barra que seleccionaste y estará listo para usar.','envialo-simple') ?></li>
         </ol>
         
- <p>Si deseas utilizarlo en una <span style="font-weight: bold">Página</span> o <span style="font-weight: bold">Posteo</span>, desde el Editor de Contenido, selecciona la pestaña HTML y pega el codigo del formulario donde lo desees.</p>
-       <!-- <p class="mensaje" style="display:block" >Los cambios que realices a éste formulario se verán reflejados en TODOS LOS SITIOS que lo utilicen.</p>-->
+ <p><?php _e('Si deseas utilizarlo en una <b>Página</b> o <b>Posteo</b>, desde el Editor de Contenido, selecciona la pestaña HTML y pega el codigo del formulario donde lo desees.','envialo-simple') ?></p>
+       
         
-        <a style="float: right;margin: 20px;" href="#" onclick="jQuery('#modal-obtener-codigo').dialog('close')" class="button-secondary">Cerrar</a>
+        <a style="float: right;margin: 20px;" href="#" onclick="jQuery('#modal-obtener-codigo').dialog('close')" class="button-secondary"><?php _e('Cerrar','envialo-simple') ?></a>
                
     </div>
     
@@ -370,14 +359,14 @@
             <div id="mensaje-agregar-campo" class="mensaje"></div>        
                 
                         
-            <label for="titulo-campo">Nombre Campo:</label><br />
+            <label for="titulo-campo"><?php _e('Nombre Campo:','envialo-simple') ?></label><br />
             <input type="text"  name="Title-Campo" id="titulo-campo"/><br />
 
-            <label for="valor-campo">Valor por Defecto:</label><br />                        
+            <label for="valor-campo"><?php _e('Valor por Defecto:','envialo-simple') ?></label><br />                        
             <input type="text"  name="DefaultValue-Campo" id="valor-campo"/><br />            
             
-            <input type="submit" value="Agregar" class="button-primary" style="margin-top: 20px;margin-bottom: 10px;"/>
-            <input type="reset" value="Cancelar" class="button-secondary" onclick='jQuery("#modalAgregarCampo").dialog("close")'/>
+            <input type="submit" value="<?php _e('Agregar','envialo-simple') ?>" class="button-primary" style="margin-top: 20px;margin-bottom: 10px;"/>
+            <input type="reset" value="<?php _e('Cancelar','envialo-simple') ?>" class="button-secondary" onclick='jQuery("#modalAgregarCampo").dialog("close")'/>
             
         </form>
         
@@ -387,14 +376,14 @@
     <div id="modal-crear-lista">
         
         <form action="#" id="form-crear-lista" method="post">
-            <p>Escribí el Nombre de tu Nueva Lista de Contactos.</p>
-            <label for="nombre-lista">Nombre</label>
+            <p><?php _e('Escribí el Nombre de tu Nueva Lista de Contactos.','envialo-simple') ?></p>
+            <label for="nombre-lista"><?php _e('Nombre','envialo-simple') ?></label>
             <input type="hidden" name="accion" value="crear-lista"/>
             <input type="text" id="nombre-lista" name="nombre-lista"  style="margin-bottom: 20px" value=""/><br />
             
             <div style="width:180px;margin: 0 auto 0 auto;">
-                <input type="submit" value="Crear Lista" class="button-primary"/>
-                <input type="reset" value="Cancelar" class="button-secondary" id="cerrar-modal"/>    
+                <input type="submit" value="<?php _e('Crear Lista','envialo-simple') ?>" class="button-primary"/>
+                <input type="reset" value="<?php _e('Cancelar','envialo-simple') ?>" class="button-secondary" id="cerrar-modal"/>    
             </div>          
         </form> 
     </div>
@@ -431,10 +420,10 @@
                             jQuery("#MailListsIds").val(lista.MailListID);
                             
                             jQuery("#MailListsIds").trigger("liszt:updated");                            
-                            alert("Lista Agregada Correctamente!")                            
+                            alert("<?php _e('Lista Agregada Correctamente!','envialo-simple') ?>")                            
                             jQuery( "#modal-crear-lista" ).dialog("close");
                         }else{
-                            alert("Error al Crear la Lista.");
+                            alert("<?php _e('Error al Crear la Lista.','envialo-simple') ?>");
                         }                        
                     },"json");
                 }             
@@ -446,7 +435,7 @@
             width: 320,
             dialogClass: 'fixed-dialog',
             modal: true,
-            title:"Crear Lista"         
+            title:"<?php _e('Crear Lista','envialo-simple') ?>"         
             
         });
         jQuery("#cerrar-modal").click(function(){
@@ -461,12 +450,11 @@
         //</agregar lista
         
         
-        
         mostrarBotonObtenerCodigo()
         
         jQuery(window).bind('beforeunload', function() {            
             if (alertarPageLeave) {
-                return 'Al abandonar ésta página, se perderán todos los cambios no guardados.';
+                return '<?php _e('Al abandonar ésta página, se perderán todos los cambios no guardados.','envialo-simple') ?>';
             } else {
                 return;
             } 
@@ -484,7 +472,7 @@
             if(jQuery("#titulo-campo").val() == ""){
                 jQuery("#titulo-campo").css("border","1px solid red");
                 
-                jQuery("#mensaje-agregar-campo").removeClass("msjExito").removeClass("msjError").addClass("msjError").html("Por favor Revise todos los campos").show();
+                jQuery("#mensaje-agregar-campo").removeClass("msjExito").removeClass("msjError").addClass("msjError").html("<?php _e('Por favor Revise todos los campos','envialo-simple') ?>").show();
                 
                 return false;    
             }
@@ -503,17 +491,13 @@
                     
                     jQuery(selectAgregar).change();
                     
-                    alert("Campo Agregado Correctamente!");
+                    alert("<?php _e('Campo Agregado Correctamente!','envialo-simple') ?>");
                     jQuery("#modalAgregarCampo").dialog("close");
-                }
-                
+                }                
                 
             },"json")
             
-            
-            
-        });
-        
+        });        
         
            jQuery(".obtener-codigo").click(function(event){
                 
@@ -550,7 +534,7 @@
             width : "auto",
             modal : true,
             position:"top",              
-            title : "Obtener Código"            
+            title : "<?php _e('Obtener Código','envialo-simple') ?>"            
         })
         
         
@@ -559,7 +543,7 @@
                 height : "auto",
                 width : "auto",
                 modal : true,                
-                title : "Agregar Campo Personalizado",
+                title : "<?php _e('Agregar Campo Personalizado','envialo-simple') ?>",
                 close : function(event, ui) {                    
                 }
           });
@@ -569,7 +553,7 @@
               
               
               if(rolUsuario == "free"){
-                  alert("Esta opción es solamente para cuentas Premium. Actualiza tu cuenta para poder utilizarla.")
+                  alert("<?php _e('Esta opción es solamente para cuentas Premium. Actualiza tu cuenta para poder utilizarla.','envialo-simple') ?>")
                   event.preventDefault();
                   jQuery(this).attr("checked",true)
                   return false;
@@ -630,14 +614,14 @@
             
             if(jQuery("#MailListsIds").val() == null){
                 
-                alert("Por Favor revise todos los campos.")
+                alert("<?php _e('Por Favor revise todos los campos.','envialo-simple') ?>")
                 jQuery(".chzn-choices").css("border","1px solid red")
                 
                 return false;
             }
             if(jQuery("#nombre-form").val() == ""){
                 
-                alert("Por Favor revise todos los campos.")
+                alert("<?php _e('Por Favor revise todos los campos.','envialo-simple') ?>")
                 jQuery("#nombre-form").css("border","1px solid red")
                 
                 return false;
@@ -650,7 +634,7 @@
                jQuery(this).css("border","1px solid #ddd");
                
                if(jQuery(this).val() == "agregar"){
-                    alert("Por Favor revise todos los campos.")
+                    alert("<?php _e('Por Favor revise todos los campos.','envialo-simple') ?>")
                     jQuery(this).css("border","1px solid red");
                     selectOK = false;
                     return false;
@@ -732,13 +716,13 @@
                     jQuery("input[name=EmailID]").val(json.email.EmailID);
                     
                     alertarPageLeave = false;                
-                    jQuery(".mensaje").hide(100).removeClass("msjError").removeClass("msjExito").addClass("msjExito").html("Formulario Guardado Correctamente!").show(100);
+                    jQuery(".mensaje").hide(100).removeClass("msjError").removeClass("msjExito").addClass("msjExito").html("<?php _e('Formulario Guardado Correctamente!','envialo-simple') ?>").show(100);
                     
                     setTimeout(function(){jQuery(".mensaje").hide(300) },7000);
                     generarVistaPrevia()
                      mostrarBotonObtenerCodigo()
                 }else{
-                           jQuery(".mensaje").hide(100).removeClass("msjError").removeClass("msjExito").addClass("msjError").html("Error al Guardar el Formulario. Revise los Campos e Intente Nuevamente").show(100);
+                           jQuery(".mensaje").hide(100).removeClass("msjError").removeClass("msjExito").addClass("msjError").html("<?php _e('Error al Guardar el Formulario. Revise los Campos e Intente Nuevamente','envialo-simple') ?>").show(100);
                 }
                 
              },"json");
