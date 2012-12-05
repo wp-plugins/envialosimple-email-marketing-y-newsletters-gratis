@@ -37,7 +37,7 @@ include_once (ENVIALO_DIR . "/paginas/header.php");
 
                 </div>
 
-                <form action="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/handler.php')?>" method="post" name="form-conf" id="form-conf" class="add:users: validate">
+                <form action="#" method="post" name="form-conf" id="form-conf" class="add:users: validate">
                     <input type="hidden" name="accion" value="traerToken"/>
                     <input type="hidden"  name="admin_url" value="<?php echo get_admin_url() ?>"/>
                     <table class="form-table">
@@ -116,8 +116,7 @@ include_once (ENVIALO_DIR . "/paginas/header.php");
                 if (json.success) {
 
                     //todo ok , redirijo al index
-                    window.location = "<?php echo get_admin_url() . "
-                    admin.php ? page = envialo - simple "; ?>";
+                    window.location = "<?php echo get_admin_url() ."admin.php?page=envialo-simple"; ?>";
 
                     jQuery("#msj-respuesta-token").removeClass("msjError").addClass("msjExito").show(300).html(json.mensaje);
 
@@ -135,7 +134,8 @@ include_once (ENVIALO_DIR . "/paginas/header.php");
     });
 
     jQuery("#form-conf").submit(function (event) {
-
+        
+        event.preventDefault();
         jQuery("#msj-respuesta").hide();
         jQuery("#generar-clave").hide();
 
@@ -144,7 +144,7 @@ include_once (ENVIALO_DIR . "/paginas/header.php");
             return false;
         }
 
-        event.preventDefault();
+        
         usuario = jQuery("input[name=username]").val()
         pass = jQuery("input[name=password]").val()
 
