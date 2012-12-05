@@ -939,6 +939,44 @@ margin-bottom: 25px;
 	background: url("../imagenes/sprite.png") no-repeat scroll -25px 0px transparent;
 }
 
+.form-horizontal form{
+    
+margin: 41px auto;    
+}
+
+.form-horizontal.control-group.component-type-inputText{
+    
+} 
+
+.form-horizontal .control-label {
+float: left;
+width: 140px;
+padding-top: 5px;
+text-align: right;
+font-size: 13px;
+}
+.form-horizontal .controls {
+margin-left: 160px;
+margin-top: 18px;
+}
+
+.form-horizontal .form-actions {
+padding-left: 160px;
+
+margin-top: 50px;
+}
+
+#topBlockClonWrapper .simplemodal-title, [data-containername="templateEditorContainer"] .simplemodal-title, #fileUploader .simplemodal-container .simplemodal-title {
+background: #DDD;
+color: black;
+border-bottom: 1px solid #CCC;
+font-weight: bold;
+padding: 6px 8px;
+text-shadow: 0 1px 0 #F4F4F4;
+}
+
+
+
 /* campaña completada*/
 
 

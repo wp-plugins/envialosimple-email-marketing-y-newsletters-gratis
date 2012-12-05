@@ -29,7 +29,7 @@
     </div>   
    
     <div id="contenido-1">
-        <table width="600" border="0" align="center" cellpadding="20" cellspacing="0" class="tobBlock tobClonable tobRemovable" style="background-color:transparent;">
+        <table width="100%" border="0" align="center" cellpadding="20" cellspacing="0" class="tobBlock tobClonable tobRemovable" style="background-color:transparent;">
             <tbody>
                 <tr>
                     <td valign="top" style="padding: 20px;">
@@ -57,7 +57,7 @@
         </table>
     </div>
     <div id="contenido-2">
-        <table width="600" border="0" align="center" cellpadding="20" cellspacing="0" class="tobBlock tobClonable tobRemovable" style="background-color:transparent;">
+        <table width="100%" border="0" align="center" cellpadding="20" cellspacing="0" class="tobBlock tobClonable tobRemovable" style="background-color:transparent;">
             <tbody>
                 <tr>
                     <td valign="top" style="padding: 20px;">
@@ -83,7 +83,7 @@
         </table>
     </div>
     <div id="contenido-3">
-        <table width="600" align="center" cellspacing="0" cellpadding="30" border="0" class="tobBlock tobClonable tobRemovable" style="background-color:transparent;">
+        <table width="100%" align="center" cellspacing="0" cellpadding="30" border="0" class="tobBlock tobClonable tobRemovable" style="background-color:transparent;">
             <tbody>
                 <tr>
                     <td align="center" valign="top" style="padding: 20px; font-family: 'Trebuchet MS',Helvetica,sans-serif; font-size: 14px; color: #666; line-height: 20px !important;" >
@@ -110,7 +110,7 @@
         </table>
     </div>
     <div id="contenido-4">
-        <table width="600" border="0" align="center" cellpadding="20" cellspacing="0" class="tobBlock tobClonable tobRemovable" style="background-color:transparent;">
+        <table width="100%" border="0" align="center" cellpadding="20" cellspacing="0" class="tobBlock tobClonable tobRemovable" style="background-color:transparent;">
             <tbody>
                 <tr>
                     <td valign="top" style="padding: 20px; padding-right:0px; font-family: 'Trebuchet MS',Helvetica,sans-serif; font-size: 12px; color: #999; line-height: 17px;">
@@ -136,7 +136,7 @@
         </table>
     </div>
     <div id="contenido-5">
-        <table width="600" align="center" cellspacing="0" cellpadding="30" border="0" class="tobBlock tobClonable tobRemovable" style="background-color:transparent;">
+        <table width="100%" align="center" cellspacing="0" cellpadding="30" border="0" class="tobBlock tobClonable tobRemovable" style="background-color:transparent;">
             <tbody>
                 <tr>
                     <td align="center" valign="top" style="padding: 20px; font-family: 'Trebuchet MS',Helvetica,sans-serif; font-size: 14px; color: #666; line-height: 20px !important;" >
@@ -160,7 +160,7 @@
         </table>
     </div>
     <div id="contenido-6">
-        <table width="600" border="0" align="center" cellpadding="20" cellspacing="0" class="tobBlock tobClonable tobRemovable" style="background-color:transparent;">
+        <table width="100%" border="0" align="center" cellpadding="20" cellspacing="0" class="tobBlock tobClonable tobRemovable" style="background-color:transparent;">
             <tbody>
                 <tr>
                     <td valign="top" style="padding: 20px;">
@@ -185,7 +185,7 @@
         </table>
     </div>
       <div id="contenido-8">
-        <table width="600" align="center" cellspacing="0" cellpadding="30" border="0" class="tobBlock tobClonable tobRemovable">
+        <table width="100%" align="center" cellspacing="0" cellpadding="30" border="0" class="tobBlock tobClonable tobRemovable">
             <tbody>
                 <tr>
                     <td align="center" valign="top" style="padding: 20px; font-family: 'Trebuchet MS',Helvetica,sans-serif; font-size: 14px; color: #666; line-height: 20px !important;" >
