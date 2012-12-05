@@ -30,18 +30,18 @@ foreach($listas[0]['item'] as $l){
     <div id="icon-users" class="icon32">
         <br/>
     </div>
-    <h2><?php _e('Importar Contactos a la Lista');?></h2>
+    <h2><?php _e('Importar Contactos a la Lista', 'envialo-simple');?></h2>
 
     <div class="tool-box" id="contenedor-1">
         <?php if(!$co->importarSelectSource($MailListsIds)):?>
-            <div class='mensaje msjError' style='display:block'><?php _e('Ha Ocurrido un Error. Por Favor Intente Nuevamente');?> </div>
+            <div class='mensaje msjError' style='display:block'><?php _e('Ha Ocurrido un Error. Por Favor Intente Nuevamente', 'envialo-simple');?> </div>
         <?php endif; ?>
         <div id="contenedor-importacion">
             <div class="metodo-importacion">
                 <div id="imagenCsv"></div>
-                <p class="titulo"><?php _e('Importar Lista desde Archivo .csv');?></p>
+                <p class="titulo"><?php _e('Importar Lista desde Archivo .csv', 'envialo-simple');?></p>
 
-                <p class="texto"><?php _e('Haz click en el botón "Subir Archivo" y selecciona el documento .csv que deseas importar');?></p>
+                <p class="texto"><?php _e('Haz click en el botón "Subir Archivo" y selecciona el documento .csv que deseas importar', 'envialo-simple');?></p>
 
                 <div>
                     <div id="fine-uploader"></div>
@@ -68,22 +68,22 @@ foreach($listas[0]['item'] as $l){
             </div>
             <div class="metodo-importacion">
                 <div id="imagenCopy"></div>
-                <p class="titulo"><?php _e('Copiar y pegar');?></p>
+                <p class="titulo"><?php _e('Copiar y pegar', 'envialo-simple');?></p>
 
-                <p class="texto"><?php _e('Puedes copiar y pegar el contenido de un archivo o escribirlos manualmente en el siguiente formulario.');?></p>
+                <p class="texto"><?php _e('Puedes copiar y pegar el contenido de un archivo o escribirlos manualmente en el siguiente formulario.', 'envialo-simple');?></p>
 
                 <div class="formulario">
                     <textarea name="CopyPaste"></textarea>
                 </div>
-                <input type="submit" class="button-primary" id="boton-copypaste" style="width: 70px;display: block;margin: 10px auto;" value="<?php _e('Cargar');?>"/>
+                <input type="submit" class="button-primary" id="boton-copypaste" style="width: 70px;display: block;margin: 10px auto;" value="<?php _e('Cargar', 'envialo-simple');?>"/>
             </div>
         </div>
         <form id="form-correspondencias" method="post" action="#">
             <div id="contenedor-campos-csv">
                 <div id="contenedor-tabla-csv">
-                    <p><?php _e('Selecciona los Campos que deseas Importar a la Lista.');?></p>
+                    <p><?php _e('Selecciona los Campos que deseas Importar a la Lista.', 'envialo-simple');?></p>
 
-                    <p><?php _e('Se muestran los 10 primeros Contactos que se importarán.');?></p>
+                    <p><?php _e('Se muestran los 10 primeros Contactos que se importarán.', 'envialo-simple');?></p>
                     <table id="tabla-campos-csv">
                         <thead>
                             <tr>&nbsp;</tr>
@@ -103,29 +103,29 @@ foreach($listas[0]['item'] as $l){
 
                 <p>
                     <input type="hidden" value="" name="accion"/>
-                    <input type="submit" id="boton-procesar" class="button-primary" value="<?php _e('Procesar');?>"/>
-                    <input type="reset" class="button-secondary" onclick="window.location='<?php echo get_admin_url()."admin.php?page=envialo-simple-listas";?>' " value="<?php _e('Cancelar');?>"/>
+                    <input type="submit" id="boton-procesar" class="button-primary" value="<?php _e('Procesar', 'envialo-simple');?>"/>
+                    <input type="reset" class="button-secondary" onclick="window.location='<?php echo get_admin_url()."admin.php?page=envialo-simple-listas";?>' " value="<?php _e('Cancelar', 'envialo-simple');?>"/>
                 </p>
             </div>
         </form>
 
         <div id="reportes-importacion">
-            <h3><?php _e('Reportes de Importación');?></h3>
+            <h3><?php _e('Reportes de Importación', 'envialo-simple');?></h3>
 
-            <p><?php _e('Contactos Importados');?>: <span id="ImportStatsImported"></span></p>
+            <p><?php _e('Contactos Importados', 'envialo-simple');?>: <span id="ImportStatsImported"></span></p>
 
-            <p><?php _e('Contactos NO Importados');?>: <span id="ImportStatsFailed"></span></p>
+            <p><?php _e('Contactos NO Importados', 'envialo-simple');?>: <span id="ImportStatsFailed"></span></p>
 
-            <p><?php _e('Contactos Duplicados');?>: <span id="ImportStatsDuplicates"></span></p>
+            <p><?php _e('Contactos Duplicados', 'envialo-simple');?>: <span id="ImportStatsDuplicates"></span></p>
 
-            <p><?php _e('Contactos con Email Inválido');?>: <span id="ImportStatusInvalidEmail"></span></p>
+            <p><?php _e('Contactos con Email Inválido', 'envialo-simple');?>: <span id="ImportStatusInvalidEmail"></span></p>
 
-            <p><?php _e('Contactos con Email En Lista Negra');?>: <span id="ImportStatusBlackListed"></span></p><br/>
+            <p><?php _e('Contactos con Email En Lista Negra', 'envialo-simple');?>: <span id="ImportStatusBlackListed"></span></p><br/>
 
-            <p><?php _e('Líneas Procesadas');?>: <span id="TotalLines"></span></p><br/> <br/>
+            <p><?php _e('Líneas Procesadas', 'envialo-simple');?>: <span id="TotalLines"></span></p><br/> <br/>
 
             <p>
-                <a class="button-secondary" href="<?php echo get_admin_url()."admin.php?page=envialo-simple-listas";?>"><?php _e('Continuar');?></a>
+                <a class="button-secondary" href="<?php echo get_admin_url()."admin.php?page=envialo-simple-listas";?>"><?php _e('Continuar', 'envialo-simple');?></a>
             </p>
 
         </div>
@@ -168,9 +168,9 @@ foreach($listas[0]['item'] as $l){
                     jQuery('#reportes-importacion').show(150);
                 } else {
                     if (json.root.ajaxResponse.errors.errorMsg_selectEmailColumn == "") {
-                        alert("<?php _e('No ha Seleccionado la Columna con la Dirección de Correo. Por favor Intente Nuevamente.');?>")
+                        alert("<?php _e('No ha Seleccionado la Columna con la Dirección de Correo. Por favor Intente Nuevamente.', 'envialo-simple');?>")
                     } else {
-                        alert("<?php _e('Se ha producido un error, por favor intente nuevamente.');?>");
+                        alert("<?php _e('Se ha producido un error, por favor intente nuevamente.', 'envialo-simple');?>");
                     }
                 }
             }, "json");
@@ -178,7 +178,7 @@ foreach($listas[0]['item'] as $l){
         jQuery("#boton-copypaste").click(function () {
             var CopyPaste = jQuery("textarea[name=CopyPaste]").val();
             if (CopyPaste == "") {
-                alert("<?php _e('Por Favor ingresa campos separados por coma en el formulario.');?>");
+                alert("<?php _e('Por Favor ingresa campos separados por coma en el formulario.', 'envialo-simple');?>");
                 return false;
             }
             jQuery.post(urlHandler, {accion:"copypaste", CopyPaste:CopyPaste}, function (json) {
@@ -202,7 +202,7 @@ foreach($listas[0]['item'] as $l){
             //agrego selects
             jQuery("#contenedor-select").html("");
             for (var j in json.filecolumns.column) {
-                jQuery("#tabla-campos-csv thead tr").append("<th><select class='corresponder' name='Correspond" + j + "' id='select-columna-" + j + "'><option value=''><?php _e('No Importar');?></option></select></th>")
+                jQuery("#tabla-campos-csv thead tr").append("<th><select class='corresponder' name='Correspond" + j + "' id='select-columna-" + j + "'><option value=''><?php _e('No Importar', 'envialo-simple');?></option></select></th>")
                 for (var i in json.fields.field) {
                     jQuery("#select-columna-" + j).append("<option value='" + json.fields.field[i].Id + "' >" + json.fields.field[i].Name + "</option>");
                 }

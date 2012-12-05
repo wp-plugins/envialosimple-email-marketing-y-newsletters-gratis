@@ -4,11 +4,11 @@ $ev = new EnvialoSimple();
 $ev->checkSetup();
 if(!isset($GLOBALS['APIKey'])){
     //plugin configurado incorrectamente
-    _e("Problema en la Configuración del Plugin");
+    _e("Problema en la Configuración del Plugin", 'envialo-simple');
     return;
 }
 
-$campoBusqueda = isset($_REQUEST['filter']) ? $_REQUEST['filter'] : __('Buscar Newsletters..');
+$campoBusqueda = isset($_REQUEST['filter']) ? $_REQUEST['filter'] : __('Buscar Newsletters..', 'envialo-simple');
 
 ?>
 
@@ -50,7 +50,7 @@ $campoBusqueda = isset($_REQUEST['filter']) ? $_REQUEST['filter'] : __('Buscar N
 </script>
 <?php if(isset($_GET["configurado"])): ?>
 <div id='msj-respuesta' class='mensaje msjExito' style='width: 55%; display:inline-block'>
-    <?php _e('El Plugin ha sido Configurado Correctamente! Ya podés comenzar a Enviar tus Newsletters.'); ?>
+    <?php _e('El Plugin ha sido Configurado Correctamente! Ya podés comenzar a Enviar tus Newsletters.', 'envialo-simple'); ?>
 </div>
 <?php endif; ?>
 
@@ -59,8 +59,8 @@ $campoBusqueda = isset($_REQUEST['filter']) ? $_REQUEST['filter'] : __('Buscar N
         <br/>
     </div>
     <h2 style="float:left">
-        <?php _e('Newsletters');?>
-        <a href="<?php echo get_admin_url()."admin.php?page=envialo-simple-nuevo" ?>" class="add-new-h2 abrir-modal-campana"><?php _e('Crear Nuevo');?></a>
+        <?php _e('Newsletters', 'envialo-simple');?>
+        <a href="<?php echo get_admin_url()."admin.php?page=envialo-simple-nuevo" ?>" class="add-new-h2 abrir-modal-campana"><?php _e('Crear Nuevo', 'envialo-simple');?></a>
     </h2>
 
     <div class="busqueda-campanas">
@@ -73,7 +73,7 @@ $campoBusqueda = isset($_REQUEST['filter']) ? $_REQUEST['filter'] : __('Buscar N
     <div class="tool-box" id="contenedor-newsletters">
         <?php if(isset($_GET["camp-enviada"])): ?>
         <div id='msj-respuesta' class='mensaje msjExito' style='width: 55%; display:inline-block'>
-            <?php _e('Newsletter Enviado Correctamente !!');?>
+            <?php _e('Newsletter Enviado Correctamente !!', 'envialo-simple');?>
         </div>
         <?php endif;?>
         <?php include_once(ENVIALO_DIR."/paginas/tablaCampanas.php"); ?>

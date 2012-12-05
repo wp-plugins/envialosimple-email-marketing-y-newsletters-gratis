@@ -12,28 +12,28 @@ $c = $Campanas->listarCampanas($absolutepage, $filter);
 <div>
     <?php if(!$c['success']): ?>
         <span>
-            <?php _e('Error de Conexion con el Servidor'); ?>
+            <?php _e('Error de Conexion con el Servidor', 'envialo-simple'); ?>
         </span>
     <?php else: ?>
         <?php if(empty($c['list']['item'])): ?>
             <?php if(!empty($filter)): ?>
                 <div class='wp-caption'>
                     <p>
-                        <?php _e('No se han Encontrado Resultados. Intente Buscando Nuevamente.'); ?>
+                        <?php _e('No se han Encontrado Resultados. Intente Buscando Nuevamente.', 'envialo-simple'); ?>
                     </p>
                     <p>
                         <a style="" href="<?php echo $adminUrl;?>admin.php?page=envialo-simple" class="button-primary" >
-                            <?php _e('Volver'); ?>
+                            <?php _e('Volver', 'envialo-simple'); ?>
                         </a>
                     </p>
                 </div>
             <?php else:?>
                 <div class='wp-caption'>
                     <p>
-                         <?php _e('Aún No tienes Newsletters Creados.'); ?></p>
+                         <?php _e('Aún No tienes Newsletters Creados.', 'envialo-simple'); ?></p>
                     <p>
                         <a style = "width:200px" href="<?php echo $adminUrl;?>admin.php?page=envialo-simple-nuevo" id='abrir-modal-campana' class='button-primary abrir-modal-campana' >
-                            <?php _e('Crear Nuevo Newsletter'); ?>
+                            <?php _e('Crear Nuevo Newsletter', 'envialo-simple'); ?>
                         </a>
                     </p>
                 </div>
@@ -47,22 +47,22 @@ $c = $Campanas->listarCampanas($absolutepage, $filter);
                                 <span style='display: block;height: 30px;margin-left: 8px'>ID</span>
                             </th>
                             <th class='manage-column column-title sortable desc' style='width:200px;'>
-                                <?php _e('Nombre'); ?>
+                                <?php _e('Nombre', 'envialo-simple'); ?>
                             </th>
                             <th class='manage-column column-title sortable desc' style='width:125px;'>
-                                <?php _e('Asunto'); ?>
+                                <?php _e('Asunto', 'envialo-simple'); ?>
                             </th>
                             <th class='manage-column column-title sortable desc' style='width:70px;'>
-                                <?php _e('Estado'); ?>
+                                <?php _e('Estado', 'envialo-simple'); ?>
                             </th>
                             <th class='manage-column column-title sortable desc' style='width:120px;'>
-                                <?php _e('Destinatarios'); ?>
+                                <?php _e('Destinatarios', 'envialo-simple'); ?>
                             </th>
                             <th class='manage-column column-title sortable desc' style='width:100px;'>
-                                <?php _e('Reportes'); ?>
+                                <?php _e('Reportes', 'envialo-simple'); ?>
                             </th>
                             <th class='manage-column column-title sortable desc' style='width:200px;'>
-                                <?php _e('Fecha de Envío'); ?>
+                                <?php _e('Fecha de Envío', 'envialo-simple'); ?>
                             </th>
                         </tr>
                     </thead>
@@ -98,57 +98,57 @@ $c = $Campanas->listarCampanas($absolutepage, $filter);
                                             case 'Draft': ?>
                                                 <span class='edit'>
                                                     <a href='<?php echo "{$adminUrl}admin.php?page=envialo-simple&accion=campana-editar&idCampana={$item['CampaignID']}"?>' title='Editá tu Campaña'>
-                                                        <?php _e('Editar'); ?>
+                                                        <?php _e('Editar', 'envialo-simple'); ?>
                                                     </a> |
                                                 </span>
                                             <?php break; ?>
                                             <?php case 'Paused': ?>
                                                 <span class='view'>
-                                                    <a href='' class='previsualizar-news' name='<?php echo $item['CampaignID']?>' title='<?php _e('Previsualizar Campaña en el Navegador o por Correo Electrónico');?>' >
-                                                        <?php _e('Previsualizar');?>
+                                                    <a href='' class='previsualizar-news' name='<?php echo $item['CampaignID']?>' title='<?php _e('Previsualizar Campaña en el Navegador o por Correo Electrónico', 'envialo-simple');?>' >
+                                                        <?php _e('Previsualizar', 'envialo-simple');?>
                                                     </a> |
                                                 </span>
                                                 <span class='view'>
-                                                    <a href='' class='reanudar-campana-bt' name='<?php echo $item['CampaignID']?>' title='<?php _e('Reanudar');?>' >
-                                                        <?php _e('Reanudar');?>
+                                                    <a href='' class='reanudar-campana-bt' name='<?php echo $item['CampaignID']?>' title='<?php _e('Reanudar', 'envialo-simple');?>' >
+                                                        <?php _e('Reanudar', 'envialo-simple');?>
                                                     </a> |
                                                 </span>
                                             <?php break; ?>
                                             <?php case 'Scheduled': ?>
                                                 <span class='view'>
-                                                    <a href='' class='previsualizar-news' name='<?php echo $item['CampaignID']?>' title='<?php _e('Previsualizar Campaña en el Navegador o por Correo Electrónico');?>' >
-                                                        <?php _e('Previsualizar');?>
+                                                    <a href='' class='previsualizar-news' name='<?php echo $item['CampaignID']?>' title='<?php _e('Previsualizar Campaña en el Navegador o por Correo Electrónico', 'envialo-simple');?>' >
+                                                        <?php _e('Previsualizar', 'envialo-simple');?>
                                                     </a> |
                                                  </span>
                                                  <span class='edit'>
-                                                    <a href='' class='pausar-campana-bt' name='<?php echo $item['CampaignID']?>' title='<?php _e('Pausar Campaña');?>' >
-                                                        <?php _e('Pausar');?>
+                                                    <a href='' class='pausar-campana-bt' name='<?php echo $item['CampaignID']?>' title='<?php _e('Pausar Campaña', 'envialo-simple');?>' >
+                                                        <?php _e('Pausar', 'envialo-simple');?>
                                                     </a> |
                                                  </span>
                                             <?php break; ?>
                                             <?php case 'Stopped': ?>
                                                 <span class='view'>
-                                                    <a href='' class='previsualizar-news' name='<?php echo $item['CampaignID']?>' title='<?php _e('Previsualizar Campaña en el Navegador o por Correo Electrónico');?>' >
-                                                        <?php _e('Previsualizar');?>
+                                                    <a href='' class='previsualizar-news' name='<?php echo $item['CampaignID']?>' title='<?php _e('Previsualizar Campaña en el Navegador o por Correo Electrónico', 'envialo-simple');?>' >
+                                                        <?php _e('Previsualizar', 'envialo-simple');?>
                                                     </a> |
                                                 </span>
                                                 <span class='edit'>
-                                                    <a href='' class='reanudar-campana-bt' name='<?php echo $item['CampaignID']?>}' title='<?php _e('Reanudar Campaña');?>' >
-                                                        <?php _e('Reanudar');?>
+                                                    <a href='' class='reanudar-campana-bt' name='<?php echo $item['CampaignID']?>}' title='<?php _e('Reanudar Campaña', 'envialo-simple');?>' >
+                                                        <?php _e('Reanudar', 'envialo-simple');?>
                                                     </a> |
                                                 </span>
                                             <?php break; ?>
                                             <?php case 'Sending': ?>
                                                 <span class='edit'>
-                                                     <a href='' class='pausar-campana-bt' name='<?php echo $item['CampaignID']?>' title='<?php _e('Pausar Campaña');?>' >
-                                                         <?php _e('Pausar');?>
+                                                     <a href='' class='pausar-campana-bt' name='<?php echo $item['CampaignID']?>' title='<?php _e('Pausar Campaña', 'envialo-simple');?>' >
+                                                         <?php _e('Pausar', 'envialo-simple');?>
                                                      </a> |
                                                 </span>
                                             <?php break; ?>
                                             <?php case 'Completed': ?>
                                                 <span class='view'>
-                                                    <a href='' class='previsualizar-news' name='<?php echo $item['CampaignID']?>' title='<?php _e('Previsualizar Campaña en el Navegador o por Correo Electrónico');?>' >
-                                                        <?php _e('Previsualizar');?>
+                                                    <a href='' class='previsualizar-news' name='<?php echo $item['CampaignID']?>' title='<?php _e('Previsualizar Campaña en el Navegador o por Correo Electrónico', 'envialo-simple');?>' >
+                                                        <?php _e('Previsualizar', 'envialo-simple');?>
                                                     </a> |
                                                 </span>
                                             <?php break; ?>
@@ -159,22 +159,22 @@ $c = $Campanas->listarCampanas($absolutepage, $filter);
                                 <td>
                                     <?php switch($item['Status']):
                                         case 'Draft': ?>
-                                            <div class='icono-estado borrador' title='<?php _e('Borrador');?>'></div>
+                                            <div class='icono-estado borrador' title='<?php _e('Borrador', 'envialo-simple');?>'></div>
                                         <?php break; ?>
                                         <?php case 'Paused': ?>
-                                            <div class='icono-estado pausada' title='<?php _e('Pausado');?>'></div>
+                                            <div class='icono-estado pausada' title='<?php _e('Pausado', 'envialo-simple');?>'></div>
                                         <?php break; ?>
                                         <?php case 'Scheduled': ?>
-                                            <div class='icono-estado programada' title='<?php _e('Programado');?>'></div>
+                                            <div class='icono-estado programada' title='<?php _e('Programado', 'envialo-simple');?>'></div>
                                         <?php break; ?>
                                         <?php case 'Stopped': ?>
-                                            <div class='icono-estado detenida' title='<?php _e('Detenido');?>'></div>
+                                            <div class='icono-estado detenida' title='<?php _e('Detenido', 'envialo-simple');?>'></div>
                                         <?php break; ?>
                                         <?php case 'Sending': ?>
-                                            <div class='icono-estado enviando' title='<?php _e('Enviando');?>'></div>
+                                            <div class='icono-estado enviando' title='<?php _e('Enviando', 'envialo-simple');?>'></div>
                                         <?php break; ?>
                                         <?php case 'Completed': ?>
-                                            <div class='icono-estado completada' title='<?php _e('Completado');?>'></div>
+                                            <div class='icono-estado completada' title='<?php _e('Completado', 'envialo-simple');?>'></div>
                                         <?php break; ?>
                                     <?php endswitch;?>
                                 </td>
@@ -182,7 +182,7 @@ $c = $Campanas->listarCampanas($absolutepage, $filter);
                                 <td>
                                     <?php if($item['Status'] == 'Completed'): ?>
                                         <a  class='button-secondary ver-reportes-bt' href='<?php echo "{$adminUrl}admin.php?page=envialo-simple&accion=reportes&idCampana={$item['CampaignID']}";?>' >
-                                            <?php _e('Ver Reportes');?>
+                                            <?php _e('Ver Reportes', 'envialo-simple');?>
                                         </a>
                                     <? endif; ?>
                                 </td>

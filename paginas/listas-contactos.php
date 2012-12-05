@@ -27,13 +27,13 @@ $listas = $co->listarListasContactos($pagina);
         <div id="icon-users" class="icon32 ">
             <br/>
         </div>
-        <h2><?php _e('Listas de Contactos'); ?>
-            <a href="#" class="add-new-h2 abrir-modal-lista"><?php _e('Nueva Lista'); ?></a>
+        <h2><?php _e('Listas de Contactos', 'envialo-simple'); ?>
+            <a href="#" class="add-new-h2 abrir-modal-lista"><?php _e('Nueva Lista', 'envialo-simple'); ?></a>
         </h2>
 
         <div class="tool-box" id="contenedor-1">
             <p>
-                <?php _e('Para Administrar tus Listas de Contactos en detalle, por favor accede a'); ?>
+                <?php _e('Para Administrar tus Listas de Contactos en detalle, por favor accede a', 'envialo-simple'); ?>
                 <a href="http://v2.envialosimple.com/maillist/list" target="_blank">Envialo Simple</a>
             </p>
             <?php if(isset($_GET["listaCreada"]) && $_GET["listaCreada"]): ?>
@@ -44,31 +44,31 @@ $listas = $co->listarListasContactos($pagina);
 
             <?php if(isset($_GET["contactoCreado"]) && $_GET["contactoCreado"]): ?>
             <div class='mensaje msjExito' style='display:block'>
-                <?php _e('Contacto Agregado con Éxito!'); ?>
+                <?php _e('Contacto Agregado con Éxito!', 'envialo-simple'); ?>
             </div>
             <?php endif; ?>
 
             <?php if(!$listas["success"]): ?>
             <br/>
             <div class="mensaje msjError" style="display:inline">
-                <?php _e('No se pudo recuperar las Listas de Contacto. Por Favor Intente Nuevamente'); ?>
+                <?php _e('No se pudo recuperar las Listas de Contacto. Por Favor Intente Nuevamente', 'envialo-simple'); ?>
             </div>
             <p>
-                <?php _e('En caso de persistir el error, reconfigure el Plugin');?>
+                <?php _e('En caso de persistir el error, reconfigure el Plugin', 'envialo-simple');?>
             </p>
             <?php else: ?>
             <?php if(empty($listas[0]["item"])): ?>
-                <div class="wp-caption"><?php _e('Aún No tenés Listas Creadas.');?>
-                <a href="" class="button-secondary action"><?php _e('Crear Nueva Lista');?></a></div>
+                <div class="wp-caption"><?php _e('Aún No tenés Listas Creadas.', 'envialo-simple');?>
+                <a href="" class="button-secondary action"><?php _e('Crear Nueva Lista', 'envialo-simple');?></a></div>
                 <?php else: ?>
                 <div>
                     <table class='wp-list-table widefat fixed posts'>
                         <thead>
                             <tr>
                                 <th scope='col' id='cb' class='manage-column column-cb check-column' style=''></th>
-                                <th class='manage-column column-title sortable desc' style='height:30px;width: 250px;'><?php _e('Nombre'); ?></th>
-                                <th class='manage-column column-title sortable desc' style='width: 220px;'><?php _e('Contactos (Total/Activos)'); ?></th>
-                                <th class='manage-column column-title sortable desc' style='text-align: center;width: 565px;'><?php _e('Acciones'); ?></th>
+                                <th class='manage-column column-title sortable desc' style='height:30px;width: 250px;'><?php _e('Nombre', 'envialo-simple'); ?></th>
+                                <th class='manage-column column-title sortable desc' style='width: 220px;'><?php _e('Contactos (Total/Activos)', 'envialo-simple'); ?></th>
+                                <th class='manage-column column-title sortable desc' style='text-align: center;width: 565px;'><?php _e('Acciones', 'envialo-simple'); ?></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -78,9 +78,9 @@ $listas = $co->listarListasContactos($pagina);
                                 <td><span class='row-title'><?php echo $item["Name"]; ?></span></td>
                                 <td><?php echo $item["MemberCount"]; ?> / <?php echo $item["ActiveMemberCount"]; ?></td>
                                 <td>
-                                    <a href='#' name='<?php echo $item["MailListID"]; ?>' class='boton-sincronizar button-secondary' title='<?php _e('Agregar los Contactos de Wordpress a la Lista de Envialo Simple'); ?>'><?php _e('Agregar Usuarios de Wordpress'); ?></a>
-                                    <a href='#' name='<?php echo $item["MailListID"]; ?>' class='boton-agregar-contacto button-secondary' title='<?php _e('Agregar Contacto a la Lista de Envialo Simple'); ?>'><?php _e('Agregar Contacto'); ?></a>
-                                    <a href='<?php echo "{$adminUrl}admin.php?page=envialo-simple-listas&MailListsIds={$item["MailListID"]}"; ?>' name='<?php echo $item["MailListID"]; ?>' class='button-secondary boton-importar-contacto' title='<?php _e('Importar Contactos'); ?>'><?php _e('Importar Contactos'); ?></a>
+                                    <a href='#' name='<?php echo $item["MailListID"]; ?>' class='boton-sincronizar button-secondary' title='<?php _e('Agregar los Contactos de Wordpress a la Lista de Envialo Simple', 'envialo-simple'); ?>'><?php _e('Agregar Usuarios de Wordpress', 'envialo-simple'); ?></a>
+                                    <a href='#' name='<?php echo $item["MailListID"]; ?>' class='boton-agregar-contacto button-secondary' title='<?php _e('Agregar Contacto a la Lista de Envialo Simple', 'envialo-simple'); ?>'><?php _e('Agregar Contacto', 'envialo-simple'); ?></a>
+                                    <a href='<?php echo "{$adminUrl}admin.php?page=envialo-simple-listas&MailListsIds={$item["MailListID"]}"; ?>' name='<?php echo $item["MailListID"]; ?>' class='button-secondary boton-importar-contacto' title='<?php _e('Importar Contactos', 'envialo-simple'); ?>'><?php _e('Importar Contactos', 'envialo-simple'); ?></a>
                                 </td>
 
                             </tr>
@@ -114,14 +114,14 @@ $listas = $co->listarListasContactos($pagina);
 <div style="display:none">
     <div id="modal-crear-lista">
         <form action="#" id="form-crear-lista" method="post">
-            <p><?php _e('Escribí el Nombre de tu Nueva Lista de Contactos.'); ?></p>
-            <label for="nombre-lista"><?php _e('Nombre'); ?></label>
+            <p><?php _e('Escribí el Nombre de tu Nueva Lista de Contactos.', 'envialo-simple'); ?></p>
+            <label for="nombre-lista"><?php _e('Nombre', 'envialo-simple'); ?></label>
             <input type="hidden" name="accion" value="crear-lista"/>
             <input type="text" id="nombre-lista" name="nombre-lista" style="margin-bottom: 20px" value=""/> <br/>
 
             <div style="width:180px;margin: 0 auto 0 auto;">
-                <input type="submit" value="<?php _e('Crear Lista'); ?>" class="button-primary"/>
-                <input type="reset" value="<?php _e('Cancelar'); ?>" class="button-secondary" id="cerrar-modal"/>
+                <input type="submit" value="<?php _e('Crear Lista', 'envialo-simple'); ?>" class="button-primary"/>
+                <input type="reset" value="<?php _e('Cancelar', 'envialo-simple'); ?>" class="button-secondary" id="cerrar-modal"/>
             </div>
         </form>
     </div>
@@ -130,24 +130,24 @@ $listas = $co->listarListasContactos($pagina);
         <form id="form-agregar-contacto" method="post" action="#">
             <input type="hidden" name="MailListID" value=""/>
 
-            <p><?php _e('Completa los datos para Agregar un Contacto a tu Lista'); ?></p>
-            <label><?php _e('Email'); ?> :<br/> <input type="text" value="" name="Email"/> </label> <br/>
+            <p><?php _e('Completa los datos para Agregar un Contacto a tu Lista', 'envialo-simple'); ?></p>
+            <label><?php _e('Email', 'envialo-simple'); ?> :<br/> <input type="text" value="" name="Email"/> </label> <br/>
             <?php
             echo $ev->mostrarCamposPersonalizadosForm();
             ?>
-            <input type="submit" class="button-primary" value="<?php _e('Agregar Contacto'); ?>" style="margin-top: 20px;margin-bottom: 20px;"/>
-            <input type="reset" class="button-secondary" value="<?php _e('Cancelar'); ?>" onclick="jQuery('#modal-agregar-contacto').dialog('close')"/>
+            <input type="submit" class="button-primary" value="<?php _e('Agregar Contacto', 'envialo-simple'); ?>" style="margin-top: 20px;margin-bottom: 20px;"/>
+            <input type="reset" class="button-secondary" value="<?php _e('Cancelar', 'envialo-simple'); ?>" onclick="jQuery('#modal-agregar-contacto').dialog('close')"/>
         </form>
     </div>
 </div>
 <script type="text/javascript">
     jQuery(".boton-sincronizar").click(function (event) {
         event.preventDefault();
-        if (confirm("<?php _e('Está Seguro?'); ?>")) {
+        if (confirm("<?php _e('Está Seguro?', 'envialo-simple'); ?>")) {
             var idLista = jQuery(this).attr("name");
             jQuery.post("<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/handler.php')?>", {accion:"sincronizarContactos", MailListID:idLista}, function (json) {
                 if (json.success) {
-                    alert("<?php _e('Se Sincronizaron Correctamente tus Contactos de Wordpress con la Lista seleccionada.'); ?>");
+                    alert("<?php _e('Se Sincronizaron Correctamente tus Contactos de Wordpress con la Lista seleccionada.', 'envialo-simple'); ?>");
                     window.location = "<?php echo "{$adminUrl}admin.php?page=envialo-simple-listas";?>";
                 } else {
                     alert("Error");
@@ -199,7 +199,7 @@ $listas = $co->listarListasContactos($pagina);
                     jQuery("#modal-agregar-contacto").dialog("close");
                     window.location = "<?php echo "{$adminUrl}admin.php?page=envialo-simple-listas&contactoCreado=1";?>";
                 } else {
-                    alert("<?php _e('Error al Agregar Contacto. Por favor revise los campos e intente nuevamente'); ?>");
+                    alert("<?php _e('Error al Agregar Contacto. Por favor revise los campos e intente nuevamente', 'envialo-simple'); ?>");
                 }
             }, "json");
         }

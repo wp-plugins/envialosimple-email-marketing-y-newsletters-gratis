@@ -622,7 +622,7 @@ class EnvialoSimple {
 
     function logoutEnvialosimple() {
         //FIXME
-        unlink('cookie.txt');
+        @unlink('cookie.txt');
         curl_close($this->curlChannel);
     }
 

@@ -78,9 +78,9 @@
                                                 <span>{$f['Title']}</span>
                                             </div>
                                             <div class='acciones-form'>
-                                                <a href='{$url}{$f['FormID']}' class='button-primary' >Editar</a>                                                
-                                                <a href='#' name=\"<script type='text/javascript' src='http://v2.envialosimple.com/form/show/AdministratorID/{$forms['AdministratorID']}/FormID/{$f['FormID']}/format/widget'></script>\" class='obtener-codigo button-secondary'>Obtener Código</a>
-                                                <a href='#' name='{$f['FormID']}' class='eliminar-form button-secondary' >Eliminar</a>
+                                                <a href='{$url}{$f['FormID']}' class='button-primary' >".__('Editar','envialo-simple')."</a>                                                
+                                                <a href='#' name=\"<script type='text/javascript' src='http://v2.envialosimple.com/form/show/AdministratorID/{$forms['AdministratorID']}/FormID/{$f['FormID']}/format/widget'></script>\" class='obtener-codigo button-secondary'>".__('Obtener Código','envialo-simple')."</a>
+                                                <a href='#' name='{$f['FormID']}' class='eliminar-form button-secondary' >".__('Eliminar','envialo-simple')."</a>
                                             </div>
                                             
                                       </div>
