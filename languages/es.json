@@ -1,0 +1,1118 @@
+var json_locale_data = 
+{
+   "javascript-es" : {
+      "errorMsg_customfieldNotEdited" : [
+         null,
+         "No se ha podido guardar el campo personalizado."
+      ],
+      "alnumInvalid" : [
+         null,
+         "El valor debe ser compuesto por números y letras."
+      ],
+      "" : {
+         "MIME-Version" : " 1.0",
+         "POT-Creation-Date" : " ",
+         "X-Poedit-Country" : " ARGENTINA",
+         "X-Poedit-Language" : " Spanish",
+         "Last-Translator" : " ",
+         "Content-Type" : " text/plain; charset=utf-8",
+         "PO-Revision-Date" : " ",
+         "Language-Team" : " ",
+         "Content-Transfer-Encoding" : " 8bit",
+         "Report-Msgid-Bugs-To" : " ",
+         "Project-Id-Version" : " envialo simple"
+      },
+      "errorMsg_campaignAnaliseError" : [
+         null,
+         "No se han podido procesar los contenidos de la campaña"
+      ],
+      "errorMsg_noFileAccess" : [
+         null,
+         "El archivo no puede ser accedido."
+      ],
+      "errorMsg_campaignAlreadyActive" : [
+         null,
+         "La campaña solicitada ya se encuentra activada."
+      ],
+      "key" : [
+         null,
+         "Clave"
+      ],
+      "errorMsg_serviceUnavailable" : [
+         null,
+         "El servicio se encuentra temporalmente fuera de línea."
+      ],
+      "errorMsg_campaignInvalidID" : [
+         null,
+         "El ID de la campaña no es válido."
+      ],
+      "errorMsg_EditorNotFound" : [
+         null,
+         "La cuenta de correos con la cual intentaste crear la campaña no posee la autorización del administrador para realizar la operación."
+      ],
+      "password" : [
+         null,
+         "Contraseña:"
+      ],
+      "Password" : [
+         null,
+         "Contraseña:"
+      ],
+      "ConfCallbackFail" : [
+         null,
+         "Pantalla de Error en la confirmación de suscripción"
+      ],
+      "errorMsg_importInProgress" : [
+         null,
+         "La importación se encuentra en proceso."
+      ],
+      "errorMsg_campaignScheduleNotSaved" : [
+         null,
+         "No se ha podido guardar la programación de envío de la campaña."
+      ],
+      "errorMsg_campaignNotConfirmed" : [
+         null,
+         "Un error interno ha impedido completar la operación."
+      ],
+      "AdministratorID" : [
+         null,
+         "Administrador:"
+      ],
+      "errorMsg_extensionNotAllowedPicOneOf" : [
+         null,
+         "La extensión del archivo no está permitida."
+      ],
+      "emailAddressInvalidMxRecord" : [
+         null,
+         "La dirección de email proporcionada no es válida"
+      ],
+      "CategoryIds" : [
+         null,
+         "Categorías:"
+      ],
+      "errorMsg_memberAlreadyUnsubscribed" : [
+         null,
+         "El email indicado ya se encuentra desuscripto."
+      ],
+      "digitsStringEmpty" : [
+         null,
+         "El campo es obligatorio."
+      ],
+      "errorMsg_administratorSuspended" : [
+         null,
+         "El administrador de la cuenta no está autorizado para realizar ésta operación."
+      ],
+      "count" : [
+         null,
+         "Límite de listado:"
+      ],
+      "errorMsg_errorRetrievingCustomFields" : [
+         null,
+         "No se han podido recuperar los campos personalizados."
+      ],
+      "dateFalseFormat" : [
+         null,
+         "La fecha no es válida."
+      ],
+      "errorMsg_noColumnsFound" : [
+         null,
+         "No se han encontrado columnas asignadas."
+      ],
+      "errorMsg_invalidMaillist" : [
+         null,
+         "Una lista de contactos no es válida."
+      ],
+      "ImageID" : [
+         null,
+         "Imagen:"
+      ],
+      "errorMsg_administratorUnauthorized" : [
+         null,
+         "El tipo de cuenta utilizado no tiene permisos para visualizar la página solicitada.<br/>Para actualizar tu cuenta hacé <a href=\"https://dattatec.com/email-marketing-envialosimple\">click aquí.</a>"
+      ],
+      "errorMsg_campaignNotPaused" : [
+         null,
+         "La campaña no está pausada."
+      ],
+      "errorMsg_administratorNotLogged" : [
+         null,
+         "La sesión ha expirado o no has accedido con tus credenciales."
+      ],
+      "RequestOptIn" : [
+         null,
+         "RequestOptIn:"
+      ],
+      "ConfCallbackOK" : [
+         null,
+         "Pantalla de Confirmación de suscripción exitosa"
+      ],
+      "errorMsg_campaignAdministratorInvalid" : [
+         null,
+         "No se han podido recuperar los datos del administrador solicitado"
+      ],
+      "sendingStatus-Preparing" : [
+         null,
+         "Preparando envío"
+      ],
+      "month_11" : [
+         null,
+         "noviembre"
+      ],
+      "errorMsg_phishing" : [
+         null,
+         "El contenido de su campaña ha sido detectado como posible tentativo de PHISHING y será analizado por nuestros operadores. Por favor comuníquese con la administración."
+      ],
+      "errorMsg_campaignNotFound" : [
+         null,
+         "No se ha podido encontrar la campaña seleccionada"
+      ],
+      "emailAddressInvalidLocalPart" : [
+         null,
+         "La dirección de email proporcionada no es válida"
+      ],
+      "errorMsg_campaignAlreadyPaused" : [
+         null,
+         "La campaña ya se encuentra pausada."
+      ],
+      "errorMsg_campaignMaillistNotAsigned" : [
+         null,
+         "No se han podido asignar las listas de contactos."
+      ],
+      "month_04" : [
+         null,
+         "abril"
+      ],
+      "errorMsg_keyInvalid" : [
+         null,
+         "La clave de activación no es válida"
+      ],
+      "Captcha" : [
+         null,
+         "Código de verificacion:"
+      ],
+      "errorMsg_upgradeAccount" : [
+         null,
+         "La acción solicitada no está disponible para cuentas gratuitas."
+      ],
+      "sendingStatus-Failed" : [
+         null,
+         "Envío fallido"
+      ],
+      "sendingStatus-Started" : [
+         null,
+         "Envío iniciado"
+      ],
+      "EmailAddress" : [
+         null,
+         "Email:"
+      ],
+      "feedback" : [
+         null,
+         "Feedback:"
+      ],
+      "month_01" : [
+         null,
+         "enero"
+      ],
+      "digitsInvalid" : [
+         null,
+         "El valor debe estar compuesto solamente por números."
+      ],
+      "errorMsg_noNewMaillist" : [
+         null,
+         "No se pudo crear la lista nueva."
+      ],
+      "errorMsg_keyExpired" : [
+         null,
+         "La clave de activación ha caducado"
+      ],
+      "errorMsg_invalidCampaignDate" : [
+         null,
+         "La fecha de la campaña debe ser mayor que ahora + 5 minutos para poder ser procesada."
+      ],
+      "DefaultValue" : [
+         null,
+         "Valor predeterminado:"
+      ],
+      "errorMsg_administratorWrongLoginPage" : [
+         null,
+         "La página que utilizaste para acceder no corresponde a tu perfil.<br/><br/> Intenta nuevamente desde aquí."
+      ],
+      "sendingStatus-Paused" : [
+         null,
+         "Envío pausado"
+      ],
+      "errorMsg_noMaillist" : [
+         null,
+         "No se han podido recuperar las listas."
+      ],
+      "errorMsg_customfieldLimitReached" : [
+         null,
+         "Has alcanzado el límite disponible de campos personalizados."
+      ],
+      "errorMsg_emptyTemplateList" : [
+         null,
+         "La lista de plantillas está vacía."
+      ],
+      "day_3" : [
+         null,
+         "miércoles"
+      ],
+      "month_12" : [
+         null,
+         "diciembre"
+      ],
+      "ReplyToID" : [
+         null,
+         "Responder a:"
+      ],
+      "FontSize" : [
+         null,
+         "Tamaño de la letra"
+      ],
+      "month_09" : [
+         null,
+         "septiembre"
+      ],
+      "errorMsg_fileNotSaved" : [
+         null,
+         "No se ha podido guardar el archivo."
+      ],
+      "CopyPaste" : [
+         null,
+         "Copiar y pegar:"
+      ],
+      "errorMsg_noFileUploaded" : [
+         null,
+         "No se ha podido cargar el archivo."
+      ],
+      "emailAddressInvalidFormat" : [
+         null,
+         "La dirección de email proporcionada no es válida"
+      ],
+      "TemplateID" : [
+         null,
+         "Contenido:"
+      ],
+      "MakeOptIn" : [
+         null,
+         "Marcar suscriptores como confirmados por Pot-in:"
+      ],
+      "month_07" : [
+         null,
+         "julio"
+      ],
+      "errorMsg_fileNotFound" : [
+         null,
+         "No se ha podido encontrar el archivo."
+      ],
+      "absolutepage" : [
+         null,
+         "Página"
+      ],
+      "FromEmail" : [
+         null,
+         "Email del remitente"
+      ],
+      "Email" : [
+         null,
+         "Email:"
+      ],
+      "URL" : [
+         null,
+         "URL:"
+      ],
+      "ShowPoweredBy" : [
+         null,
+         "Mostrar logo Dattatec.com"
+      ],
+      "TrackAnalitics" : [
+         null,
+         "Usar Google Analytics:"
+      ],
+      "errorMsg_campaignNotActived" : [
+         null,
+         "La campaña no ha podido ser activada."
+      ],
+      "sendingStatus-Halted" : [
+         null,
+         "Envío detenido"
+      ],
+      "errorMsg_notDeleted" : [
+         null,
+         "No se ha podido realizar la eliminación de los datos."
+      ],
+      "MailListID" : [
+         null,
+         "Lista de contactos:"
+      ],
+      "errorMsg_formValidations" : [
+         null,
+         "Errores en el formulario."
+      ],
+      "errorMsg_fileIsTooLarge" : [
+         null,
+         "El archivo es demasiado grande."
+      ],
+      "SendDate" : [
+         null,
+         "Fecha de programación de envío:"
+      ],
+      "emailAddressInvalidSegment" : [
+         null,
+         "La dirección de email proporcionada no es válida"
+      ],
+      "errorMsg_topDomains" : [
+         null,
+         "No se han podido recuperar los datos de los dominios."
+      ],
+      "errorMsg_campaignNotSaved" : [
+         null,
+         "No se ha podido guardar la campaña."
+      ],
+      "errorMsg_noFileUploadedOrCopyPaste" : [
+         null,
+         "La lista no han podido ser cargada."
+      ],
+      "SubsCallbackFail" : [
+         null,
+         "Pantalla de Error en la subscripción"
+      ],
+      "errorMsg_campaignNotPost" : [
+         null,
+         "El método no es válido."
+      ],
+      "errorMsg_keyNotFound" : [
+         null,
+         "No se ha podido recuperar la clave de activación no es válida"
+      ],
+      "Title" : [
+         null,
+         "Título:"
+      ],
+      "AdvanceEditable" : [
+         null,
+         "Modo avanzado de edición:"
+      ],
+      "errorMsg_increasePostMaxSizeTo" : [
+         null,
+         "Incrementar PostMaxSize."
+      ],
+      "sendingStatus-Stopped" : [
+         null,
+         "Envío detenido"
+      ],
+      "errorMsg_campaignScheduleNotFound" : [
+         null,
+         "No se ha podido recuperar la programación de envío de la campaña."
+      ],
+      "CampaignID" : [
+         null,
+         "Campaña:"
+      ],
+      "errorMsg_livetrack" : [
+         null,
+         "Error en el tracking en tiempo real."
+      ],
+      "limit" : [
+         null,
+         "Límite por página:"
+      ],
+      "day_5" : [
+         null,
+         "viernes"
+      ],
+      "emailAddressLengthExceeded" : [
+         null,
+         "E-mail excede la cantidad de caracteres permitidos."
+      ],
+      "errorMsg_campaignContentNotSaved" : [
+         null,
+         "No se ha podido guardar el contenido de la campaña."
+      ],
+      "HTML" : [
+         null,
+         "Contenido:"
+      ],
+      "errorMsg_campaignAlreadyStopped" : [
+         null,
+         "La campaña ya se encuentra pausada."
+      ],
+      "errorMsg_campaignIntegrityCheckFailed" : [
+         null,
+         "La campaña no está lista para ser enviada."
+      ],
+      "errorMsg_campaignNotActive" : [
+         null,
+         "La campaña no está activa."
+      ],
+      "MailListsIds" : [
+         null,
+         "Listas de contactos:"
+      ],
+      "errorMsg_campaignMaillistNotFound" : [
+         null,
+         "No se ha podido encontrar la lista de contactos de la campaña."
+      ],
+      "message" : [
+         null,
+         "Mensaje:"
+      ],
+      "errorMsg_exportDirNotWritable" : [
+         null,
+         "El directorio de exportación no posee permisos de escritura."
+      ],
+      "errorMsg_importToOutsourcedMaillist" : [
+         null,
+         "La lista seleccionada no puede ser modificada desde ésta plataforma."
+      ],
+      "orderBy" : [
+         null,
+         "Ordenar por:"
+      ],
+      "errorMsg_membersBanned" : [
+         null,
+         "Un subscriptor se encuentra bloqueado por una regla de exclusión."
+      ],
+      "errorMsg_emptyNameAndCategoryID" : [
+         null,
+         "El nombre y el ID de categoría estan vacíos."
+      ],
+      "errorMsg_invalidCharset" : [
+         null,
+         "El archivo posee caracteres inválidos. Las codificaciones válidas son UTF-8 e ISO-8859-1(Latin1)"
+      ],
+      "day_2" : [
+         null,
+         "martes"
+      ],
+      "Font" : [
+         null,
+         "Fuente (tipo de letra)"
+      ],
+      "alnumStringEmpty" : [
+         null,
+         "El campo es obligatorio."
+      ],
+      "errorMsg_reads" : [
+         null,
+         "No se han podido recuperar los datos."
+      ],
+      "desc" : [
+         null,
+         "Ordenamiento descendente:"
+      ],
+      "errorMsg_noPostInfo" : [
+         null,
+         "No se han enviado datos."
+      ],
+      "url" : [
+         null,
+         "URL:"
+      ],
+      "FilterValues" : [
+         null,
+         "Configuración de filtro"
+      ],
+      "emailAddressQuotedString" : [
+         null,
+         "La dirección de email proporcionada no es válida"
+      ],
+      "errorMsg_keyNotActiveYet" : [
+         null,
+         "La clave de activación se encuentra en periodo de autorización"
+      ],
+      "CampaignName" : [
+         null,
+         "Nombre:"
+      ],
+      "errorMsg_selectEmailColumn" : [
+         null,
+         "No ha sido seleccionada la columna e-mail."
+      ],
+      "errorMsg_noImages" : [
+         null,
+         "No se pueden recuperar las imagenes."
+      ],
+      "TrackReads" : [
+         null,
+         "Contar Aperturas:"
+      ],
+      "errorMsg_keyUseFail" : [
+         null,
+         "Ha sucedido un error durante el proceso de cancelación de la clave de activación."
+      ],
+      "month_05" : [
+         null,
+         "mayo"
+      ],
+      "errorMsg_dirNotwritable" : [
+         null,
+         "El directorio no posee permisos de escritura."
+      ],
+      "username" : [
+         null,
+         "Usuario:"
+      ],
+      "sendingStatus-Cancelled" : [
+         null,
+         "Envío cancelado"
+      ],
+      "errorMsg_campaignCompleted" : [
+         null,
+         "La campaña ya ha sido enviada y no puede ser modificada."
+      ],
+      "invalidValue" : [
+         null,
+         "Uno de los valores enviados no es válido."
+      ],
+      "errorMsg_emailAddressIntegrityViolation" : [
+         null,
+         "Una dirección de correo utilizada como selector de lista de contactos  no es válida"
+      ],
+      "errorMsg_campaignNoBodies" : [
+         null,
+         "No es posible enviar una campaña sin contenidos"
+      ],
+      "month_02" : [
+         null,
+         "febrero"
+      ],
+      "LabelSubmit" : [
+         null,
+         "Texto del botón"
+      ],
+      "errorMsg_campaignMaillist" : [
+         null,
+         "No se han podido recuperar las listas de contactos seleccionadas"
+      ],
+      "errorMsg_campaignNotScheduled" : [
+         null,
+         "No es posible reanudar una campaña que no ha sido programada."
+      ],
+      "errorMsg_memberNotFoundInMailList" : [
+         null,
+         "El subscriptor indicado no está relacionado con la lista seleccionada."
+      ],
+      "TrackLinkClicks" : [
+         null,
+         "Contar Clicks:"
+      ],
+      "emailAddressInvalidHostname" : [
+         null,
+         "La dirección de email proporcionada no es válida"
+      ],
+      "day_1" : [
+         null,
+         "lunes"
+      ],
+      "MailListName" : [
+         null,
+         "Nombre de la lista:"
+      ],
+      "errorMsg_nonDeletableMaillist" : [
+         null,
+         "La lista seleccionada no puede ser eliminada desde ésta plataforma."
+      ],
+      "errorMsg_noLinesFound" : [
+         null,
+         "No se han encontrado líneas para importar."
+      ],
+      "Delimiter" : [
+         null,
+         "Delimitador:"
+      ],
+      "month_10" : [
+         null,
+         "octubre"
+      ],
+      "errorMsg_campaignEmptyEmail" : [
+         null,
+         "No se han podido analizar la estructura del e-mail."
+      ],
+      "errorMsg_keyAlreadyUsed" : [
+         null,
+         "Esta campaña ya fué activada."
+      ],
+      "PasswordConfirm" : [
+         null,
+         "Confirmar Contraseña:"
+      ],
+      "filter" : [
+         null,
+         "Filtro:"
+      ],
+      "ReplyToEmail" : [
+         null,
+         "Responder a email"
+      ],
+      "errorMsg_memberNotSubscribed" : [
+         null,
+         "Uno o mas contactos no se han podido suscribir."
+      ],
+      "CategoryID" : [
+         null,
+         "Categoría:"
+      ],
+      "SendNow" : [
+         null,
+         "Enviar ahora:"
+      ],
+      "errorMsg_mustChooseMaillist" : [
+         null,
+         "No asignaste ninguna lista donde importar los contactos."
+      ],
+      "SubsCallbackOK" : [
+         null,
+         "Pantalla de Subscripción Exitosa"
+      ],
+      "month_08" : [
+         null,
+         "agosto"
+      ],
+      "importToListMatchFieldsExcludeFirstLine" : [
+         null,
+         "Exclusión de la primera línea:"
+      ],
+      "errorMsg_campaignNotResumed" : [
+         null,
+         "No se ha podido reanudar el envío de la campaña."
+      ],
+      "errorMsg_campaignMaillistsNotSaved" : [
+         null,
+         "No se ha podido guardar la lista de contactos de la campaña."
+      ],
+      "errorMsg_templateNotFound" : [
+         null,
+         "No se ha podido recuperar la plantilla."
+      ],
+      "Content" : [
+         null,
+         "Contenido:"
+      ],
+      "emailAddressInvalidHostnameEmail" : [
+         null,
+         "La dirección de email proporcionada no es válida"
+      ],
+      "Name" : [
+         null,
+         "Nombre:"
+      ],
+      "errorMsg_campaignAdministratorIDOrMaillistIDNotFound" : [
+         null,
+         "No se han podido recuperar los datos del administrador y/o las listas de correos solicitadas"
+      ],
+      "errorMsg_apiDisabled" : [
+         null,
+         "El sistema de envío remoto no está activado."
+      ],
+      "ReturnPathEmail" : [
+         null,
+         "Dirección de correo de retorno"
+      ],
+      "CustomFieldIds" : [
+         null,
+         "Campos personalizados:"
+      ],
+      "BackgroundColor" : [
+         null,
+         "Color de fondo"
+      ],
+      "sendingStatus-Completed" : [
+         null,
+         "Envío completado"
+      ],
+      "emailAddressInvalid" : [
+         null,
+         "La dirección de email proporcionada no es válida"
+      ],
+      "errorMsg_integrityFail" : [
+         null,
+         "Error de integridad."
+      ],
+      "errorMsg_memberStatusNotChanged" : [
+         null,
+         "No se ha podido cambiar el estado del subscriptor."
+      ],
+      "errorMsg_tooManyEmails" : [
+         null,
+         "Superaste el número de emails que puedes mandar por vez."
+      ],
+      "errorMsg_memberBounceStatusNotChanged" : [
+         null,
+         "No se ha podido modificar el estado de rebote del suscriptor"
+      ],
+      "Type" : [
+         null,
+         "Tipo:"
+      ],
+      "undefined" : [
+         null,
+         "Ha sucedido un error desconocido."
+      ],
+      "errorMsg_invalidMember" : [
+         null,
+         "Un subscriptor no es válido."
+      ],
+      "CampaignStatisticsIDs" : [
+         null,
+         "Id de estadísticas:"
+      ],
+      "MailListsIDs" : [
+         null,
+         "Listas de contactos:"
+      ],
+      "ConfirmSubscriptionEmailID" : [
+         null,
+         "ID del email de confirmación"
+      ],
+      "errorMsg_campaignTemplateNotFound" : [
+         null,
+         "No se ha podido recuperar la plantilla asociada a la campaña."
+      ],
+      "errorMsg_internalError" : [
+         null,
+         "Se ha verificado un error interno y no ha sido posible proseguir con la operación."
+      ],
+      "FromID" : [
+         null,
+         "Remitente:"
+      ],
+      "sendingStatus-Sending" : [
+         null,
+         "Enviando"
+      ],
+      "emailAddressDotAtom" : [
+         null,
+         "La dirección de email proporcionada no es válida"
+      ],
+      "errorMsg_invalidCaptcha" : [
+         null,
+         "Código de verificación (captcha) incorrecto"
+      ],
+      "day_6" : [
+         null,
+         "sábado"
+      ],
+      "Subject" : [
+         null,
+         "Asunto:"
+      ],
+      "CampaignIds" : [
+         null,
+         "Campañas:"
+      ],
+      "errorMsg_administratorNotFound" : [
+         null,
+         "No se han podido recuperar los datos del administrador solicitado"
+      ],
+      "FileName" : [
+         null,
+         "Nombre del archivo:"
+      ],
+      "CustomValidation" : [
+         null,
+         "Validación personalizada"
+      ],
+      "CustomCSS" : [
+         null,
+         "Código CSS personalizado"
+      ],
+      "errorMsg_emailFileNotFound" : [
+         null,
+         "El archivo fisico del correo no ha podido ser recuperado."
+      ],
+      "errorMsg_invalidForward" : [
+         null,
+         "Ha ocurrido un error durante el envío del mensaje."
+      ],
+      "SendStateReport" : [
+         null,
+         "Enviar informe al finalizar:"
+      ],
+      "day_4" : [
+         null,
+         "jueves"
+      ],
+      "dateInvalidDate" : [
+         null,
+         "La fecha no es válida."
+      ],
+      "errorMsg_campaignContentNotFound" : [
+         null,
+         "No se ha podido recuperar el contenido de la campaña."
+      ],
+      "CustomFieldsIds" : [
+         null,
+         "Campos personalizados:"
+      ],
+      "month_03" : [
+         null,
+         "marzo"
+      ],
+      "TemplatesIDs" : [
+         null,
+         "Ids de plantillas:"
+      ],
+      "errorMsg_unSubscribeTagMissing" : [
+         null,
+         "El contenido de la campaña no posee el link de desuscripción."
+      ],
+      "Width" : [
+         null,
+         "Ancho del formulario"
+      ],
+      "ScheduleCampaign" : [
+         null,
+         "Programación de envío:"
+      ],
+      "errorMsg_customfieldNotAdded" : [
+         null,
+         "No se ha podido agregar el campo personalizado."
+      ],
+      "errorMsg_signInvalid" : [
+         null,
+         "Los parámetros proporcionados no son válidos"
+      ],
+      "FontColor" : [
+         null,
+         "Color de la letra"
+      ],
+      "errorMsg_campaignInvalidEmail" : [
+         null,
+         "El email obtenido no es valido"
+      ],
+      "errorMsg_emailNotSent" : [
+         null,
+         "No se ha podido enviar el e-mail."
+      ],
+      "Qualifier" : [
+         null,
+         "Delimitador de Campos:"
+      ],
+      "month_06" : [
+         null,
+         "junio"
+      ],
+      "errorMsg_administratorEmailDuplicated" : [
+         null,
+         "La dirección de correo seleccionada ya está en uso."
+      ],
+      "errorMsg_administratorInvalidUsernameAndPassword" : [
+         null,
+         "Tu sesión ha expirado o ingresaste Usuario/Contraseña incorrectos.<br/><br/>Por favor ingresa tus datos de acceso nuevamente."
+      ],
+      "errorMsg_emailNotSaved" : [
+         null,
+         "No se ha podido guardar el e-mail."
+      ],
+      "errorMsg_deleteError" : [
+         null,
+         "Ha ocurrido un error durante el proceso de borrado."
+      ],
+      "errorMsg_campaignMaillistsInvalid" : [
+         null,
+         "La lista de contactos recuperada no es válida"
+      ],
+      "errorMsg_noCampaigns" : [
+         null,
+         "No hay campañas."
+      ],
+      "sendingStatus-Pending" : [
+         null,
+         "Envío pendiente"
+      ],
+      "offset" : [
+         null,
+         "Offset:"
+      ],
+      "errorMsg_campaignNotCreated" : [
+         null,
+         "Ha ocurrido un error durante el proceso de creación de la campaña"
+      ],
+      "errorMsg_invalidAdministrator" : [
+         null,
+         "Los parámetros proporcionados no permitan recuperar un administrador válido."
+      ],
+      "errorMsg_memberBanned" : [
+         null,
+         "El subscriptor indicado se encuentra bloqueado por una regla de exclusión."
+      ],
+      "errorMsg_memberNotSaved" : [
+         null,
+         "No se han podido guardar los datos del usuario."
+      ],
+      "ContentMainURL" : [
+         null,
+         "URL de los contenidos:"
+      ],
+      "day_0" : [
+         null,
+         "domingo"
+      ],
+      "dateInvalid" : [
+         null,
+         "La fecha no es válida."
+      ],
+      "errorMsg_fileIsEmpty" : [
+         null,
+         "El campo está vacío."
+      ],
+      "CampaignSubject" : [
+         null,
+         "Asunto:"
+      ],
+      "EmailIds" : [
+         null,
+         "Ids de e-mail:"
+      ],
+      "errorMsg_templateNotSaved" : [
+         null,
+         "No se ha podido guardar la plantilla."
+      ],
+      "CampaignStatisticsID" : [
+         null,
+         "Id de estadísticas:"
+      ],
+      "errorMsg_trackGraph" : [
+         null,
+         "No se han podido recuperarlos datos de Track."
+      ],
+      "errorMsg_invalidFilter" : [
+         null,
+         "El filtro asignado no es un filtro válido"
+      ],
+      "errorMsg_emailNotSended" : [
+         null,
+         "No se ha podido enviar el email."
+      ],
+      "errorMsg_administratorSamePassword" : [
+         null,
+         "La Contraseña no puede ser igual a la anterior."
+      ],
+      "stringLengthTooShort" : [
+         null,
+         "La Contraseña no contiene la cantidad de caracteres necesarios."
+      ],
+      "ValidationCustomRegExp" : [
+         null,
+         "Validación personalizada"
+      ],
+      "SubscriptionStatus" : [
+         null,
+         "Estado de subscripción"
+      ],
+      "floatInvalid" : [
+          null,
+          "El valor no es un número decimal válido."
+      ],
+      "hostnameInvalidHostnameEmail" : [
+          null,
+          "La dirección de email proporcionada no es válida"
+      ],
+      "hostnameInvalidLocalName" : [
+          null,
+          "Local Name desconocido."
+      ],
+      "hostnameLocalNameNotAllowed" : [
+          null,
+          "La dirección de email proporcionada no es válida."
+      ],
+      "hostnameUnknownTld" : [
+          null,
+          "El TLD no ha podido ser identificado"
+      ],
+      "intInvalid" : [
+          null,
+          "El valor debe ser un número entero."
+      ],
+      "invalInt" : [
+          null,
+          "El valor debe estar compuesto solamente por números."
+      ],
+      "invalidIds" : [
+          null,
+          "El pedido contiene IDs no válidos."
+      ],
+      "isEmpty" : [
+          null,
+          "No puede estar vacío."
+      ],
+      "missingToken" : [
+          null,
+          "Token no encontrado."
+      ],
+      "noValidID" : [
+          null,
+          "El ID no es válido."
+      ],
+      "notAlnum" : [
+          null,
+          "El valor debe ser compuesto por números y letras."
+      ],
+      "notDigits" : [
+          null,
+          "El valor debe estar compuesto solamente por números."
+      ],
+      "notEmptyInvalid" : [
+          null,
+          "El campo es obligatorio."
+      ],
+      "isEmptyOrWrong" : [
+          null,
+          "El valor asignado es incorrecto."
+      ],
+      "notFloat" : [
+          null,
+          "El valor no es un número decimal válido."
+      ],
+      "notInArray" : [
+          null,
+          "El valor no se encuentra en el listado de valores permitidos."
+      ],
+      "notInt" : [
+          null,
+          "El valor debe ser un número entero."
+      ],
+      "notSame" : [
+          null,
+          "Los valores no coinciden."
+      ],
+      "notText" : [
+          null,
+          "El valor no es un texto válido."
+      ],
+      "notUrl" : [
+          null,
+          "El valor no es una URL válida."
+      ],
+      "notUsername" : [
+          null,
+          "El Usuario indicado no es válido."
+      ],
+      "regexErrorous" : [
+          null,
+          "Ha ocurrido un error interno durante la evaluación del patrón indicado."
+      ],
+      "regexInvalid" : [
+          null,
+          "El patrón no es válido. Debe ser una expresión regular de tipo PCRE (Perl-Compatible Regular Expression) <br> <a href=\"http://ar2.php.net/manual/es/reference.pcre.pattern.syntax.php\" target=\"_blank\">ver ayuda</a>"
+      ],
+      "regexNotMatch" : [
+          null,
+          "El valor indicado posee caracteres no válidos."
+      ],
+      "stringLengthInvalid" : [
+          null,
+          "El valor excede la cantidad de caracteres permitidos."
+      ],
+      "stringLengthTooLong" : [
+          null,
+          "El valor excede la cantidad de caracteres permitidos."
+      ],
+      "stringLengthTooShort" : [
+          null,
+          "Debe contener al menos XX caracteres."
+      ]
+   }
+}

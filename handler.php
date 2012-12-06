@@ -363,7 +363,7 @@ switch ($accion) {
 function traerGenerarGuardarTokenMedianteAPI($usuario, $password){
 	$ev = new EnvialoSimple();
 	if(!$ev->loginEnvialosimple($usuario, $password)){
-		echo error("Usuario o Clave Incorrectas",array("logueado"=>false));
+		echo error(__("Usuario o Clave Incorrectas",'envialo-simple'),array("logueado"=>false));
 		return false;
 	}
 	$httpAPIKEY = $ev->traerTokenUsuario();
@@ -380,9 +380,9 @@ function traerGenerarGuardarTokenMedianteAPI($usuario, $password){
 	}
 	$ev->logoutEnvialosimple();
 	if($ev->guardarTokenBD($httpAPIKEY)){
-		echo exito("La Clave de Api se ha configurado Correctamente!");
+		echo exito(__('La Clave de Api se ha configurado Correctamente!','envialo-simple'));
 	}else{
-		echo error("Se ha encontrado una clave previamente generada. Lamentablemente un error de Base de Datos ha ocurrido al intentar utilizarla.");
+		echo error(__("Se ha encontrado una clave previamente generada. Lamentablemente un error de Base de Datos ha ocurrido al intentar utilizarla.",'envialo-simple'));
 	}
 	return true;
 }

@@ -11,7 +11,7 @@ class Widget extends WP_Widget {
     public function __construct() {
         parent::__construct(
             'widget', // Base ID
-            'Formulario Suscripción EnvialoSimple', // Name
+            __('Formulario Suscripción EnvialoSimple','envialo-simple'), // Name
             array( 'description' => __('Arrastra y Suelta este Bloque en la Barra de Widgets para Seleccionar tu Formulario de Suscripción.','envialo-simple'), ) // Args
         );
     }

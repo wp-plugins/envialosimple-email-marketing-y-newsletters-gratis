@@ -12,7 +12,7 @@ var mostrarOver = true;
 
 jQuery(document).ready(function() {
  
-
+   
     inicializar();
 
     jQuery("#abrir-modal-creditos").click(function(event) {
@@ -30,7 +30,7 @@ jQuery(document).ready(function() {
         height : "auto",
         width : "auto",
         modal : true,
-        title : "Agregar Email",
+        title : l10n.AgregarEmail,
         close : function(event, ui) {
             jQuery("#form-agregar-email").find('input:text').val('')
         }
@@ -41,7 +41,7 @@ jQuery(document).ready(function() {
         height : "auto",
         width : "auto",
         modal : true,
-        title : "Insertar Imagen"
+        title : l10n.InsertarImagen
     });
 
     jQuery("#modal-editar-img").dialog({
@@ -49,7 +49,7 @@ jQuery(document).ready(function() {
         height : "auto",
         width : "auto",
         modal : true,
-        title : "Editar Imagen",
+        title : l10n.EditarImagen,
         open : function() {
         },
         close : function() {
@@ -76,7 +76,7 @@ jQuery(document).ready(function() {
     
     jQuery("#buscarCampana").click(function(){
         
-        if(jQuery(this).val() == "Buscar Newsletters.."){
+        if(jQuery(this).val() == l10n.bn){
             jQuery(this).val("");
         }
     });
@@ -84,7 +84,7 @@ jQuery(document).ready(function() {
     jQuery("#buscarCampana").blur(function(){
         
         if(jQuery(this).val() == ""){
-            jQuery(this).val("Buscar Newsletters.."); 
+            jQuery(this).val(l10n.bn); 
         }
         
      });
@@ -93,7 +93,7 @@ jQuery(document).ready(function() {
         event.preventDefault();
 
         if (!validarEmail(jQuery("input[name=emailAdmin]").val())) {
-            jQuery("#label-error-mail-admin").hide().removeClass("msjError msjExito").addClass("msjError").html("Ingrese un Email Válido").show(300);
+            jQuery("#label-error-mail-admin").hide().removeClass("msjError msjExito").addClass("msjError").html(l10n.mv).show(300);
             return false;
         }
 
@@ -104,7 +104,7 @@ jQuery(document).ready(function() {
 
             if (json.root.ajaxResponse.success) {
                 var email = json.root.ajaxResponse.email;
-                alert("Email Agregado Correctamente");
+                alert(l10n.eOk);
                 jQuery("#modal-agregar-email").dialog("close");
 
                 if (selectAgregarEmail == "FromID") {
@@ -119,7 +119,7 @@ jQuery(document).ready(function() {
                 jQuery("#label-error-mail-admin").hide().removeClass("msjError msjExito");
 
             } else {
-                alert("Error al Agregar");
+                alert(l10n.eF);
 
             }
 
@@ -131,10 +131,10 @@ jQuery(document).ready(function() {
         var estado = jQuery(this).attr("name");
 
         if (estado == "Sending") {
-            alert("Antes de Editar un Newsletter que se esta enviando, tiene que pausarlo");
+            alert(aEn1);
             return false;
         } else if (estado == "Scheduled") {
-            alert("Antes de Editar un Newsletter programado para enviar, tiene que pausarlo");
+            alert(aEn2);
             return false;
         }
 
@@ -171,7 +171,7 @@ jQuery(document).ready(function() {
                jQuery(this).css("border","1px solid #ddd");
                
                if(jQuery(this).val() == "agregar"){
-                    alert("Por Favor revise todos los campos.")
+                    alert(l10n.rvc)
                     jQuery(this).css("border","1px solid red");
                     selectOK = false;
                     return false;
@@ -194,10 +194,6 @@ jQuery(document).ready(function() {
 
         //cerrar editor
         TemplateEditor.releaseWorkingBlock();
-
-        
-            
-            
             
 
             var datos = jQuery("#form-editar-campana").serialize().replace(/%5B%5D/g, '[]');
@@ -226,10 +222,10 @@ jQuery(document).ready(function() {
 
                 } else if (json.root.ajaxResponse.errors == "errorMsg_invalidCampaignDate") {
 
-                    jQuery("#msj-respuesta").hide().show(200).removeClass("msjExito").addClass("msjError").html("Error al Guardar el Newsletter. La fecha de Programacin es Incorrecta");
+                    jQuery("#msj-respuesta").hide().show(200).removeClass("msjExito").addClass("msjError").html(l10n.egnfi);
 
                 } else {
-                    jQuery("#mensaje-campana").show(200).addClass("msjError").html("Error al Guardar el  Newsletter. Error: "+json.root.ajaxResponse.errors);
+                    jQuery("#mensaje-campana").show(200).addClass("msjError").html(l10n.egne +json.root.ajaxResponse.errors);
                 }
 
             }, "json");
@@ -292,7 +288,7 @@ jQuery(document).ready(function() {
                 jQuery("#form-previsualizar-contenedor").hide();
 
             } else {
-                jQuery("#prev-navegador-contenedor").html("Error al Obtener la Previsualización. Intente Nuevamente.");
+                jQuery("#prev-navegador-contenedor").html(l10n.eaop);
             }
 
         }, "json");
@@ -323,7 +319,7 @@ jQuery(document).ready(function() {
                 alert("Previsualización Enviada Correctamente!");
                 jQuery("#modalPrevisualizar").dialog("close");
             } else {
-                alert("Error al Enviar la Previsualización, por favor Intente Nuevamente.");
+                alert(l10n.eep);
             }
 
         }, "json");
@@ -340,21 +336,21 @@ jQuery(document).ready(function() {
 
         if (jQuery("#ifr-vacio").length == 1) {
 
-            alert("Aún no Generaste el Contenido del Newsletter.")
+            alert(l10n.angcn)
             return false;
 
         }
         
         if(!validarForm(jQuery("#form-editar-campana"))){
-            alert("Por Favor Verifica todos los Campos antes de Enviar tu Newsletter.")
+            alert(l10n.pfvtlc)
            return false; 
         }
         
 
         if (jQuery(this).html() == "Enviar!") {
-            var msj = "El Newsletter será Enviado a las Listas de Contactos seleccionadas. Está seguro que desea realizar esta operación?";
+            var msj = l10n.nseal;
         } else {
-            var msj = "El Newsletter será Enviado a las Listas de Contactos seleccionadas, el día " + jQuery("input[name=SchedulingDate]").val() + " a las " + jQuery("#input-hora").val() + ":" + jQuery("#input-minuto").val() + ". Está seguro que desa realizar esta operación?";
+            var msj = l10n.nels + jQuery("input[name=SchedulingDate]").val() + l10n.alas + jQuery("#input-hora").val() + ":" + jQuery("#input-minuto").val() + "." + l10n.conf1;
         }
 
         if (confirm(msj)) {
@@ -372,7 +368,7 @@ jQuery(document).ready(function() {
 
         CampaignID = jQuery(this).attr("name");
 
-        if (confirm("Seguro que desea Pausar el Newsletter?")) {
+        if (confirm(l10n.conf2)) {
 
             jQuery.post(urlHandler, {
                 accion : "pausarCampana",
@@ -382,7 +378,7 @@ jQuery(document).ready(function() {
                 if (json.root.ajaxResponse.success) {                    
                     refrescarNewsletters();
                 } else {
-                    alert("Error al Pausar");                   
+                    alert(l10n.err1);                   
                 }
 
             }, "json");
@@ -477,7 +473,7 @@ jQuery(document).ready(function() {
 
         CampaignID = jQuery(this).attr("name");
 
-        if (confirm("Seguro que desea Reanudar el Newsletter?")) {
+        if (confirm(l10n.conf3)) {
 
             jQuery.post(urlHandler, {
                 accion : "enviarCampana",
@@ -487,7 +483,7 @@ jQuery(document).ready(function() {
                 if (json.root.ajaxResponse.success) {
                     refrescarNewsletters()
                 } else {
-                    alert("Error al Reanudar");
+                    alert(l10n.err2);
                    
                 }
 
@@ -525,7 +521,7 @@ jQuery(document).ready(function() {
 
         event.preventDefault();
 
-        if (!confirm("Al Cambiar de Plantilla perderá todo su contenido cargado. Está Seguro?")) {
+        if (!confirm(l10n.conf4)) {
             return false;
         } else {
             alertarPageLeave = false;
@@ -539,10 +535,10 @@ jQuery(document).ready(function() {
 
         if (jQuery(this).val() == "1") {
             jQuery("#programacion-envio-alta").show(200);
-            jQuery("#enviar-campana-bt").html("Programar Envío").css("width", "100px")
+            jQuery("#enviar-campana-bt").html(l10n.bt1).css("width", "100px")
         } else {
             jQuery("#programacion-envio-alta").hide(200);
-            jQuery("#enviar-campana-bt").html("Enviar!").css("width", "50px")
+            jQuery("#enviar-campana-bt").html(l10n.bt2).css("width", "50px")
         }
     });
 
@@ -558,13 +554,11 @@ jQuery(document).ready(function() {
          
          
         if(jQuery("#input-campana-id").val() == "" ){
-            alert("Antes de Previsualizar, debe Guardar los Cambios.");
+            alert(l10n.apgc);
             return false;
         }    
         
-        jQuery("#modalPrevisualizar").dialog("open");
-
-        
+        jQuery("#modalPrevisualizar").dialog("open");        
         return false;
 
     });
@@ -584,7 +578,6 @@ jQuery(document).ready(function() {
 
         if (jQuery(this).val() == "agregar") {
             jQuery("#modal-agregar-email").dialog("open");
-
             selectAgregarEmail = "ReplyToID";
         }
 
@@ -693,7 +686,7 @@ jQuery(document).ready(function() {
             }, "html");
 
         },
-        title : "Agregar Contenido Desde Wordpress"
+        title : l10n.tit1
 
     });
 
@@ -734,7 +727,7 @@ jQuery(document).ready(function() {
         height : "auto",
         width : "auto",
         modal : true,
-        title : "Previsualizar Newsletter",
+        title : l10n.tit2,
         open: function(event,ui){
             jQuery("body").unbind();
         },
@@ -963,11 +956,11 @@ function traerPreciosEnvios() {
                     window.location.href = "https://dattatec.com/site/mis-compras";
 
                 } else {
-                    alert("Se ha producido un Error");
+                    alert(l10n.err3);
                 }
 
             }).fail(function(jqXHR, status, errorMSG) {
-                alert("Se ha producido un Error");
+                alert(l10n.err3);
             });
         });
 
@@ -997,11 +990,11 @@ function crearCuentaGratis() {
                 
             window.location.href = "https://dattatec.com/site/sp/mis-compras#continuar";
         } else {
-            alert("Se ha producido un Error");
+            alert(l10n.err3);
         }
 
     }).fail(function(jqXHR, status, errorMSG) {
-        alert("Se ha producido un Error");
+        alert(l10n.err3);
     });
 
 }
@@ -1131,13 +1124,13 @@ function guardarContenidoHTML(enviar) {
                             if (json.root.ajaxResponse.success) {
                                 window.location = urlAdmin + "admin.php?page=envialo-simple&camp-enviada=1";
                             } else {
-                                alert("Error al enviar");
+                                alert(l10n.err4);
                             }
 
                         }, "json");
 
                     } else {
-                        jQuery("#msj-respuesta").hide().show(200).removeClass("msjError").addClass("msjExito").html("Newsletter Guardado Correctamente!");
+                        jQuery("#msj-respuesta").hide().show(200).removeClass("msjError").addClass("msjExito").html(l10n.ok1);
                         setTimeout(function(){jQuery("#msj-respuesta").hide(300) },4000);
                         jQuery("#cargando").hide();
                         return true;

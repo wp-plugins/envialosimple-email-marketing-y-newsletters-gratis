@@ -18,13 +18,52 @@
     var rolUsuario = "<?php echo $envios['role']?>"
     
     var dominio = "<?php echo site_url(); ?>";
-    function __(text){
-        return text;
-    }
+  
 </script>
 <script type="text/javascript"  src="<?php echo plugins_url("envialosimple-email-marketing-y-newsletters-gratis/js/chosen.jquery.min.js"); ?>"></script>
-<script type="text/javascript"  src="<?php echo plugins_url("envialosimple-email-marketing-y-newsletters-gratis/js/scripts.js"); ?>"></script>
+<!--<script type="text/javascript"  src="<?php echo plugins_url("envialosimple-email-marketing-y-newsletters-gratis/js/scripts.js"); ?>"></script>-->
 
+<?php 
+    wp_enqueue_script('script',plugins_url('envialosimple-email-marketing-y-newsletters-gratis/js/scripts.js'));
+    wp_localize_script('script', 'l10n', 
+        array(
+            'AgregarEmail' => __('Agregar Email','envialo-simple'),
+            'InsertarImagen'=> __('Insertar Imagen','envialo-simple'),
+            'EditarImagen' => __('Editar Imagen','envialo-simple'),
+            'ComprarEnvíos' => __('Comprar Envíos','envialo-simple'),
+            'bn' => __('Buscar Newsletters..','envialo-simple'),
+            'mv' => __('Ingrese un Email Válido','envialo-simple'),
+            'eOk' => __('Email Agregado Correctamente','envialo-simple'),
+            'eF' => __('Error al Agregar','envialo-simple'),
+            'aEn1' => __('Antes de Editar un Newsletter que se esta enviando, tiene que pausarlo','envialo-simple'),
+            'aEn2' => __('Antes de Editar un Newsletter programado para enviar, tiene que pausarlo','envialo-simple'),
+            'rvc' => __('Por Favor revise todos los campos.','envialo-simple'),
+            'egnfi' => __('Error al Guardar el Newsletter. La fecha de Programación es Incorrecta','envialo-simple'),
+            'egne' => __('Error al Guardar el  Newsletter. Error:','envialo-simple'),
+            'eaop' => __('Error al Obtener la Previsualización. Intente Nuevamente.','envialo-simple'),
+            'eep' => __('Error al Enviar la Previsualización, por favor Intente Nuevamente.','envialo-simple'),
+            'angcn' => __('Aún no Generaste el Contenido del Newsletter.','envialo-simple'),
+            'pfvtlc'=>__('Por Favor Verifica todos los Campos antes de Enviar tu Newsletter.','envialo-simple'),
+            'nseal' => __('El Newsletter será Enviado a las Listas de Contactos seleccionadas. Está seguro que desea realizar esta operación?','envialo-simple'),
+            'nels' => __('El Newsletter será Enviado a las Listas de Contactos seleccionadas, el día','envialo-simple'),
+            'alas'=>__('a las','envialo-simple'),
+            'conf1' => __('Está seguro que desa realizar esta operación?','envialo-simple'),
+            'conf2' => __('Seguro que desea Pausar el Newsletter?','envialo-simple'),
+            'conf3' => __('Seguro que desea Reanudar el Newsletter?','envialo-simple'),
+            'conf4' => __('Al Cambiar de Plantilla perderá todo su contenido cargado. Está Seguro?','envialo-simple'),
+            'err1' => __('Error al Pausar','envialo-simple'),
+            'err2' => __('Error al Reanudar','envialo-simple'),
+            'err3' => __('Se ha producido un Error','envialo-simple'),
+            'err4' => __('Error al enviar','envialo-simple'),
+            'apgc' => __('Antes de Previsualizar, debe Guardar los Cambios.','envialo-simple'),
+            'tit1' => __('Agregar Contenido Desde Wordpress','envialo-simple'),
+            'tit2' => __('Previsualizar Newsletter','envialo-simple'),
+            'ok1' => __('Newsletter Guardado Correctamente!','envialo-simple'),
+            'bt1' => __('Programar Envío','envialo-simple'),
+            'bt2' => __('Enviar!','envialo-simple')            
+            ));
+    
+?>
 
 <div id="cargando" class="ui-widget-overlay">
     <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/throbber.gif'); ?>" />
@@ -131,7 +170,8 @@
     
     jQuery(document).ready(function(){        
         
-        jQuery("#solapa-click").click(function(){            
+        jQuery("#solapa-click").click(function(event){
+            event.preventDefault();            
             jQuery("#feedback").animate({"bottom":350},250,function(){                
                 jQuery("#feedback").animate({"bottom":265},250,function(){                    
                     jQuery("#feedback").animate({"bottom":283},300);                    

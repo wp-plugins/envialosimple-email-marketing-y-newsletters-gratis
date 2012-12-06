@@ -1,6 +1,8 @@
 <?php 
 
-    class Formularios{
+require_once("Curl.php");
+
+    class Formularios extends Curl{
         
         function traerFormulario($idFormulario){                 
                    
@@ -131,7 +133,7 @@
                 
             
             
-            return $this->curlJson($parametros, URL_BASE_API."/form/preview/format/widget");
+            return utf8_encode($this->curlJson($parametros, URL_BASE_API."/form/preview/format/widget"));
             
         } 
         
@@ -238,48 +240,7 @@
             
         }
         
-        function curlJson($parametros, $url, $esGet = FALSE) {
-            $cookie = "cookie.txt";
-            $ch = curl_init();
-            $parametros["APIKey"] = $GLOBALS["APIKey"];
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_USERAGENT, "WP-Plugin EnvialoSimple");
-            curl_setopt($ch, CURLOPT_TIMEOUT, 60);
-            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_COOKIEJAR, $cookie);
-            curl_setopt($ch, CURLOPT_REFERER, $url);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-           
-            
-            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($parametros));
-            if ($esGet) {
-                curl_setopt($ch, CURLOPT_HTTPGET, 1);
-                curl_setopt($ch, CURLOPT_POST, 0);
-            } else {
-                curl_setopt($ch, CURLOPT_HTTPGET, 0);
-                curl_setopt($ch, CURLOPT_POST, 1);
-            }
-            $response = curl_exec($ch);            
-            $curl_errno = curl_errno($ch);
-            $curl_error = curl_error($ch);
-            if($curl_errno){
-                $resultado = json_encode(array("root"=>array("ajaxResponse" => array("curlError"=>curl_errno($ch)))));
-            } else {
-                $resultado = $response;
-            }
-            $logear = true;
-            if($logear){
-                $logMsg = date('Y-m-d H:i:s')."<<\n{$url}\n".print_r($parametros,true);
-                if($curl_errno){
-                    $logMsg.= "curl_errno: {$curl_errno} | curl_error: {$curl_error}\n";
-                }
-                $logMsg.= "{$response}\n>>\n";
-                 error_log($logMsg,3,'esApiLog.log');
-                 
-            }
-            return $resultado;
-        }
+        
                 
         
     }

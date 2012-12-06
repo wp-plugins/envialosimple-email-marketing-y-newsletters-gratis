@@ -143,7 +143,7 @@
     $alertarPageLeave = isset($_POST['idPlantilla']) ? "true" : "false";
 	if($_POST['idPlantilla']){
 		$idPlantilla = $_POST["idPlantilla"];
-		$template = file_get_contents("http://v2.envialosimple.com/mailing_templates/".$idPlantilla."/content.htm");
+		$template = utf8_encode(file_get_contents("http://v2.envialosimple.com/mailing_templates/".$idPlantilla."/content.htm"));
 		
 	}else{
 	    
@@ -171,12 +171,38 @@
     <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/contentEdit.js"); ?>"></script>
     <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/jquery.wysiwyg.js"); ?>"></script>
     <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/bootstrap.js"); ?>"></script>
-    <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/simplemodal.1.4.3.js"); ?>"></script>
-    <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/jpicker-1.1.6.js"); ?>"></script>
+    <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/simplemodal.1.4.3.js"); ?>"></script>       
     <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/wysiwygExtras.js"); ?>"></script>
+    <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/getText.js"); ?>"></script>    
     
+    <?php 
+        $locale = substr(get_locale(), 0,2);
+        switch ($locale) {
+            case 'es':
+                $urlLoc = "envialosimple-email-marketing-y-newsletters-gratis/languages/es.json";
+                break;
+                
+            case 'pt':
+                $urlLoc = "envialosimple-email-marketing-y-newsletters-gratis/languages/pt.json";                
+                break;    
+            
+            case 'en':
+                $urlLoc = "envialosimple-email-marketing-y-newsletters-gratis/languages/en.json";                
+                break;
+            
+            default:                
+                break;                
+        }  
     
-    <script xmlns="" language="javascript" type="text/javascript">              
+    ?>
+    
+    <script type="text/javascript"  src="<?php echo  plugins_url($urlLoc); ?>"></script>    
+    
+    <script xmlns="" language="javascript" type="text/javascript">     
+    
+        var locale = "<?php echo $locale; ?>"
+    
+                 
         TemplateEditor.setCurrentRecordID(jQuery('input#currentRecordID').val());
         
         var alertarPageLeave = <?php echo $alertarPageLeave?>;
@@ -184,7 +210,7 @@
         jQuery(window).bind('beforeunload', function() {
             
             if (alertarPageLeave) {
-                return 'Al abandonar ésta página, se perderán todos los cambios no guardados.';
+                return '<?php _e('Al abandonar ésta página, se perderán todos los cambios no guardados.','envialo-simple'); ?>';
             } else {
                 return;
             } 
@@ -192,12 +218,66 @@
        
        jQuery(window).bind('keypress',function(event){           
            alertarPageLeave = true;
-       });              
+       });   
+       
+       
+       
+       /**
+         * Translation
+         *
+         * @copyright   Dattatec.com s.r.l.
+         * @author      Javier Valderrama
+         *
+         * @Ver http://jsgettext.berlios.de/doc/html/Gettext.html para mas info de Gettext
+         */
+        
+        
+        var params = {
+            "domain" : 'javascript-'+locale,
+            "locale_data" : json_locale_data
+        };
+        var gt = new Gettext(params);
+        
+        
+        /**
+         * @param {String} term
+         * @param {Boolean} override
+         * @returns {String} gt.gettext(term) or term if override is true
+         *
+         */
+        function __(term, override){
+            
+            term = term ? jQuery.trim(term) : '';
+            override = override || false;
+            
+            if(override){
+                return term;
+            }
+            
+            var messageTranslated = gt.gettext(term)
+            , exeptionsList;
+        
+            if((term.substring(0, 9) === "errorMsg_" || locale !== 'es' ) && messageTranslated === term)
+            {
+                    
+                exeptionsList = ['clicks', 'e-mail', 'etc', 'password', 'spam rating'
+                                , 'info:', 'info', 'no', 'video tutorial', '¡email marketing!'
+                                , 'error', 'ok', 'robot', 'hexadecimal', 'links', 'zen', 'spa'
+                                , 'simple', 'retro', 'newsletter', 'hotel', 'call center'
+                                , 'general', 'url', 'editor', 'email'
+                                ];            
+                    
+              }
+        
+            return messageTranslated;
+        }
+
+
     </script>
+    <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/jpicker-1.1.6.js"); ?>"></script>
 
 
-<div class="wrap">    
-    
+<div class="wrap">        
 		<div id="msj-respuesta" class="mensaje" style="width: 55%">
 		</div>
 		  <form id="form-editar-campana" action="#" method="post">

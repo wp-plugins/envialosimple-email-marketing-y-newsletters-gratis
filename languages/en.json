@@ -1,0 +1,4570 @@
+var json_locale_data = 
+{
+   "javascript-en" : {
+      "" : {
+         "MIME-Version" : " 1.0",
+         "X-Generator" : " Poedit 1.5.4",
+         "POT-Creation-Date" : " ",
+         "Language" : " en_US",
+         "Last-Translator" : " ",
+         "Content-Type" : " text/plain; charset=UTF-8",
+         "PO-Revision-Date" : " ",
+         "Language-Team" : " ",
+         "Content-Transfer-Encoding" : " 8bit",
+         "Report-Msgid-Bugs-To" : " ",
+         "Project-Id-Version" : " envialo simple"
+      },
+      "errorMsg_noFileAccess" : [
+         null,
+         "File NOT found"
+      ],
+      "Incluir los suscriptores que posean" : [
+         null,
+         "Include members that have"
+      ],
+      "Enviando" : [
+         null,
+         "Sending"
+      ],
+      "Detenida" : [
+         null,
+         "Stopped"
+      ],
+      "contactos purgados" : [
+         null,
+         "contacts purged"
+      ],
+      "Navegador" : [
+         null,
+         "Browser"
+      ],
+      "Campañas NO eliminadas" : [
+         null,
+         "Not deleted:"
+      ],
+      "errorMsg_administratorSuspended" : [
+         null,
+         "The administrator account is not authorized to perform this operation."
+      ],
+      "destinatarios activos" : [
+         null,
+         "active recipients"
+      ],
+      "ImageID" : [
+         null,
+         "Image"
+      ],
+      "Rebote blando" : [
+         null,
+         "Soft bounce"
+      ],
+      "regexInvalid" : [
+         null,
+         "Pattern is not valid"
+      ],
+      "Eliminar Todos" : [
+         null,
+         "Delete All"
+      ],
+      "errorMsg_campaignAlreadyPaused" : [
+         null,
+         "Campaign is already Paused"
+      ],
+      "Adjunto removido" : [
+         null,
+         "Attachement removed"
+      ],
+      "month_04" : [
+         null,
+         "april"
+      ],
+      "es demasiado grande" : [
+         null,
+         "too large"
+      ],
+      "Tu ZONA DNS no parece estar configurada correctamente" : [
+         null,
+         "Your DNS zone doesn't seems to be properly configured."
+      ],
+      "Pegar" : [
+         null,
+         "Paste"
+      ],
+      "sendingStatus-Started" : [
+         null,
+         "Started"
+      ],
+      "errorMsg_increasePostMaxSizeTo 10M | 10485760 |  8388608 | 2097152." : [
+         null,
+         "Please contact the service administrator."
+      ],
+      "Crear campaña" : [
+         null,
+         "Create Campaign"
+      ],
+      "miembro" : [
+         null,
+         "member"
+      ],
+      "lista" : [
+         null,
+         "list"
+      ],
+      "Contacto" : [
+         null,
+         "Contact"
+      ],
+      "errorMsg_customfieldLimitReached" : [
+         null,
+         "You have reached the limit of available custom fields."
+      ],
+      "Nota al pié" : [
+         null,
+         "Note"
+      ],
+      "Mantener proporciones" : [
+         null,
+         "Keep proportions"
+      ],
+      "Alineación centrada SIN texto alrededor" : [
+         null,
+         "Align center  WITHOUT word wrap"
+      ],
+      "Tachado" : [
+         null,
+         "Line through"
+      ],
+      "No se ha podido recuperar el listado de campañas" : [
+         null,
+         "The campaign list could not be retrieved"
+      ],
+      "destinatarios" : [
+         null,
+         "recipients"
+      ],
+      "ReplyToID" : [
+         null,
+         "Replay to"
+      ],
+      "Exportar Lista" : [
+         null,
+         "Export list"
+      ],
+      "ERROR" : [
+         null,
+         "ERROR"
+      ],
+      "Empieza con" : [
+         null,
+         "Begins with"
+      ],
+      "elaborando datos" : [
+         null,
+         "elaborating data"
+      ],
+      "MakeOptIn" : [
+         null,
+         "Mark subscribers as confirmed by Pot-in"
+      ],
+      "Estilo simple" : [
+         null,
+         "Simple"
+      ],
+      "FromEmail" : [
+         null,
+         "Email from"
+      ],
+      "Email" : [
+         null,
+         "Email"
+      ],
+      "Escribe la dirección de e-mail a la cual deseas enviar la vista preliminar." : [
+         null,
+         "Write down the recipient's email address to send the preview."
+      ],
+      "URL" : [
+         null,
+         "URL"
+      ],
+      "Volver a la Campaña" : [
+         null,
+         "Back to Campaign"
+      ],
+      "Insertar" : [
+         null,
+         "Insert"
+      ],
+      "Ok" : [
+         null,
+         "Ok"
+      ],
+      "Los contactos estarán <span class=\"text-info\">relacionados con las listas de origen y con las listas de destino</span>." : [
+         null,
+         "The contacts will be <span class=\"text-info\">linked to the original and the target maillists</span>."
+      ],
+      "No se han podido recuperar las listas de contactos" : [
+         null,
+         "The Maillists list could not be retrieved"
+      ],
+      "lista serán borrados.<br /><br />¿Estás seguro que deseas proceder?<br /><br />Si procedes, no podrás recuperarlos." : [
+         null,
+         "Maillists will be deleted.<br /><br />Are you sure to proceed?"
+      ],
+      "Pausada" : [
+         null,
+         "Paused"
+      ],
+      "Ésta campaña ha sido enviada. Para reenviarla <a href=\"#\" class=\"triggerDuplicateCampaign\">haz click aquí</a> o en el botón \"duplicar campaña\"" : [
+         null,
+         "The campaign has been sent. To send it again <a href=\"#\" class=\"triggerDuplicateCampaign\">click here</a> or click the \"copy campaign\" button"
+      ],
+      "Borrar" : [
+         null,
+         "Delete"
+      ],
+      "Sistema Operativo" : [
+         null,
+         "Operative system"
+      ],
+      "Ver HTML" : [
+         null,
+         "View HTML"
+      ],
+      "Solicitaste REMOVER al miembro de la lista." : [
+         null,
+         "You have request to REMOVE  a member from the contacts list."
+      ],
+      "Galería de Contenidos Anteriores" : [
+         null,
+         "Previous designs gallery"
+      ],
+      "errorMsg_campaignContentNotSaved" : [
+         null,
+         "Campaign content not saved"
+      ],
+      "HTML" : [
+         null,
+         "HTML"
+      ],
+      "Ha ocurrido un error inesperado, por favor intente mas tarde." : [
+         null,
+         "An unexpected error occurred. Please retry later."
+      ],
+      "Campos personalizados" : [
+         null,
+         "Custom Fields"
+      ],
+      "Items seleccionados" : [
+         null,
+         "Selected items"
+      ],
+      "Educación" : [
+         null,
+         "Education"
+      ],
+      "Exportar contactos" : [
+         null,
+         "Export contacts"
+      ],
+      "Mis archivos" : [
+         null,
+         "My documents"
+      ],
+      "Abortar" : [
+         null,
+         "Abort"
+      ],
+      "Izquierda" : [
+         null,
+         "Left"
+      ],
+      "No hemos podido identificar la campaña seleccionada." : [
+         null,
+         "Unable to identify the selected campaign."
+      ],
+      "direcciones" : [
+         null,
+         "addresses"
+      ],
+      "Ha ocurrido un error aplicando la exclusión a los contactos existentes." : [
+         null,
+         "An error occurred applying the ban rule to the existing contacts."
+      ],
+      "¿Estás seguro de eliminar este Campo Personalizado? Si alguna lista de contactos lo utiliza la información se perderá." : [
+         null,
+         "Are you sure to delete the Custom Field? "
+      ],
+      "Ha ocurrido un error recuperando la imagen solicitada." : [
+         null,
+         "An error occurred while retrieving the selected image."
+      ],
+      "Call center" : [
+         null,
+         "Call center"
+      ],
+      "Nuevo" : [
+         null,
+         "New"
+      ],
+      "errorMsg_reads" : [
+         null,
+         "Reads"
+      ],
+      "lunes" : [
+         null,
+         "monday"
+      ],
+      "errorMsg_noPostInfo" : [
+         null,
+         "NOT POST"
+      ],
+      "errorMsg_noImages" : [
+         null,
+         "Images NOT found"
+      ],
+      "Niños" : [
+         null,
+         "Kids"
+      ],
+      "Si" : [
+         null,
+         "Yes"
+      ],
+      "Aceptar solo letras y espacios" : [
+         null,
+         "Letters, and white space"
+      ],
+      "para eliminar.<br /><br /> Si alguna campaña las tiene asignadas como <strong>\"Remitente\"</strong> o como  <strong>\"Responder a\"</strong>, no podrá utilizarlas." : [
+         null,
+         "for deletion.<br /><br />If any campaign use them as <strong>\"Sender\"</strong> o r  <strong>\"Reply to\"</strong>, it won't be able to use them anymore."
+      ],
+      "Actualizar" : [
+         null,
+         "Update"
+      ],
+      "Subíndice" : [
+         null,
+         "subscript"
+      ],
+      "errorMsg_memberNotFoundInMailList" : [
+         null,
+         "Subscriber not found in the maillist"
+      ],
+      "emailAddressInvalidHostname" : [
+         null,
+         "E-mail address is invalid"
+      ],
+      "day_1" : [
+         null,
+         "monday"
+      ],
+      "No hay remociones para el período seleccionado" : [
+         null,
+         "No unsubscriptions found for the selected period"
+      ],
+      "Detalle" : [
+         null,
+         "Detail"
+      ],
+      "Delimiter" : [
+         null,
+         "Delimiter"
+      ],
+      "month_10" : [
+         null,
+         "october"
+      ],
+      "ReplyToEmail" : [
+         null,
+         "Replay to"
+      ],
+      "Danza" : [
+         null,
+         "Dance"
+      ],
+      "agosto" : [
+         null,
+         "august"
+      ],
+      "errorMsg_campaignNotResumed" : [
+         null,
+         "Unable to resume the campaign."
+      ],
+      "Fecha en formato" : [
+         null,
+         "Formatted date"
+      ],
+      "Pinturería" : [
+         null,
+         "Paint shop"
+      ],
+      "emailAddressInvalidHostnameEmail" : [
+         null,
+         "E-mail address is invalid"
+      ],
+      "¿Estás seguro de eliminar éste e-mail?" : [
+         null,
+         "Are you sure to delete this email?"
+      ],
+      "errorMsg_campaignAdministratorIDOrMaillistIDNotFound" : [
+         null,
+         "Failed to retrieve data"
+      ],
+      "El tipo de campo acepta solamente números, letras y espacios" : [
+         null,
+         "The field type accepts only numbers, letters, and white space"
+      ],
+      "Achicar tamaño letra" : [
+         null,
+         "Decrease font size"
+      ],
+      "Total Aperturas" : [
+         null,
+         "Total Opens"
+      ],
+      "ReturnPathEmail" : [
+         null,
+         "Return Path"
+      ],
+      "No se ha podido recuperar el listado de imágenes" : [
+         null,
+         "The image list could not be retrieved"
+      ],
+      "Insertar imagen" : [
+         null,
+         "Insert image"
+      ],
+      "BackgroundColor" : [
+         null,
+         "Background color"
+      ],
+      "emailAddressInvalid" : [
+         null,
+         "E-mail address is invalid"
+      ],
+      "Amarillo" : [
+         null,
+         "Yellow"
+      ],
+      "Todos los contactos de la lista serán borrados.<br /><br />¿Estás seguro que deseas proceder?<br /><br />Si procedes, no podrás recuperarlos." : [
+         null,
+         "All members have been selected for deletion.<br /><br />Are you sure to proceed?"
+      ],
+      "Reglas eliminadas" : [
+         null,
+         "Deleted"
+      ],
+      "No hemos podido identificar la regla seleccionada." : [
+         null,
+         "Unable to identify the selected Ban rule."
+      ],
+      "Remover Bloque" : [
+         null,
+         "Remove block"
+      ],
+      "errorMsg_memberBounceStatusNotChanged" : [
+         null,
+         "Unable to change the subscriber's  bounce status."
+      ],
+      "Compartir por E-mail" : [
+         null,
+         "Share by email"
+      ],
+      "Seleccionaste 1 editor para eliminar.<br /><br />¿Estás seguro que deseas proceder?<br /><br />Si procedes, no podrás recuperarlo." : [
+         null,
+         "1 Editor  has been selected for deletion.<br /><br />Are you sure to proceed?"
+      ],
+      "Rebotes Totales" : [
+         null,
+         "Total Bounce"
+      ],
+      "Purgar listas/contactos" : [
+         null,
+         "Purge lists/contacts"
+      ],
+      "FromID" : [
+         null,
+         "Sender (FROM)"
+      ],
+      "Buscando" : [
+         null,
+         "Searching"
+      ],
+      "CampaignIds" : [
+         null,
+         "Campaigns"
+      ],
+      "La versión de texto plano del email se crea AUTOMATICAMENTE a partir del contenido HTML." : [
+         null,
+         "The plain text version WILL BE automatically generated from the HTML content."
+      ],
+      "Previsualizar en ventana" : [
+         null,
+         "Browser Preview "
+      ],
+      "Tipo de rebote" : [
+         null,
+         "Browser type"
+      ],
+      "Punto de restauración aplicado" : [
+         null,
+         "Restore point applied"
+      ],
+      "Estás por modificar el estado de tu Campaña" : [
+         null,
+         "You are about to change the Campaign status"
+      ],
+      "Listas eliminadas" : [
+         null,
+         "Deleted Maillists"
+      ],
+      "La cuenta se encontraba suspendida al momendo de intentar enviar la campaña." : [
+         null,
+         "The account was suspended momendo attempting to send the campaign."
+      ],
+      "Entre" : [
+         null,
+         "Between"
+      ],
+      "month_03" : [
+         null,
+         "march"
+      ],
+      "contacto exportado" : [
+         null,
+         "contact exported"
+      ],
+      "errorMsg_signInvalid" : [
+         null,
+         "Invalid signature"
+      ],
+      "errorMsg_deleteError" : [
+         null,
+         "Image not deleted"
+      ],
+      "¿Deseas volver a la página de edición de campañas?" : [
+         null,
+         "Do you want to go back to campaign's edition page?"
+      ],
+      "Contenido seleccionado desde URL" : [
+         null,
+         "Content retrieved from URL"
+      ],
+      "¡Atención!" : [
+         null,
+         "¡Attention!"
+      ],
+      "Nueva imagen" : [
+         null,
+         "New image"
+      ],
+      "ContentMainURL" : [
+         null,
+         "Contents URL"
+      ],
+      "errorMsg_templateNotSaved" : [
+         null,
+         "Template NOT saved"
+      ],
+      "Mujer" : [
+         null,
+         "Woman"
+      ],
+      "Peso" : [
+         null,
+         "Weight"
+      ],
+      "Inicio" : [
+         null,
+         "Start"
+      ],
+      "errorMsg_customfieldNotEdited" : [
+         null,
+         "Custom field NOT saved"
+      ],
+      "Personalizar" : [
+         null,
+         "Personalize"
+      ],
+      "Etiquetas personalizadas" : [
+         null,
+         "Personalized label"
+      ],
+      "Centrar" : [
+         null,
+         "Center"
+      ],
+      "es demasiado pequeño" : [
+         null,
+         "is too small"
+      ],
+      "No se ha podido actualizar el Contenido" : [
+         null,
+         "The content could not be updated"
+      ],
+      "Suscripto" : [
+         null,
+         "Subscribed"
+      ],
+      "errorMsg_imageNotFound" : [
+         null,
+         "Image NOT found"
+      ],
+      "¿Estás seguro de eliminar ésta dirección de correo? Si alguna campaña la tiene asignada como <strong>\"Remitente\"</strong> o como  <strong>\"Responder a\"</strong>, no podrá utilizarla." : [
+         null,
+         "Are you sure to delete this email address?"
+      ],
+      "dateFalseFormat" : [
+         null,
+         "Invalid Date"
+      ],
+      "Los contactos <span class=\"text-info\">no pertenecerán más</span> a las listas de origen seleccionadas." : [
+         null,
+         "The contacts  <span class=\"text-info\">will be removed</span> from the selected maillists."
+      ],
+      "Advertencia email" : [
+         null,
+         "Email warning"
+      ],
+      "Para utilizar éste filtro es necesario que selecciones al menos una campaña." : [
+         null,
+         "In order to use this filter you should select at least one campaign source."
+      ],
+      "Campañas encontradas:" : [
+         null,
+         "Campaigns found:"
+      ],
+      "Calculando" : [
+         null,
+         "Calculating"
+      ],
+      "Cargar nueva imagen" : [
+         null,
+         "Load new image"
+      ],
+      "Tareas completadas" : [
+         null,
+         "Completed tasks"
+      ],
+      "El campo Email está vacío." : [
+         null,
+         "The field \"Email\" is empty"
+      ],
+      "El campo \"Email del remitente\" no puede estar vacío y debe ser un e-mail valido" : [
+         null,
+         "The field \"Sender (FROM)\" cannot be empty and must be a valid email address"
+      ],
+      "Veterinaria" : [
+         null,
+         "Veterinary"
+      ],
+      "Medicina" : [
+         null,
+         "Medicine"
+      ],
+      "importados" : [
+         null,
+         "imported"
+      ],
+      "errorMsg_campaignMaillistNotAsigned" : [
+         null,
+         "Unable to assign the contact lists."
+      ],
+      "La lista ya posee un email relacionado" : [
+         null,
+         "The lis already has a related email"
+      ],
+      "Lista de destinación" : [
+         null,
+         "Target Maillist"
+      ],
+      "Campaña" : [
+         null,
+         "Campaign"
+      ],
+      "month_01" : [
+         null,
+         "january"
+      ],
+      "Útiles" : [
+         null,
+         "Usefull"
+      ],
+      "No" : [
+         null,
+         "No"
+      ],
+      "Ha ocurrido un error durante el pedido de datos en tiempo real" : [
+         null,
+         "An error occurred during the real time data request."
+      ],
+      "Eliminar Lista de contactos" : [
+         null,
+         "Delecte Maillist"
+      ],
+      "Restablece los valores a:" : [
+         null,
+         "Restore values to:"
+      ],
+      "para eliminar.<br /><br /> Si alguna campaña la tiene asignada como <strong>\"Remitente\"</strong> o como  <strong>\"Responder a\"</strong>, no podrá utilizarla." : [
+         null,
+         "for deletion.<br /><br />If any campaign use it as <strong>\"Sender\"</strong> o r  <strong>\"Reply to\"</strong>, it won't be able to use it anymore."
+      ],
+      "errorMsg_noMaillist" : [
+         null,
+         "Maillists NOT found"
+      ],
+      "Valor" : [
+         null,
+         "Value"
+      ],
+      "Esta acción removerá permanentemente los contactos que coincidan con la regla de las listas seleccionadas.<br /><br />¿Estás seguro que deseas proceder?" : [
+         null,
+         "This action will permanently remove from the selected lists all contacts that match the selected rule.<br /><br />Are you sure to proceed?"
+      ],
+      "El campo \"Contraseña\" debe ser como minimo de 6 caracteres." : [
+         null,
+         "The field \"Password\" should have at least 6 characters."
+      ],
+      "Confirmar" : [
+         null,
+         "Confirm"
+      ],
+      "Reenviar a un Amigo" : [
+         null,
+         "Tell a friend"
+      ],
+      "El usuario no tiene rebotes" : [
+         null,
+         "The member has no bounces"
+      ],
+      "miembros" : [
+         null,
+         "members"
+      ],
+      "Campaña lista para ser enviada." : [
+         null,
+         "Campaign ready to send"
+      ],
+      "Links Totales" : [
+         null,
+         "Total Clicks"
+      ],
+      "Ha sucedido un error recuperando la información para descargar el archivo." : [
+         null,
+         "The requested file could not be retrieved."
+      ],
+      "Zen" : [
+         null,
+         "Zen"
+      ],
+      "Listas de contactos" : [
+         null,
+         "Contacts lists:"
+      ],
+      "Programa de correo electrónico" : [
+         null,
+         "Destop mail client"
+      ],
+      "La información del usuario ha sido guardada correctamente." : [
+         null,
+         "The member information has been successfully saved."
+      ],
+      "TemplateID" : [
+         null,
+         "Template"
+      ],
+      "Opciones de suscripción" : [
+         null,
+         "Subscription options"
+      ],
+      "abril" : [
+         null,
+         "april"
+      ],
+      "campaña ha sido seleccionada para ser eliminada.¿Deseas proceder?" : [
+         null,
+         "Campaign has been selected for deletion. Are you sure to proceed?"
+      ],
+      "No se ha podido identificar la imagen seleccionada." : [
+         null,
+         "Unable to identify the selected image."
+      ],
+      "Campañas seleccionadas" : [
+         null,
+         "Selected campaigns"
+      ],
+      "Debes seleccionar al menos una lista de contactos" : [
+         null,
+         "At least on Maillist must be selected"
+      ],
+      "errorMsg_campaignNotActived" : [
+         null,
+         "Campaigns is NOT ready"
+      ],
+      "¿Estás seguro de eliminar éste email? Si algun formulario lo tiene asignado no podrá utilizarlo." : [
+         null,
+         "Are you sure to delete this email?"
+      ],
+      "Modo AUTOMATICO:" : [
+         null,
+         "AUTO mode:"
+      ],
+      "El tipo de campo acepta solamente direcciones de correo válidas" : [
+         null,
+         "The field type accepts only valid email addresses"
+      ],
+      "errorMsg_notDeleted" : [
+         null,
+         "Could not be deleted."
+      ],
+      "Blando / Email demasiado largo" : [
+         null,
+         "Soft / Message Size Too Large"
+      ],
+      "emailAddressInvalidSegment" : [
+         null,
+         "E-mail address is invalid"
+      ],
+      "Reenviar email" : [
+         null,
+         "Tell a friend"
+      ],
+      "hostnameUnknownTld" : [
+         null,
+         "E-mail address is invalid"
+      ],
+      "Guardando" : [
+         null,
+         "Saving"
+      ],
+      "editor ha sido seleccionado para ser eliminado.¿Deseas proceder?" : [
+         null,
+         "editor has been selected for deletion. Are you sure to proceed?"
+      ],
+      "han sido para importar subscriptores.¿Deseas proceder?" : [
+         null,
+         " have been selected for contacts import.Do you wish to proceed?"
+      ],
+      "Mientras se importan tus contactos, puedes continuar trabajando en cualquier sección de la herramienta." : [
+         null,
+         "While the import process is running, you may continue working on your email marketing projects."
+      ],
+      "Total de Subscriptores:" : [
+         null,
+         "Total subscribers:"
+      ],
+      "O envíala por email a la persona que desees utilizando el siguente formulario" : [
+         null,
+         "Or send it by email send to the person you want using the following form."
+      ],
+      "Seleccionar" : [
+         null,
+         "Select"
+      ],
+      "Por favor selecciona otro archivo" : [
+         null,
+         "Please select a file"
+      ],
+      "El tipo de campo acepta solamente letras y espacios" : [
+         null,
+         "The field type accepts only numbers, letters, and white space"
+      ],
+      "Blando / Error de DNS" : [
+         null,
+         "Soft / Dns Failure"
+      ],
+      "MailListsIds" : [
+         null,
+         "Maillist"
+      ],
+      "Seleccionaste Todos los formularios para eliminar.<br /><br />¿Estás seguro que deseas proceder?<br /><br />Si procedes, no podrás recuperarlos." : [
+         null,
+         "All  Signup Forms have been selected for deletion.<br /><br />Are you sure to proceed?"
+      ],
+      "La url solicitada no existe o no está disponible.<br/>http Status" : [
+         null,
+         "The selected URL doesn't exists or it's momentary unavailable.<br/>http Status"
+      ],
+      "Eliminar" : [
+         null,
+         "Delete"
+      ],
+      "purgados" : [
+         null,
+         "purged"
+      ],
+      "No hay subscripciones para el período seleccionado" : [
+         null,
+         "No subscriptions found for the selected period"
+      ],
+      "Creado el" : [
+         null,
+         "Created on"
+      ],
+      "No asignaste ninguna lista donde importar los contactos." : [
+         null,
+         "No destination Maillists has been assigned."
+      ],
+      "Exportación de listas" : [
+         null,
+         "Contact list exporting"
+      ],
+      "notText" : [
+         null,
+         "Is not a valid value"
+      ],
+      "Cargando Email Template" : [
+         null,
+         "Loading email template"
+      ],
+      "Seleccionar Tamaño" : [
+         null,
+         "Select size"
+      ],
+      "FilterValues" : [
+         null,
+         "Filter configurations"
+      ],
+      "Aceptar solo letras, números y espacios" : [
+         null,
+         "Numbers, letters, and white space"
+      ],
+      "Edición de contenido iniciada" : [
+         null,
+         "Content edition started"
+      ],
+      "Retro" : [
+         null,
+         "Retro"
+      ],
+      "No se ha podido recuperar la entrada RSS solicitada" : [
+         null,
+         "Unable to perform the RSS feeds request."
+      ],
+      "Links" : [
+         null,
+         "Links"
+      ],
+      "Newsletter" : [
+         null,
+         "Newsletter"
+      ],
+      "La campaña ha sido eliminada y no puede recuperarse." : [
+         null,
+         "The campaign has been deleted."
+      ],
+      "El campo \"Asunto\" no puede estar vacío" : [
+         null,
+         "The field \"Subject\" cannot be empty"
+      ],
+      "Navegador web" : [
+         null,
+         "Web browser"
+      ],
+      "LabelSubmit" : [
+         null,
+         "Button text"
+      ],
+      "Enviar" : [
+         null,
+         "Send"
+      ],
+      "No se ha podido descargar el listado de paises" : [
+         null,
+         "The country list could not be retrieved"
+      ],
+      "Blando / General" : [
+         null,
+         "Soft / General"
+      ],
+      "Me gustaría compartir éste email contigo." : [
+         null,
+         "I'd like to share this message with you."
+      ],
+      "regla ha sido seleccionada para ser eliminada.¿Deseas proceder?" : [
+         null,
+         "Ban rule  has been selected for deletion. Are you sure to proceed?"
+      ],
+      "viernes" : [
+         null,
+         "friday"
+      ],
+      "Escribe la URL de la página con el contenido HTML que quieras incluir." : [
+         null,
+         "Enter the remote HTML source URL you wish to use."
+      ],
+      "errorMsg_noLinesFound" : [
+         null,
+         "No lines were found to import."
+      ],
+      "Alineación derecha CON texto alrededor" : [
+         null,
+         "Align right WITH word wrap"
+      ],
+      "Subscriptores" : [
+         null,
+         "Subscribers"
+      ],
+      "errorMsg_campaignEmptyEmail" : [
+         null,
+         "Failed to analyze the structure of the e-mail."
+      ],
+      "domingo" : [
+         null,
+         "sunday"
+      ],
+      "¿Deseas pausar la campaña? Cuando reinicies el envío la entrega continuará desde donde fué pausada." : [
+         null,
+         "Do you wish to pause the campaign? When it restarts sending, it will continue from the paused point."
+      ],
+      "El email de \"Responder a:\" no ha sido asignado o es inválido." : [
+         null,
+         "The email \"Reply to: \" has not been assigned or is invalid."
+      ],
+      "¡Mientras más compras, más ahorras!" : [
+         null,
+         "The more you buy, the more you save!"
+      ],
+      "errorMsg_mustChooseMaillist" : [
+         null,
+         "Please selecte a destination maillist for the imported subscribers."
+      ],
+      "Contenido de la respuesta" : [
+         null,
+         "Response content"
+      ],
+      "El email seleccionado como" : [
+         null,
+         "The email selected as"
+      ],
+      "Español" : [
+         null,
+         "Spanish"
+      ],
+      "Seleccionaste" : [
+         null,
+         "You have selected"
+      ],
+      "ha sido guardada y está lista para ser enviada. <br />¿DESEAS ACTIVARLA para que el sistema la envíe?." : [
+         null,
+         "has been saved and it's ready to send. <br />ACTIVATE IT ?."
+      ],
+      "No se ha podido iniciar la operación solicitada." : [
+         null,
+         "Unable to perform the requested operation."
+      ],
+      "La opción" : [
+         null,
+         "The option"
+      ],
+      "Adjunto modificado" : [
+         null,
+         "Attachement changed"
+      ],
+      "undefined" : [
+         null,
+         "not undefined"
+      ],
+      "Seleccionar una url externa" : [
+         null,
+         "Select an external url"
+      ],
+      "MailListsIDs" : [
+         null,
+         "Maillists"
+      ],
+      "Los archivos estan siendo cargados, si abandonas la página la carga será interrumpida." : [
+         null,
+         "File uploading in course, if you left this page the upload will be interrupted."
+      ],
+      "No hemos podido recuperar el listado de plantillas. Por favor intente nuevamente." : [
+         null,
+         "Unable to retrieve the templates list. Please retry."
+      ],
+      "Edición en curso" : [
+         null,
+         "Edition in course"
+      ],
+      "Inst. emails / Sec." : [
+         null,
+         "Inst. emails / Sec."
+      ],
+      "day_6" : [
+         null,
+         "saturday"
+      ],
+      "listas han sido seleccionadas para ser eliminadas.¿Deseas proceder?" : [
+         null,
+         "Maillists  have been selected for deletion. Are you sure to proceed?"
+      ],
+      "notSame" : [
+         null,
+         "Value is not equal to its reference"
+      ],
+      "Joyería" : [
+         null,
+         "Jewelry"
+      ],
+      "Negrita" : [
+         null,
+         "Bold"
+      ],
+      "Confirmación de suscripción, formulario" : [
+         null,
+         "Subscription confirmation, form"
+      ],
+      "dirección" : [
+         null,
+         "address"
+      ],
+      "El campo Nombre está vacío." : [
+         null,
+         "The field \"Name\" is empty."
+      ],
+      "lista para exportar subscriptores.<br /><br />¿Deseas proceder?." : [
+         null,
+         "Maillist to export its subscribers.<br /><br />Do you wish to proceed?"
+      ],
+      "Ver Informe en tiempo real" : [
+         null,
+         "View real time report"
+      ],
+      "errorMsg_customfieldNotAdded" : [
+         null,
+         "Custom field NOT saved"
+      ],
+      "El campo \"Nombre\" no puede estar vacío" : [
+         null,
+         "The field \"Name\" cannot be empty"
+      ],
+      "Contraseña" : [
+         null,
+         "Password"
+      ],
+      "Qualifier" : [
+         null,
+         "Qualifier"
+      ],
+      "Ésta herramienta te permitirá modificar el pié de página de tus campañas.<br />Para poder utilizar ésta funcionalidad debes actualizar tu cuenta" : [
+         null,
+         "This tool allows you select your campaigns footer.<br /> To use this feature you must update your account"
+      ],
+      "Éste filtro ya ha sido asignado en otra regla." : [
+         null,
+         "This filter is already assigned to another rule."
+      ],
+      "offset" : [
+         null,
+         "offset"
+      ],
+      "Alto (px)" : [
+         null,
+         "Height (px)"
+      ],
+      "errorMsg_campaignNotCreated" : [
+         null,
+         "Campaigns is NOT ready"
+      ],
+      "Clicks" : [
+         null,
+         "Clicks"
+      ],
+      "Aplicar cambios" : [
+         null,
+         "Apply changes"
+      ],
+      "dateInvalid" : [
+         null,
+         "Invalid Date"
+      ],
+      "errorMsg_fileIsEmpty" : [
+         null,
+         "Cannot be empty"
+      ],
+      "Seleccionaste Todas las listas para eliminar. <br /><strong>(Las listas de contactos Externas no pueden ser eliminadas desde ésta pantalla.)</strong><br /><br />¿Estás seguro que deseas proceder?<br />Si procedes, no podrás recuperarlas." : [
+         null,
+         "All Contact lists have been selected for deletion. <br /><strong>(The external maillist won't be deleted.)</strong><br /><br />Are you sure to proceed?"
+      ],
+      "lista ha sido seleccionado para ser eliminado.¿Deseas proceder?" : [
+         null,
+         "lists  have been selected for deletion. Are you sure to proceed?"
+      ],
+      "Igual a" : [
+         null,
+         "Equal to"
+      ],
+      "errorMsg_serviceUnavailable" : [
+         null,
+         "Service unavailable"
+      ],
+      "Ancho (px)" : [
+         null,
+         "Width (px)"
+      ],
+      "Password" : [
+         null,
+         "Password"
+      ],
+      "importado" : [
+         null,
+         "imported"
+      ],
+      "errorMsg_importInProgress" : [
+         null,
+         "Importing in progress"
+      ],
+      "se han desuscripto  satisfactoriamente" : [
+         null,
+         "have been successfully unsubscribed."
+      ],
+      "Adjunto Agregado" : [
+         null,
+         "Attachement added"
+      ],
+      "errorMsg_noColumnsFound" : [
+         null,
+         "No columns  found"
+      ],
+      "regexErrorous" : [
+         null,
+         "Invalid regular expression"
+      ],
+      "errorMsg_keyInvalid" : [
+         null,
+         "Invalid Email-API Key"
+      ],
+      "Portugués" : [
+         null,
+         "Portuguese"
+      ],
+      "Noche" : [
+         null,
+         "Night"
+      ],
+      "sendingStatus-Failed" : [
+         null,
+         "Failed"
+      ],
+      "Todos" : [
+         null,
+         "All"
+      ],
+      "¿Eliminar email?" : [
+         null,
+         "Delete email?"
+      ],
+      "errorMsg_administratorWrongLoginPage" : [
+         null,
+         "Sorry, that password doesn't match the password associated with that username."
+      ],
+      "septiembre" : [
+         null,
+         "september"
+      ],
+      "Eliminar Campo Pesonalizado" : [
+         null,
+         "Delete Custom Field"
+      ],
+      "Debes asignar una columna como Dirección de correo." : [
+         null,
+         "One column should be assigned as Email address"
+      ],
+      "Idioma de la página de reportes." : [
+         null,
+         "Reports page language."
+      ],
+      "Usar Google Analytics, Seguir Enlaces, Contar aperturas ... ¿Cómo funciona?" : [
+         null,
+         "Enable Google Analytics, Track Clicks, Track Opens ..."
+      ],
+      "contactos importados" : [
+         null,
+         "contacts imported"
+      ],
+      "No Abiertos" : [
+         null,
+         "Not opened"
+      ],
+      "month_09" : [
+         null,
+         "september"
+      ],
+      "Cliente de correo" : [
+         null,
+         "Email Client"
+      ],
+      "errorMsg_fileNotSaved" : [
+         null,
+         "File NOT saved"
+      ],
+      "Elige un nombre para tu lista de contactos" : [
+         null,
+         "Select a Name for the Contacts List"
+      ],
+      "Esta acción cancelará las suscripciones de los contactos que coincidan con la regla de las listas seleccionadas.<br /><br />¿Estás seguro que deseas proceder?" : [
+         null,
+         "This action will permanently unsubscribe  all contacts that match the selected rule from the selected lists.<br /><br />Are you sure to proceed?"
+      ],
+      "Ésta valoración es una guía genérica y puede no coincidir con las políticas antispam de otros proveedores de correo como Yahoo, gmail, hotmail, etc." : [
+         null,
+         "This estimation is just a guide and may differ from other email provider politics like  Yahoo, Gmail, hotmail, etc."
+      ],
+      "¿Eliminar dirección de correo?" : [
+         null,
+         "Delete email address?"
+      ],
+      "Seleccionaste Todas las reglas para eliminar.<br /><br />¿Estás seguro que deseas proceder?<br /><br />Si procedes, no podrás recuperarlas." : [
+         null,
+         "All Ban rules have been selected for deletion.<br /><br />Are you sure to proceed?"
+      ],
+      "Crema" : [
+         null,
+         "Cream"
+      ],
+      "Inmobiliaria" : [
+         null,
+         "Real Estate"
+      ],
+      "lista ha sido seleccionada para importar subscriptores.¿Deseas proceder?" : [
+         null,
+         "Maillists have been selected  to import contacts. Do you wish to proceed?"
+      ],
+      "errorMsg_emailNotSended" : [
+         null,
+         "Failed to send the e-mail."
+      ],
+      "SendDate" : [
+         null,
+         "Scheduled date"
+      ],
+      "errorMsg_campaignNotSaved" : [
+         null,
+         "Failed to save the campaign."
+      ],
+      "SubsCallbackFail" : [
+         null,
+         "Subscription error page"
+      ],
+      "No encontrados" : [
+         null,
+         "Not found"
+      ],
+      "Hora" : [
+         null,
+         "Hour"
+      ],
+      "No se han podido descargar los datos" : [
+         null,
+         "An error occurred while retrieving data"
+      ],
+      "Duro" : [
+         null,
+         "Hard"
+      ],
+      "errorMsg_increasePostMaxSizeTo" : [
+         null,
+         "File NOT saved"
+      ],
+      "regla para eliminar.<br /><br />¿Estás seguro que deseas proceder?<br /><br />Si procedes, no podrás recuperarla." : [
+         null,
+         "ban rule  for deletion.<br /><br />Are you sure to proceed?"
+      ],
+      "Archivos adjuntos" : [
+         null,
+         "Attachements"
+      ],
+      "aplicar" : [
+         null,
+         "apply"
+      ],
+      "El campo \"Dirección de correo de retorno\" no puede estar vacío y debe ser un e-mail valido" : [
+         null,
+         "The field \"Return Email address\" cannot be empty and must be a valid email address"
+      ],
+      "errorMsg_campaignScheduleNotFound" : [
+         null,
+         "Campaign is not scheduled"
+      ],
+      "La lista de destinatarios utilizada no posee contactos activos." : [
+         null,
+         "The selected recipients list has no active contacts."
+      ],
+      "Nueva" : [
+         null,
+         "New"
+      ],
+      "Campañas eliminadas" : [
+         null,
+         "Deleted:"
+      ],
+      "Diferente de" : [
+         null,
+         "Different from"
+      ],
+      "errorMsg_campaignAlreadyStopped" : [
+         null,
+         "Campaign is already Stopped"
+      ],
+      "Etiqueta la imagen para poder organizar tu galería." : [
+         null,
+         "You may tag your images to organize your gallery."
+      ],
+      "Redes Sociales" : [
+         null,
+         "Social network"
+      ],
+      "E-Commerce" : [
+         null,
+         "E-Commerce"
+      ],
+      "Título" : [
+         null,
+         "Title"
+      ],
+      "Aperturas totales:" : [
+         null,
+         "Total Reads:"
+      ],
+      "regexNotMatch" : [
+         null,
+         "Doesn't match with the validation pattern."
+      ],
+      "No se ha podido iniciar la operación. Intenta nuevamente." : [
+         null,
+         "Unable to perform the requested operation."
+      ],
+      "La campaña" : [
+         null,
+         "The campaign"
+      ],
+      "El servidor no proporcionó contenido en la respuesta" : [
+         null,
+         "The remote server doesn't return any response content"
+      ],
+      "listas para exportar subscriptores.<br /><br />¿Deseas proceder?." : [
+         null,
+         "Maillists to export its contacts.<br /><br />Do you wish to proceed?"
+      ],
+      "Puedes seleccionar una o mas listas, o crear una nueva" : [
+         null,
+         "You may select one or more Maillists, or create a new one."
+      ],
+      "Enviada" : [
+         null,
+         "Sent"
+      ],
+      "Los contactos aún estarán relacionados con las listas de origen seleccionadas pero <span class=\"text-info\">figurarán como desuscriptos</span>." : [
+         null,
+         "The contacts will remain linked to the selected maillists but will change status to <span class=\"text-info\">unsubscribed</span>."
+      ],
+      "hostnameInvalidHostnameEmail" : [
+         null,
+         "E-mail address is invalid"
+      ],
+      "Font" : [
+         null,
+         "Font"
+      ],
+      "Código del formulario" : [
+         null,
+         "Singup form code"
+      ],
+      "No existen todavía estadísticas relacionadas con el envío seleccionado" : [
+         null,
+         "No stats data has been found"
+      ],
+      "desc" : [
+         null,
+         "desc"
+      ],
+      "Hotel" : [
+         null,
+         "Hotel"
+      ],
+      "errorMsg_selectEmailColumn" : [
+         null,
+         "You must select a column for the e-mail"
+      ],
+      "Filtrar por categoría" : [
+         null,
+         "Filter by category"
+      ],
+      "Copiar contactos a:" : [
+         null,
+         "Copy contacts to:"
+      ],
+      "Estás por salir de la pantalla actual" : [
+         null,
+         "You're about to leave the current page"
+      ],
+      "Fecha en formato AAAA-MM-DD HH:MM:SS" : [
+         null,
+         "Date formated  AAAA-MM-DD HH:MM:SS"
+      ],
+      "errorMsg_campaignStoppedOrCompleted" : [
+         null,
+         "Campaign is Stopped or Completed"
+      ],
+      "errorMsg_emailAddressIntegrityViolation" : [
+         null,
+         "TO e-mail address NOT found"
+      ],
+      "Listas NO eliminadas" : [
+         null,
+         "Not deleted"
+      ],
+      "errorMsg_remoteContentNotFound" : [
+         null,
+         "Campaign content not found"
+      ],
+      "¿Eliminar formularios?" : [
+         null,
+         "Delete Signup Forms?"
+      ],
+      "No has seleccionado un nombre para la Lista" : [
+         null,
+         "A Name for the contact list must be selected"
+      ],
+      "El e-mail seleccionado no es válido." : [
+         null,
+         "The selected email address is not valid."
+      ],
+      "Aperturas Únicas" : [
+         null,
+         "Total Unique Opens"
+      ],
+      "Descargar resumen" : [
+         null,
+         "Download overview"
+      ],
+      "errorMsg_nonDeletableMaillist" : [
+         null,
+         "The selected list can not be removed"
+      ],
+      "¿Deseas guardar los cambios realizados?" : [
+         null,
+         "Do you wish to save changes?"
+      ],
+      "Deshacer" : [
+         null,
+         "Undo"
+      ],
+      "Campos Personalizados han sido seleccionados para ser eliminados.¿Deseas proceder?" : [
+         null,
+         "Custom Fields  have been selected for deletion. Are you sure to proceed?"
+      ],
+      "contactos han sido desuscriptos" : [
+         null,
+         "contacts have been unsubscribed"
+      ],
+      "Email de confirmación de suscripción" : [
+         null,
+         "Subscription confirmation email"
+      ],
+      "¿Eliminar direcciones de correo?" : [
+         null,
+         "Delete email addresses?"
+      ],
+      "Preparando" : [
+         null,
+         "Preparing"
+      ],
+      "SendNow" : [
+         null,
+         "Send Now"
+      ],
+      "No se han podido guardar los datos del usuario." : [
+         null,
+         "Unable to save the user information."
+      ],
+      "Nueva Campaña" : [
+         null,
+         "New Campaign"
+      ],
+      "¿Eliminar llave?" : [
+         null,
+         "Delete key?"
+      ],
+      "No se puede asignar la columna" : [
+         null,
+         "Unabel to assign the column"
+      ],
+      "Name" : [
+         null,
+         "Name"
+      ],
+      "Azul" : [
+         null,
+         "Blue"
+      ],
+      "Contenido HTML modificado" : [
+         null,
+         "HTML content modified"
+      ],
+      "errorMsg_memberStatusNotChanged" : [
+         null,
+         "Subscription status NOT changed"
+      ],
+      "Si la opción está seleccionada, ancho y alto mantienen la proporción al ser modificados" : [
+         null,
+         "If this option is selected, width and height will remain proportionally resized."
+      ],
+      "No hemos podido identificar los Campos Personalizados seleccionados." : [
+         null,
+         "Unable to identify the selected custom fields."
+      ],
+      "Campos Personalizados" : [
+         null,
+         "Custom Fields"
+      ],
+      "No se ha podido procesar el contenido de la plantilla." : [
+         null,
+         "The template content could not be processed."
+      ],
+      "No se han encontrado resultados" : [
+         null,
+         "No results found"
+      ],
+      "CampaignStatisticsIDs" : [
+         null,
+         "Campaing Statistics"
+      ],
+      "En Lista" : [
+         null,
+         "In list"
+      ],
+      "ConfirmSubscriptionEmailID" : [
+         null,
+         "Subscription Confirmation email"
+      ],
+      "errorMsg_invalidCaptcha" : [
+         null,
+         "Invalid Captcha"
+      ],
+      "La operación se realizó con éxito." : [
+         null,
+         "The operations has been successfully completed."
+      ],
+      "Mascotas" : [
+         null,
+         "Pets"
+      ],
+      "CustomCSS" : [
+         null,
+         "Advanced customization (CSS)"
+      ],
+      "Contenido del email" : [
+         null,
+         "Message content"
+      ],
+      "errorMsg_emailFileNotFound" : [
+         null,
+         "E-mail API: E-mail file NOT found"
+      ],
+      "Mover marcadores para seleccionar un color" : [
+         null,
+         "Move the pointer to pick a color"
+      ],
+      "SendStateReport" : [
+         null,
+         "Send report on completion"
+      ],
+      "Crea un documento con los contactos obtenidos para que lo puedas descargar en tu ordenador.<br/><br/><span class=\"text-info\">No modifica la relación</span> entre los contactos y las listas." : [
+         null,
+         "Creates a document containing the resulting contacts to download to your computer.<br/><br/><span class=\"text-info\">It doesn't change the relationship</span> between contacts and Maillists."
+      ],
+      "errorMsg_campaignContentNotFound" : [
+         null,
+         "Campaign content not found"
+      ],
+      "excluir" : [
+         null,
+         "ban"
+      ],
+      "Contenido seleccionado desde galería" : [
+         null,
+         "Content selected from gallery"
+      ],
+      "julio" : [
+         null,
+         "july"
+      ],
+      "No se ha podido descargar el archivo solicitado" : [
+         null,
+         "Unable to download the requested file"
+      ],
+      "Importa mas contactos a la lista" : [
+         null,
+         "Import more contacts to this list"
+      ],
+      "listas de contactos purgados" : [
+         null,
+         "contacts lists purged"
+      ],
+      "Ver Progresos de envío" : [
+         null,
+         "View sending progress"
+      ],
+      "listas de contactos" : [
+         null,
+         "contacts lists"
+      ],
+      "¿Estás seguro de eliminar el campo personalizado? Si alguna lista o formulario de subscripción lo tiene asignado no podrá utilizarlo." : [
+         null,
+         "Are you sure to delete the Custom Field? "
+      ],
+      "Robot" : [
+         null,
+         "Robot"
+      ],
+      "hostnameLocalNameNotAllowed" : [
+         null,
+         "E-mail address is invalid"
+      ],
+      "Para crear los contenidos del mensaje es necesario guardar el formulario. ¿Deseas guardar los cambios?" : [
+         null,
+         "To create the contents of the message you need to save the form. Do you want to save changes?"
+      ],
+      "Baile" : [
+         null,
+         "Dancing"
+      ],
+      "intInvalid" : [
+         null,
+         "Value must be a digit"
+      ],
+      "Estadísticas" : [
+         null,
+         "Statistics"
+      ],
+      "para el tipo de comparación" : [
+         null,
+         "for the comparison type"
+      ],
+      "listas han sido seleccionadas para exportar subscriptores.¿Deseas proceder?" : [
+         null,
+         "Maillists have been selected to export its contacts. Do you wish to proceed?"
+      ],
+      "errorMsg_trackGraph" : [
+         null,
+         "Track graph"
+      ],
+      "purgado" : [
+         null,
+         "purged"
+      ],
+      "Carta" : [
+         null,
+         "Letter"
+      ],
+      "Purgar contacto" : [
+         null,
+         "Purge contacts"
+      ],
+      "formularios para eliminar.<br /><br /> Si están siendo utilizados en algún sitio, los formularios no serán visualizados." : [
+         null,
+         "Signup forms selected for deletion.<br /><br />If it's still used on a web site it won't be visible anymore."
+      ],
+      "haz click aquí" : [
+         null,
+         "Click here"
+      ],
+      "email para eliminar.<br /><br /> Si algun formulario lo" : [
+         null,
+         "email for deletion..<br /><br /> If any form is"
+      ],
+      "Las siguentes exclusiones impiden subscribirlo" : [
+         null,
+         "The following ban rules are blocking the contact from being subscribed."
+      ],
+      "Arquitectura" : [
+         null,
+         "Architecture"
+      ],
+      "key" : [
+         null,
+         "key"
+      ],
+      "ConfCallbackFail" : [
+         null,
+         "Subscription confirmation error page"
+      ],
+      "CategoryIds" : [
+         null,
+         "Cateogries"
+      ],
+      "El usuario no tiene lecturas" : [
+         null,
+         "The member has no reads"
+      ],
+      "errorMsg_administratorUnauthorized" : [
+         null,
+         "The administrator account is not authorized to perform this operation."
+      ],
+      "notUrl" : [
+         null,
+         "Value must be a valid URL"
+      ],
+      "Cocina" : [
+         null,
+         "Kitchen"
+      ],
+      "Reglas NO eliminadas" : [
+         null,
+         "Not deleted"
+      ],
+      "¿Deseas guardar los cambios y modificar el estado de tu campaña?" : [
+         null,
+         "Save changes and modify the Campaign status?"
+      ],
+      "Nuevo formulario" : [
+         null,
+         "New Singup form"
+      ],
+      "o mas Rebotes Temporales" : [
+         null,
+         "or more Soft Bounces"
+      ],
+      "contactos han sido copiados" : [
+         null,
+         "contacts have been copied"
+      ],
+      "Dispositivos móviles" : [
+         null,
+         "Mobile device browser"
+      ],
+      "errorMsg_upgradeAccount" : [
+         null,
+         "The requested function is not available for free accounts."
+      ],
+      "¿Estás seguro de eliminar éste formulario? Si está siendo utilizado en algún sitio, el formulario no será visualizado." : [
+         null,
+         "Are you sure to delete the Signup Form? if it's still used on a web site it won't be visible anymore."
+      ],
+      "Solicitaste desuscribir al miembro de la lista." : [
+         null,
+         "You have request to unsubscribe a member from the contacts list."
+      ],
+      "digitsInvalid" : [
+         null,
+         "Value must be a digit"
+      ],
+      "errorMsg_noNewMaillist" : [
+         null,
+         "Could not create the new list."
+      ],
+      "errorMsg_invalidCampaignDate" : [
+         null,
+         "The date of the campaign must be greater than now + 5 minutes to be processed."
+      ],
+      "errorMsg_keyExpired" : [
+         null,
+         "Invalid Email-API Key"
+      ],
+      "Matiz (Hue)" : [
+         null,
+         "Hue"
+      ],
+      "Código fuente modificado" : [
+         null,
+         "Source code modified"
+      ],
+      "No se ha podido seleccionar el pié de página" : [
+         null,
+         "Unable to selecte the footer."
+      ],
+      "Habilitar asuntos múltiples" : [
+         null,
+         "Enable multiple subjects"
+      ],
+      "Tu perfil ha sido actualizado correctamente." : [
+         null,
+         "Your profile has been updated successfully"
+      ],
+      "Rojo" : [
+         null,
+         "Red"
+      ],
+      "no está permitido" : [
+         null,
+         "not allowed"
+      ],
+      "day_3" : [
+         null,
+         "wednesday"
+      ],
+      "Crear lista de contactos" : [
+         null,
+         "Create contacts list"
+      ],
+      "Inglés" : [
+         null,
+         "English"
+      ],
+      "Soltar el archivo aquí" : [
+         null,
+         "Drop your file here"
+      ],
+      "Campo de texto" : [
+         null,
+         "Text field"
+      ],
+      "Menor que" : [
+         null,
+         "Less than"
+      ],
+      "La programación de envío no ha sido asignada o es inválida." : [
+         null,
+         "The delivery schedule has not been assigned or invalid."
+      ],
+      "Para continuar sin guardar hacé click en cancelar." : [
+         null,
+         "To continue without saving changes CLICK on cancel."
+      ],
+      "octubre" : [
+         null,
+         "october"
+      ],
+      "Info" : [
+         null,
+         "Info"
+      ],
+      "Opciones" : [
+         null,
+         "Options"
+      ],
+      "Purgar ahora" : [
+         null,
+         "Purge now"
+      ],
+      "El formulario está vacío." : [
+         null,
+         "The form cannot be empty"
+      ],
+      "Desuscripto" : [
+         null,
+         "Unsubscribed"
+      ],
+      "Marrón" : [
+         null,
+         "Brown"
+      ],
+      "No programada" : [
+         null,
+         "Not scheduled"
+      ],
+      "sendingStatus-Halted" : [
+         null,
+         "Halted"
+      ],
+      "ha sido eliminado precedentemente <strong>¿deseas recuperarlo?</strong>" : [
+         null,
+         "has been deleted previously. <strong>do you wish to recover it?</strong>"
+      ],
+      "Seleccionaste Todos los Campos Personalizados para eliminar.<br /><br />¿Estás seguro que deseas proceder?<br /><br />Si procedes, no podrás recuperarlos." : [
+         null,
+         "All Custom Fields have been selected for deletion.<br /><br />Are you sure to proceed?"
+      ],
+      "La campaña no posee un asunto válido." : [
+         null,
+         "The campaign couldn't be delivered!"
+      ],
+      "errorMsg_fileIsTooLarge" : [
+         null,
+         "File is too large."
+      ],
+      "Naturaleza" : [
+         null,
+         "Nature"
+      ],
+      "errorMsg_topDomains" : [
+         null,
+         "Top Domains"
+      ],
+      "Navegador de dispositivo móvil" : [
+         null,
+         "Mobile device browser"
+      ],
+      "Usar Google Analytics" : [
+         null,
+         "Use Google Analytics"
+      ],
+      "Aceptar solo direcciones de Email" : [
+         null,
+         "Valid email addresses"
+      ],
+      "errorMsg_campaignNotPost" : [
+         null,
+         "NOT POST"
+      ],
+      "Campo" : [
+         null,
+         "Field"
+      ],
+      "Subscripciones a la lista de contactos" : [
+         null,
+         "Maillist subscriptions"
+      ],
+      "errorMsg_keyNotFound" : [
+         null,
+         "Invalid Email-API Key"
+      ],
+      "Remover de la lista" : [
+         null,
+         "Remove from Maillist"
+      ],
+      "No se puede cargar la imagen" : [
+         null,
+         "Unabel to load the image"
+      ],
+      "day_5" : [
+         null,
+         "friday"
+      ],
+      "Guardado manual" : [
+         null,
+         "Manual saving"
+      ],
+      "Exportar" : [
+         null,
+         "Export"
+      ],
+      "errorMsg_exportDirNotWritable" : [
+         null,
+         "Unable to generate the report."
+      ],
+      "No se ha podido recuperar el listado de emails." : [
+         null,
+         "The emails list could not be retrieved."
+      ],
+      "errorMsg_importToOutsourcedMaillist" : [
+         null,
+         "The selected list can NOT be modified"
+      ],
+      "Bloque de texto modificado" : [
+         null,
+         "Text block modified"
+      ],
+      "Confirmación Pendiente" : [
+         null,
+         "Pending confirmation"
+      ],
+      "stringLengthInvalid" : [
+         null,
+         "Value is not valid"
+      ],
+      "La Campaña está siendo enviada. Si deseas modificarla" : [
+         null,
+         "The Campaign is being  sending. If you wish to edit it"
+      ],
+      "Agregar" : [
+         null,
+         "Add"
+      ],
+      "El sitema intentará enviarla nuevamente. Si el problema persiste comunícate con soporte técnico." : [
+         null,
+         "The system will try to send it again. If the problem persists please contact technical support."
+      ],
+      "Deporte" : [
+         null,
+         "Sports"
+      ],
+      "contacto" : [
+         null,
+         "Contacts"
+      ],
+      "Visualizar" : [
+         null,
+         "View"
+      ],
+      "Seleccionar email" : [
+         null,
+         "Select email"
+      ],
+      "sábado" : [
+         null,
+         "saturday"
+      ],
+      "¿Deseas guardar los cambios realizados a la Campaña?" : [
+         null,
+         "Do you wish to save campaign changes?"
+      ],
+      "Ha ocurrido un error analizando los datos del formulario" : [
+         null,
+         "An error occurred analyzing the form data."
+      ],
+      "errorMsg_dirNotwritable" : [
+         null,
+         "File NOT uploaded"
+      ],
+      "sendingStatus-Cancelled" : [
+         null,
+         "Cancelled"
+      ],
+      "errorMsg_campaignIsCompletedNotSaved" : [
+         null,
+         "The campaign has been sent while you were modifying it and we could not save your changes."
+      ],
+      "El tipo de campo acepta solamente valores numéricos" : [
+         null,
+         "The field type accepts only numbers"
+      ],
+      "¿Eliminar Campos Personalizados?" : [
+         null,
+         "Delete Custom Fields?"
+      ],
+      "Hexadecimal" : [
+         null,
+         "Hexadecimal"
+      ],
+      "Compartir" : [
+         null,
+         "Share"
+      ],
+      "El número de Items y valores de las opciones del campo personalizado no coinciden" : [
+         null,
+         "The number of items and values of the custom field options doesn't match"
+      ],
+      "Asignar Categoría" : [
+         null,
+         "Assign category"
+      ],
+      "Naranja" : [
+         null,
+         "Orange"
+      ],
+      "Personalizado" : [
+         null,
+         "Custom"
+      ],
+      "Eliminados" : [
+         null,
+         "Deleted"
+      ],
+      "contactos" : [
+         null,
+         "contacts"
+      ],
+      "Aperturas únicas:" : [
+         null,
+         "Unique Opens:"
+      ],
+      "deshabilitado" : [
+         null,
+         "disabled"
+      ],
+      "filter" : [
+         null,
+         "filter"
+      ],
+      "errorMsg_memberNotSubscribed" : [
+         null,
+         "One or more contacts have not been subscribed."
+      ],
+      "Cambiar tipo de letra" : [
+         null,
+         "Change font family"
+      ],
+      "Exportar contacto" : [
+         null,
+         "Export contact"
+      ],
+      "Ha ocurrido un error inesperado durante el envío del e-mail." : [
+         null,
+         "An error occurred while sending the email."
+      ],
+      "Puedes agregar un enlace al la imagen" : [
+         null,
+         "Add a link to the image"
+      ],
+      "CustomFieldIds" : [
+         null,
+         "Custom Field"
+      ],
+      "BounceType" : [
+         null,
+         "Bounce Type"
+      ],
+      "llaves han sido seleccionadas para ser eliminadas.¿Deseas proceder?" : [
+         null,
+         "Keys  have been selected for deletion. Are you sure to proceed?"
+      ],
+      "errorMsg_integrityFail" : [
+         null,
+         "One or more required setting is missing."
+      ],
+      "Información del suscriptor" : [
+         null,
+         "Subscriber information"
+      ],
+      "El campo \"Dirección de correo\" no puede estar vacío" : [
+         null,
+         "The field \"Email address\" cannot be empty"
+      ],
+      "errorMsg_campaignTemplateNotFound" : [
+         null,
+         "Template NOT found"
+      ],
+      "errorMsg_internalError" : [
+         null,
+         "It's not possible to proceed with the requested operation due to an internal error."
+      ],
+      "No se ha podido verificar la identidad del subscriptor." : [
+         null,
+         "Unable to verify the subscriber id."
+      ],
+      "Sin leer" : [
+         null,
+         "No readed"
+      ],
+      "No hemos podido identificar el editor seleccionado." : [
+         null,
+         "Unable to identify the selected editor."
+      ],
+      "Cambiar tamaño de letra" : [
+         null,
+         "Change font size"
+      ],
+      "Filtrar por etiqueta" : [
+         null,
+         "Filter by Tag"
+      ],
+      "CustomValidation" : [
+         null,
+         "Custom validation"
+      ],
+      "No se ha podido descargar el listado de zonas horarias" : [
+         null,
+         "The time zone list could not be retrieved"
+      ],
+      "TemplatesIDs" : [
+         null,
+         "Templates"
+      ],
+      "Error en el envío" : [
+         null,
+         "Delivering error"
+      ],
+      "ScheduleCampaign" : [
+         null,
+         "Campaign Schedule"
+      ],
+      "Deshabilitar asuntos múltiples" : [
+         null,
+         "Disable multiple subjects"
+      ],
+      "Vista Previa" : [
+         null,
+         "Preview"
+      ],
+      "FontColor" : [
+         null,
+         "Font Color"
+      ],
+      "Belleza" : [
+         null,
+         "Beauty"
+      ],
+      "errorMsg_emailNotSent" : [
+         null,
+         "Failed to send the e-mail."
+      ],
+      "month_06" : [
+         null,
+         "june"
+      ],
+      "Ancho max" : [
+         null,
+         "Max wide"
+      ],
+      "errorMsg_administratorEmailDuplicated" : [
+         null,
+         "E-mail address allready Exist"
+      ],
+      "errorMsg_administratorInvalidUsernameAndPassword" : [
+         null,
+         "Sorry, that password doesn't match the password associated with that username."
+      ],
+      "Tipo de navegador" : [
+         null,
+         "Browser type"
+      ],
+      "Violeta" : [
+         null,
+         "Violet"
+      ],
+      "¿Estás seguro de eliminar la lista de contactos? Si alguna campaña lo tiene asignado no podrá utilizarla." : [
+         null,
+         "Are you sure to delete the Maillist? "
+      ],
+      "listas han sido seleccionados para ser eliminados.¿Deseas proceder?" : [
+         null,
+         "Maillists  have been selected for deletion. Are you sure to proceed?"
+      ],
+      "Purgar listas de contactos" : [
+         null,
+         "Purge contacts list"
+      ],
+      "Listado con selección múltiple" : [
+         null,
+         "Multiple Select"
+      ],
+      "No se ha podido modificar el estado del subscriptor." : [
+         null,
+         "Unable to change the subscriber status."
+      ],
+      "CampaignSubject" : [
+         null,
+         "Campaign Subject"
+      ],
+      "El campo de direcciones de e-mail no puede estar vacío" : [
+         null,
+         "The field \"Email\" cannot be empty"
+      ],
+      "EmailIds" : [
+         null,
+         "Emails"
+      ],
+      "Ha ocurrido un error seleccionando los datos del editor." : [
+         null,
+         "An error occurred retrieving the editor data."
+      ],
+      "Ha ocurrido un error durante el pedido." : [
+         null,
+         "An error occurred during the request."
+      ],
+      "Ha ocurrido un error analizando el tipo de campo seleccionado." : [
+         null,
+         "An error occurred analyzing the selected field type."
+      ],
+      "SubscriptionStatus" : [
+         null,
+         "Subscription status"
+      ],
+      "La versión de texto plano del email NO se genera automaticamente." : [
+         null,
+         "The plain text version WON'T BE generated automatically."
+      ],
+      "Agregar Enlace" : [
+         null,
+         "Add link"
+      ],
+      "Modificar nombre de la lista de contactos" : [
+         null,
+         "Change the Contacts List's Name"
+      ],
+      "errorMsg_campaignAlreadyActive" : [
+         null,
+         "Campaign is already active"
+      ],
+      "lista ha sido seleccionada para ser eliminada.¿Deseas proceder?" : [
+         null,
+         "list  has been selected for deletion. Are you sure to proceed?"
+      ],
+      "errorMsg_EditorNotFound" : [
+         null,
+         "The email account with which you tried to create the campaign does not have authorization to perform the operation."
+      ],
+      "¿Deseas reanudar la campaña?" : [
+         null,
+         "Do you wish to resume the sending?"
+      ],
+      "exportados" : [
+         null,
+         "exported"
+      ],
+      "Responder a" : [
+         null,
+         "Reply to"
+      ],
+      "Seleccionar desde mis direcciones de email" : [
+         null,
+         "Select from my email addresses"
+      ],
+      "Agro" : [
+         null,
+         "Agriculture"
+      ],
+      "errorMsg_memberAlreadyUnsubscribed" : [
+         null,
+         "E-mail is already Unsubscribed."
+      ],
+      "Texto plano modificado manualmente" : [
+         null,
+         "Plain text manualy modified"
+      ],
+      "caracteres más" : [
+         null,
+         "more characters"
+      ],
+      "errorMsg_maillistsNotPurged" : [
+         null,
+         "Failed to purge members."
+      ],
+      "Estado de suscripción" : [
+         null,
+         "Subscription status"
+      ],
+      "month_11" : [
+         null,
+         "november"
+      ],
+      "Cargar nuevo archivo" : [
+         null,
+         "Load new file"
+      ],
+      "Estado" : [
+         null,
+         "Status"
+      ],
+      "emailAddressInvalidLocalPart" : [
+         null,
+         "E-mail address is invalid"
+      ],
+      "Ocio y entretenimiento" : [
+         null,
+         "Entertainment"
+      ],
+      "Blando / Casilla llena" : [
+         null,
+         "Soft / Mailbox Full"
+      ],
+      "Borrar historial de rebotes" : [
+         null,
+         "Delete bounce history"
+      ],
+      "Remociones totales:" : [
+         null,
+         "Total Unsubscriptions"
+      ],
+      "EmailAddress" : [
+         null,
+         "E-mail address"
+      ],
+      "Completado" : [
+         null,
+         "Completed"
+      ],
+      "Valor por defecto" : [
+         null,
+         "Default value"
+      ],
+      "martes" : [
+         null,
+         "tuesday"
+      ],
+      "Agregar al Archivo público" : [
+         null,
+         "Add to public archive"
+      ],
+      "Checkbox" : [
+         null,
+         "Checkbox"
+      ],
+      "Mover contactos a:" : [
+         null,
+         "Move contacts to:"
+      ],
+      "Subir archivo" : [
+         null,
+         "Upload file"
+      ],
+      "No has seleccionado ninguna lista de contactos de destino." : [
+         null,
+         "No target Maillist has been selected."
+      ],
+      "Importación de miembros" : [
+         null,
+         "Contact importing"
+      ],
+      "Purgar lista de contactos" : [
+         null,
+         "Purge contacts list"
+      ],
+      "Link de confirmación de suscripción" : [
+         null,
+         "Subscription confirmation link"
+      ],
+      "sendingStatus-Paused" : [
+         null,
+         "Paused"
+      ],
+      "Categoría seleccionadas" : [
+         null,
+         "Selecterd categories"
+      ],
+      "No se ha podido recuperar el listado de contactos." : [
+         null,
+         "The Maillists list could not be retrieved."
+      ],
+      "listas para eliminar.<br /><br />¿Estás seguro que deseas proceder?<br /><br />Si procedes, no podrás recuperarlas." : [
+         null,
+         "Maillist   for deletion.<br /><br />Are you sure to proceed?"
+      ],
+      "Modificar color del texto" : [
+         null,
+         "Edit text color"
+      ],
+      "FontSize" : [
+         null,
+         "Font Size"
+      ],
+      "La URL del campo" : [
+         null,
+         "The field's URL"
+      ],
+      "Ancho máximo sugerido" : [
+         null,
+         "Max width suggested"
+      ],
+      "Bloque duplicado" : [
+         null,
+         "Block duplicated"
+      ],
+      "errorMsg_administratorSamePassword" : [
+         null,
+         "The password must be different from the previous one."
+      ],
+      "floatInvalid" : [
+         null,
+         "Invalid Float number"
+      ],
+      "Saturación" : [
+         null,
+         "Saturation"
+      ],
+      "No se han encontrado resultados para tu búsqueda." : [
+         null,
+         "No results found."
+      ],
+      "El e-mail seleccionado para autorizar no es válido o está vacío" : [
+         null,
+         "The email selected for authorizing is empty or invalid."
+      ],
+      "El email de \"Remitente:\" no ha sido asignado o es inválido." : [
+         null,
+         "The email \"From: \" has not been assigned or is invalid."
+      ],
+      "No hemos podido identificar la lista seleccionada." : [
+         null,
+         "Unable to identify the suggested Maillist."
+      ],
+      "Click Aquí" : [
+         null,
+         "Click here"
+      ],
+      "Para desuscribirse de nuestra lista haga" : [
+         null,
+         "To unsubscribe from our list"
+      ],
+      "errorMsg_noFileUploadedOrCopyPaste" : [
+         null,
+         "An error occurred while processing the contacts list. Please go back and try again."
+      ],
+      "No se ha podido descargar el listado de campañas" : [
+         null,
+         "An error occurred while retrieving the campaign list"
+      ],
+      "La Clave privada no puede estar vacía" : [
+         null,
+         "The private key cannot be empty"
+      ],
+      "Spa" : [
+         null,
+         "Spa"
+      ],
+      "Imprenta" : [
+         null,
+         "Printing"
+      ],
+      "Title" : [
+         null,
+         "Title"
+      ],
+      "Contenido seleccionado desde contenidos anteriores" : [
+         null,
+         "Content selected from previous email designs"
+      ],
+      "marzo" : [
+         null,
+         "march"
+      ],
+      "sendingStatus-Stopped" : [
+         null,
+         "Stopped"
+      ],
+      "preparando datos" : [
+         null,
+         "preparing data"
+      ],
+      "Galería de archivos" : [
+         null,
+         "Documents gallery"
+      ],
+      "Arquitecto" : [
+         null,
+         "Architect"
+      ],
+      "errorMsg_campaignNotActive" : [
+         null,
+         "Campaigns is NOT ready"
+      ],
+      "El campo Texto está vacío" : [
+         null,
+         "The field \"Text\" is empty"
+      ],
+      "Reporte" : [
+         null,
+         "Report"
+      ],
+      "Debes seleccionar al menos una Lista de contactos para crear el formulario" : [
+         null,
+         "At least one Maillist should be selected to create a signup form."
+      ],
+      "Mientras se importan tus contactos, puedes seguir trabajando en la edición de tu campaña desde <a href=\"#\" class=\"backToCampaignEdition\">aquí</a>" : [
+         null,
+         "While the import process is running, you may continue working on the campaign form <a href=\"#\" class=\"backToCampaignEdition\">here</a>"
+      ],
+      "El usuario no tiene clicks" : [
+         null,
+         "The member has no clicks"
+      ],
+      "notFloat" : [
+         null,
+         "Value must be floating point number"
+      ],
+      "Bloque eliminado" : [
+         null,
+         "Block deleted"
+      ],
+      "errorMsg_emptyNameAndCategoryID" : [
+         null,
+         "Name and category are empty."
+      ],
+      "Contenido guardado" : [
+         null,
+         "Content saved"
+      ],
+      "¿Listas de destinatarios? ... ¿Cómo funciona?" : [
+         null,
+         "Recipients List? ... How it works?"
+      ],
+      "campaña" : [
+         null,
+         "campaign"
+      ],
+      "Dirección de email" : [
+         null,
+         "Email address"
+      ],
+      "Galería de Plantillas Predeterminadas" : [
+         null,
+         "Default templates gallery"
+      ],
+      "TrackReads" : [
+         null,
+         "Track Reads"
+      ],
+      "Los filtros asignados no están completos." : [
+         null,
+         "The assigned filters are incomplete."
+      ],
+      "Area de texto" : [
+         null,
+         "Textarea"
+      ],
+      "month_05" : [
+         null,
+         "may"
+      ],
+      "Este proceso puede durar varios minutos, podrás ver el avance del proceso en el área de Informes de tareas." : [
+         null,
+         "This process may take a few minutes, meanwhile you could see the progress status on the Tasks Information area."
+      ],
+      "Todas" : [
+         null,
+         "All"
+      ],
+      "Seleccioná las listas de contactos" : [
+         null,
+         "Select the Maillists"
+      ],
+      "de izquierda a derecha" : [
+         null,
+         "left to right"
+      ],
+      "mayo" : [
+         null,
+         "may"
+      ],
+      "Alineación izquierda SIN texto alrededor" : [
+         null,
+         "Align left  WITHOUT word wrap"
+      ],
+      "No se ha podido realizar la operación solicitada." : [
+         null,
+         "Unable to perform the requested operation"
+      ],
+      "Generando Mapa ..." : [
+         null,
+         "Generating Map ..."
+      ],
+      "exportado" : [
+         null,
+         "exported"
+      ],
+      "month_02" : [
+         null,
+         "february"
+      ],
+      "Listas seleccionadas" : [
+         null,
+         "Selected lists"
+      ],
+      "Plantilla desde URL" : [
+         null,
+         "Remote template"
+      ],
+      "TrackLinkClicks" : [
+         null,
+         "Track links"
+      ],
+      "Colores seleccionados" : [
+         null,
+         "Selected colors"
+      ],
+      "no es válida" : [
+         null,
+         "is not valid"
+      ],
+      "posee un valor no permitido" : [
+         null,
+         "has an invalid value"
+      ],
+      "cancelar" : [
+         null,
+         "cancel"
+      ],
+      "Gimnasio" : [
+         null,
+         "Gym"
+      ],
+      "jueves" : [
+         null,
+         "thursday"
+      ],
+      "Otro" : [
+         null,
+         "Other"
+      ],
+      "Rebotes totales:" : [
+         null,
+         "Total Bounces:"
+      ],
+      "errorMsg_keyAlreadyUsed" : [
+         null,
+         "Invalid Email-API Key"
+      ],
+      "noValidID" : [
+         null,
+         "ID not valid"
+      ],
+      "Deseleccionar" : [
+         null,
+         "Unselect"
+      ],
+      "El campo \"Descripción administrativa\" no puede estar vacío" : [
+         null,
+         "The field \"Administrative Description\" cannot be empty"
+      ],
+      "importToListMatchFieldsExcludeFirstLine" : [
+         null,
+         "Exclude first line"
+      ],
+      "Texto plano copiado desde versión html" : [
+         null,
+         "Plain text copied from html version"
+      ],
+      "errorMsg_apiDisabled" : [
+         null,
+         "API functionality is disabled"
+      ],
+      "Escribe los valores que deseas buscar separados por comas." : [
+         null,
+         "Enter one or more terms (separated by comma) to look for."
+      ],
+      "missingToken" : [
+         null,
+         "missing parameter"
+      ],
+      "Seguir Enlaces" : [
+         null,
+         "Follow links"
+      ],
+      "Eliminadas" : [
+         null,
+         "Deleted"
+      ],
+      "Propiedades" : [
+         null,
+         "Properties"
+      ],
+      "Recuerda que éstas plantillas no pueden modificarse desde el editor." : [
+         null,
+         "Remember that this template cannot be modified from the editor."
+      ],
+      "Remociones de la lista de contactos" : [
+         null,
+         "Maillist unsubscriptions"
+      ],
+      "contactos han sido eliminados" : [
+         null,
+         "contacts have been deleted"
+      ],
+      "errorMsg_maxSimultaneousCampaignLimitExceeded" : [
+         null,
+         "You've exceeded the simultaneous  campaigns sending  limit , when they have finished you may start sending again."
+      ],
+      "Resaltar" : [
+         null,
+         "Highlight"
+      ],
+      "Gris" : [
+         null,
+         "Gray"
+      ],
+      "Transparencia" : [
+         null,
+         "Alpha"
+      ],
+      "Fecha" : [
+         null,
+         "Date"
+      ],
+      "No se ha podido procesar la acción solicitada" : [
+         null,
+         "Unable to perform the requested operation"
+      ],
+      "Descargar Informe" : [
+         null,
+         "Download report"
+      ],
+      "Otras Opciones" : [
+         null,
+         "Other Options"
+      ],
+      "errorMsg_invalidAdministrator" : [
+         null,
+         "Administrator NOT found"
+      ],
+      "Prom. emails / Sec." : [
+         null,
+         "Aver. emails / Sec."
+      ],
+      "CampaignStatisticsID" : [
+         null,
+         "Campaing Statistics"
+      ],
+      "Clicks totales:" : [
+         null,
+         "Total Clicks:"
+      ],
+      "alnumInvalid" : [
+         null,
+         "The value must be composed of numbers and letters."
+      ],
+      "Importación de contactos" : [
+         null,
+         "Contacts import"
+      ],
+      "notInt" : [
+         null,
+         "Value must be an integer"
+      ],
+      "Texto del enlace" : [
+         null,
+         "Link text"
+      ],
+      "errorMsg_campaignInvalidID" : [
+         null,
+         "Invalid campaign ID"
+      ],
+      "Seleccionaste 1 lista para eliminar.<br /><br />¿Estás seguro que deseas proceder?<br /><br />Si procedes, no podrás recuperarla." : [
+         null,
+         "1 Maillist  has been selected for deletion.<br /><br />Are you sure to proceed?"
+      ],
+      "password" : [
+         null,
+         "password"
+      ],
+      "procesando datos" : [
+         null,
+         "elaborating data"
+      ],
+      "Remover formato" : [
+         null,
+         "Remove format"
+      ],
+      "errorMsg_extensionNotAllowedPicOneOf" : [
+         null,
+         "The file extension is not allowed."
+      ],
+      "Iniciando desde aquí, el listado de <strong>Listas de Contactos</strong> mostrará solo aquellas relacionadas con las <strong>Campañas</strong> seleccionadas.<br/><br/>Seleccionando una o más campañas serán habilitados los siguientes filtros:<ul><li>Lecturas</li><li>Clicks</li><li>Tipo de navegador</li><li>Sistema Operativo</li></ul>" : [
+         null,
+         "Starting from this option, the <strong>Maillists</strong> list will show only those items related to the selected <strong>Campaigns</strong>.<br/><br/>Selecting one or more campaigns, the following filters will be enabled:<ul><li>Reads</li><li>Clicks</li><li>Browser</li><li>Operative System</li></ul>"
+      ],
+      "Listas de destinatarios" : [
+         null,
+         "Recipients lists"
+      ],
+      "digitsStringEmpty" : [
+         null,
+         "Empty string"
+      ],
+      "Modificar" : [
+         null,
+         "Modify"
+      ],
+      "Des-indentar" : [
+         null,
+         "Decrease indent"
+      ],
+      "Enviar Ahora" : [
+         null,
+         "Send Now"
+      ],
+      "Simple" : [
+         null,
+         "Simple"
+      ],
+      "Borrar contactos" : [
+         null,
+         "Delete contacts"
+      ],
+      "errorMsg_campaignNotPaused" : [
+         null,
+         "Campaigns is NOT paused"
+      ],
+      "stringLengthTooLong" : [
+         null,
+         "Value es too large"
+      ],
+      "sendingStatus-Preparing" : [
+         null,
+         "Preparing"
+      ],
+      "Crear nueva campaña para el" : [
+         null,
+         "Create a new Campaign for"
+      ],
+      "feedback" : [
+         null,
+         "feedback"
+      ],
+      "Ha ocurrido unn error delegando la operación" : [
+         null,
+         "An error occurred while chaining the operation."
+      ],
+      "Las siguentes  listas de contacto no son válidas" : [
+         null,
+         "The following Maillists are invalid."
+      ],
+      "notAlnum" : [
+         null,
+         "Value must be a number or a letter"
+      ],
+      "notUsername" : [
+         null,
+         "username not valid"
+      ],
+      "Enviar email" : [
+         null,
+         "Send email"
+      ],
+      "El tipo de campo no permite mas de un valor marcado como seleccionado" : [
+         null,
+         "The field type doesn't allows to mark morde than one selected option."
+      ],
+      "No existen todavía estadísticas relacionadas" : [
+         null,
+         "No related stats data has been found"
+      ],
+      "Navidad" : [
+         null,
+         "Christmas"
+      ],
+      "Filtrar por color" : [
+         null,
+         "Filter by color"
+      ],
+      "Pendiente" : [
+         null,
+         "Pending"
+      ],
+      "Día" : [
+         null,
+         "Day"
+      ],
+      "Expandir Menú" : [
+         null,
+         "Expand menu"
+      ],
+      "Diseño" : [
+         null,
+         "Design"
+      ],
+      "errorMsg_noFileUploaded" : [
+         null,
+         "File NOT found"
+      ],
+      "Ha ocurrido un error recuperando el archivo solicitado." : [
+         null,
+         "An error occurred retrieving the selected file."
+      ],
+      "El valor del Filtro por" : [
+         null,
+         "The filter value for"
+      ],
+      "errorMsg_fileNotFound" : [
+         null,
+         "File NOT found"
+      ],
+      "absolutepage" : [
+         null,
+         "page"
+      ],
+      "Antes de importar la lista estabas modificando la Campaña" : [
+         null,
+         "Before start importing the Maillists you were editing the Campaign"
+      ],
+      "No importar" : [
+         null,
+         "Do not Import"
+      ],
+      "Repostería" : [
+         null,
+         "Confectionery"
+      ],
+      "No se ha podido realizar la optimización." : [
+         null,
+         "Unable to perform the optimization"
+      ],
+      "Tu email no se ha detectado como SPAM" : [
+         null,
+         "Your email has not been detected as spam"
+      ],
+      "Desuscriptos" : [
+         null,
+         "Unsubscribed"
+      ],
+      "No se ha podido identificar el archivo seleccionado." : [
+         null,
+         "Unable to identify the selected file."
+      ],
+      "Institucional" : [
+         null,
+         "Institutional"
+      ],
+      "Clicks en vínculos" : [
+         null,
+         "Links clicks"
+      ],
+      "Lecturas Totales" : [
+         null,
+         "Total Reads"
+      ],
+      "MailListID" : [
+         null,
+         "Maillist"
+      ],
+      "No se ha podido guardar la información solicitada." : [
+         null,
+         "Unable to save the requested information."
+      ],
+      "No has seleccionado ninguna campaña.<br /><br /> Los filtros que necesitan un origen de Campaña para ejecutarse serán deshabilitados." : [
+         null,
+         "No campaign has been selected.<br /><br />The filters related to campaign sources will be disabled."
+      ],
+      "AdvanceEditable" : [
+         null,
+         "Advance editable mode"
+      ],
+      "Si detienes la campaña deberás programar nuevamente el envío. Cuando vuelvas a enviarla, la entrega recomenzará desde el principio. ¿Deseas proceder?." : [
+         null,
+         "If you stop the campaign you will have to program the sending again and the next sending will starts from the beginning. Do you want to proceed?"
+      ],
+      "Progreso" : [
+         null,
+         "Progress"
+      ],
+      "Leer artículo" : [
+         null,
+         "Read"
+      ],
+      "listas/contactos" : [
+         null,
+         "lists/contacts"
+      ],
+      "Ver reportes detallados" : [
+         null,
+         "View detailed report"
+      ],
+      "emailAddressLengthExceeded" : [
+         null,
+         "E-mail address is invalid"
+      ],
+      "formularios" : [
+         null,
+         "singup forms"
+      ],
+      "errorMsg_campaignMaillistNotFound" : [
+         null,
+         "Could not find the contacts list of the campaign."
+      ],
+      "El campo \"Excluir\" no puede estar vacío" : [
+         null,
+         "The field \"Ban\" cannot be empty"
+      ],
+      "Modificar color de fondo del bloque" : [
+         null,
+         "Edit Block background color"
+      ],
+      "orderBy" : [
+         null,
+         "order by"
+      ],
+      "Tu cuenta no tenía créditos disponibles y la operación fué detenida. Para finalizar la operación debes comprar más envíos." : [
+         null,
+         "Your account does not have available credits and the operation was stopped. To complete the operation you should buy more credits."
+      ],
+      "Miembro" : [
+         null,
+         "Member"
+      ],
+      "errorMsg_invalidCharset" : [
+         null,
+         "File has invalid characters. The valid charset are UTF-8 and ISO-8859-1 (Latin1)"
+      ],
+      "No se ha podido identificar la opción que desea actualizar" : [
+         null,
+         "Unable identify the option you want to update"
+      ],
+      "Sitio" : [
+         null,
+         "Site"
+      ],
+      "Email entregados" : [
+         null,
+         "Delivered Emails"
+      ],
+      "username" : [
+         null,
+         "username"
+      ],
+      "invalidValue" : [
+         null,
+         "is invalid"
+      ],
+      "Modificar contenidos desde URL" : [
+         null,
+         "Change contents from URL"
+      ],
+      "Importar" : [
+         null,
+         "Import"
+      ],
+      "Información del calificador de SPAM" : [
+         null,
+         "Spam score information"
+      ],
+      "Selecciona el texto que deseas enlazar" : [
+         null,
+         "Select the text you want to link"
+      ],
+      "Insertar adjunto" : [
+         null,
+         "Insert attachment"
+      ],
+      "Navegador offline" : [
+         null,
+         "Ofline browser"
+      ],
+      "Cursiva" : [
+         null,
+         "Italic"
+      ],
+      "errorMsg_campaignMaillist" : [
+         null,
+         "Unable to retrieve contact lists selected"
+      ],
+      "errorMsg_campaignNotScheduled" : [
+         null,
+         "Campaign is not scheduled"
+      ],
+      "invalInt" : [
+         null,
+         "Value mus be a number"
+      ],
+      "Justificar" : [
+         null,
+         "Justify"
+      ],
+      "Agregar adjunto" : [
+         null,
+         "Insert attachment"
+      ],
+      "campañas han sido seleccionadas para ser eliminadas.¿Deseas proceder?" : [
+         null,
+         "Campaigns have been selected for deletion. Are you sure to proceed?"
+      ],
+      "La página recuperada no posee contenidos HTML." : [
+         null,
+         "The retrieved source code doesn't have any HTML content."
+      ],
+      "Tarea" : [
+         null,
+         "Task"
+      ],
+      "Lista punteada" : [
+         null,
+         "Unordered list"
+      ],
+      "Archivo" : [
+         null,
+         "File"
+      ],
+      "CategoryID" : [
+         null,
+         "Category"
+      ],
+      "Imagen borrada" : [
+         null,
+         "Image deleted"
+      ],
+      "Cargar un archivo desde tu computadora" : [
+         null,
+         "Load file from your computer"
+      ],
+      "El campo no posee opciones seleccionables" : [
+         null,
+         "The field doesn't have any selectable option"
+      ],
+      "Ecología" : [
+         null,
+         "Ecology"
+      ],
+      "Campo oculto" : [
+         null,
+         "Hidden field"
+      ],
+      "¿Deseas proceder?" : [
+         null,
+         "Proceed?"
+      ],
+      "formularios han sido seleccionados para ser eliminados.<br /> Si están siendo utilizados en algún sitio, los formularios no serán visualizados.<br />¿Deseas proceder?" : [
+         null,
+         "Signup forms selected for deletion.<br />If it's still used on a web site it won't be visible anymore. <br />Are you sure to proceed?"
+      ],
+      "reglas han sido seleccionadas para ser eliminadas.¿Deseas proceder?" : [
+         null,
+         "Ban rules  have been selected for deletion. Are you sure to proceed?"
+      ],
+      "Type" : [
+         null,
+         "Type"
+      ],
+      "Alinear imagen" : [
+         null,
+         "Image align"
+      ],
+      "Ha ocurrido un error durante la selección del proceso de persistencia." : [
+         null,
+         "An error occurred while selecting the persistance driver."
+      ],
+      "sendingStatus-Sending" : [
+         null,
+         "Sending"
+      ],
+      "emailAddressDotAtom" : [
+         null,
+         "E-mail address"
+      ],
+      "No se han podido generar las claves para DKIM." : [
+         null,
+         "Unable to create the DKIM keys"
+      ],
+      "¿Eliminar formulario?" : [
+         null,
+         "Delete Signup Form?"
+      ],
+      "Borrador" : [
+         null,
+         "Draft"
+      ],
+      "errorMsg_administratorNotFound" : [
+         null,
+         "User not found"
+      ],
+      "Ha ocurrido un error analizando los datos del formulario." : [
+         null,
+         "An error occurred analyzing the form data."
+      ],
+      "Galería de imágenes" : [
+         null,
+         "Image gallery"
+      ],
+      "contactos exportados" : [
+         null,
+         "contacts exported"
+      ],
+      "Lecturas" : [
+         null,
+         "Reads"
+      ],
+      "Navegador Wap" : [
+         null,
+         "Wap browser"
+      ],
+      "¿Eliminar Campo Personalizado?" : [
+         null,
+         "Delete Custom Field?"
+      ],
+      "Debes seleccionar al menos una lista de contactos." : [
+         null,
+         "At least on Maillist must be selected."
+      ],
+      "FileName" : [
+         null,
+         "File name"
+      ],
+      "No seleccionaste ninguna columna" : [
+         null,
+         "No column has been selected"
+      ],
+      "Remociones Totales" : [
+         null,
+         "Total Unsubscribers"
+      ],
+      "¿Deseas guardar los cambios realizados a la Campaña ID" : [
+         null,
+         "Do you wish to save changes to the campaign ID"
+      ],
+      "Editar" : [
+         null,
+         "Edit"
+      ],
+      "CustomFieldsIds" : [
+         null,
+         "Custom Fields"
+      ],
+      "Aceptar" : [
+         null,
+         "Accept"
+      ],
+      "errorMsg_unSubscribeTagMissing" : [
+         null,
+         "The content of the campaign doesn't have the unsubscribe link."
+      ],
+      "Mayor que" : [
+         null,
+         "Great than"
+      ],
+      "Remitente (FROM)" : [
+         null,
+         "Sender (From)"
+      ],
+      "se ha desuscripto satisfactoriamente" : [
+         null,
+         "has been successfully unsubscribed."
+      ],
+      "errorMsg_campaignMaillistsInvalid" : [
+         null,
+         "The contact list is invalid"
+      ],
+      "sendingStatus-Pending" : [
+         null,
+         "Pending"
+      ],
+      "Sin rebotes" : [
+         null,
+         "No bounces"
+      ],
+      "Seleccionaste una imagen para <strong>eliminar</strong>.<br /><br />¿Estás seguro que deseas proceder?<br /><br />Si procedes, no podrás recuperarla." : [
+         null,
+         "1 image has been selected for deletion.<br /><br />Are you sure to proceed?"
+      ],
+      "La API HTTP te permite integrar tus cuentas de EnvialoSimple.com con tus propias aplicaciones. (CMS, CRM, e-commerce, etc)<br />Para poder utilizar ésta funcionalidad debes actualizar tu cuenta" : [
+         null,
+         "The HTTP API allows you to integrate your EnvialoSimple.com accounts with your own applications. (CMS, CRM, e-commerce, etc.)   To use this feature you must update your account"
+      ],
+      "Duplicar campaña" : [
+         null,
+         "Copy campaign"
+      ],
+      "Aplicar" : [
+         null,
+         "Apply"
+      ],
+      "day_0" : [
+         null,
+         "sunday"
+      ],
+      "Fecha de  envío" : [
+         null,
+         "Sending date"
+      ],
+      "miércoles" : [
+         null,
+         "wednesday"
+      ],
+      "Versión HTML" : [
+         null,
+         "HTML version"
+      ],
+      "Estado actual" : [
+         null,
+         "Current status"
+      ],
+      "Ha ocurrido un error" : [
+         null,
+         "An error occurred"
+      ],
+      "ValidationCustomRegExp" : [
+         null,
+         "Custom validation"
+      ],
+      "Minimalista" : [
+         null,
+         "Minimal"
+      ],
+      "Previsualizar contenidos por e-mail" : [
+         null,
+         "Preview by email"
+      ],
+      "Contiene" : [
+         null,
+         "Contains"
+      ],
+      "de derecha a izquierda" : [
+         null,
+         "right to left"
+      ],
+      "Iniciando desde aquí, el listado de <strong>Campañas</strong> mostrará solo aquellas relacionadas con las <strong>Listas de Contactos</strong> seleccionadas." : [
+         null,
+         "Starting from this option, the <strong>Campaigns</strong> list will show only those items related to the selected <strong>Maillists</strong>."
+      ],
+      "errorMsg_campaignScheduleNotSaved" : [
+         null,
+         "Campaign is not scheduled"
+      ],
+      "emailAddressInvalidMxRecord" : [
+         null,
+         "E-mail address is invalid"
+      ],
+      "Cerrar" : [
+         null,
+         "Close"
+      ],
+      "Minutos" : [
+         null,
+         "Minutes"
+      ],
+      "errorMsg_errorRetrievingCustomFields" : [
+         null,
+         "Unable to retrieve the custom fields."
+      ],
+      "Jóvenes" : [
+         null,
+         "Young"
+      ],
+      "¿Eliminar llaves?" : [
+         null,
+         "Delete keys?"
+      ],
+      "Compartir reportes" : [
+         null,
+         "Share campaign report"
+      ],
+      "Rosa" : [
+         null,
+         "Pink"
+      ],
+      "Leyes" : [
+         null,
+         "Law"
+      ],
+      "errorMsg_administratorNotLogged" : [
+         null,
+         "Sorry, that password doesn't match the password associated with that username."
+      ],
+      "errorMsg_campaignAdministratorInvalid" : [
+         null,
+         "Failed to retrieve data"
+      ],
+      "ConfCallbackOK" : [
+         null,
+         "Subscription confirmation success page"
+      ],
+      "RequestOptIn" : [
+         null,
+         "RequestOptIn"
+      ],
+      "Historial de Vínculos" : [
+         null,
+         "Links History"
+      ],
+      "Todos los contactos de" : [
+         null,
+         "All contacts from"
+      ],
+      "notDigits" : [
+         null,
+         "Value must be an integer"
+      ],
+      "errorMsg_campaignNotFound" : [
+         null,
+         "Campaigns is NOT found"
+      ],
+      "Abogado" : [
+         null,
+         "Lawyer"
+      ],
+      "Parágrafo" : [
+         null,
+         "Paragraph"
+      ],
+      "Cargar una imagen desde tu computadora" : [
+         null,
+         "Load image from your computer"
+      ],
+      "Reportar como SPAM" : [
+         null,
+         "Report as SPAM"
+      ],
+      "Crear Nuevo" : [
+         null,
+         "Create new"
+      ],
+      "Captcha" : [
+         null,
+         "Captcha"
+      ],
+      "Estás por salir de la edición de la Campaña" : [
+         null,
+         "You're about to leave the campaign edition"
+      ],
+      "contacto purgado" : [
+         null,
+         "contact purged"
+      ],
+      "Purgar Lista" : [
+         null,
+         "Purge list"
+      ],
+      "Superíndice" : [
+         null,
+         "Superscript"
+      ],
+      "DefaultValue" : [
+         null,
+         "Default value"
+      ],
+      "Modo MANUAL:" : [
+         null,
+         "MANUAL mode:"
+      ],
+      "errorMsg_emptyTemplateList" : [
+         null,
+         "Template list empty"
+      ],
+      "Listas" : [
+         null,
+         "Lists"
+      ],
+      "Ha ocurrido un error en el proceso." : [
+         null,
+         "An error occurred in the process."
+      ],
+      "El campo \"Responder a: Email\" no puede estar vacío y debe ser un e-mail valido" : [
+         null,
+         "The field \"Replay to:\" cannot be empty and must be a valid email address"
+      ],
+      "Crear nuevo Campo Personalizado" : [
+         null,
+         "Add new Custom Field"
+      ],
+      "CopyPaste" : [
+         null,
+         "Copy / paste"
+      ],
+      "Alineación izquierda CON texto alrededor" : [
+         null,
+         "Align left  WITH word wrap"
+      ],
+      "Extensiones aceptadas" : [
+         null,
+         "Accepted extensions"
+      ],
+      "Elige cuando enviar tu campaña" : [
+         null,
+         "Define when to send your campaign"
+      ],
+      "errorMsg_campaignCompleted" : [
+         null,
+         "The campaign has been sent while you were modifying it and we could not save your changes."
+      ],
+      "month_07" : [
+         null,
+         "july"
+      ],
+      "Espectáculo" : [
+         null,
+         "Show"
+      ],
+      "Seleccionaste 1 regla para eliminar.<br /><br />¿Estás seguro que deseas proceder?<br /><br />Si procedes, no podrás recuperarla." : [
+         null,
+         "1 Ban rule has been selected for deletion.<br /><br />Are you sure to proceed?"
+      ],
+      "Reenvía a un amigo" : [
+         null,
+         "Tell a friend"
+      ],
+      "TrackAnalitics" : [
+         null,
+         "Use Analytics"
+      ],
+      "Lista numerada" : [
+         null,
+         "Ordered list"
+      ],
+      "junio" : [
+         null,
+         "june"
+      ],
+      "Incluir los suscriptores que son devueltos como <strong>Rebote Temporal</strong>" : [
+         null,
+         "Include all subscribers containing soft bounces."
+      ],
+      "Es posible que tu email sea calificado como SPAM" : [
+         null,
+         "Your email may be detected as SPAM"
+      ],
+      "Modificá el contenido de tu campaña" : [
+         null,
+         "Change the Campaign contents"
+      ],
+      "No ha sido seleccionada ninguna lista de destinatarios." : [
+         null,
+         "No recipients list has been selected."
+      ],
+      "Duplicar Bloque" : [
+         null,
+         "Duplicate block"
+      ],
+      "No se han podido guardar los datos del contacto." : [
+         null,
+         "Unable to save the contact information."
+      ],
+      "noviembre" : [
+         null,
+         "november"
+      ],
+      "Asunto" : [
+         null,
+         "Subject"
+      ],
+      "Alineación derecha SIN texto alrededor" : [
+         null,
+         "Align right WITHOUT word wrap"
+      ],
+      "CampaignID" : [
+         null,
+         "Campaign"
+      ],
+      "lista de contactos" : [
+         null,
+         "Contacts list"
+      ],
+      "No eliminados" : [
+         null,
+         "Not deleted"
+      ],
+      "diciembre" : [
+         null,
+         "december"
+      ],
+      "Ahora no" : [
+         null,
+         "Not now"
+      ],
+      "Fotografía" : [
+         null,
+         "Photography"
+      ],
+      "para eliminar.<br /><br /> Si alguna campaña la" : [
+         null,
+         "for deletion.<br /><br /> If a campaign is"
+      ],
+      "Construcción" : [
+         null,
+         "Construction"
+      ],
+      "Radio" : [
+         null,
+         "Radio"
+      ],
+      "alnumStringEmpty" : [
+         null,
+         "Empty value."
+      ],
+      "Termina con" : [
+         null,
+         "Ends with"
+      ],
+      "Elige el nombre para tu campaña" : [
+         null,
+         "Enter a Campaign Name"
+      ],
+      "Aceptar solo dígitos (sin espacios)" : [
+         null,
+         "Only digits (without white space)"
+      ],
+      "CampaignName" : [
+         null,
+         "Campaign Name"
+      ],
+      "Cargando" : [
+         null,
+         "Loading"
+      ],
+      "contactos han sido movidos" : [
+         null,
+         "contacts have been moved"
+      ],
+      "Selecciona la cantidad de envíos que deseas comprar." : [
+         null,
+         "Select the email credits ammount you wish to buy."
+      ],
+      "Crea tu primera etiqueta" : [
+         null,
+         "Create your first tag"
+      ],
+      "editores han sido seleccionados para ser eliminados.¿Deseas proceder?" : [
+         null,
+         "editors  have been selected for deletion. Are you sure to proceed?"
+      ],
+      "El peso máximo para los archivos es" : [
+         null,
+         "File max size is"
+      ],
+      "No hemos podido identificar los email seleccionados." : [
+         null,
+         "Unable to identify the selected email addresses."
+      ],
+      "Desuscripción" : [
+         null,
+         "Unsubscription"
+      ],
+      "errorMsg_campaignNoBodies" : [
+         null,
+         "Campaign content is empty"
+      ],
+      "Subir Archivo" : [
+         null,
+         "Upload file"
+      ],
+      "Alineación automática" : [
+         null,
+         "Auto align"
+      ],
+      "Etiquetas" : [
+         null,
+         "Tags"
+      ],
+      "stringLengthTooShort" : [
+         null,
+         "Value is too short"
+      ],
+      "MailListName" : [
+         null,
+         "Maillist Name"
+      ],
+      "editor" : [
+         null,
+         "editor"
+      ],
+      "Atención!" : [
+         null,
+         "¡Attention!"
+      ],
+      "Información del contacto" : [
+         null,
+         "Subscriber information"
+      ],
+      "Programada" : [
+         null,
+         "Scheduled"
+      ],
+      "Eliminar valor" : [
+         null,
+         "Delete value"
+      ],
+      "Clicks Totales" : [
+         null,
+         "Total Clicks"
+      ],
+      "No se ha podido cargar la plantilla remota" : [
+         null,
+         "Unable to download the remote template"
+      ],
+      "PasswordConfirm" : [
+         null,
+         "Confirm password"
+      ],
+      "Enviar informe al finalizar" : [
+         null,
+         "Send report on completion"
+      ],
+      "El email ha sido reenviado correctamente." : [
+         null,
+         "The email has been sent successfully."
+      ],
+      "Blanco" : [
+         null,
+         "White"
+      ],
+      "month_08" : [
+         null,
+         "august"
+      ],
+      "No se ha podido aplicar la exclusión a los contactos existentes." : [
+         null,
+         "Unable to apply the Ban rule to the existing contacts."
+      ],
+      "errorMsg_formNotSaved" : [
+         null,
+         "Form NOT saved"
+      ],
+      "más de una vez" : [
+         null,
+         "more than once"
+      ],
+      "errorMsg_campaignMaillistsNotSaved" : [
+         null,
+         "Failed to save the contact list of the campaign."
+      ],
+      "<span class=\"text-info\">Remueve</span> los contactos obtenidos <span class=\"text-info\">de las listas de origen</span> y los <span class=\"text-info\">suscribe a las listas de destino</span>.<br/><br/>Los contactos <span class=\"text-info\">no pertenecerán más</span> a las listas de origen seleccionadas." : [
+         null,
+         "<span class=\"text-info\">Removes</span> the resulting contacts <span class=\"text-info\">from the selected Maillists</span> and <span class=\"text-info\">subscribes them to the target lists</span>.<br/><br/>The contacts <span class=\"text-info\">wont be linked anymore</span>to the original Maillists."
+      ],
+      "Nombre" : [
+         null,
+         "Name"
+      ],
+      "Des-Habilitada" : [
+         null,
+         "Disabled"
+      ],
+      "sendingStatus-Completed" : [
+         null,
+         "Completed"
+      ],
+      "¿Estás seguro de eliminar ésta llave? Las aplicaciones que la utilicen para acceder al API HTTP <strong>NO</strong> podrán hacerlo." : [
+         null,
+         "Are you sure to delete the Key? Any application that use it will stop having access to the API HTTP."
+      ],
+      "Desactivado" : [
+         null,
+         "Disabled"
+      ],
+      "Todavía no creaste ninguna plantilla." : [
+         null,
+         "You haven't saved any templates yet."
+      ],
+      "Seleccionaste Todas las Campañas para eliminar.<br /><br />¿Estás seguro que deseas proceder?<br /><br />Si procedes, no podrás recuperarlas." : [
+         null,
+         "All Campaigns  have been selected for deletion.<br /><br />Are you sure to proceed?"
+      ],
+      "Ver más" : [
+         null,
+         "View more"
+      ],
+      "errorMsg_invalidMember" : [
+         null,
+         "Invalid member"
+      ],
+      "Seleccionar Fuente" : [
+         null,
+         "Select Font"
+      ],
+      "Para utilizar administrador de archivos debes habilitar JavaScript." : [
+         null,
+         "In order to use the file manager you must enable javascript."
+      ],
+      "Ha ocurrido un error generando la ficha de la campaña." : [
+         null,
+         "An error occurred while generating the campaign overview."
+      ],
+      "errorMsg_invalidForward" : [
+         null,
+         "Unable to send the email to your friends"
+      ],
+      "Desuscribir miembro" : [
+         null,
+         "Unsubscribe member"
+      ],
+      "Negro" : [
+         null,
+         "Black"
+      ],
+      "No hemos podido identificar los formularios seleccionados." : [
+         null,
+         "Unable to identify the selected signup form."
+      ],
+      "Faltan los contenidos de tu mensaje." : [
+         null,
+         "You haven't create the contents of your message."
+      ],
+      "day_4" : [
+         null,
+         "thursday"
+      ],
+      "Habilitada" : [
+         null,
+         "Enabled"
+      ],
+      "La campaña no ha podido ser enviada!" : [
+         null,
+         "The campaign couldn't be delivered!"
+      ],
+      "lista ha sido seleccionada para exportar subscriptores.¿Deseas proceder?" : [
+         null,
+         "Maillists has been selected to export its contacts. Do you wish to proceed?"
+      ],
+      "Campos predeterminados" : [
+         null,
+         "Default Fields"
+      ],
+      "Total de Subscriptores" : [
+         null,
+         "Total subscribers"
+      ],
+      "errorMsg_campaignInvalidEmail" : [
+         null,
+         "Failed to analyze the structure of the e-mail."
+      ],
+      "Novedades" : [
+         null,
+         "News"
+      ],
+      "errorMsg_memberBanned" : [
+         null,
+         "Subscriber is blocked by an exclusion rule."
+      ],
+      "Imagen modificada" : [
+         null,
+         "Image changed"
+      ],
+      "Muchas gracias por tu sugerencia" : [
+         null,
+         "Thanks you for your suggestion"
+      ],
+      "errorMsg_invalidFilter" : [
+         null,
+         "Invalid filter"
+      ],
+      "Verde" : [
+         null,
+         "Green"
+      ],
+      "Contar Aperturas" : [
+         null,
+         "Count Opens"
+      ],
+      "Línea horizontal" : [
+         null,
+         "Horizontal ruler"
+      ],
+      "Email entregados:" : [
+         null,
+         "Delivered Emails:"
+      ],
+      "errorMsg_campaignAnaliseError" : [
+         null,
+         "Unable to process the content of the campaign"
+      ],
+      "Ha ocurrido un error seleccionando los datos de la campaña." : [
+         null,
+         "An error occurred while retrieving the campaign data."
+      ],
+      "Florería" : [
+         null,
+         "Flower shop"
+      ],
+      "No se ha podido recuperar el contenido remoto de tu campaña." : [
+         null,
+         "The remote content could not be retrieved."
+      ],
+      "errorMsg_campaignNotConfirmed" : [
+         null,
+         "Campaigns is NOT ready"
+      ],
+      "AdministratorID" : [
+         null,
+         "Administrator"
+      ],
+      "Selecciona la URL de origen de tus contenidos." : [
+         null,
+         "Select  URL of the source countent."
+      ],
+      "Error en el email de confirmación" : [
+         null,
+         "Confirmation email error"
+      ],
+      "count" : [
+         null,
+         "count"
+      ],
+      "errorMsg_invalidMaillist" : [
+         null,
+         "Invalid maillist"
+      ],
+      "Desconocido" : [
+         null,
+         "Unknown"
+      ],
+      "Los siguentes subscriptores no son válidos" : [
+         null,
+         "The following contacts are invalid."
+      ],
+      "El Campo" : [
+         null,
+         "The Field"
+      ],
+      "reglas para eliminar.<br /><br />¿Estás seguro que deseas proceder?<br /><br />Si procedes, no podrás recuperarlas." : [
+         null,
+         "ban rule  for deletion.<br /><br />Are you sure to proceed?"
+      ],
+      "errorMsg_phishing" : [
+         null,
+         "The content of your campaign has been identified as a potential phishing attempt and will be reviewed by our operators. Please contact the administration."
+      ],
+      "isEmptyOrWrong" : [
+         null,
+         "is empty"
+      ],
+      "El campo \"Contraseña\" debe coincidir con el campo \"Confirmar Contraseña" : [
+         null,
+         "The fields \"Password\" and \"Password confirm\" must be identical"
+      ],
+      "hostnameInvalidLocalName" : [
+         null,
+         "E-mail address is invalid"
+      ],
+      "Librería" : [
+         null,
+         "Library"
+      ],
+      "Estilo limpio" : [
+         null,
+         "Clean"
+      ],
+      "Compartir en" : [
+         null,
+         "Share in"
+      ],
+      "Guardar" : [
+         null,
+         "Save"
+      ],
+      "Listado" : [
+         null,
+         "List"
+      ],
+      "Copia la url que te proveemos a continuación." : [
+         null,
+         "Copy the following Url"
+      ],
+      "Historial de lecturas" : [
+         null,
+         "Reads History"
+      ],
+      "Si lo deseas puedes iniciar una nueva optimización modificando los filtros seleccionados." : [
+         null,
+         "You may start a new optimization by changing the current filters."
+      ],
+      "Compartir reportes de campaña" : [
+         null,
+         "Share campaign report"
+      ],
+      "Ver Resumen" : [
+         null,
+         "View report"
+      ],
+      "month_12" : [
+         null,
+         "december"
+      ],
+      "Actual" : [
+         null,
+         "Current"
+      ],
+      "El campo no puede estar vacío." : [
+         null,
+         "The field cannot be empty"
+      ],
+      "emailAddressInvalidFormat" : [
+         null,
+         "E-mail address is invalid"
+      ],
+      "Dirección de correo electrónico" : [
+         null,
+         "Email address"
+      ],
+      "No se han podido procesar los datos ingresados." : [
+         null,
+         "Unable to process the data entered."
+      ],
+      "El sistema borrará completamente el historial de rebotes del usuario." : [
+         null,
+         "The system will delete completely  the user's bounce history."
+      ],
+      "El e-mail ha sido enviado correctamente a" : [
+         null,
+         "The email has been successfully sent to"
+      ],
+      "ShowPoweredBy" : [
+         null,
+         "Show Dattatec's logo"
+      ],
+      "Insertar tabla" : [
+         null,
+         "Insert table"
+      ],
+      "Ha ocurrido un error desconocido, por favor intente nuevamente" : [
+         null,
+         "Unknown error, please retry."
+      ],
+      "Música" : [
+         null,
+         "Music"
+      ],
+      "Ver todos los artículos" : [
+         null,
+         "View all articles"
+      ],
+      "errorMsg_formValidations" : [
+         null,
+         "Error in fields"
+      ],
+      "Tecnología" : [
+         null,
+         "Technology"
+      ],
+      "Click/selecciona" : [
+         null,
+         "Click/select"
+      ],
+      "dirección de correo electrónico ha sido seleccionada para ser eliminada.¿Deseas proceder?" : [
+         null,
+         "email address  has been selected for deletion. Are you sure to proceed?"
+      ],
+      "invalidIds" : [
+         null,
+         "is invalid"
+      ],
+      "El peso mínimo para los archivos es" : [
+         null,
+         "File min size is"
+      ],
+      "Seleccionaste un adjunto para <strong>eliminar</strong>.<br /><br />¿Estás seguro que deseas proceder?<br /><br />Si procedes, no podrás recuperarlo." : [
+         null,
+         "1 attachment  has been selected for deletion.<br /><br />Are you sure to proceed?"
+      ],
+      "errorMsg_livetrack" : [
+         null,
+         " "
+      ],
+      "limit" : [
+         null,
+         "limit"
+      ],
+      "Aumentar tamaño letra" : [
+         null,
+         "Increase font size"
+      ],
+      "Electrónica" : [
+         null,
+         "Electronics"
+      ],
+      "Método de validación" : [
+         null,
+         "Validation method"
+      ],
+      "Campo Personalizado ha sido seleccionado para ser eliminado.¿Deseas proceder?" : [
+         null,
+         "Custom Field has been selected for deletion. Are you sure to proceed?"
+      ],
+      "listas serán borrados.<br /><br />¿Estás seguro que deseas proceder?<br /><br />Si procedes, no podrás recuperarlos." : [
+         null,
+         "maillists will be deleted.<br /><br />Are you sure to proceed?"
+      ],
+      "Sin datos" : [
+         null,
+         "No data"
+      ],
+      "errorMsg_campaignIntegrityCheckFailed" : [
+         null,
+         "Campaign is NOT ready to be sent"
+      ],
+      "No hemos podido identificar las listas seleccionada." : [
+         null,
+         "Unable to identify the selected Maillists."
+      ],
+      "no puede estar vacío" : [
+         null,
+         "cannot be empty"
+      ],
+      "message" : [
+         null,
+         "message"
+      ],
+      "Viajes y turismo" : [
+         null,
+         "Travel and tourism"
+      ],
+      "La acción de purgar desuscribe de las listas seleccionadas todos contactos que posean rebotes duros. Puedes incluir los subscriptores que posean rebotes temporales y también removerlos de las listas en vez de desuscribirlos." : [
+         null,
+         "The act of purging unsubscribes all \"hard bounced\" contacts from the selected maillists . You can include subscribers who have temporary rebounds and also remove them from the lists instead of desuscribirlos."
+      ],
+      "Color de fondo de bloque modificado" : [
+         null,
+         "Block's background color changed"
+      ],
+      "errorMsg_membersBanned" : [
+         null,
+         " "
+      ],
+      "El campo Remitente es obligatorio" : [
+         null,
+         "The field \"Sender (FROM)\" is mandatory"
+      ],
+      "llave ha sido seleccionada para ser eliminada.¿Deseas proceder?" : [
+         null,
+         "Key has been selected for deletion. Are you sure to proceed?"
+      ],
+      "day_2" : [
+         null,
+         "tuesday"
+      ],
+      "Tu desuscripción se ha realizado satisfactoriamente." : [
+         null,
+         "You have been successfully unsubscribed."
+      ],
+      "Mis imágenes" : [
+         null,
+         "My images"
+      ],
+      "No se ha podido recuperar la información del contenido" : [
+         null,
+         "The content could not be retrieved"
+      ],
+      "Estás por salir de la edición del formulario" : [
+         null,
+         "You're about to leave the form edition"
+      ],
+      "url" : [
+         null,
+         "url"
+      ],
+      "Tipo de campo Personalizado" : [
+         null,
+         "Custom Fields"
+      ],
+      "errorMsg_keyNotActiveYet" : [
+         null,
+         "Invalid Email-API Key"
+      ],
+      "emailAddressQuotedString" : [
+         null,
+         "E-mail address Quoted String"
+      ],
+      "Cancelar" : [
+         null,
+         "Cancel"
+      ],
+      "errorMsg_keyUseFail" : [
+         null,
+         "Invalid Email-API Key"
+      ],
+      "Accion" : [
+         null,
+         "Action"
+      ],
+      "Rebotes" : [
+         null,
+         "Bounces"
+      ],
+      "Escribe tu mensaje aquí o selecciona un diseño desde la galería de plantillas." : [
+         null,
+         "Type your message here or select a design from the template gallery."
+      ],
+      "contactos han sido exportados" : [
+         null,
+         "contacts have been exported"
+      ],
+      "Copiar" : [
+         null,
+         "Copy"
+      ],
+      "Fragmento de código" : [
+         null,
+         "Code snippet "
+      ],
+      "Estimación de calificación de SPAM" : [
+         null,
+         "Spam score estimation"
+      ],
+      "Redimensionar automaticamente el archivo subido" : [
+         null,
+         "Automatic resize file on upload"
+      ],
+      "contacto importado" : [
+         null,
+         "contact imported"
+      ],
+      "No se ha podido guardar el contenido de la plantilla" : [
+         null,
+         "The content could not be saved"
+      ],
+      "El sistema intentará enviarla nuevamente. Si el problema persiste comunícate con soporte técnico." : [
+         null,
+         "The system will try to send it again. If the problem persists please contact technical support."
+      ],
+      "contactos activos" : [
+         null,
+         "active contacts"
+      ],
+      "Derecha" : [
+         null,
+         "Right"
+      ],
+      "Crear vínculo" : [
+         null,
+         "Add link"
+      ],
+      "Restaurar" : [
+         null,
+         "Restore"
+      ],
+      "Todavía no creaste ninguna plantilla. Haz click en en link \"Crear nueva\" crearla" : [
+         null,
+         "You haven't saved any templates yet."
+      ],
+      "Eliminar E-mail" : [
+         null,
+         "Delete email"
+      ],
+      "Ingeniería" : [
+         null,
+         "Engineering"
+      ],
+      "notInArray" : [
+         null,
+         "Value is not valid"
+      ],
+      "DKIM está configurado correctamente en tu ZONA DNS." : [
+         null,
+         "DKIM is properly configured in your DNS zone."
+      ],
+      "SubsCallbackOK" : [
+         null,
+         "Subscription success page"
+      ],
+      "La herramienta seleccionada no possee una acción asociada" : [
+         null,
+         "The selected tool doesn't have a related action."
+      ],
+      "Rehacer" : [
+         null,
+         "Redo"
+      ],
+      "errorMsg_templateNotFound" : [
+         null,
+         "Template NOT found"
+      ],
+      "Content" : [
+         null,
+         "Content"
+      ],
+      "notEmptyInvalid" : [
+         null,
+         "is empty or invalid"
+      ],
+      "Optimización de listas" : [
+         null,
+         "Maillist optimization"
+      ],
+      "direcciones de correo electrónico han sido seleccionadas para ser eliminadas.¿Deseas proceder?" : [
+         null,
+         "email addresses  have been selected for deletion. Are you sure to proceed?"
+      ],
+      "No se ha podido aplicar el punto de restauración." : [
+         null,
+         "Unable to applying the restore point."
+      ],
+      "No eliminadas" : [
+         null,
+         "Not deleted"
+      ],
+      "isEmpty" : [
+         null,
+         "is empty"
+      ],
+      "Purgar" : [
+         null,
+         "Purge"
+      ],
+      "Si no visualiza correctamente este E-Mail haga" : [
+         null,
+         "If you are having trouble viewing this email please"
+      ],
+      "errorMsg_tooManyEmails" : [
+         null,
+         "The limit of emails you can send at a time has been reached."
+      ],
+      "Navegador Anónimo" : [
+         null,
+         "Anonymous browser"
+      ],
+      "Subrayado" : [
+         null,
+         "Underlined"
+      ],
+      "Antes de modificar el estado se guardarán los cambios realizados a la Campaña ID" : [
+         null,
+         "Before changing the campaign status the system will save the changes made on campaign ID"
+      ],
+      "Salud" : [
+         null,
+         "Health"
+      ],
+      "Subject" : [
+         null,
+         "Subject"
+      ],
+      "febrero" : [
+         null,
+         "february"
+      ],
+      "Seleccionaste 1 campaña para eliminar.<br /><br />¿Estás seguro que deseas proceder?<br /><br />Si procedes, no podrás recuperarla." : [
+         null,
+         "1 Campaign  has been selected for deletion.<br /><br />Are you sure to proceed?"
+      ],
+      "¿Estás seguro de eliminar éste valor? Si algún contacto lo utiliza como parte de su información personal, el dato no podrá ser recuperado." : [
+         null,
+         "Are you sure to delete the value? "
+      ],
+      "llave" : [
+         null,
+         "key"
+      ],
+      "está vacío" : [
+         null,
+         "is empty"
+      ],
+      "Día de la Madre" : [
+         null,
+         "Mother's day"
+      ],
+      "dateInvalidDate" : [
+         null,
+         "Invalid Date"
+      ],
+      "formulario ha sido seleccionado para ser eliminado.<br /> Si está siendo utilizado en algún sitio, el formulario no será visualizado.<br />¿Deseas proceder?" : [
+         null,
+         "Signup forms selected for deletion.<br />If it's still used on a web site it won't be visible anymore. <br />Are you sure to proceed?"
+      ],
+      "Ha ocurrido un error desconocido, por favor comunícate con la administración." : [
+         null,
+         "Unknown error, please retry."
+      ],
+      "Width" : [
+         null,
+         "Width"
+      ],
+      "Cortar" : [
+         null,
+         "Cut"
+      ],
+      "Por favor ingrese" : [
+         null,
+         "Please enter"
+      ],
+      "errorMsg_emailNotSaved" : [
+         null,
+         "E-mail address NOT saved"
+      ],
+      "Nueva lista" : [
+         null,
+         "New list"
+      ],
+      "El campo Valor está vacío" : [
+         null,
+         "The field \"Value\" is empty"
+      ],
+      "Indentar" : [
+         null,
+         "Indent"
+      ],
+      "errorMsg_noCampaigns" : [
+         null,
+         "No Campaigns found"
+      ],
+      "Rebote duro" : [
+         null,
+         "Hard Bounce"
+      ],
+      "La Campaña ha sido borrada" : [
+         null,
+         "The campaign has been deleted"
+      ],
+      "enero" : [
+         null,
+         "january"
+      ],
+      "errorMsg_memberNotSaved" : [
+         null,
+         "Subscriber NOT saved"
+      ],
+      "Seleccionaste 1 formulario para eliminar.<br /><br /> Si está siendo utilizado en algún sitio, el formulario no será visualizado." : [
+         null,
+         "1 Signup form selected for deletion.<br /><br />If it's still used on a web site it won't be visible anymore."
+      ],
+      "Nueva categoría" : [
+         null,
+         "New category"
+      ],
+      "Seleccionar color de fondo" : [
+         null,
+         "Select Background Color"
+      ],
+      "Animales" : [
+         null,
+         "Animals"
+      ],
+      "listas" : [
+         null,
+         "lists"
+      ],
+      "Valoración" : [
+         null,
+         "Evaluation"
+      ],
+      "Estás por salir de la modificación del Editor" : [
+         null,
+         "You're about to leave the Editor edition"
+      ]
+   }
+}

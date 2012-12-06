@@ -38,7 +38,7 @@ $listas = $co->listarListasContactos($pagina);
             </p>
             <?php if(isset($_GET["listaCreada"]) && $_GET["listaCreada"]): ?>
             <div class='mensaje msjExito' style='display:block'>
-                Lista Creada con Éxito!
+                <?php _e('Lista Creada con Éxito!','envialo-simple'); ?>
             </div>
             <?php endif; ?>
 
@@ -183,7 +183,7 @@ $listas = $co->listarListasContactos($pagina);
         if (!validarEmail(jQuery("input[name=Email]").val())) {
             jQuery("input[name=Email]").css("border-color", "red");
             check = false;
-            jQuery("#msj-agregar-contacto").show(150).removeClass("msjError").removeClass("msjExito").addClass("msjError").html("Por favor Ingresa un Email Válido.");
+            jQuery("#msj-agregar-contacto").show(150).removeClass("msjError").removeClass("msjExito").addClass("msjError").html("<?php _e('Por favor Ingresa un Email Válido.','envialo-simple') ?>");
             return false;
         }
         jQuery("#form-agregar-contacto input[type=text]").not("input[name=Email]").each(function () {
@@ -227,14 +227,14 @@ $listas = $co->listarListasContactos($pagina);
             width:320,
             dialogClass:'fixed-dialog',
             modal:true,
-            title:"Crear Lista"
+            title:"<?php _e('Crear Lista','envialo-simple'); ?>"
         });
         jQuery("#modal-agregar-contacto").dialog({
             autoOpen:false,
             height:"auto",
             width:"auto",
             modal:true,
-            title:"Agregar Contacto a la Lista"
+            title:"<?php _e('Agregar Contacto a la Lista','envialo-simple');?>"
         });
         jQuery(".abrir-modal-lista").click(function () {
             jQuery("#modal-crear-lista").dialog("open");

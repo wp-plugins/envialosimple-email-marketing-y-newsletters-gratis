@@ -1,6 +1,8 @@
 <?php
 
-class Contactos {
+require_once("Curl.php");
+
+class Contactos extends Curl {
 
     function listarContactosWordpress($table = 'users') {
 
@@ -308,49 +310,7 @@ class Contactos {
         
     }
     
-    function curlJson($parametros, $url, $esGet = FALSE, $esArchivo = FALSE) {
-        $cookie = "cookie.txt";
-
-        $parametros["APIKey"] = $GLOBALS["APIKey"];
-
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_USERAGENT, "WP-Plugin EnvialoSimple");
-        curl_setopt($ch, CURLOPT_TIMEOUT, 60);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-
-        curl_setopt($ch, CURLOPT_COOKIEJAR, $cookie);
-        curl_setopt($ch, CURLOPT_REFERER, $url);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);        
-        
-         if ($esGet) {
-            curl_setopt($ch, CURLOPT_HTTPGET, 1);
-        } else {
-            curl_setopt($ch, CURLOPT_POST, 1);
-        }       
-        
-        if($esArchivo){                           
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $parametros);            
-        }else{
-            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($parametros));
-            
-        }
-        
-
-
-        $resultado = curl_exec($ch);
-  
-        if (curl_errno($ch)) {
-
-            return json_encode(array("root" => array("ajaxResponse" => array("curlError" => curl_errno($ch)))));
-
-        } else {
-
-            return $resultado;
-        }
-
-    }
+    
 
 }
 ?>
