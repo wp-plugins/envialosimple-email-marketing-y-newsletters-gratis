@@ -188,6 +188,9 @@ class Campanas extends Curl{
         return json_decode($this->curlJson($parametros, URL_BASE_API . '/report/track/format/json'), TRUE);
 
     }
+    
+
+
 
 
 }

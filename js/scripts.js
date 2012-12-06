@@ -201,7 +201,9 @@ jQuery(document).ready(function() {
             datos += "&accion=editarCampana";
 
             jQuery.post(urlHandler, datos, function(json) {
-
+                    
+                 console.log(json.root.ajaxResponse.errors)   
+                    
                 if (json.root.ajaxResponse.success) {
 
                     //exito
@@ -220,7 +222,7 @@ jQuery(document).ready(function() {
                     }
                     
 
-                } else if (json.root.ajaxResponse.errors == "errorMsg_invalidCampaignDate") {
+                } else if (json.root.ajaxResponse.errors.errorMsg_invalidCampaignDate == "") {
 
                     jQuery("#msj-respuesta").hide().show(200).removeClass("msjExito").addClass("msjError").html(l10n.egnfi);
 
@@ -1116,14 +1118,11 @@ function guardarContenidoHTML(enviar) {
                     if (enviarCampana === true) {
 
                        
-                        jQuery.post(urlHandler, {
-                            accion : "enviarCampana",
-                            CampaignID : idCampana
-                        }, function(json) {
+                        jQuery.post(urlHandler, {accion : "enviarCampana",CampaignID : idCampana}, function(json) {
 
                             if (json.root.ajaxResponse.success) {
                                 window.location = urlAdmin + "admin.php?page=envialo-simple&camp-enviada=1";
-                            } else {
+                            } else if(json.root.ajaxResponse.errors) {
                                 alert(l10n.err4);
                             }
 

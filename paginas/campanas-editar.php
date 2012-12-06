@@ -11,11 +11,17 @@
 		}else{
 			return "";
 		}
-	}
+        
+	}       
 
 	$ev = new EnvialoSimple();
 	$ev->checkSetup();
     $ca = new Campanas();    
+    
+        
+    if( !function_exists("date_create_from_format") ){
+       $ev->DEFINE_date_create_from_format();    
+    } 
         
 	//click desde la lista
 	if(isset($_GET["idCampana"])){
