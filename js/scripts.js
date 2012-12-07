@@ -127,14 +127,19 @@ jQuery(document).ready(function() {
 
     });
 
-    jQuery(".checkEstadoCampana").click(function() {
+    jQuery("#contenedor-newsletters").on("click",".checkEstadoCampana",function(event) {
+        
+        
         var estado = jQuery(this).attr("name");
 
         if (estado == "Sending") {
-            alert(aEn1);
+            event.preventDefault()
+            alert(l10n.aEn1);
+            
             return false;
         } else if (estado == "Scheduled") {
-            alert(aEn2);
+            event.preventDefault()
+            alert(l10n.aEn2);
             return false;
         }
 

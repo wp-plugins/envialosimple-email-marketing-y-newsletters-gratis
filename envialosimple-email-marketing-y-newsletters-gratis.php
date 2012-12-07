@@ -14,7 +14,7 @@
 define('ENVIALO_DIR', dirname(__FILE__));
 add_action('admin_enqueue_scripts', 'cargarscripts');
 add_action('admin_menu', 'agregar_menues');
-add_action( 'widgets_init', create_function( '', 'register_widget( "widget" );' ) );
+add_action( 'widgets_init', create_function( '', 'register_widget("widgetenvialo");' ) );
 add_action('plugins_loaded', 'cargar_traduccion');
 
 

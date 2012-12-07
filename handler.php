@@ -21,9 +21,6 @@ if(!isset($wpdb)){
 $accion = isset($_POST["accion"]) ? $_POST["accion"] : "";
 
 $ev = new EnvialoSimple();
-if( !function_exists("date_create_from_format") ){
-       $ev->DEFINE_date_create_from_format();    
-    } 
 
 switch ($accion) {
 	case 'traerToken':		
@@ -120,8 +117,11 @@ switch ($accion) {
             //Programo envío
             $SendNow ='0';
             $ScheduleCampaign ='1';
-            $fecha = date_create_from_format('j/m/Y', $SchedulingDate);
-            $fecha = date_format($fecha,'Y-m-d');
+            
+            list($day, $month, $year) = sscanf($SchedulingDate, '%02d/%02d/%04d');
+            //$datetime = new DateTime("$year-$month-$day");
+            //$fecha =  $datetime->format('Y-m-d');            
+            $fecha = $year."-".$month."-".$day;
             $SendDate = $fecha." ".$SchedulingHour.":".$SchedulingMinute.":00";
             
 

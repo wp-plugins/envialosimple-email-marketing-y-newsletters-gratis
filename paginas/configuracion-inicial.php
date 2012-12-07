@@ -1,9 +1,23 @@
 <?php
 include_once (ENVIALO_DIR . "/paginas/header.php");
+
+$version = get_bloginfo( 'version' ); 
 ?>
 
 
+
 <div class="wrap">
+    
+    
+    
+    <?php  if ( version_compare( $version, '3.3', '<=' ) ) { ?>        
+        <div class="mensaje" style="display: block">        
+            
+            <?php printf(__('El plugin de EnvialoSimple requiere la versión 3.3 de Wordpress para funcionar Correctamente. Tú tienes la Versión %s . Por favor Actualiza Wordpress a la Última Versión.','envialo-simple'),$version); ?>        
+        </div>    
+    <?php } ?>
+    
+    
     <div id="icon-tools" class="icon32">
         <br>
     </div><h2><?php _e('Configuración Inicial','envialo-simple') ?></h2>
@@ -14,6 +28,18 @@ include_once (ENVIALO_DIR . "/paginas/header.php");
 
     <div id="tabs">
 
+
+         <div id="tengo-nada" class="conf-inicial">
+            <div class="tool-box" id="contenedor-3">
+                <h3 class="title"><?php _e('No Tengo Cuenta de Envialo Simple','envialo-simple') ?></h3>
+                <p style="font-size: 12px;">
+                    <?php _e('<b>Te regalamos 1.000 envíos mensuales</b> para que envíes tus Newsletters.','envialo-simple') ?>
+                </p>
+                <a href="#" target="_blank" id="boton-cuenta-nueva" class="boton-cuenta"><?php _e('Crear una Cuenta Gratis','envialo-simple') ?></a>
+
+            </div>
+        </div>
+        
        <div id="tengo-cuenta" class="conf-inicial">
 
             <div class="tool-box" id="contenedor-2">
@@ -68,16 +94,7 @@ include_once (ENVIALO_DIR . "/paginas/header.php");
             </div>
         </div>
 
-        <div id="tengo-nada" class="conf-inicial">
-            <div class="tool-box" id="contenedor-3">
-                <h3 class="title"><?php _e('No Tengo Cuenta de Envialo Simple','envialo-simple') ?></h3>
-                <p style="font-size: 12px;">
-                    <?php _e('<b>Te regalamos 1.000 envíos mensuales</b> para que envíes tus Newsletters.','envialo-simple') ?>
-                </p>
-                <a href="#" target="_blank" id="boton-cuenta-nueva" class="boton-cuenta"><?php _e('Crear una Cuenta Gratis','envialo-simple') ?></a>
-
-            </div>
-        </div>
+       
 
     </div>
     <!--tabs-->

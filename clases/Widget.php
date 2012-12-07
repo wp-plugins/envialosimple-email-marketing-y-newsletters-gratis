@@ -3,18 +3,25 @@
 /**
  * Adds Foo_Widget widget.
  */
-class Widget extends WP_Widget {
+class WidgetEnvialo extends WP_Widget {
 
     /**
      * Register widget with WordPress.
      */
-    public function __construct() {
+    function __construct() {
         parent::__construct(
             'widget', // Base ID
             __('Formulario Suscripción EnvialoSimple','envialo-simple'), // Name
             array( 'description' => __('Arrastra y Suelta este Bloque en la Barra de Widgets para Seleccionar tu Formulario de Suscripción.','envialo-simple'), ) // Args
         );
+    
     }
+    
+    
+    function WidgetEnvialo(){
+         WidgetEnvialo:: __construct();
+    }    
+    
 
     /**
      * Front-end display of widget.
@@ -24,7 +31,7 @@ class Widget extends WP_Widget {
      * @param array $args     Widget arguments.
      * @param array $instance Saved values from database.
      */
-    public function widget( $args, $instance ) {
+     function widget( $args, $instance ) {
         extract( $args );
         //$title = apply_filters( 'widget_title', $instance['title'] );
         $FormID = $instance['FormID'];
@@ -50,7 +57,7 @@ class Widget extends WP_Widget {
      *
      * @return array Updated safe values to be saved.
      */
-    public function update( $new_instance, $old_instance ) {
+    function update( $new_instance, $old_instance ) {
         $instance = array();
         $instance['title'] = strip_tags( $new_instance['title'] );
         $instance['FormID'] =strip_tags( $new_instance['FormID'] );
@@ -66,7 +73,7 @@ class Widget extends WP_Widget {
      *
      * @param array $instance Previously saved values from database.
      */
-    public function form( $instance ) {
+    function form( $instance ) {
         include_once("Formularios.php");
         include_once("EnvialoSimple.php");
         $ev = new EnvialoSimple();

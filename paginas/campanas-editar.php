@@ -18,10 +18,7 @@
 	$ev->checkSetup();
     $ca = new Campanas();    
     
-        
-    if( !function_exists("date_create_from_format") ){
-       $ev->DEFINE_date_create_from_format();    
-    } 
+
         
 	//click desde la lista
 	if(isset($_GET["idCampana"])){
@@ -60,9 +57,9 @@
                 $c["schedule"]["ScheduleSendDate"] = "0000-00-00 00:00:00";
             }elseif($_POST["changeScheduling"] == 1){
                 //Programo envío
-                $c["schedule"]["ScheduleType"] = "One time scheduled";
-                $fecha = date_create_from_format('j/m/Y', $_POST["SchedulingDate"]);
-                $fecha = date_format($fecha,'Y-m-d');
+                $c["schedule"]["ScheduleType"] = "One time scheduled";                                
+                list($day, $month, $year) = sscanf($_POST["SchedulingDate"], '%02d/%02d/%04d');
+                $fecha = $year."-".$month."-".$day;                
                 $c["schedule"]["ScheduleSendDate"]= $fecha." ".$_POST["SchedulingHour"].":".$_POST["SchedulingMinute"].":00";
             }elseif($_POST["changeScheduling"] == 2){
                 //no programo envio
@@ -116,8 +113,11 @@
 		}elseif($_POST["changeScheduling"] == 1){
 			//Programo envío
 			$c["schedule"]["ScheduleType"] = "One time scheduled";
-			$fecha = date_create_from_format('j/m/Y', $_POST["SchedulingDate"]);
-			$fecha = date_format($fecha,'Y-m-d');
+					
+		    list($day, $month, $year) = sscanf($_POST["SchedulingDate"], '%02d/%02d/%04d');
+            	
+            $fecha =  $year."-".$month."-".$day;	
+			
 			$c["schedule"]["ScheduleSendDate"]= $fecha." ".$_POST["SchedulingHour"].":".$_POST["SchedulingMinute"].":00";
 		}elseif($_POST["changeScheduling"] == 2){
 			//no programo envio
@@ -566,10 +566,11 @@
                         <?php
                             if($c["schedule"]["ScheduleSendDate"] != "0000-00-00 00:00:00" ){
 
-                                $fecha = date_create_from_format("Y-m-d H:i:s", $c["schedule"]["ScheduleSendDate"]);
-                                $dia = date_format($fecha,"j/m/Y");
-                                $hora = '<option value="'.date_format($fecha, "H").'" selected="selected">'.date_format($fecha, "H").' </option>';
-                                $min = '<option value="'.date_format($fecha,"i").'" selected="selected">'.date_format($fecha,"i").' </option>';
+                                list($year,$month,$day,$hour,$minute) = sscanf($c["schedule"]["ScheduleSendDate"], '%04d-%02d-%02d %02d:%02d:%02d');
+                                                                
+                                $dia = $day."/".$month."/".$year;                                
+                                $hora = '<option value="'.$hour.'" selected="selected">'.$hour.' </option>';
+                                $min = '<option value="'.$minute.'" selected="selected">'.$minute.' </option>';
 
                             }else{
                                 $hora="";

@@ -34,6 +34,9 @@ class Curl{
   
         if (curl_errno($ch)) {                
             
+            $curl_errno = curl_errno($ch);
+            $curl_error = curl_error($ch);
+            
             echo "<pre>".__('Error de Conexion con el Servidor:','envialo-simple')." <br/>
                     curl_errno: {$curl_errno} | curl_error: {$curl_error}<br/>
                     ".__('De ser Posible, envíe este error mediante el formulario de feedback.','envialo-simple')."
