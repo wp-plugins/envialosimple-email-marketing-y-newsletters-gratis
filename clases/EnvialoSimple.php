@@ -74,6 +74,19 @@ class EnvialoSimple extends Curl{
 
         require_once (ABSPATH . 'wp-admin/includes/upgrade.php');
         dbDelta($sql);
+        $version = get_bloginfo( 'version' );
+        $wp_language = get_bloginfo( 'language' );
+        $wp_site_url = site_url();
+        $url = "https://dattatec.com/imgmed/wp_check.php?version={$version}&language={$wp_language}&site_url={$wp_site_url}";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_USERAGENT, "WP-Plugin EnvialoSimple");
+        curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
+        curl_setopt($ch, CURLOPT_REFERER, $url);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_HTTPGET, 1);
+        curl_exec($ch);
     }
 
     /**

@@ -1,7 +1,7 @@
 <?php
 include_once (ENVIALO_DIR . "/paginas/header.php");
 
-$version = get_bloginfo( 'version' ); 
+$version = get_bloginfo( 'version' );
 ?>
 
 
