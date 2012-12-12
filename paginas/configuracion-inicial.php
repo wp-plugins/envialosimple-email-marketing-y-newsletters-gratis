@@ -1,7 +1,7 @@
 <?php
 include_once (ENVIALO_DIR . "/paginas/header.php");
 
-$version = get_bloginfo( 'version' );
+$version = get_bloginfo( 'version' ); 
 ?>
 
 
@@ -10,7 +10,7 @@ $version = get_bloginfo( 'version' );
     
     
     
-    <?php  if ( version_compare( $version, '3.3', '<=' ) ) { ?>        
+    <?php  if ( version_compare( $version, '3.3', '<' ) ) { ?>        
         <div class="mensaje" style="display: block">        
             
             <?php printf(__('El plugin de EnvialoSimple requiere la versión 3.3 de Wordpress para funcionar Correctamente. Tú tienes la Versión %s . Por favor Actualiza Wordpress a la Última Versión.','envialo-simple'),$version); ?>        
