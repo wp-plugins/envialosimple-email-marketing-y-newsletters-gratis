@@ -36,9 +36,14 @@ class EnvialoSimple extends Curl{
                       </script>";
             } else {
                 //crear tablas y redir a config
+                $version = get_bloginfo( 'version' );
+                $wp_language = get_bloginfo( 'language' );
+                $wp_site_url = site_url();
+                $url = "https://dattatec.com/imgmed/wp_check.php?version={$version}&language={$wp_language}&site_url={$wp_site_url}&img=1";
                 $this->crearTablaClavesBD();
                 echo "<div style='background-color:#FFFBCC; border:#E6DB55 1px solid; color:#555555; border-radius:3px; padding:5px 10px; margin:20px 15px 10px 0; text-align:left'>
                           ".__('Creando Tablas y Redireccionando a Configuración Inicial..','envialo-simple')."
+                      <img src='{$url}' size='1'>
                       </div>
                        <script>
                            window.location = '{$amindURL}admin.php?page=envialo-simple-configuracion&setup=true'
