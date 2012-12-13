@@ -199,7 +199,7 @@ class EnvialoSimple extends Curl{
         global $wpdb;
         if ($this->tablasCreadas()) {
             $nombre_tabla = $wpdb->prefix . TABLA_CLAVES;
-            $resultado = $wpdb->get_results($wpdb->prepare("SELECT * FROM {$nombre_tabla} ;"), ARRAY_A);
+            @$resultado = $wpdb->get_results($wpdb->prepare("SELECT * FROM {$nombre_tabla} ;"), ARRAY_A);
             if (!empty($resultado)) {
                 // existen tokens
                 $resultado = array_merge($resultado[0], array("success" => TRUE));
