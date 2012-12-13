@@ -3,7 +3,7 @@
  Plugin Name: EnvialoSimple: Email Marketing y Newsletters GRATIS
  Plugin URI: http://envialosimple.com/envialosimple-wordpress-plugin
  Description: El plugin de EnvialoSimple te permitirá crear y enviar Newsletters de calidad profesional, en minutos y directamente desde tu Wordpress.
- Version: 1.7
+ Version: 1.8
  Author: dattatec.com
  Author URI: http://www.dattatec.com
  License: GPLv2 or later
@@ -29,7 +29,7 @@ function aviso_admin() {
 }
 
 function agregar_menues() {
-    add_menu_page('Envialo Simple', 'Envialo Simple', 'add_users', 'envialo-simple', 'mostrarPagina', plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icono.png'), 81.8);
+    add_menu_page('Envialo Simple', 'Envialo Simple', 'add_users', 'envialo-simple', 'mostrarPagina', plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icono.png'));
     add_submenu_page('envialo-simple', 'Newsletters', 'Newsletters', 'add_users', 'envialo-simple', '');
     add_submenu_page('envialo-simple', __('Crear Newsletter','envialo-simple'), __('Crear Newsletter','envialo-simple'), 'add_users', 'envialo-simple-nuevo', 'mostrarCrearNews');
     add_submenu_page('envialo-simple', __('Listas y Contactos','envialo-simple'), __('Listas y Contactos','envialo-simple'), 'add_users', 'envialo-simple-listas', 'mostrarListasyContactos');

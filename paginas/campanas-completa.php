@@ -60,9 +60,9 @@
 	    
      <div id="poststuff">
 
-	    <div id="post-body" class="metabox-holder columns-2">
+	    <div id="post-body" class="metabox-holder columns-2" style="margin-right: 300px;" >
 
-		    <div id="post-body-content">          
+		    <div id="post-body-content" style="width: 100%;float: left;">          
                                  
                <!-- contenido campañas-->       
     
@@ -79,7 +79,7 @@
 
             </div><!-- post body content-->
 
-       <div id="postbox-container-1" class="postbox-container">
+        <div id="postbox-container-1" class="postbox-container" style="float: right;margin-right: -300px;width: 280px;">
 		        <div id="side-sortables" class="meta-box-sortables ui-sortable">
 		          <div id="acciones" class="postbox ">
                <h3><span><?php _e('Acciones','envialo-simple') ?></span></h3>

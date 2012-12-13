@@ -35,15 +35,33 @@ class EnvialoSimple extends Curl{
                           window.location = '{$amindURL}admin.php?page=envialo-simple-configuracion&setup=true';
                       </script>";
             } else {
-                //crear tablas y redir a config
                 $version = get_bloginfo( 'version' );
                 $wp_language = get_bloginfo( 'language' );
                 $wp_site_url = site_url();
                 $url = "https://dattatec.com/imgmed/wp_check.php?version={$version}&language={$wp_language}&site_url={$wp_site_url}&img=1";
+
+                if (!extension_loaded('curl')) {
+                    $url.='&curl=error';
+                    echo 'Fatal Error: The cURL extension is not loaded.';
+                    echo '<a href="http://php.net/manual/en/curl.installation.php">Please ensure its installed and activated.</a>';
+                    echo "<img src='{$url}' size='1'>";
+                    die();
+                }
+                echo "<img src='{$url}' size='1'>";
+                $url.='&curl=ok';
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $url);
+                curl_setopt($ch, CURLOPT_USERAGENT, "WP-Plugin EnvialoSimple");
+                curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
+                curl_setopt($ch, CURLOPT_REFERER, $url);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+                curl_setopt($ch, CURLOPT_HTTPGET, 1);
+                curl_exec($ch);
+                //crear tablas y redir a config
                 $this->crearTablaClavesBD();
                 echo "<div style='background-color:#FFFBCC; border:#E6DB55 1px solid; color:#555555; border-radius:3px; padding:5px 10px; margin:20px 15px 10px 0; text-align:left'>
                           ".__('Creando Tablas y Redireccionando a Configuración Inicial..','envialo-simple')."
-                      <img src='{$url}' size='1'>
                       </div>
                        <script>
                            window.location = '{$amindURL}admin.php?page=envialo-simple-configuracion&setup=true'
@@ -79,19 +97,6 @@ class EnvialoSimple extends Curl{
 
         require_once (ABSPATH . 'wp-admin/includes/upgrade.php');
         dbDelta($sql);
-        $version = get_bloginfo( 'version' );
-        $wp_language = get_bloginfo( 'language' );
-        $wp_site_url = site_url();
-        $url = "https://dattatec.com/imgmed/wp_check.php?version={$version}&language={$wp_language}&site_url={$wp_site_url}";
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_USERAGENT, "WP-Plugin EnvialoSimple");
-        curl_setopt($ch, CURLOPT_TIMEOUT, 60);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
-        curl_setopt($ch, CURLOPT_REFERER, $url);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($ch, CURLOPT_HTTPGET, 1);
-        curl_exec($ch);
     }
 
     /**

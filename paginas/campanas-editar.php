@@ -288,9 +288,9 @@
 		</div>
 		  <form id="form-editar-campana" action="#" method="post">
 		      <div id="poststuff">
-		          <div id="post-body" class="metabox-holder columns-2">
+		          <div id="post-body" class="metabox-holder columns-2" style="margin-right: 300px;" >
 
-		              <div id="post-body-content">
+		              <div id="post-body-content" style="width: 100%;float: left;">
 		                  
 		                  <div id="currentTemplateInfo">
                             <input type="hidden" value="" name="currentTemplateURL">
@@ -446,7 +446,7 @@
            <!-- /contenido campañas-->
        </div><!-- post body content-->
 
-       <div id="postbox-container-1" class="postbox-container">
+       <div id="postbox-container-1" class="postbox-container" style="float: right;margin-right: -300px;width: 280px;">
 	       <div id="side-sortables" class="meta-box-sortables ui-sortable">
 		      <div id="acciones" class="postbox ">
                 <h3><span><?php _e('Acciones','envialo-simple') ?></span></h3>
@@ -664,9 +664,9 @@
                         <div class="submitbox" id="submitpost">
 
                     <div class="misc-pub-section" style="border:0">
-                       <div id="acordeon">
+                       <div id="acordeon"style="width: 238px;">
                             <h3 style="cursor: pointer!important" ><?php _e('Contenido WordPress','envialo-simple') ?></h3>
-                            <div id="contenedor-wp">
+                            <div id="contenedor-wp" style="width:236px">
                                 <div id="cont1wp" class="drag-contenido">
                                     <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon1.gif')?>" />
                                 </div>
@@ -682,7 +682,7 @@
 
                             </div>
                             <h3 style="cursor: pointer!important" ><?php _e('Contenido Estático','envialo-simple') ?></h3>
-                            <div id="contenedor-estatico" style="height: 150px;">
+                            <div id="contenedor-estatico" style="height: 150px; width:236px">
                                 <div id="cont1" class="drag-contenido">
                                     <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon1.gif')?>" />
                                 </div>
