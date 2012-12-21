@@ -184,7 +184,7 @@ $c = $Campanas->listarCampanas($absolutepage, $filter);
                                         <a  class='button-secondary ver-reportes-bt' href='<?php echo "{$adminUrl}admin.php?page=envialo-simple&accion=reportes&idCampana={$item['CampaignID']}";?>' >
                                             <?php _e('Ver Reportes', 'envialo-simple');?>
                                         </a>
-                                    <? endif; ?>
+                                    <?php endif; ?>
                                 </td>
                                 <td style='line-height: 33px;'>
                                     <?php if($item['Status'] == 'Scheduled' || $item['Status'] == "Completed"){
@@ -192,7 +192,7 @@ $c = $Campanas->listarCampanas($absolutepage, $filter);
                                     }?>&nbsp;
                                 </td>
                             </tr>
-                        <?php endforeach; ?>
+                        <?php endforeach;?>
                         <tr>
                             <td>&nbsp;</td>
                             <td>&nbsp;</td>

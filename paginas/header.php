@@ -17,7 +17,7 @@
     var urlCss = "<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/css/') ?>";
     var urlImg = "<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/') ?>";
     var urlColorPicker = "<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/colorpicker/') ?>";
-    var rolUsuario = "<?php echo $envios['role']?>"
+    var rolUsuario = "<?php echo $envios['role']?>";
     
     var dominio = "<?php echo site_url(); ?>";
   
