@@ -2,6 +2,8 @@
 	if(isset($GLOBALS["APIKey"])){
 		$envios =  $ev->traerEnviosDisponibles();        
 	}
+    error_reporting(0);
+    ini_set("display_errors","false");
 ?>
 <link rel="stylesheet"  href="<?php echo plugins_url("envialosimple-email-marketing-y-newsletters-gratis/css/smoothness/jquery-ui.css"); ?>" type="text/css" media="all" />
 <link rel="stylesheet"  href="<?php echo plugins_url("envialosimple-email-marketing-y-newsletters-gratis/css/chosen.css"); ?>" type="text/css" media="all" />
@@ -163,6 +165,8 @@
 </div>
 
 <script type="text/javascript">
+
+    var isFree = "<?php if($envios['role'] == 'free'){echo 'true';}else{echo 'false';}?>;"
     
     function ocultarFeedback(){
         jQuery("#feedback").animate({"bottom":34},700);
@@ -182,6 +186,11 @@
         jQuery("#form-feedback").submit(function(event){
             
             event.preventDefault();
+            jQuery("#mensaje-feedback").css("border","1px solid #DFDFDF");
+            if(jQuery("#mensaje-feedback").val() == ""){
+                jQuery("#mensaje-feedback").css("border","1px solid red");
+                return false;
+            }
             
             var mensaje = "[WP-PLUGIN] "+jQuery("#mensaje-feedback").val()
             

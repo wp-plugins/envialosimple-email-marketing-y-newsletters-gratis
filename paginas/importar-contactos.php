@@ -14,12 +14,15 @@ if(isset($_GET["MailListsIds"])){
 
 $listas = $co->listarListasContactos(-1);
 
+$htmlListas ="";
+
 foreach($listas[0]['item'] as $l){
     $selected = "";
 
     if($MailListsIds == $l['MailListID']){
         $selected = "selected='selected'";
     }
+    
     $htmlListas .= "<option {$selected} value='{$l['MailListID']}' >{$l['Name']} ({$l['MemberCount']} Destinatarios)</option>";
 }
 

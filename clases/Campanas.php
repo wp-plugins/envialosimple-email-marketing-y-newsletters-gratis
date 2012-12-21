@@ -137,18 +137,15 @@ class Campanas extends Curl{
      * @param $Email (opcional)
      * @param $CampaignID
      */
-    function previsualizarCampana($Email,$CampaignID) {
-
+    function previsualizarCampana($CampaignID,$Email='') {
         
         $url = "/campaign/preview/format/html";
-
         $parametros = array();
-        if (isset($Email)) {
-            $parametros["Email"];
+        if (!empty($Email)) {
+            $parametros["Email"] = $Email;
             $url = "/campaign/preview/format/email";
         }
-        $parametros["CampaignID"]=$CampaignID;
-        
+        $parametros["CampaignID"] = $CampaignID;        
         return $this->curlJson($parametros, URL_BASE_API . $url);
     }
 

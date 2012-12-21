@@ -187,7 +187,7 @@ switch ($accion) {
         $ev = new EnvialoSimple();
         $ev->checkSetup();
         $ca = new Campanas();
-        echo  $ca->previsualizarCampana($$_POST['Email'],$_POST['CampaignID']);
+        echo  $ca->previsualizarCampana($_POST['CampaignID'],$_POST['Email']);
       break;
 
     case 'traerPreciosEnvios' :
@@ -204,7 +204,7 @@ switch ($accion) {
     case "agregarCampoPersonalizado":
     
         $ev->checkSetup();
-        echo json_encode($ev->agregarCampoPersonalizado($_POST['Title'],$_POST['DefaultValue']));
+        echo json_encode($ev->agregarCampoPersonalizado($_POST['Title'],$_POST['FieldType'],$_POST['Validation'],$_POST['ItemsIsMultipleSelect'],$_POST['DefaultValue'],$_POST['ItemsValues'],$_POST['ItemsNames']));
     
     
         

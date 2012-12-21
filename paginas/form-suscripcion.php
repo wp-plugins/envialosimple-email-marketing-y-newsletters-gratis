@@ -45,15 +45,18 @@
         $f['form']['FontColor'] = '#555555';
         $f['form']['ShowPoweredBy'] = TRUE;
         $AdministratorID = filter_var($_GET['idA'],FILTER_SANITIZE_NUMBER_INT);
-    }
-       
+    }       
+    $urlImg = plugins_url("envialosimple-email-marketing-y-newsletters-gratis/imagenes/");
 ?>
 
 <link rel="stylesheet"  href="<?php echo plugins_url("envialosimple-email-marketing-y-newsletters-gratis/css/miniColors.css"); ?>" type="text/css" media="all" />
+
 <script type="text/javascript"  src="<?php echo plugins_url("envialosimple-email-marketing-y-newsletters-gratis/js/miniColors.js"); ?>"></script>
+<script type="text/javascript"  src="<?php echo plugins_url("envialosimple-email-marketing-y-newsletters-gratis/js/jquery.dd.min.js"); ?>"></script>
+<script type="text/javascript"  src="<?php echo plugins_url("envialosimple-email-marketing-y-newsletters-gratis/js/scriptFormSuscripcion.js"); ?>"></script>
 
 <script type="text/javascript">
-    var AdministratorID = "<?php echo $AdministratorID?>";    
+    var AdministratorID = "<?php echo $AdministratorID?>";      
 </script>
 
 <div class="wrap">
@@ -356,17 +359,77 @@
      <div id="modalAgregarCampo">
         
         <form id="form-agregar-campo" action="#" method="post">
+            
+            
+            <input name="tipoCampo" type="hidden" value=""/>
             <div id="mensaje-agregar-campo" class="mensaje"></div>        
                 
                         
             <label for="titulo-campo"><?php _e('Nombre Campo:','envialo-simple') ?></label><br />
             <input type="text"  name="Title-Campo" id="titulo-campo"/><br />
-
-            <label for="valor-campo"><?php _e('Valor por Defecto:','envialo-simple') ?></label><br />                        
-            <input type="text"  name="DefaultValue-Campo" id="valor-campo"/><br />            
             
+            <label for="tipo-campo" style="margin-top:15px;display:block;"><?php _e("Tipo de Campo Personalizado:",'envialo-simple')?></label>
+            
+            <select id="tipo-campo">
+                <option>Seleccionar..</option>                
+                <option data-imagesrc='<?php echo $urlImg ?>formP8.png' value="Text field">Campo de texto</option>                
+                <option data-imagesrc='<?php echo $urlImg ?>formP1.png' value="Password field">Password</option>
+                <option data-imagesrc='<?php echo $urlImg ?>formP9.png' value="Hidden field">Campo oculto</option>
+                <option data-imagesrc='<?php echo $urlImg ?>formP7.png' value="Text area">Area de texto</option>
+                <option data-imagesrc='<?php echo $urlImg ?>formPe.png' value="Drop list">Listado</option>
+                <option data-imagesrc='<?php echo $urlImg ?>formPe.png' value="Drop list">Listado de paises</option>
+                <option data-imagesrc='<?php echo $urlImg ?>formP5.png' value="List">Listado con selección múltiple</option>
+                <option data-imagesrc='<?php echo $urlImg ?>formPa.png' value="Check box">Checkbox</option>
+                <option data-imagesrc='<?php echo $urlImg ?>formP2.png' value="Radio button">Radio</option>
+                <option data-imagesrc='<?php echo $urlImg ?>formP6.png' value="Notice">Nota al pié</option>
+                
+                
+            </select>
+                                  
+            <div id="valorPorDefectoCampo" class="formPerOcultar">            
+                <label for="valor-campo"><?php _e('Valor por Defecto:','envialo-simple') ?></label><br />                        
+                <input type="text"  name="DefaultValue-Campo" id="valor-campo"/><br />            
+            </div>
+                        
+            <div id="validacionCampo" class="formPerOcultar">
+                <label for="validacion-campo"><?php _e('Validación:','envialo-simple') ?></label><br />
+                <select id="validacion-campo">
+                    <option value="Do not Apply" selected="">Desactivado</option>
+                    <option value="Numeric Only">Aceptar solo dígitos (sin espacios)</option>
+                    <option value="Alpha Only">Aceptar solo letras y espacios</option>
+                    <option value="Alpha Numeric Only">Aceptar solo letras, números y espacios</option>
+                    <option value="Email Format Check">Aceptar solo direcciones de Email</option>
+                    <option value="Custom">Personalizado</option>
+                </select><br />    
+                
+            </div>
+            
+            
+            <div id="listadoValores" class="formPerOcultar">
+                <span>Listado:</span>
+                
+                <ul>
+                                        
+                </ul>
+                <div id="agregarValor" class="button-secondary">Agregar Valor</div>
+            </div>         
+            
+            <div id="contenedorCamposValores" class="formPerOcultar">
+                <label id="label-text-valor">Texto:</label>
+                <input name="input-opcion-texto" class='input-opcion' type="text" style="width:100px"/>
+                
+                <label style="margin-left: 20px">Valor:</label>
+                <input name="input-opcion-valor" class='input-opcion' type="text" style="width:90px" /><br />
+                
+                
+                <div class="button-secondary" id="cancelar-agregar-valor-bt" style ="float: right;margin: 10px 37px 10px 0;"> Cancelar</div>
+                <div class="button" id="agregar-valor-bt" style="float: right;margin: 10px 5px 10px 0;" >Agregar Opción</div>
+                 <br />
+            </div>
+            <div style="clear:both"></div>
             <input type="submit" value="<?php _e('Agregar','envialo-simple') ?>" class="button-primary" style="margin-top: 20px;margin-bottom: 10px;"/>
-            <input type="reset" value="<?php _e('Cancelar','envialo-simple') ?>" class="button-secondary" onclick='jQuery("#modalAgregarCampo").dialog("close")'/>
+            <input type="reset" value="<?php _e('Cancelar','envialo-simple') ?>" class="button-secondary" onclick='jQuery("#modalAgregarCampo").dialog("close");jQuery("#listadoValores ul").html("")'/>
+            
             
         </form>
         
@@ -393,7 +456,7 @@
 
 
 <script type="text/javascript">
-
+    var enterPress = 'false';
     var selectAgregar;    
     var alertarPageLeave = false;       
          
@@ -405,8 +468,7 @@
             
                 event.preventDefault();
                 
-                if(checkVacio(jQuery("input[name=nombre-lista]"))){
-                    
+                if(checkVacio(jQuery("input[name=nombre-lista]"))){                    
                     return false;
                 }else{
                 
@@ -414,7 +476,7 @@
                                                     
                 jQuery.post(urlHandler,{accion:"crearLista",nombreLista:nombre},function(json){
                         if(json.root.ajaxResponse.success){
-                            console.log(json);
+                            
                             var lista = json.root.ajaxResponse.maillist;
                             jQuery("#MailListsIds").append("<option value='"+lista.MailListID+"'>"+lista.MailListName+"</option>")
                             jQuery("#MailListsIds").val(lista.MailListID);
@@ -467,36 +529,109 @@
         jQuery("#form-agregar-campo").submit(function(event){
             
             event.preventDefault();
+            
+            if(enterPress == 'true'){
+                enterPress = 'false';
+                return false;                
+            }
+            
+            
             jQuery("#titulo-campo").css("border","1px solid #ddd");
             
             if(jQuery("#titulo-campo").val() == ""){
-                jQuery("#titulo-campo").css("border","1px solid red");
-                
-                jQuery("#mensaje-agregar-campo").removeClass("msjExito").removeClass("msjError").addClass("msjError").html("<?php _e('Por favor Revise todos los campos','envialo-simple') ?>").show();
-                
+                jQuery("#titulo-campo").css("border","1px solid red");                
+                jQuery("#mensaje-agregar-campo").removeClass("msjExito").removeClass("msjError").addClass("msjError").html("<?php _e('Por favor Revise todos los campos','envialo-simple') ?>").show();                
                 return false;    
             }
-            
-            var Title= jQuery("#titulo-campo").val()
-            var DefaultValue= jQuery("#valor-campo").val()
-            
-            jQuery.post(urlHandler,{accion:"agregarCampoPersonalizado",Title:Title,DefaultValue:DefaultValue},function(json){
-                                
-                if(json.CustomFieldID != null){
-                    
-                                        
-                    jQuery(selectAgregar).find("option:last").before("<option value='"+json.CustomFieldID+"'>"+json.Title+" </option>");
-                    
-                    jQuery(selectAgregar).val(jQuery(selectAgregar).find("option:last").prev().val())
-                    
-                    jQuery(selectAgregar).change();
-                    
-                    alert("<?php _e('Campo Agregado Correctamente!','envialo-simple') ?>");
-                    jQuery("#modalAgregarCampo").dialog("close");
-                }                
+                        
+            var tipoCampo = jQuery("input[name=tipoCampo]").val();
+            switch(tipoCampo){
                 
-            },"json")
-            
+                case "Text field":
+                case "Password field":
+                case "Text area":     
+                case "Hidden field":  
+                case "Notice":
+                                
+                    var Title= jQuery("#titulo-campo").val();
+                    var FieldType = tipoCampo;
+                    var Validation = jQuery("#validacion-campo").val();
+                    var DefaultValue= jQuery("#valor-campo").val();
+                    var ItemsIsMultipleSelect = 0;
+                    
+                    
+                    jQuery.post(urlHandler,{accion:"agregarCampoPersonalizado",
+                                            Title:Title,
+                                            FieldType:tipoCampo,           
+                                            Validation:Validation,                                
+                                            ItemsIsMultipleSelect:ItemsIsMultipleSelect,
+                                            DefaultValue:DefaultValue
+                                            },
+                        function(json){
+                                    
+                            if(json.CustomFieldID != null){                                                    
+                                jQuery(selectAgregar).find("option:last").before("<option value='"+json.CustomFieldID+"'>"+json.Title+" </option>");                                
+                                jQuery(selectAgregar).val(jQuery(selectAgregar).find("option:last").prev().val())                                
+                                jQuery(selectAgregar).change();                                
+                                alert("<?php _e('Campo Agregado Correctamente!','envialo-simple') ?>");
+                                jQuery("#modalAgregarCampo").dialog("close");
+                            }else{
+                                alert("<?php _e('Error al Agregar Campo!','envialo-simple') ?>");
+                            }                
+                    
+                        },"json") 
+                    
+                    
+                break;
+                                                
+                default:
+                    //listadito
+                                       
+                    var Title= jQuery("#titulo-campo").val();                    
+                    var Validation = jQuery("#validacion-campo").val();
+                    var ItemsNames = [];
+                    var ItemsValues = [];                    
+                    var ItemsIsMultipleSelect = 0;
+                    
+                    if(tipoCampo == 'Check box' || tipoCampo == 'List'){
+                        ItemsIsMultipleSelect = 1;
+                    }
+                   
+                   
+                    jQuery("#listadoValores li").each(function(){
+                        ItemsNames.push(jQuery(this).find("span").first().html());
+                        ItemsValues.push(jQuery(this).attr("name"));
+                    })
+          
+          
+                  jQuery.post(urlHandler,{accion:"agregarCampoPersonalizado",
+                                            Title:Title,
+                                            FieldType:tipoCampo,
+                                            ItemsNames:ItemsNames,
+                                            Validation:Validation,
+                                            ItemsValues:ItemsValues,
+                                            ItemsIsMultipleSelect:ItemsIsMultipleSelect
+                                            },
+                        function(json){
+                                        
+                                if(json.CustomFieldID != null){                                  
+                                                        
+                                    jQuery(selectAgregar).find("option:last").before("<option value='"+json.CustomFieldID+"'>"+json.Title+" </option>");
+                                    
+                                    jQuery(selectAgregar).val(jQuery(selectAgregar).find("option:last").prev().val())
+                                    
+                                    jQuery(selectAgregar).change();
+                                    
+                                    alert("<?php _e('Campo Agregado Correctamente!','envialo-simple') ?>");
+                                    jQuery("#modalAgregarCampo").dialog("close");
+                                }else{
+                                    alert("<?php _e('Error al Agregar Campo!','envialo-simple') ?>");
+                                }                
+                        
+                             },"json")                            
+                                     
+                break;                
+            }            
         });        
         
            jQuery(".obtener-codigo").click(function(event){
@@ -541,17 +676,25 @@
          jQuery("#modalAgregarCampo").dialog({
                 autoOpen : false,
                 height : "auto",
+                resize: "auto",
                 width : "auto",
                 modal : true,                
                 title : "<?php _e('Agregar Campo Personalizado','envialo-simple') ?>",
-                close : function(event, ui) {                    
+                open: function (event,ui){                                     
+                    jQuery("#listadoValores ul").html("");
+                    jQuery("#mensaje-agregar-campo").hide()                    
+                    jQuery("#titulo-campo").val("");
+                    
+                    
+                },
+                close : function(event, ui) {                        
+                    jQuery("#tipo-campo").ddslick('select', {index: 1 });                    
+                    jQuery("#tabla-campos-form select").val(0);
                 }
           });
         
-        
-        jQuery("input[name=ShowPoweredBy]").change(function(event){
-              
-              
+                
+        jQuery("input[name=ShowPoweredBy]").change(function(event){              
               if(rolUsuario == "free"){
                   alert("<?php _e('Esta opción es solamente para cuentas Premium. Actualiza tu cuenta para poder utilizarla.','envialo-simple') ?>")
                   event.preventDefault();
@@ -798,8 +941,13 @@
             valor = parseInt(jQuery(this).val())
             
             if(valor == -1){                
-                jQuery("#modalAgregarCampo").dialog("open");
-                selectAgregar = jQuery(this);
+                if(isFree == 'true'){
+                    alert("<?php _e('Esta opción es solamente para cuentas Premium. Actualiza tu cuenta para poder utilizarla.','envialo-simple') ?>")
+                    return false;
+                }else{
+                    jQuery("#modalAgregarCampo").dialog("open");
+                    selectAgregar = jQuery(this);                                
+                }                
             }             
         });
         

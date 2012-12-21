@@ -46,7 +46,7 @@
                     
                     jQuery.post(urlHandler,{accion:"eliminarForm",FormID:FormID},function(json){
                         
-                        console.log(json);
+                        
                         if(json.root.ajaxResponse.success){
                             alert("<?php _e('Eliminado Correctamente','envialo-simple') ?>");
                             window.location= urlAdmin+"admin.php?page=envialo-simple-formulario";

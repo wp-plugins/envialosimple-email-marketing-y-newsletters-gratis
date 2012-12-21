@@ -59,6 +59,9 @@ class Contactos extends Curl {
         if($absolutePage != -1){
             $parametros["count"] = "5";
             $parametros["absolutepage"] = $absolutePage;   
+        }else{
+            
+            $parametros["count"] = "999999999999";
         }
         
         

@@ -147,7 +147,7 @@
 
 	$seleccionarPlantilla = FALSE;
     $alertarPageLeave = isset($_POST['idPlantilla']) ? "true" : "false";
-	if($_POST['idPlantilla']){
+	if(isset($_POST['idPlantilla']) && $_POST['idPlantilla']){
 		$idPlantilla = $_POST["idPlantilla"];
 		$template = utf8_encode(file_get_contents("http://v2.envialosimple.com/mailing_templates/".$idPlantilla."/content.htm"));
 		
@@ -157,7 +157,7 @@
             
             $template = stripslashes($_POST["contenidoAnterior"]);
             
-        }elseif($c["Content"]){
+        }elseif(isset($c["Content"]) && $c["Content"]){
 			$template = $ca->traerCuerpoCampana($idCampana);
 			            
 		}else{
@@ -455,7 +455,7 @@
                         <div id="minor-publishing" style="border:0">
                             <div id="minor-publishing-actions">
                                 <div id="save-action">                                   
-                                    <div id="guardar-cambios-bt" style="float:left;height:15px!important;line-height: 15px;font-weight: bold; " class="button-secondary"><?php _e('Guardar cambios','envialo-simple') ?></div>
+                                    <div id="guardar-cambios-bt" style="float:left;font-weight: bold; " class="button-secondary"><?php _e('Guardar cambios','envialo-simple') ?></div>
                                 </div>
                                 <div id="preview-action">
                                     <a  class="preview button previsualizar-news" name="<?php echo $idCampana;?>" href="#" ><?php _e('Previsualizar','envialo-simple') ?></a>
@@ -651,7 +651,7 @@
                     <h3 style="cursor:default"><span><?php _e('Diseño','envialo-simple') ?></span></h3>
                     <div class="inside">
                                 <a style="text-decoration:none"  class="abrir-modal-plantillas" id="seleccionar-plantilla-bt" href="#">
-                                    <div class="button-secondary" style="width: 140px;margin: 15px;">
+                                    <div class="button-secondary" style="margin: 15px;text-align:center;">
                                         <?php _e('Seleccionar Otra Plantilla','envialo-simple') ?>
                                     </div> 
                                 </a>

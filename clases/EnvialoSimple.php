@@ -199,7 +199,7 @@ class EnvialoSimple extends Curl{
         global $wpdb;
         if ($this->tablasCreadas()) {
             $nombre_tabla = $wpdb->prefix . TABLA_CLAVES;
-            @$resultado = $wpdb->get_results($wpdb->prepare("SELECT * FROM {$nombre_tabla} ;"), ARRAY_A);
+            @$resultado = $wpdb->get_results("SELECT * FROM {$nombre_tabla} ;", ARRAY_A);
             if (!empty($resultado)) {
                 // existen tokens
                 $resultado = array_merge($resultado[0], array("success" => TRUE));
@@ -308,10 +308,10 @@ class EnvialoSimple extends Curl{
         $parametros["limit"] = $limit / 1;
         $parametros["offset"] = $offset / 1;
 
-        if ($filterListByCategory[0] != 0) {
+        if (isset($filterListByCategory[0]) && $filterListByCategory[0] != 0) {
             $parametros["filterListByCategory"] = $filterListByCategory;
         }
-        if ($filterListByCategory2[0] != 0) {
+        if (isset($filterListByCategory[0]) && $filterListByCategory2[0] != 0) {
             $parametros["filterListByCategory2"] = $filterListByCategory2;
         }
 
@@ -332,7 +332,7 @@ class EnvialoSimple extends Curl{
         $htmlCat = "";
         foreach ($categorias as $cat) {
             $sel = "";
-            if ($filterListByCategory[0] == $cat["CategoryID"]) {
+            if (isset($filterListByCategory[0]) && $filterListByCategory[0] == $cat["CategoryID"]) {
                 $sel = "selected = 'selected'";
             }
 
@@ -341,7 +341,7 @@ class EnvialoSimple extends Curl{
         $htmlCol = "";
         foreach ($colores as $cat) {
             $sel = "";
-            if ($filterListByCategory[0] == $cat["CategoryID"]) {
+            if (isset($filterListByCategory[0]) &&  $filterListByCategory[0] == $cat["CategoryID"]) {
                 $sel = "selected=selected";
             }
             $htmlCol .= "<option {$sel} value = '{$cat["CategoryID"]}' > {$cat["NameToken"]} </option>";
@@ -497,13 +497,19 @@ class EnvialoSimple extends Curl{
                 
     }
     
-    function agregarCampoPersonalizado($Title,$DefaultValue){
+    function agregarCampoPersonalizado($Title,$FieldType,$Validation,$ItemsIsMultipleSelect,$DefaultValue = NULL,$ItemsValues = NULL,$ItemsNames){
+            
         
         $parametros = array();
         $parametros['Title'] = $Title;
+        $parametros['FieldType'] = $FieldType;
+        $parametros['Validation'] = $Validation;
+        $parametros['ItemsValues'] = $ItemsValues;
+        $parametros['ItemsNames'] = $ItemsNames;        
+        $parametros['ItemsIsMultipleSelect'] = $ItemsIsMultipleSelect;        
         $parametros['DefaultValue'] = $DefaultValue;
         
-        
+       
         $respuesta = json_decode($this->curlJson($parametros, URL_BASE_API."/customfield/edit/format/json"),TRUE);
         
         if(isset($respuesta['root']['ajaxResponse']['success'])){            
@@ -544,7 +550,10 @@ class EnvialoSimple extends Curl{
             $campos = $this->traerCamposPersonalizados();              
             
             //echo json_encode($campos);
-            foreach ($camposExistentes as $c) {
+            
+            if(!empty($camposExistentes)){
+                
+                foreach ($camposExistentes as $c) {
                 $i = 0; 
                 
                 foreach($campos['item'] as $campo){
@@ -562,11 +571,14 @@ class EnvialoSimple extends Curl{
                                   </select>
                                </td>
                                <td>
-                                   <span class='campo-nuevo eliminar' style='display:block' name='eliminar-x'>X</span>
+                                   <span class='campo-nuevo eliminar' style='display:block;width:10px;' name='eliminar-x'>X</span>
                                </td>
                            </tr>";                           
                                                 
+                }
+                
             }
+            
         
         return $html;
     }

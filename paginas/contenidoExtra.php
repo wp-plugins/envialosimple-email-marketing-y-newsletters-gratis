@@ -38,9 +38,9 @@
                     </div></td>
                 </tr>
                 <tr>
-                    <td valign="top" style="padding: 20px; font-family: 'Trebuchet MS',Helvetica,sans-serif; font-size: 12px; color: #999; line-height: 17px;">
+                    <td valign="top" style="padding: 20px; font-family: 'Trebuchet MS',Helvetica,sans-serif; font-size: 12px; color: #000; line-height: 17px;">
                     <div class="tobEditableHtml">
-                        <p style="font-size: 13px; color: #333; text-align:left;">
+                        <p style="font-size: 13px; color: #000; text-align:left;">
                             <b>
                             <span class="titulo-wp">
                                 Bajada del producto o servicio
@@ -64,9 +64,9 @@
                     <div class="tobEditableImg" data-imgmaxwidth="335">
                         <img class="imagen-wp" src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/300x200.jpg')?>" alt="Nuestra Foto" name="foto" width="301" height="200" border="0" id="foto"/>
                     </div></td>
-                    <td valign="top" style="padding: 20px; padding-left:0px; font-family: 'Trebuchet MS',Helvetica,sans-serif; font-size: 12px; color: #999; line-height: 17px;">
+                    <td valign="top" style="padding: 20px; padding-left:0px; font-family: 'Trebuchet MS',Helvetica,sans-serif; font-size: 12px; color: #000; line-height: 17px;">
                     <div class="tobEditableHtml">
-                        <p style="font-size: 13px; color: #333; text-align:left;">
+                        <p style="font-size: 13px; color: #000; text-align:left;">
                             <b>
                             <span class="titulo-wp">
                                 Bajada del producto o servicio
@@ -86,18 +86,18 @@
         <table width="100%" align="center" cellspacing="0" cellpadding="30" border="0" class="tobBlock tobClonable tobRemovable" style="background-color:transparent;">
             <tbody>
                 <tr>
-                    <td align="center" valign="top" style="padding: 20px; font-family: 'Trebuchet MS',Helvetica,sans-serif; font-size: 14px; color: #666; line-height: 20px !important;" >
+                    <td align="center" valign="top" style="padding: 20px; font-family: 'Trebuchet MS',Helvetica,sans-serif; font-size: 14px; color: #000; line-height: 20px !important;" >
                     <div  class="tobEditableHtml">
                         <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                             <tr>
                                 <td>
-                                <p style="font-size: 20px; color: #666; text-align:left;">
-                                    <a style="color: #333;" href="#"><b>
+                                <p style="font-size: 20px; color: #000; text-align:left;">
+                                    <a style="color: #000;" href="#"><b>
                                     <span class="titulo-wp">
                                         Bajada del producto o servicio
                                     </span></b></a>
                                 </p>
-                                <p style="font-size: 14px; color: #666; text-align:left;">
+                                <p style="font-size: 14px; color: #000; text-align:left;">
                                     <span class="contenido-wp">
                                         Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat. Duis autem vel eum iriure .
                                     </span>
@@ -113,9 +113,9 @@
         <table width="100%" border="0" align="center" cellpadding="20" cellspacing="0" class="tobBlock tobClonable tobRemovable" style="background-color:transparent;">
             <tbody>
                 <tr>
-                    <td valign="top" style="padding: 20px; padding-right:0px; font-family: 'Trebuchet MS',Helvetica,sans-serif; font-size: 12px; color: #999; line-height: 17px;">
+                    <td valign="top" style="padding: 20px; padding-right:0px; font-family: 'Trebuchet MS',Helvetica,sans-serif; font-size: 12px; color: #000; line-height: 17px;">
                     <div class="tobEditableHtml">
-                        <p style="font-size: 13px; color: #333; text-align:left;">
+                        <p style="font-size: 13px; color: #000; text-align:left;">
                             <b>
                             <span class="titulo-wp">
                                 Bajada del producto o servicio
@@ -139,12 +139,12 @@
         <table width="100%" align="center" cellspacing="0" cellpadding="30" border="0" class="tobBlock tobClonable tobRemovable" style="background-color:transparent;">
             <tbody>
                 <tr>
-                    <td align="center" valign="top" style="padding: 20px; font-family: 'Trebuchet MS',Helvetica,sans-serif; font-size: 14px; color: #666; line-height: 20px !important;" >
+                    <td align="center" valign="top" style="padding: 20px; font-family: 'Trebuchet MS',Helvetica,sans-serif; font-size: 14px; color: #000; line-height: 20px !important;" >
                     <div  class="tobEditableHtml">
                         <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                             <tr>
                                 <td>
-                                <p style="font-size: 14px; color: #666; text-align:left;">
+                                <p style="font-size: 14px; color: #000; text-align:left;">
                                     <span class="contenido-wp">
                                         Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat. Duis autem vel eum iriure
                                         Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat. Duis autem vel eum iriure
@@ -188,12 +188,12 @@
         <table width="100%" align="center" cellspacing="0" cellpadding="30" border="0" class="tobBlock tobClonable tobRemovable">
             <tbody>
                 <tr>
-                    <td align="center" valign="top" style="padding: 20px; font-family: 'Trebuchet MS',Helvetica,sans-serif; font-size: 14px; color: #666; line-height: 20px !important;" >
+                    <td align="center" valign="top" style="padding: 20px; font-family: 'Trebuchet MS',Helvetica,sans-serif; font-size: 14px; color: #000; line-height: 20px !important;" >
                     <div  class="tobEditableHtml">
                         <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                             <tr>
                                 <td>
-                                <p style="font-size: 14px; color: #666; text-align:left;">
+                                <p style="font-size: 14px; color: #000; text-align:left;">
                                     <hr />
                                 </p></td>
                             </tr>

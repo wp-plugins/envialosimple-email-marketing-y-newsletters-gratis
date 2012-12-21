@@ -207,8 +207,7 @@ jQuery(document).ready(function() {
 
             jQuery.post(urlHandler, datos, function(json) {
                     
-                 console.log(json.root.ajaxResponse.errors)   
-                    
+                                     
                 if (json.root.ajaxResponse.success) {
 
                     //exito
