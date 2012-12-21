@@ -188,11 +188,11 @@ $c = $Campanas->listarCampanas($absolutepage, $filter);
                                 </td>
                                 <td style='line-height: 33px;'>
                                     <?php if($item['Status'] == 'Scheduled' || $item['Status'] == "Completed"){
-                                        echo $item['ScheduleSendDateFormated'];
+                                        echo $item['SendStartDateTimeFormated'];
                                     }?>&nbsp;
                                 </td>
                             </tr>
-                        <?php endforeach;?>
+                        <?php endforeach; ?>
                         <tr>
                             <td>&nbsp;</td>
                             <td>&nbsp;</td>
