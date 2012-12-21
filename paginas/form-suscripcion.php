@@ -428,7 +428,7 @@
             </div>
             <div style="clear:both"></div>
             <input type="submit" value="<?php _e('Agregar','envialo-simple') ?>" class="button-primary" style="margin-top: 20px;margin-bottom: 10px;"/>
-            <input type="reset" value="<?php _e('Cancelar','envialo-simple') ?>" class="button-secondary" onclick='jQuery("#modalAgregarCampo").dialog("close");jQuery("#listadoValores ul").html("")'/>
+            <input type="reset" value="<?php _e('Cancelar','envialo-simple') ?>" class="button-secondary" onclick='jQuery("#modalAgregarCampo").dialog("close");jQuery("#listadoValores ul").html("");jQuery("#tabla-campos-form select").val(0);'/>
             
             
         </form>
@@ -689,7 +689,7 @@
                 },
                 close : function(event, ui) {                        
                     jQuery("#tipo-campo").ddslick('select', {index: 1 });                    
-                    jQuery("#tabla-campos-form select").val(0);
+                    
                 }
           });
         
