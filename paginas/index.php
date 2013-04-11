@@ -9,6 +9,7 @@ if(!isset($GLOBALS['APIKey'])){
 }
 
 $campoBusqueda = isset($_REQUEST['filter']) ? $_REQUEST['filter'] : __('Buscar Newsletters..', 'envialo-simple');
+$checkInputFiltro = isset($_GET['filter']) && $_GET['filter'] == "Newsletter del" ? "checked='checked'" : "";
 
 ?>
 
@@ -63,12 +64,22 @@ $campoBusqueda = isset($_REQUEST['filter']) ? $_REQUEST['filter'] : __('Buscar N
         <a href="<?php echo get_admin_url()."admin.php?page=envialo-simple-nuevo" ?>" class="add-new-h2 abrir-modal-campana"><?php _e('Crear Nuevo', 'envialo-simple');?></a>
     </h2>
 
+
+
     <div class="busqueda-campanas">
+
         <form name="busquedaCampana" action="#" method="get">
             <input type="text" name="filter" id="buscarCampana" value="<?php echo $campoBusqueda; ?>">
             <input type="hidden" name="page" value="envialo-simple"/> <input type="submit" style="visibility: hidden;"/>
         </form>
+      <div id="filter-news">
+        <span>Mostrar únicamente Newsletters creados desde el blog?</span>
+        <input type="checkbox" value="filtrarNews" id="input-filter-news" <?php echo $checkInputFiltro; ?>/>
     </div>
+    </div>
+
+
+
     <div style="clear:both"></div>
     <div class="tool-box" id="contenedor-newsletters">
         <?php if(isset($_GET["camp-enviada"])): ?>

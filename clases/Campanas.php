@@ -4,11 +4,11 @@ require_once("Curl.php");
 
 class Campanas extends Curl{
 
-    
+
     /**
      * Modifica o da de Alta una Campaña
      *
-     * @return string    
+     * @return string
      * @param $CampaignID
      * @param $CampaignName
      * @param $CampaignSubject
@@ -26,8 +26,8 @@ class Campanas extends Curl{
     function editarCampana($CampaignID,$CampaignName,$CampaignSubject,$FromID,$ReplyToID,$MailListsIds,
                             $AddToPublicArchive,$TrackLinkClicks,$TrackReads,$TrackAnalitics,$SendStateReport,
                             $changeScheduling,$SendNow,$ScheduleCampaign,$SendDate) {
-        
-      
+
+
        $parametros = array();
        $parametros['CampaignID'] = $CampaignID;
        $parametros['CampaignName']= stripslashes($CampaignName);
@@ -36,12 +36,12 @@ class Campanas extends Curl{
        $parametros['ReplyToID'] = $ReplyToID;
        $parametros['MailListsIds'] = $MailListsIds;
        $parametros['AddToPublicArchive'] = $AddToPublicArchive;
-       $parametros['TrackLinkClicks'] = $TrackLinkClicks; 
+       $parametros['TrackLinkClicks'] = $TrackLinkClicks;
        $parametros['TrackReads'] = $TrackReads;
        $parametros['TrackAnalitics'] = $TrackAnalitics;
-       $parametros['SendStateReport'] = $SendStateReport; 
+       $parametros['SendStateReport'] = $SendStateReport;
        $parametros['changeScheduling'] = $changeScheduling;
-       $parametros['SendNow'] = $SendNow; 
+       $parametros['SendNow'] = $SendNow;
        $parametros['ScheduleCampaign'] = $ScheduleCampaign;
        $parametros['SendDate'] = $SendDate;
 
@@ -51,7 +51,7 @@ class Campanas extends Curl{
     /**
      * Crea el cuerpo HTML de la Campaña
      *
-     * @return string     
+     * @return string
      * @param $CampaignID
      * @param $URL
      * @param $HTML
@@ -61,7 +61,7 @@ class Campanas extends Curl{
      */
     function crearCuerpoCampana($CampaignID, $URL, $HTML, $PlainText, $RemoteUnsubscribeBlock) {
 
-        $parametros = array();      
+        $parametros = array();
         $parametros['CampaignID'] = $CampaignID;
         $parametros['URL'] = $URL;
         $parametros['HTML'] = $HTML;
@@ -75,7 +75,7 @@ class Campanas extends Curl{
      * Recupera el HTML del cuerpo de la Campaña
      *
      * @return string
-     * @param CampaignID     
+     * @param CampaignID
      */
     function traerCuerpoCampana($CampaignID) {
 
@@ -95,20 +95,20 @@ class Campanas extends Curl{
      * Devuelve un array con informacion acerca de una Campaña
      *
      * @return Array
-     * @param CampaignID 
+     * @param CampaignID
      */
     function traerCampana($CampaignID) {
-        
+
         $parametros = array();
         $parametros['CampaignID'] = $CampaignID;
-        $campana = json_decode($this->curlJson($parametros, URL_BASE_API . '/campaign/load/format/json'), TRUE);
+        $campana = json_decode($this->curlJson($parametros, URL_BASE_API . '/campaign/load/format/json' ,TRUE), TRUE);
         return $campana["root"]["ajaxResponse"];
     }
 
     /**
      * Recupera las Campañas del Usuario
      *
-     * @return array 
+     * @return array
      * @param  $parametros["absolutepage"]
      */
     function listarCampanas($absolutepage,$filter) {
@@ -138,14 +138,14 @@ class Campanas extends Curl{
      * @param $CampaignID
      */
     function previsualizarCampana($CampaignID,$Email='') {
-        
+
         $url = "/campaign/preview/format/html";
         $parametros = array();
         if (!empty($Email)) {
             $parametros["Email"] = $Email;
             $url = "/campaign/preview/format/email";
         }
-        $parametros["CampaignID"] = $CampaignID;        
+        $parametros["CampaignID"] = $CampaignID;
         return $this->curlJson($parametros, URL_BASE_API . $url);
     }
 
@@ -185,7 +185,7 @@ class Campanas extends Curl{
         return json_decode($this->curlJson($parametros, URL_BASE_API . '/report/track/format/json'), TRUE);
 
     }
-    
+
 
 
 

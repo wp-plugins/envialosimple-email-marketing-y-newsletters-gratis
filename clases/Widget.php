@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * Adds Foo_Widget widget.
@@ -14,14 +14,14 @@ class WidgetEnvialo extends WP_Widget {
             __('Formulario Suscripción EnvialoSimple','envialo-simple'), // Name
             array( 'description' => __('Arrastra y Suelta este Bloque en la Barra de Widgets para Seleccionar tu Formulario de Suscripción.','envialo-simple'), ) // Args
         );
-    
+
     }
-    
-    
+
+
     function WidgetEnvialo(){
          WidgetEnvialo:: __construct();
-    }    
-    
+    }
+
 
     /**
      * Front-end display of widget.
@@ -36,14 +36,14 @@ class WidgetEnvialo extends WP_Widget {
         //$title = apply_filters( 'widget_title', $instance['title'] );
         $FormID = $instance['FormID'];
         $AdministratorID = $instance['AdministratorID'];
-        
+
         echo $before_widget;
-        
+
         if ( ! empty( $FormID ) )
             //echo $before_title . $title . $after_title;
-        
+
             echo "<script type='text/javascript' src='http://v2.envialosimple.com/form/show/AdministratorID/{$AdministratorID}/FormID/{$FormID}/format/widget'></script>";
-        
+
             echo $after_widget;
     }
 
@@ -77,12 +77,12 @@ class WidgetEnvialo extends WP_Widget {
         include_once("Formularios.php");
         include_once("EnvialoSimple.php");
         $ev = new EnvialoSimple();
-        $ev->checkSetup();
+        $ev->checkSetup("NoRedirect");
         $fo = new Formularios();
-        
+
         $forms = $fo->listarFormularios();
-       
-                        
+
+
         if ( isset( $instance['AdministratorID'] ) ) {
             $AdministratorID = $instance[ 'AdministratorID' ];
         }
@@ -91,11 +91,11 @@ class WidgetEnvialo extends WP_Widget {
         }
         ?>
         <p>
-         <input type="hidden" name="<?php echo $this->get_field_name('AdministratorID'); ?>" value="<?php echo $AdministratorID; ?>" />   
-         <label for="<?php echo $this->get_field_id( 'FormID' ); ?>"><?php _e('Formularios Disponibles:','envialo-simple')?></label>    
+         <input type="hidden" name="<?php echo $this->get_field_name('AdministratorID'); ?>" value="<?php echo $AdministratorID; ?>" />
+         <label for="<?php echo $this->get_field_id( 'FormID' ); ?>"><?php _e('Formularios Disponibles:','envialo-simple')?></label>
          <select id="<?php echo $this->get_field_id( 'FormID' ); ?>" name="<?php echo $this->get_field_name('FormID'); ?>">
              <option>Seleccionar..</option>
-             <?php 
+             <?php
                 $htmlOption = "";
                 foreach ($forms['list']['item'] as $f) {
                     $selected = "";
@@ -103,12 +103,12 @@ class WidgetEnvialo extends WP_Widget {
                         $selected = "selected='selected'";
                     }
                     $htmlOption .= "<option {$selected} value='{$f['FormID']}'> {$f['Name']}</option>";
-                }             
+                }
                 echo $htmlOption;
               ?>
-         </select>        
+         </select>
         </p>
-        <?php 
+        <?php
     }
 
 } // class Foo_Widget

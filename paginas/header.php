@@ -1,6 +1,6 @@
 <?php
 	if(isset($GLOBALS["APIKey"])){
-		$envios =  $ev->traerEnviosDisponibles();        
+		$envios =  $ev->traerEnviosDisponibles();
 	}
     error_reporting(0);
     ini_set("display_errors","false");
@@ -18,16 +18,16 @@
     var urlImg = "<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/') ?>";
     var urlColorPicker = "<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/colorpicker/') ?>";
     var rolUsuario = "<?php echo $envios['role']?>";
-    
+
     var dominio = "<?php echo site_url(); ?>";
-  
+
 </script>
 <script type="text/javascript"  src="<?php echo plugins_url("envialosimple-email-marketing-y-newsletters-gratis/js/chosen.jquery.min.js"); ?>"></script>
 <!--<script type="text/javascript"  src="<?php echo plugins_url("envialosimple-email-marketing-y-newsletters-gratis/js/scripts.js"); ?>"></script>-->
 
-<?php 
+<?php
     wp_enqueue_script('script',plugins_url('envialosimple-email-marketing-y-newsletters-gratis/js/scripts.js'));
-    wp_localize_script('script', 'l10n', 
+    wp_localize_script('script', 'l10n',
         array(
             'AgregarEmail' => __('Agregar Email','envialo-simple'),
             'InsertarImagen'=> __('Insertar Imagen','envialo-simple'),
@@ -62,9 +62,9 @@
             'tit2' => __('Previsualizar Newsletter','envialo-simple'),
             'ok1' => __('Newsletter Guardado Correctamente!','envialo-simple'),
             'bt1' => __('Programar Envío','envialo-simple'),
-            'bt2' => __('Enviar!','envialo-simple')            
+            'bt2' => __('Enviar!','envialo-simple')
             ));
-    
+
 ?>
 
 <div id="cargando" class="ui-widget-overlay">
@@ -74,9 +74,9 @@
 
 <div id="header">
     <a href="<?php echo get_admin_url()."admin.php?page=envialo-simple"?>"><div id="logo-ev"></div></a>
-	<?php if(isset($envios)): ?>	    
+	<?php if(isset($envios)): ?>
 		<div id="envios">
-		    <div><?php printf(__('Tienes %d Envíos Disponibles','envialo-simple'),$envios['credits']["availableCredits"]); if($envios['role'] == 'free'){_e('para este mes.','envialo-simple');} ?></div>			
+		    <div><?php printf(__('Tienes %d Envíos Disponibles','envialo-simple'),$envios['credits']["availableCredits"]); if($envios['role'] == 'free'){_e('para este mes.','envialo-simple');} ?></div>
 			<?php if(!$envios['white_label']): ?>
 				<?php if($envios['role'] == 'free'): ?>
 					<a href="#" id="abrir-modal-creditos"class="button-secondary"><?php _e('Actualizar a Versión PREMIUM','envialo-simple') ?></a>
@@ -88,9 +88,9 @@
 		<?php if(!$envios['white_label']): ?>
 			<div style="display: none">
 				<div id="modal-comprar-envios">
-				    <?php if($envios['role'] == 'free'): ?>				        
+				    <?php if($envios['role'] == 'free'): ?>
 				        <div class="actualizarCol fl">
-                            <h3><?php _e('Actualizar tu cuenta te permitirá envias más email y habilitará las siguentes funcionalidades:','envialo-simple') ?></h3>
+                            <h3><?php _e('Actualizar tu cuenta te permitirá enviar más email y habilitará las siguentes funcionalidades:','envialo-simple') ?></h3>
                             <ul>
                                 <li><?php _e('Creación y gestión de múltiples cuentas de <em><strong>envialo</strong>simple</em>','envialo-simple') ?></li>
                                 <li><?php _e('Distribución de los envíos comprados, entre múltiples cuentas','envialo-simple') ?></li>
@@ -100,9 +100,9 @@
                                 <li><?php _e('Ilimitados campos personalizados','envialo-simple') ?></li>
                                 <li><?php _e('Compartir reportes de campañas','envialo-simple') ?></li>
                             </ul>
-                        </div>				        
-				    <?php endif ?>  
-				    <div class="preciosEnvios fl">  
+                        </div>
+				    <?php endif ?>
+				    <div class="preciosEnvios fl">
     					<h2><?php _e('Cuántos Envíos Necesitas ?','envialo-simple') ?></h2>
     					<div id="contenedor-precios"></div>
     					<p style="font-weight: bold;"><?php _e('¡Mientras más compras, más ahorras!','envialo-simple') ?></p>
@@ -141,75 +141,75 @@
         </div>
         <div id="prev-navegador-contenedor"></div>
     </div>
-    
+
   </div>
-   
+
 <div id="feedback">
     <div id="feedback-solapa">
-        <div><a href="#" id="solapa-click" ><?php _e('Danos tu Opinión o Sugerencia','envialo-simple') ?></a></div>    
+        <div><a href="#" id="solapa-click" ><?php _e('Danos tu Opinión o Sugerencia','envialo-simple') ?></a></div>
     </div>
     <div style="clear:both"></div>
     <div id="feedback-form">
-        
+
         <form id="form-feedback" action="" method="post" target="_blank">
             <p><?php _e('Este Formulario no es para Soporte Técnico. Para soporte, <a href="https://administracion.dattatec.com/clientes/index.php?modulo=soporte&archivo=asistente" >Click Aquí</a>','envialo-simple') ?></p>
             <label for="mensaje-feedback"><?php _e('Mensaje:','envialo-simple') ?></label><br/>
             <textarea style="width: 375px;height: 100px;" name="feedback" id="mensaje-feedback"></textarea><br />
-           
+
             <input type="reset" value="<?php _e('Cancelar','envialo-simple') ?>" style="float:right;margin-top:10px;"  class="button-secondary" onclick="ocultarFeedback()" />
              <input type="submit" value="<?php _e('Enviar','envialo-simple') ?>" style="float:right;margin-top:10px;"  class="button-primary" />
         </form>
-        
-    </div>   
+
+    </div>
 
 </div>
 
 <script type="text/javascript">
 
     var isFree = "<?php if($envios['role'] == 'free'){echo 'true';}else{echo 'false';}?>;"
-    
+
     function ocultarFeedback(){
         jQuery("#feedback").animate({"bottom":34},700);
-    }    
-    
-    jQuery(document).ready(function(){        
-        
+    }
+
+    jQuery(document).ready(function(){
+
         jQuery("#solapa-click").click(function(event){
-            event.preventDefault();            
-            jQuery("#feedback").animate({"bottom":350},250,function(){                
-                jQuery("#feedback").animate({"bottom":265},250,function(){                    
-                    jQuery("#feedback").animate({"bottom":283},300);                    
+            event.preventDefault();
+            jQuery("#feedback").animate({"bottom":350},250,function(){
+                jQuery("#feedback").animate({"bottom":265},250,function(){
+                    jQuery("#feedback").animate({"bottom":283},300);
                 });
-            });                        
+            });
         });
-            
+
         jQuery("#form-feedback").submit(function(event){
-            
+
             event.preventDefault();
             jQuery("#mensaje-feedback").css("border","1px solid #DFDFDF");
             if(jQuery("#mensaje-feedback").val() == ""){
                 jQuery("#mensaje-feedback").css("border","1px solid red");
                 return false;
             }
-            
+
             var mensaje = "[WP-PLUGIN] "+jQuery("#mensaje-feedback").val()
-            
-            jQuery.post(urlHandler,{accion:"feedback",mensaje:mensaje},function(json){                
-                
+
+            jQuery.post(urlHandler,{accion:"feedback",mensaje:mensaje},function(json){
+
                 if(json.root.ajaxResponse.success){
                     alert("<?php _e('Mensaje Enviado Correctamente!','envialo-simple') ?>");
                     ocultarFeedback();
                 }else{
                     alert("<?php _e('Error al Enviar el Mensaje. Intente nuevamente.','envialo-simple') ?>");
                 }
-                
+
             },"json");
-            
-        });    
-        
-        
+
+        });
+
+
     });
-    
+
 </script>
 
 

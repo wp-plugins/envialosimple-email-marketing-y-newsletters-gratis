@@ -23,12 +23,12 @@ $accion = isset($_POST["accion"]) ? $_POST["accion"] : "";
 $ev = new EnvialoSimple();
 
 switch ($accion) {
-	case 'traerToken':		
+	case 'traerToken':
 		$usuario = $_POST["username"];
 		$password = $_POST["password"];
 		traerGenerarGuardarTokenMedianteAPI($usuario, $password);
 		break;
-  
+
     case 'eliminarToken':
         $idClave = $_POST["idClave"];
         $ev = new EnvialoSimple();
@@ -49,14 +49,14 @@ switch ($accion) {
         $ev->checkSetup();
         $contactosWP = $co->listarContactosWordpress();
         $cantidadContactos = count($contactosWP);
-        
+
         foreach ($contactosWP as $c) {
-           
+
             $campos = array();
             $campos[] = stripslashes($c["first_name"]);
             $campos[] = stripslashes($c["last_name"]);
-           
-           
+
+
             //$respuesta = json_decode($co->agregarContactoALista($idLista,stripslashes($c["user_email"]),$campos),TRUE);
             $respuesta = $co->agregarContactoALista($idLista,stripslashes($c["user_email"]),$campos);
 
@@ -66,16 +66,16 @@ switch ($accion) {
         }
         echo json_encode(array("success"=>TRUE,"cantidadContactos"=>$cantidadContactos));
     break;
-    
+
     case 'agregarContactoLista':
-        
-        $campos = $_POST["campos"];                              
-        $ev->checkSetup();   
+
+        $campos = $_POST["campos"];
+        $ev->checkSetup();
         $co = new Contactos();
-        echo $co->agregarContactoALista($_POST['MailListID'], $_POST["Email"], $campos);        
-        
-        
-    break;    
+        echo $co->agregarContactoALista($_POST['MailListID'], $_POST["Email"], $campos);
+
+
+    break;
 
     case 'traerListaYEmailAdmin':
         $ev = new EnvialoSimple();
@@ -90,23 +90,23 @@ switch ($accion) {
         $ca = new Campanas();
         $ev = new EnvialoSimple();
         $ev->checkSetup();
-               
+
         $CampaignID = $_POST['CampaignID'];
         $CampaignName= $_POST['CampaignName'];
-        $CampaignSubject = $_POST['CampaignSubject'];        
+        $CampaignSubject = $_POST['CampaignSubject'];
         $FromID = $_POST['FromID'];
-        $ReplyToID = $_POST['ReplyToID'];        
+        $ReplyToID = $_POST['ReplyToID'];
         $MailListsIds = $_POST['MailListsIds'];
         $AddToPublicArchive = $_POST['AddToPublicArchive'];
         $TrackLinkClicks = $_POST['TrackLinkClicks'];
         $TrackReads = $_POST['TrackReads'];
         $TrackAnalitics = $_POST['TrackAnalitics'];
-        $SendStateReport = $_POST['SendStateReport'];                
+        $SendStateReport = $_POST['SendStateReport'];
         $changeScheduling = $_POST['changeScheduling'];
         $SchedulingDate = $_POST['SchedulingDate'];
         $SchedulingHour = $_POST['SchedulingHour'];
         $SchedulingMinute = $_POST['SchedulingMinute'];
-                
+
 
         if($changeScheduling == 0){
             //Envío Ahora
@@ -117,19 +117,19 @@ switch ($accion) {
             //Programo envío
             $SendNow ='0';
             $ScheduleCampaign ='1';
-            
+
             list($day, $month, $year) = sscanf($SchedulingDate, '%02d/%02d/%04d');
             //$datetime = new DateTime("$year-$month-$day");
-            //$fecha =  $datetime->format('Y-m-d');            
+            //$fecha =  $datetime->format('Y-m-d');
             $fecha = $year."-".$month."-".$day;
             $SendDate = $fecha." ".$SchedulingHour.":".$SchedulingMinute.":00";
-            
+
 
         }elseif($changeScheduling == 2){
             //no programo envio
             $SendNow ='0';
             $ScheduleCampaign ='1';
-            
+
         }
         echo $ca->editarCampana($CampaignID,$CampaignName,$CampaignSubject,$FromID,$ReplyToID,$MailListsIds,
                             $AddToPublicArchive,$TrackLinkClicks,$TrackReads,$TrackAnalitics,$SendStateReport,
@@ -143,7 +143,7 @@ switch ($accion) {
             header("Content-Type: text/html; charset=utf-8");
             echo $ca->crearCuerpoCampana($_POST["CampaignID"],$_POST["URL"],stripslashes($_POST["HTML"]),$_POST["PlainText"],
                                          $_POST["RemoteUnsubscribeBlock"]);
-    break; 
+    break;
 
     case 'enviarCampana':
         $ca = new Campanas();
@@ -153,7 +153,7 @@ switch ($accion) {
     break;
 
     case 'pausarCampana':
-        
+
         $ev = new EnvialoSimple();
         $ev->checkSetup();
         $ca = new Campanas();
@@ -161,13 +161,13 @@ switch ($accion) {
     break;
 
     case 'traerPlantillas':
-        
+
         $ev = new EnvialoSimple();
         $ev->checkSetup();
         header("Content-Type: text/html; charset=utf-8");
         $filterListByCategory = $_POST["filterListByCategory"];
         $filterListByCategory2 = $_POST["filterListByCategory2"];
-        
+
         $limit = $_POST["limit"];
         $retrieveList = "defaulTemplates";
         $offset = $_POST["offset"];
@@ -177,13 +177,13 @@ switch ($accion) {
     case 'mostrarPostsWP':
         //TODO
         header("Content-Type: text/html; charset=utf-8");
-        
-        $ev = new EnvialoSimple();         
+
+        $ev = new EnvialoSimple();
         echo ($ev->mostrarPostsWP($_POST['category'],$_POST['numberposts'],$_POST['offset']));
     break;
 
     case 'previsualizar-camp':
-        
+
         $ev = new EnvialoSimple();
         $ev->checkSetup();
         $ca = new Campanas();
@@ -196,140 +196,140 @@ switch ($accion) {
         echo $ev->traerPreciosEnvios($_POST["APIKey"]);
     break;
 
-    case "agregarEmailAdmin":              
+    case "agregarEmailAdmin":
         $ev->checkSetup();
         echo $ev->agregarEmailAdministrador($_POST["emailAdmin"],$_POST["nombreEmailAdmin"]);
     break;
-    
+
     case "agregarCampoPersonalizado":
-    
+
         $ev->checkSetup();
         echo json_encode($ev->agregarCampoPersonalizado($_POST['Title'],$_POST['FieldType'],$_POST['Validation'],$_POST['ItemsIsMultipleSelect'],$_POST['DefaultValue'],$_POST['ItemsValues'],$_POST['ItemsNames']));
-    
-    
-        
+
+
+
     break;
-    
+
     case "mostrarCamposPersonalizados":
-        $ev->checkSetup();        
-               
+        $ev->checkSetup();
+
         echo $ev->mostrarCampoPersonalizado($_POST["camposExistentes"]);
-        
+
     break;
     case "refrescarNews":
         $ev->checkSetup();
         include_once(ENVIALO_DIR."/paginas/tablaCampanas.php");
-    break;    
+    break;
 
     //Formulario
     case "vistaPreviaForm":
-        
+
         $ev->checkSetup();
-        $fo = new Formularios();        
-        
-        echo $fo->vistaPrevia($_POST['CustomFieldsIds'],$_POST['FormID'], $_POST['ConfirmSubscriptionEmailID'], $_POST['Title'], 
+        $fo = new Formularios();
+
+        echo $fo->vistaPrevia($_POST['CustomFieldsIds'],$_POST['FormID'], $_POST['ConfirmSubscriptionEmailID'], $_POST['Title'],
                                 $_POST['Name'],$_POST['LabelSubmit'], $_POST['LabelEmailAddress'], $_POST['BackgroundColor'],
-                                $_POST['Width'],$_POST['Font'], $_POST['FontSize'], $_POST['FontColor'], $_POST['SubsCallbackOK'], 
-                                $_POST['SubsCallbackFail'],$_POST['ConfCallbackOK'], $_POST['ConfCallbackFail'], 
+                                $_POST['Width'],$_POST['Font'], $_POST['FontSize'], $_POST['FontColor'], $_POST['SubsCallbackOK'],
+                                $_POST['SubsCallbackFail'],$_POST['ConfCallbackOK'], $_POST['ConfCallbackFail'],
                                 $_POST['CustomCSS'], $_POST['ShowPoweredBy'],$_POST['SubscribeDobleOptIN']);
-        
+
     break;
     case "guardarForm":
-        
-              
+
+
         $ev->checkSetup();
-        $fo = new Formularios();        
-        
-        $respuesta = json_decode($fo->guardarForm($_POST['CustomFieldsIds'] ,$_POST['MailListsIds'],$_POST['FormID'], $_POST['ConfirmSubscriptionEmailID'], 
+        $fo = new Formularios();
+
+        $respuesta = json_decode($fo->guardarForm($_POST['CustomFieldsIds'] ,$_POST['MailListsIds'],$_POST['FormID'], $_POST['ConfirmSubscriptionEmailID'],
                                                     $_POST['Title'], $_POST['Name'],$_POST['LabelSubmit'], $_POST['LabelEmailAddress'],
-                                                    $_POST['BackgroundColor'], $_POST['Width'],$_POST['Font'], $_POST['FontSize'], 
+                                                    $_POST['BackgroundColor'], $_POST['Width'],$_POST['Font'], $_POST['FontSize'],
                                                     $_POST['FontColor'], $_POST['SubsCallbackOK'], $_POST['SubsCallbackFail'],
-                                                    $_POST['ConfCallbackOK'], $_POST['ConfCallbackFail'], $_POST['CustomCSS'], 
+                                                    $_POST['ConfCallbackOK'], $_POST['ConfCallbackFail'], $_POST['CustomCSS'],
                                                     $_POST['ShowPoweredBy'],$_POST['SubscribeDobleOptIN']) , TRUE);
-         
-         
+
+
          if(!isset($respuesta['root']['ajaxResponse']['success'])){
-                         
-             echo json_encode($respuesta);                    
+
+             echo json_encode($respuesta);
          }
-         
+
          $json = array();
-         $json['form'] = $respuesta['root']['ajaxResponse']['form'];          
-         
-         
-         $FormID = !empty($_POST["FormID"])?$_POST["FormID"]:$respuesta['root']['ajaxResponse']['form']['FormID']; 
-         
+         $json['form'] = $respuesta['root']['ajaxResponse']['form'];
+
+
+         $FormID = !empty($_POST["FormID"])?$_POST["FormID"]:$respuesta['root']['ajaxResponse']['form']['FormID'];
+
          $respuesta = json_decode($fo->guardarRemitenteResponder($FormID, $_POST['EmailID'],$_POST['Name'],
-                                                            $_POST['FromName'],$_POST['FromEmail'], $_POST['ReplyToName'], 
-                                                            $_POST['ReplyToEmail']),TRUE);     
-                                                                                                                   
-         if(!isset($respuesta['root']['ajaxResponse']['success'])){                         
-             echo json_encode($respuesta);                    
-         }           
-         
+                                                            $_POST['FromName'],$_POST['FromEmail'], $_POST['ReplyToName'],
+                                                            $_POST['ReplyToEmail']),TRUE);
+
+         if(!isset($respuesta['root']['ajaxResponse']['success'])){
+             echo json_encode($respuesta);
+         }
+
          $json['email'] = $respuesta['root']['ajaxResponse']['email'];
          $json['success'] = TRUE;
-         
+
          echo json_encode($json);
-         
-        
+
+
     break;
     case "eliminarForm":
-        
+
         $ev->checkSetup();
         $fo = new Formularios();
         echo $fo->eliminarFormulario($_POST['FormID']);
-        
+
     break;
     case "feedback":
-        
+
         $ev->checkSetup();
         echo json_encode($ev->dejarFeedback($_POST["mensaje"]));
-        
+
     break;
-    
+
     case "copypaste":
         $ev->checkSetup();
-        
+
         $co = new Contactos();
         if($co->importarCopyPaste($_POST['CopyPaste'])){
             echo $co->importarPreProcess();
         }else{
             echo json_encode(array("error","importarCopyPaste"));
         }
-        
+
     break;
-    
+
     case "uploadFile":
-        
+
      $ev->checkSetup();
      $co = new Contactos();
-     
+
      if ($co->importarUploadFile($_POST["file"],plugin_dir_path($principal))){
-        echo $co->importarPreProcess();   
+        echo $co->importarPreProcess();
      }else{
         echo json_encode(array("error","importarFile"));
-     }   
-     
-        
-        
+     }
+
+
+
     break;
-    
-    case "processCopy":               
-        $ev->checkSetup();        
+
+    case "processCopy":
+        $ev->checkSetup();
         $co = new Contactos();
-        
-        echo $co->importarProcessCopy($_POST['MailListsIds'], $_POST["corresponder"]["campos"]);            
-        
+
+        echo $co->importarProcessCopy($_POST['MailListsIds'], $_POST["corresponder"]["campos"]);
+
     break;
-    
+
     case "processFile":
-        $ev->checkSetup();        
+        $ev->checkSetup();
         $co = new Contactos();
-        
+
         echo $co->importarProcessFile($_POST['MailListsIds'], $_POST["corresponder"]["campos"]);
-        
-        
+
+
         break;
 
 	default:
@@ -338,8 +338,18 @@ switch ($accion) {
 
 function traerGenerarGuardarTokenMedianteAPI($usuario, $password){
 	$ev = new EnvialoSimple();
-	if(!$ev->loginEnvialosimple($usuario, $password)){
-		echo error(__("Usuario o Clave Incorrectas",'envialo-simple'),array("logueado"=>false));
+
+    $respuestaLogin = $ev->loginEnvialosimple($usuario, $password);
+
+	if(!$respuestaLogin[0]){
+
+	    if(isset($respuestaLogin[1])){
+	       echo error(__("Ocurrio un Error de Configuración del Servidor. Por favor contacte a su proveedor de Hosting.<br />".$respuestaLogin[1],'envialo-simple'),array("logueado"=>false,"error"=>$respuestaLogin[1]));
+	    }else{
+	       echo error(__("Usuario o Clave Incorrectas",'envialo-simple'),array("logueado"=>false,"error"=>$respuestaLogin[1]));
+	    }
+
+
 		return false;
 	}
 	$httpAPIKEY = $ev->traerTokenUsuario();

@@ -1,54 +1,48 @@
 <?php
-
 define("URL_BASE_API", 'https://envialosimple.dattatec.com');
 define("TABLA_CLAVES", "ev_claves");
-
-require_once("Curl.php");
-
-class EnvialoSimple extends Curl{
+require_once ("Curl.php");
+class EnvialoSimple extends Curl {
     var $errorMsg;
     var $curlChannel;
-    
-    
     function EnvialoSimple() {
         $this->curlChannel = curl_init();
-        //TODO: cambiar por un CUSTOM curl_setopt ($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.6) Gecko/20070725 Firefox/2.0.0.6");
+        curl_setopt($this->curlChannel, CURLOPT_USERAGENT, "WP-Plugin EnvialoSimple");
         curl_setopt($this->curlChannel, CURLOPT_TIMEOUT, 60);
         curl_setopt($this->curlChannel, CURLOPT_FOLLOWLOCATION, 0);
         curl_setopt($this->curlChannel, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($this->curlChannel, CURLOPT_COOKIEJAR, 'cookie.txt');
     }
 
-    function checkSetup() {
+    function checkSetup($noRedirect = NULL) {
         //comprueba que la tabla este creada y que existan claves. En caso negativo redirecciona a la configuracion inicial
         $respuesta = json_decode($this->traerTokenBD(), TRUE);
         if ($respuesta["success"]) {
             $GLOBALS["APIKey"] = $respuesta["Key"];
-        } else {
+        } else if (is_null($noRedirect)) {
             $amindURL = get_admin_url();
             if ($respuesta["existenTablas"]) {
                 //Se debe configurar y guardar token, mostrar configuracion
                 echo "<div style='background-color:#FFFBCC; border:#E6DB55 1px solid; color:#555555; border-radius:3px; padding:5px 10px; margin:20px 15px 10px 0; text-align:left'>
-                        ".__('Redireccionando a Configuración Inicial..','envialo-simple')."
+                        " . __('Redireccionando a Configuración Inicial..', 'envialo-simple') . "
                       </div>
                       <script>
                           window.location = '{$amindURL}admin.php?page=envialo-simple-configuracion&setup=true';
                       </script>";
             } else {
-                $version = get_bloginfo( 'version' );
-                $wp_language = get_bloginfo( 'language' );
+                $version = get_bloginfo('version');
+                $wp_language = get_bloginfo('language');
                 $wp_site_url = site_url();
                 $url = "https://dattatec.com/imgmed/wp_check.php?version={$version}&language={$wp_language}&site_url={$wp_site_url}&img=1";
-
                 if (!extension_loaded('curl')) {
-                    $url.='&curl=error';
+                    $url .= '&curl=error';
                     echo 'Fatal Error: The cURL extension is not loaded.';
                     echo '<a href="http://php.net/manual/en/curl.installation.php">Please ensure its installed and activated.</a>';
                     echo "<img src='{$url}' size='1'>";
                     die();
                 }
                 echo "<img src='{$url}' size='1'>";
-                $url.='&curl=ok';
+                $url .= '&curl=ok';
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, $url);
                 curl_setopt($ch, CURLOPT_USERAGENT, "WP-Plugin EnvialoSimple");
@@ -61,26 +55,23 @@ class EnvialoSimple extends Curl{
                 //crear tablas y redir a config
                 $this->crearTablaClavesBD();
                 echo "<div style='background-color:#FFFBCC; border:#E6DB55 1px solid; color:#555555; border-radius:3px; padding:5px 10px; margin:20px 15px 10px 0; text-align:left'>
-                          ".__('Creando Tablas y Redireccionando a Configuración Inicial..','envialo-simple')."
+                          " . __('Creando Tablas y Redireccionando a Configuración Inicial..', 'envialo-simple') . "
                       </div>
                        <script>
                            window.location = '{$amindURL}admin.php?page=envialo-simple-configuracion&setup=true'
                        </script>";
             }
-            exit(); 
+            exit();
         }
     }
-    
-    
-    function eliminarTablaBD(){
-                    
-         if($this->tablasCreadas()){
+
+    function eliminarTablaBD() {
+        if ($this->tablasCreadas()) {
             global $wpdb;
             $nombre_tabla = $wpdb->prefix . TABLA_CLAVES;
             $sql = "DROP TABLE {$nombre_tabla};";
-            $wpdb->query($sql);     
-         }
-        
+            $wpdb->query($sql);
+        }
     }
 
     function crearTablaClavesBD() {
@@ -94,7 +85,6 @@ class EnvialoSimple extends Curl{
                   `Enabled` INT(1) NULL,
                   PRIMARY KEY (`idClave`)
                 );";
-
         require_once (ABSPATH . 'wp-admin/includes/upgrade.php');
         dbDelta($sql);
     }
@@ -141,12 +131,12 @@ class EnvialoSimple extends Curl{
     /**
      * Recupera los Post del Blog
      *
-     * @return string 
+     * @return string
      * @param $parametros["category"]
      * @param $parametros["numberposts"]
      * @param $parametros[" offset"]
      */
-    function mostrarPostsWP($category,$numberposts,$offset) {
+    function mostrarPostsWP($category, $numberposts, $offset) {
         $parametros = array();
         $parametros["orderby"] = "post_date";
         $parametros["order"] = "DESC";
@@ -155,7 +145,6 @@ class EnvialoSimple extends Curl{
         $parametros["post_status"] = "publish";
         $parametros["category"] = $category;
         $parametros["numberposts"] = $numberposts;
-        
         $posts = get_posts($parametros);
         $html = "";
         $i = 1;
@@ -173,7 +162,7 @@ class EnvialoSimple extends Curl{
             } else {
                 $htmlImg .= '<div><img src="' . plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/300x200.jpg') . '" alt="" height="150" width="150" /></a></div>';
             }
-            $postContentResumido =  wp_trim_words($p->post_content, 30, "...<br /><a target='_blank' style='text-decoration:underline' class='ver-mas-post' href='{$p->guid}'>".__('Ver Más','envialo-simple')."</a><br /><br />");
+            $postContentResumido = wp_trim_words($p->post_content, 30, "...<br /><a target='_blank' style='text-decoration:underline' class='ver-mas-post' href='{$p->guid}'>" . __('Ver Más', 'envialo-simple') . "</a><br /><br />");
             $html .= "  <div class='post'>
                             <div class='contenedor-checkbox-post fl'>
                                 <input type='checkbox' name='{$p->ID}' class='checkbox-post' />
@@ -233,11 +222,10 @@ class EnvialoSimple extends Curl{
      *
      * @return mixed
      */
-
     function traerEnviosDisponibles() {
         $respuesta = json_decode($this->curlJson('', URL_BASE_API . "/administrator/status"), TRUE);
         if (!$respuesta["root"]["ajaxResponse"]["success"]) {
-            $this->errorMsg = __('No se puedo recuperar los creditos disponibles:','envialo-simple');
+            $this->errorMsg = __('No se puedo recuperar los creditos disponibles:', 'envialo-simple');
             return false;
         }
         $result = array();
@@ -246,7 +234,6 @@ class EnvialoSimple extends Curl{
         $result['credits'] = $respuesta["root"]["ajaxResponse"]["credits"];
         return $result;
     }
-
 
     /**
      * Recupera los precios de los envios segun el pais del usuario
@@ -258,13 +245,13 @@ class EnvialoSimple extends Curl{
         $respuesta = json_decode($this->curlJson(array($APIKey), URL_BASE_API . "/administrator/status"), TRUE);
         if (isset($respuesta["root"]["ajaxResponse"]["success"])) {
             $r = $respuesta["root"]["ajaxResponse"];
-            $html = "<form method='post' id='form-comprar-envios' action='#'>	
+            $html = "<form method='post' id='form-comprar-envios' action='#'>
 					<input type='hidden' name='codigoPais' value='{$r['userinfo']['priceList']['country']['codigoPais']}'/>
 					<table id='tabla-precios-envios'>
 						<thead>
 							<tr>
-								<td style='width: 300px;font-weight: bold;'>".__('Cantidad de Envíos','envialo-simple')."</td>
-								<td style='font-weight: bold'>".__('Precio Paquete','envialo-simple')."</td>
+								<td style='width: 300px;font-weight: bold;'>" . __('Cantidad de Envíos', 'envialo-simple') . "</td>
+								<td style='font-weight: bold'>" . __('Precio Paquete', 'envialo-simple') . "</td>
 							</tr>
 						</thead>
 						<tbody>";
@@ -282,18 +269,17 @@ class EnvialoSimple extends Curl{
                 $i++;
             }
             $html .= "</tbody></table>
-				<input type='submit' id='comprar-envios' class='button-primary' value='".__('Comprar Envíos','envialo-simple')."'/>
+				<input type='submit' id='comprar-envios' class='button-primary' value='" . __('Comprar Envíos', 'envialo-simple') . "'/>
 					</form>";
             return $html;
         } else {
-            return __('Error al Traer los Precios','envialo-simple');
+            return __('Error al Traer los Precios', 'envialo-simple');
         }
     }
 
     function traerCategoriasPlantillas() {
         $parametros = array();
         $respuesta = json_decode($this->curlJson($parametros, URL_BASE_API . "/content/templatecategories"), TRUE);
-
         if ($respuesta["root"]["ajaxResponse"]["success"]) {
             return $respuesta["root"]["ajaxResponse"];
         } else {
@@ -301,31 +287,26 @@ class EnvialoSimple extends Curl{
         }
     }
 
-    function traerPlantillas($limit, $retrieveList, $offset, $filterListByCategory,$filterListByCategory2) {
-
+    function traerPlantillas($limit, $retrieveList, $offset, $filterListByCategory, $filterListByCategory2) {
         $parametros = array();
         $parametros["retrieveList"] = $retrieveList;
         $parametros["limit"] = $limit / 1;
         $parametros["offset"] = $offset / 1;
-
         if (isset($filterListByCategory[0]) && $filterListByCategory[0] != 0) {
             $parametros["filterListByCategory"] = $filterListByCategory;
         }
         if (isset($filterListByCategory[0]) && $filterListByCategory2[0] != 0) {
             $parametros["filterListByCategory2"] = $filterListByCategory2;
         }
-
         $respuesta = json_decode($this->curlJson($parametros, URL_BASE_API . "/content/gallery/format/json"), TRUE);
-
         if (isset($respuesta["root"]["ajaxResponse"]["success"])) {
             return $respuesta["root"]["ajaxResponse"];
         } else {
             return array("success" => FALSE);
         }
-
     }
 
-    function mostrarPlantillas($limit = 9, $retrieveList = "defaulTemplates", $offset = 0, $filterListByCategory = array(),$filterListByCategory2 = array()) {
+    function mostrarPlantillas($limit = 9, $retrieveList = "defaulTemplates", $offset = 0, $filterListByCategory = array(), $filterListByCategory2 = array()) {
         $respuesta = $this->traerCategoriasPlantillas();
         $categorias = $respuesta["list"]["category"];
         $colores = $respuesta["list"]["color"];
@@ -335,32 +316,31 @@ class EnvialoSimple extends Curl{
             if (isset($filterListByCategory[0]) && $filterListByCategory[0] == $cat["CategoryID"]) {
                 $sel = "selected = 'selected'";
             }
-
             $htmlCat .= "<option {$sel} value='{$cat["CategoryID"]}'>{$cat["NameToken"]}</option>";
         }
         $htmlCol = "";
         foreach ($colores as $cat) {
             $sel = "";
-            if (isset($filterListByCategory[0]) &&  $filterListByCategory[0] == $cat["CategoryID"]) {
+            if (isset($filterListByCategory[0]) && $filterListByCategory[0] == $cat["CategoryID"]) {
                 $sel = "selected=selected";
             }
             $htmlCol .= "<option {$sel} value = '{$cat["CategoryID"]}' > {$cat["NameToken"]} </option>";
         }
-        $plantillas = $this->traerPlantillas($limit, $retrieveList, $offset, $filterListByCategory,$filterListByCategory2);
+        $plantillas = $this->traerPlantillas($limit, $retrieveList, $offset, $filterListByCategory, $filterListByCategory2);
         if (isset($plantillas["success"]) && $plantillas["success"]) {
             $html = "<div id='filtros-plantillas'>
-                         <label>".__('Filtrar por Categorías','envialo-simple')."</label>
+                         <label>" . __('Filtrar por Categorías', 'envialo-simple') . "</label>
                          <select class='select-categorias'>
-                            <option value='0'>".__('Seleccionar..','envialo-simple')."</option>
+                            <option value='0'>" . __('Seleccionar..', 'envialo-simple') . "</option>
                             {$htmlCat}
                         </select>
                         &nbsp;&nbsp;
-                        <label>".__('Filtrar por Color','envialo-simple')."</label>
+                        <label>" . __('Filtrar por Color', 'envialo-simple') . "</label>
                         <select class='select-categorias'>
-                            <option value='0'>".__('Seleccionar..','envialo-simple')."</option>
+                            <option value='0'>" . __('Seleccionar..', 'envialo-simple') . "</option>
                             {$htmlCol}
                         </select>
-                         <div class='button-secondary' style='float: right;margin-right: 10px;margin-top: 2px;' id='cerrar-modal-plantillas'>".__('Cancelar','envialo-simple')."</div>
+                         <div class='button-secondary' style='float: right;margin-right: 10px;margin-top: 2px;' id='cerrar-modal-plantillas'>" . __('Cancelar', 'envialo-simple') . "</div>
                     </div>
                     <div id='tabla-plantillas'>
                         <table name='wp-list-table widefat fixed posts'>
@@ -369,7 +349,7 @@ class EnvialoSimple extends Curl{
                                     <td>
                                         <a class='plantilla-click' name='0000_new-blank_600px' href='#' >
                                             <div class='plantilla' >
-                                                <div id='plantilla-blanco'>".__('En Blanco','envialo-simple')."</div>
+                                                <div id='plantilla-blanco'>" . __('En Blanco', 'envialo-simple') . "</div>
                                                 <br />
                                             </div>
                                         </a>
@@ -388,12 +368,12 @@ class EnvialoSimple extends Curl{
                                         </a>
                                     </td>";
                 if ($i % 5 == 0) {
-                    $html.= "   </tr>
+                    $html .= "   </tr>
                                 <tr>";
                 }
                 $i++;
             }
-            $html.= "           </tr>
+            $html .= "           </tr>
                             </tbody>
                         </table>
                     </div>";
@@ -401,9 +381,7 @@ class EnvialoSimple extends Curl{
                 //pagino
                 $totalPaginas = round($plantillas["totalTemplates"] / 9);
                 $pagActual = $offset / 9;
-
                 $html .= "<div id='paginador-plantillas'>";
-
                 if ($pagActual > 0) {
                     $pagAnterior = $pagActual - 1;
                     $html .= "<span class='pag-plantilla' name='{$pagAnterior}'> < </span>";
@@ -424,17 +402,16 @@ class EnvialoSimple extends Curl{
             }
             return $html;
         } else {
-            return __('Error al Traer las Plantillas','envialo-simple');
+            return __('Error al Traer las Plantillas', 'envialo-simple');
         }
     }
 
     /**
      * Comprueba que la APIKey funcione
      *
-     * @return mixed  
+     * @return mixed
      */
     function testToken() {
-        
         $resultado = json_decode($this->curlJson("", URL_BASE_API . "/maillist/list/format/json"), TRUE);
         $resultado = $resultado["root"]["ajaxResponse"];
         if (array_key_exists("success", $resultado) && $resultado["success"]) {
@@ -467,104 +444,78 @@ class EnvialoSimple extends Curl{
      *
      * @return string
      * @param EmailAddress
-     * @param Name     
+     * @param Name
      */
-    function agregarEmailAdministrador($EmailAddress,$Name) {
-        
+    function agregarEmailAdministrador($EmailAddress, $Name) {
         $parametros = array();
-        $parametros["EmailAddress"]= $EmailAddress;
-        $parametros["Name"]= stripslashes($Name);
-        
+        $parametros["EmailAddress"] = $EmailAddress;
+        $parametros["Name"] = stripslashes($Name);
         return $this->curlJson($parametros, URL_BASE_API . '/administratoremail/edit/format/json/');
     }
-    
-    
+
     /**
      * recuperar los campos personalizados del usuario
      *
-     * @return array     
+     * @return array
      */
-    function traerCamposPersonalizados(){       
-        
-        $respuesta = json_decode($this->curlJson(array(), URL_BASE_API . '/customfield/list/format/json'),TRUE);
-       
-        if(isset($respuesta["root"]["ajaxResponse"]["success"])){             
+    function traerCamposPersonalizados() {
+        $respuesta = json_decode($this->curlJson(array(), URL_BASE_API . '/customfield/list/format/json'), TRUE);
+        if (isset($respuesta["root"]["ajaxResponse"]["success"])) {
             return $respuesta["root"]["ajaxResponse"]["list"];
-            
-        }else{
+        } else {
             return array();
         }
-                
     }
-    
-    function agregarCampoPersonalizado($Title,$FieldType,$Validation,$ItemsIsMultipleSelect,$DefaultValue = NULL,$ItemsValues = NULL,$ItemsNames){
-            
-        
+
+    function agregarCampoPersonalizado($Title, $FieldType, $Validation, $ItemsIsMultipleSelect, $DefaultValue = NULL, $ItemsValues = NULL, $ItemsNames) {
         $parametros = array();
         $parametros['Title'] = $Title;
         $parametros['FieldType'] = $FieldType;
         $parametros['Validation'] = $Validation;
         $parametros['ItemsValues'] = $ItemsValues;
-        $parametros['ItemsNames'] = $ItemsNames;        
-        $parametros['ItemsIsMultipleSelect'] = $ItemsIsMultipleSelect;        
+        $parametros['ItemsNames'] = $ItemsNames;
+        $parametros['ItemsIsMultipleSelect'] = $ItemsIsMultipleSelect;
         $parametros['DefaultValue'] = $DefaultValue;
-        
-       
-        $respuesta = json_decode($this->curlJson($parametros, URL_BASE_API."/customfield/edit/format/json"),TRUE);
-        
-        if(isset($respuesta['root']['ajaxResponse']['success'])){            
-            
+        $respuesta = json_decode($this->curlJson($parametros, URL_BASE_API . "/customfield/edit/format/json"), TRUE);
+        if (isset($respuesta['root']['ajaxResponse']['success'])) {
             return $respuesta['root']['ajaxResponse']['customField'];
-            
-        }else{
+        } else {
             return array();
         }
-        
-        
-        
-    }    
-        
-        
-    function mostrarCamposPersonalizadosForm(){
-         $campos = $this->traerCamposPersonalizados();
-             
-        if(!empty($campos)){
+    }
+
+    function mostrarCamposPersonalizadosForm() {
+        $campos = $this->traerCamposPersonalizados();
+        if (!empty($campos)) {
             $html = "";
-                                                           
             foreach ($campos['item'] as $c) {
-                
                 $c['Validation'] = str_replace(" ", "", $c['Validation']);
                 $html .= "<label>{$c['Title']}:<br />
                             <input type='text' class='{$c['Validation']}' name='{$c['CustomFieldID']}' />
                           </label><br />";
-            }            
+            }
             return $html;
-        
-        }else{            
+        } else {
             return "Error al Recuperar los Campos Personalizados";
-        }        
-    }    
-    
-    function mostrarCamposPersonalizados($camposExistentes = array()){
-            $html = "";   
-            $campos = $this->traerCamposPersonalizados();              
-            
-            //echo json_encode($campos);
-            
-            if(!empty($camposExistentes)){
-                
-                foreach ($camposExistentes as $c) {
-                $i = 0; 
-                
-                foreach($campos['item'] as $campo){
-                    if($campo['CustomFieldID'] == $c){
-                        break;    
-                    }else{
+        }
+    }
+
+    function mostrarCamposPersonalizados($camposExistentes = array()) {
+        $html = "";
+        $campos = $this->traerCamposPersonalizados();
+        //echo json_encode($campos);
+        if (!empty($camposExistentes)) {
+            foreach ($camposExistentes as $c) {
+                $i = 0;
+                foreach ($campos['item'] as $campo) {
+                    if ($campo['CustomFieldID'] == $c) {
+                        break;
+                    } else {
                         $i++;
-                    }                    
-                }                
-                $html .= "<tr>  
-                              <td></td>                              
+                    }
+                }
+                $html .= "<tr>
+                              <td></td>
                               <td>
                                   <select name='CustomFieldsIds[]'>
                                   <option value='{$c}'>{$campos['item'][$i]['Title']}</option>
@@ -573,66 +524,42 @@ class EnvialoSimple extends Curl{
                                <td>
                                    <span class='campo-nuevo eliminar' style='display:block;width:10px;' name='eliminar-x'>X</span>
                                </td>
-                           </tr>";                           
-                                                
-                }
-                
+                           </tr>";
             }
-            
-        
+        }
         return $html;
     }
-    
-    
-    function mostrarCampoPersonalizado($camposExistentes = array()){
-                
-        $campos = $this->traerCamposPersonalizados();       
-   
-            
-        if(!empty($campos)){
-            $html = "<tr>  
-                  <td></td>                              
+
+    function mostrarCampoPersonalizado($camposExistentes = array()) {
+        $campos = $this->traerCamposPersonalizados();
+        if (!empty($campos)) {
+            $html = "<tr>
+                  <td></td>
                      <td>
                       <select name='CustomFieldsIds[]'>
-                      <option value='0'>".__('Seleccionar..','envialo-simple')."</option>";
-                      
-     
-                                                           
-          
-                
-                if(!empty($camposExistentes)){
-                    
-                    foreach ($campos['item'] as $c) {                    
-                        
-                        if(!in_array($c['CustomFieldID'], $camposExistentes)){
-                              $html .= "<option value='{$c['CustomFieldID']}' >{$c['Title']}</option>";
-                        }                          
-                     }
-                    
-                }else{
-                      foreach ($campos['item'] as $c) {
+                      <option value='0'>" . __('Seleccionar..', 'envialo-simple') . "</option>";
+            if (!empty($camposExistentes)) {
+                foreach ($campos['item'] as $c) {
+                    if (!in_array($c['CustomFieldID'], $camposExistentes)) {
                         $html .= "<option value='{$c['CustomFieldID']}' >{$c['Title']}</option>";
-                      }
-                }      
-                   
-                           
-                                     
+                    }
+                }
+            } else {
+                foreach ($campos['item'] as $c) {
+                    $html .= "<option value='{$c['CustomFieldID']}' >{$c['Title']}</option>";
+                }
+            }
             $html .= "<option class='selectCrear' value='-1'>+ Crear Nuevo Campo...</option>
-                        </select>                                     
-                          </td>                                              
+                        </select>
+                          </td>
                         <td>
                             <span class='campo-nuevo eliminar' style='display:block' name='eliminar-x'>X</span>
-                        </td>    
+                        </td>
                        </tr>  ";
-                return $html;
-        
-        }else{
-            
+            return $html;
+        } else {
             return "Error al Recuperar los Campos Personalizados";
         }
-                
-        
-        
     }
 
     /**
@@ -651,11 +578,18 @@ class EnvialoSimple extends Curl{
         curl_setopt($this->curlChannel, CURLOPT_POST, 1);
         $response = curl_exec($this->curlChannel);
         $jsonResponse = json_decode($response, true);
-        
-        if (!$jsonResponse['root']['ajaxResponse']['result']) {
-            return false;
+
+        if (curl_errno($this->curlChannel)) {
+            $curl_errno = curl_errno($this->curlChannel);
+            $curl_error = curl_error($this->curlChannel);
+            $error = "curl_errno: {$curl_errno} | curl_error: {$curl_error}";
+            return array(FALSE, $error);
         }
-        return true;
+
+        if (!$jsonResponse['root']['ajaxResponse']['result']) {
+            return array(FALSE);
+        }
+        return array(TRUE);
     }
 
     function logoutEnvialosimple() {
@@ -672,7 +606,6 @@ class EnvialoSimple extends Curl{
         curl_setopt($this->curlChannel, CURLOPT_HTTPGET, 1);
         curl_setopt($this->curlChannel, CURLOPT_URL, URL_BASE_API . "/key/list/format/json");
         $resultado = curl_exec($this->curlChannel);
-
         $jsonVar = json_decode($resultado, TRUE);
         if (empty($jsonVar["root"]["ajaxResponse"]["userinfo"]["Username"])) {
             $this->errorMsg = 'Error de Logueo';
@@ -742,47 +675,36 @@ class EnvialoSimple extends Curl{
         return $result;
     }
 
-
-    function dejarFeedback($mensaje){
+    function dejarFeedback($mensaje) {
         $parametros = array();
         $parametros['feedback'] = $mensaje;
-        
-        $respuesta = json_decode($this->curlJson($parametros, URL_BASE_API."/administrator/feedback/format/json"),TRUE);
-        if(isset($respuesta['root']['ajaxResponse']['success'])){            
-            return $respuesta;            
-        }else{
+        $respuesta = json_decode($this->curlJson($parametros, URL_BASE_API . "/administrator/feedback/format/json"), TRUE);
+        if (isset($respuesta['root']['ajaxResponse']['success'])) {
+            return $respuesta;
+        } else {
             $respuesta = array();
             $respuesta['root']['ajaxResponse']['success'] = FALSE;
             return $respuesta;
         }
-        
     }
 
- 
-
     function error($mensaje, $parametrosAdicionales = NULL) {
-
         $error = array();
         $error["success"] = FALSE;
         $error["mensaje"] = $mensaje;
-
         if (!is_null($parametrosAdicionales)) {
             $error = array_merge($error, $parametrosAdicionales);
         }
-
         return json_encode($error);
-
     }
 
     function exito($mensaje, $parametros) {
-
         $exito = array();
         $exito["success"] = TRUE;
         $exito["mensaje"] = $mensaje;
         $exito = array_merge($exito, $parametros);
         return json_encode($exito);
     }
-  
 
 }
 ?>

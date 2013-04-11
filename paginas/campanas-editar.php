@@ -4,83 +4,83 @@
 	include_once(ENVIALO_DIR."/clases/Campanas.php");
 	include_once(ENVIALO_DIR."/clases/Contactos.php");
 
-        
+
 	function isCheck($valor){
 		if($valor){
 			return "checked='checked'";
 		}else{
 			return "";
 		}
-        
-	}       
+
+	}
 
 	$ev = new EnvialoSimple();
 	$ev->checkSetup();
-    $ca = new Campanas();    
-    
+    $ca = new Campanas();
 
-        
+
+
 	//click desde la lista
 	if(isset($_GET["idCampana"])){
 		$idCampana = filter_var($_GET["idCampana"],FILTER_SANITIZE_NUMBER_INT);
-        
+
 		$camp = $ca->traerCampana($idCampana);
-    
+
 		if(isset($camp["success"])){
-			$c = $camp["campaign"];            
+			$c = $camp["campaign"];
             if($c["From"]["EmailID"] != $c["ReplyTo"]["EmailID"]){
                 $c["responder-check"] = 1;
             }
-            
-		}else{			
-            $msg = "<p>"._e("No se puede establecer la conexión con el servidor.","envialo-simple")."</p>                    
-                    <p><a href='#' class='button-primary'>"._e('Vuelva a intentarlo','envialo-simple')."</a></p>";            									
+
+		}else{
+            $msg = "<p>"._e("No se puede establecer la conexión con el servidor.","envialo-simple")."</p>
+                    <p><a href='#' class='button-primary'>"._e('Vuelva a intentarlo','envialo-simple')."</a></p>";
 			echo $msg;
 			die();
 		}
-		
-		
+
+
         $c["Name"] = isset($_POST["CampaignName"]) ? $_POST["CampaignName"] : $c["Name"] ;
         $c["From"]["EmailID"] = isset($_POST["FromID"])? $_POST["FromID"] : $c["From"]["EmailID"];
-       
+
         $c["ReplyTo"]["EmailID"] = isset($_POST["ReplyToID"])?$_POST["ReplyToID"]:$c["ReplyTo"]["EmailID"];
         $c["SendStateReport"] = isset($_POST["SendStateReport"])? $_POST["SendStateReport"]:  $c["SendStateReport"];
         $c["AddToPublicArchive"]= isset($_POST["AddToPublicArchive"])?$_POST["AddToPublicArchive"]:$c["AddToPublicArchive"];
-        $c["contenidoAnterior"] = isset($_POST["contenidoAnterior"]) ? TRUE : FALSE; 
-        
-        
+        $c["contenidoAnterior"] = isset($_POST["contenidoAnterior"]) ? TRUE : FALSE;
+
+
         if(isset($_POST["changeScheduling"])){
-            
+
             if(!isset($_POST["changeScheduling"]) || $_POST["changeScheduling"] == 0){
                 //Envío Ahora
                 $c["schedule"]["ScheduleType"] = "Send Now";
                 $c["schedule"]["ScheduleSendDate"] = "0000-00-00 00:00:00";
             }elseif($_POST["changeScheduling"] == 1){
                 //Programo envío
-                $c["schedule"]["ScheduleType"] = "One time scheduled";                                
+                $c["schedule"]["ScheduleType"] = "One time scheduled";
                 list($day, $month, $year) = sscanf($_POST["SchedulingDate"], '%02d/%02d/%04d');
-                $fecha = $year."-".$month."-".$day;                
+                $fecha = $year."-".$month."-".$day;
                 $c["schedule"]["ScheduleSendDate"]= $fecha." ".$_POST["SchedulingHour"].":".$_POST["SchedulingMinute"].":00";
             }elseif($_POST["changeScheduling"] == 2){
                 //no programo envio
                 $c["schedule"]["ScheduleType"] = "Not scheduled";
                 $c["schedule"]["ScheduleSendDate"] = "0000-00-00 00:00:00";
             }
-            
+
         }
-        
-        
-        
+
+
+
         $c["Subject"] = isset($_POST["CampaignSubject"])?$_POST["CampaignSubject"]:$c["Subject"];
         $c["TrackLinkClicks"] = isset($_POST["TrackLinkClicks"])?$_POST["TrackLinkClicks"] : $c["TrackLinkClicks"];
         $c["TrackReads"] = isset($_POST["TrackReads"])?$_POST["TrackReads"]:$c["TrackReads"];
         $c["TrackAnalitics"] = isset($_POST["TrackAnalitics"])?$_POST["TrackAnalitics"]:$c["TrackAnalitics"];
-        
-        
-        
+
+
+
         if(isset($_POST["MailListsIds"])){
              $c["maillists"]["count"] = isset($_POST["MailListsIds"])?count($_POST["MailListsIds"]):$c["maillists"]["count"];
-        
+
             if($c["maillists"]["count"]){
                 $listas = array();
                 foreach ($_POST["MailListsIds"] as $id) {
@@ -89,10 +89,10 @@
                 $c["maillists"]["rows"] = $listas;
             }
         }
-        
+
         $c["responder-check"] = isset($_POST["responder-check"])?1:0;
-		
-		        
+
+
 	}else{
 		//Cuando es nueva
 		$c = array();
@@ -105,7 +105,7 @@
 		$c["ReplyTo"]["EmailID"] = isset($_POST["ReplyToID"])?$_POST["ReplyToID"]:0;
 		$c["SendStateReport"] = isset($_POST["SendStateReport"])? $_POST["SendStateReport"]:1;
 		$c["AddToPublicArchive"]= isset($_POST["AddToPublicArchive"])?$_POST["AddToPublicArchive"]:0;
-        $c["contenidoAnterior"] = isset($_POST["contenidoAnterior"]) ? TRUE : FALSE; 
+        $c["contenidoAnterior"] = isset($_POST["contenidoAnterior"]) ? TRUE : FALSE;
 		if(!isset($_POST["changeScheduling"]) || $_POST["changeScheduling"] == 0){
 			//Envío Ahora
 			$c["schedule"]["ScheduleType"] = "Send Now";
@@ -113,18 +113,18 @@
 		}elseif($_POST["changeScheduling"] == 1){
 			//Programo envío
 			$c["schedule"]["ScheduleType"] = "One time scheduled";
-					
+
 		    list($day, $month, $year) = sscanf($_POST["SchedulingDate"], '%02d/%02d/%04d');
-            	
-            $fecha =  $year."-".$month."-".$day;	
-			
+
+            $fecha =  $year."-".$month."-".$day;
+
 			$c["schedule"]["ScheduleSendDate"]= $fecha." ".$_POST["SchedulingHour"].":".$_POST["SchedulingMinute"].":00";
 		}elseif($_POST["changeScheduling"] == 2){
 			//no programo envio
 			$c["schedule"]["ScheduleType"] = "Not scheduled";
 			$c["schedule"]["ScheduleSendDate"] = "0000-00-00 00:00:00";
 		}
-        
+
 		$c["Subject"] = isset($_POST["CampaignSubject"])?$_POST["CampaignSubject"]:'';
 		$c["TrackLinkClicks"] = isset($_POST["TrackLinkClicks"])?$_POST["TrackLinkClicks"] : 1;
 		$c["TrackReads"] = isset($_POST["TrackReads"])?$_POST["TrackReads"]:1;
@@ -138,9 +138,9 @@
 			}
 			$c["maillists"]["rows"] = $listas;
 		}
-        
-        
-        
+
+
+
         $c["responder-check"] = isset($_POST["responder-check"])?1:0;
 	}
     include_once(ENVIALO_DIR."/paginas/header.php");
@@ -150,16 +150,16 @@
 	if(isset($_POST['idPlantilla']) && $_POST['idPlantilla']){
 		$idPlantilla = $_POST["idPlantilla"];
 		$template = utf8_encode(file_get_contents("http://v2.envialosimple.com/mailing_templates/".$idPlantilla."/content.htm"));
-		
+
 	}else{
-	    
+
         if($c["contenidoAnterior"]){
-            
+
             $template = stripslashes($_POST["contenidoAnterior"]);
-            
+
         }elseif(isset($c["Content"]) && $c["Content"]){
 			$template = $ca->traerCuerpoCampana($idCampana);
-			            
+
 		}else{
 			$seleccionarPlantilla = TRUE;
 		}
@@ -170,64 +170,64 @@
     <link rel="stylesheet"  href="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/css/jquery.wysiwyg.css"); ?>" type="text/css" media="all" />
     <link rel="stylesheet"  href="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/css/jPicker-1.1.6.css"); ?>" type="text/css" media="all" />
     <link rel="stylesheet"  href="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/css/common.combined.css"); ?>" type="text/css" media="all" />
-    
- 
-    <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/common.combined.js"); ?>"></script> 
+
+
+    <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/common.combined.js"); ?>"></script>
     <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/contentEditor.js"); ?>"></script>
     <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/contentEdit.js"); ?>"></script>
     <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/jquery.wysiwyg.js"); ?>"></script>
     <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/bootstrap.js"); ?>"></script>
-    <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/simplemodal.1.4.3.js"); ?>"></script>       
+    <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/simplemodal.1.4.3.js"); ?>"></script>
     <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/wysiwygExtras.js"); ?>"></script>
-    <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/getText.js"); ?>"></script>    
-    
-    <?php 
+    <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/getText.js"); ?>"></script>
+
+    <?php
         $locale = substr(get_locale(), 0,2);
         switch ($locale) {
             case 'es':
                 $urlLoc = "envialosimple-email-marketing-y-newsletters-gratis/languages/es.json";
                 break;
-                
+
             case 'pt':
-                $urlLoc = "envialosimple-email-marketing-y-newsletters-gratis/languages/pt.json";                
-                break;    
-            
-            case 'en':
-                $urlLoc = "envialosimple-email-marketing-y-newsletters-gratis/languages/en.json";                
+                $urlLoc = "envialosimple-email-marketing-y-newsletters-gratis/languages/pt.json";
                 break;
-            
-            default:                
-                break;                
-        }  
-    
+
+            case 'en':
+                $urlLoc = "envialosimple-email-marketing-y-newsletters-gratis/languages/en.json";
+                break;
+
+            default:
+                break;
+        }
+
     ?>
-    
-    <script type="text/javascript"  src="<?php echo  plugins_url($urlLoc); ?>"></script>    
-    
-    <script xmlns="" language="javascript" type="text/javascript">     
-    
+
+    <script type="text/javascript"  src="<?php echo  plugins_url($urlLoc); ?>"></script>
+
+    <script xmlns="" language="javascript" type="text/javascript">
+
         var locale = "<?php echo $locale; ?>"
-    
-                 
+
+
         TemplateEditor.setCurrentRecordID(jQuery('input#currentRecordID').val());
-        
+
         var alertarPageLeave = <?php echo $alertarPageLeave?>;
-     
+
         jQuery(window).bind('beforeunload', function() {
-            
+
             if (alertarPageLeave) {
                 return '<?php _e('Al abandonar ésta página, se perderán todos los cambios no guardados.','envialo-simple'); ?>';
             } else {
                 return;
-            } 
-       });            
-       
-       jQuery(window).bind('keypress',function(event){           
+            }
+       });
+
+       jQuery(window).bind('keypress',function(event){
            alertarPageLeave = true;
-       });   
-       
-       
-       
+       });
+
+
+
        /**
          * Translation
          *
@@ -236,15 +236,15 @@
          *
          * @Ver http://jsgettext.berlios.de/doc/html/Gettext.html para mas info de Gettext
          */
-        
-        
+
+
         var params = {
             "domain" : 'javascript-'+locale,
             "locale_data" : json_locale_data
         };
         var gt = new Gettext(params);
-        
-        
+
+
         /**
          * @param {String} term
          * @param {Boolean} override
@@ -252,29 +252,29 @@
          *
          */
         function __(term, override){
-            
+
             term = term ? jQuery.trim(term) : '';
             override = override || false;
-            
+
             if(override){
                 return term;
             }
-            
+
             var messageTranslated = gt.gettext(term)
             , exeptionsList;
-        
+
             if((term.substring(0, 9) === "errorMsg_" || locale !== 'es' ) && messageTranslated === term)
             {
-                    
+
                 exeptionsList = ['clicks', 'e-mail', 'etc', 'password', 'spam rating'
                                 , 'info:', 'info', 'no', 'video tutorial', '¡email marketing!'
                                 , 'error', 'ok', 'robot', 'hexadecimal', 'links', 'zen', 'spa'
                                 , 'simple', 'retro', 'newsletter', 'hotel', 'call center'
                                 , 'general', 'url', 'editor', 'email'
-                                ];            
-                    
+                                ];
+
               }
-        
+
             return messageTranslated;
         }
 
@@ -283,7 +283,7 @@
     <script type="text/javascript"  src="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/js/jpicker-1.1.6.js"); ?>"></script>
 
 
-<div class="wrap">        
+<div class="wrap">
 		<div id="msj-respuesta" class="mensaje" style="width: 55%">
 		</div>
 		  <form id="form-editar-campana" action="#" method="post">
@@ -291,7 +291,7 @@
 		          <div id="post-body" class="metabox-holder columns-2" style="margin-right: 300px;" >
 
 		              <div id="post-body-content" style="width: 100%;float: left;">
-		                  
+
 		                  <div id="currentTemplateInfo">
                             <input type="hidden" value="" name="currentTemplateURL">
                             <input type="hidden" value="" name="currentTemplateAdvanceEditable">
@@ -302,7 +302,7 @@
                         <table class="form-table">
                         <tbody>
                             <input name="CampaignName" type="hidden" id="CampaignName" style="width: 270px" value="<?php echo $c["Name"];?>" class="regular-text validar">
-                           
+
                             <tr valign="top">
                                 <th scope="row"><label for="CampaignSubject"><?php _e('Asunto del Mensaje','envialo-simple') ?> </label></th>
                                 <td>
@@ -312,10 +312,10 @@
                             <tr valign="top">
                                 <th scope="row"><label for="FromID"><?php _e('Remitente','envialo-simple') ?></label></th>
                                 <td>
-                                <select name="FromID" id="FromID">            
+                                <select name="FromID" id="FromID">
                                     <?php
-                                            $emailsAdmin = $ev->obtenerEmailAdministrador();            
-                                            foreach ($emailsAdmin["item"] as $e) {            
+                                            $emailsAdmin = $ev->obtenerEmailAdministrador();
+                                            foreach ($emailsAdmin["item"] as $e) {
                                                 if($c["From"]["EmailID"] == $e["EmailID"] ){
                                                     echo "<option selected='selected' value='{$e['EmailID']}'>{$e['Name']} ({$e['EmailAddress']}) </option>";
                                                 }else{
@@ -326,7 +326,7 @@
                                 <option value="agregar" class="selectCrear"><?php _e('+ Agregar Nuevo Email ..','envialo-simple') ?> </option>
                                 </select>   <br />
                                     <div id="responder-contenedor" style="margin: 5px 0 0 5px;">
-                                        <input type="checkbox" name="responder-check" id="responder-check" style="margin-right: 5px;" <?php echo isCheck($c["responder-check"]);?>   /> 
+                                        <input type="checkbox" name="responder-check" id="responder-check" style="margin-right: 5px;" <?php echo isCheck($c["responder-check"]);?>   />
                                         <label for="responder-check"><?php _e('Utilizar una direcci&oacute;n de respuesta distinta','envialo-simple'); ?> </label>
                                     </div>
                                  </td>
@@ -335,11 +335,11 @@
                                 <th scope="row"><label for="ReplyToID"><?php _e('Responder a','envialo-simple') ?>  </label></th>
                                 <td>
                                 <select name="ReplyToID" id="ReplyToID">
-            
+
                                         <?php
                                             $emailsAdmin = $ev->obtenerEmailAdministrador();
-            
-                                            foreach ($emailsAdmin["item"] as $e) {            
+
+                                            foreach ($emailsAdmin["item"] as $e) {
                                                 if($c['ReplyTo']['EmailID'] == $e['EmailID'] ){
                                                     echo "<option selected='selected' value='{$e['EmailID']}'>{$e['Name']} ({$e['EmailAddress']}) </option>";
                                                 }else{
@@ -347,72 +347,89 @@
                                                 }
                                             }
                                          ?>
-                                    <option value="agregar" class="selectCrear"><?php _e('+ Agregar Nuevo Email ..','envialo-simple') ?></option>     
+                                    <option value="agregar" class="selectCrear"><?php _e('+ Agregar Nuevo Email ..','envialo-simple') ?></option>
                                 </select></td>
                             </tr>
                             <tr>
                                 <th scope="row"><label for="MailListsIds"> <?php _e('Lista de Destinatarios','envialo-simple') ?></label></th>
                                 <td>
                                     <select name="MailListsIds[]" id="MailListsIds" style="width: 388px;" multiple="multiple" class="validar">
-            
+
                                             <?php
-            
+
                                             $co = new Contactos();
-                                            $listas = $co->listarListasContactos(-1);            
-            
-                                            if($c["maillists"]["count"] == 0){            
-                                                foreach ($listas[0]["item"] as $l) {            
+                                            $listas = $co->listarListasContactos(-1);
+
+                                            if($c["maillists"]["count"] == 0){
+                                                foreach ($listas[0]["item"] as $l) {
                                                     echo "<option value='{$l['MailListID']}'>{$l['Name']} ({$l['MemberCount']} Destinatarios)</option>";
-                                                }            
-                                            }else{            
+                                                }
+                                            }else{
                                                 foreach ($listas[0]['item'] as $l) {
-                                                    $selected = "";            
-                                                    foreach ($c['maillists']['rows'] as $listaMail) {            
+                                                    $selected = "";
+                                                    foreach ($c['maillists']['rows'] as $listaMail) {
                                                         if($listaMail['MailListID'] == $l['MailListID']){
                                                             $selected = "selected='selected'";
                                                         }
-            
+
                                                     }
                                                     echo "<option {$selected} value='{$l['MailListID']}' >{$l['Name']} ({$l['MemberCount']} Destinatarios)</option>";
-            
+
                                                 }
                                             }
-            
+
                                         ?>
-                                    </select>            
-                                </td>            
+                                    </select>
+                                </td>
                             </tr>
                     </tbody>
                 </table>
            <!-- contenido campañas-->
         <?php
-           if($seleccionarPlantilla){                
-         ?>      
-            <div id="ifr-vacio" class="abrir-modal-plantillas">                        
+           if($seleccionarPlantilla){
+         ?>
+            <div id="ifr-vacio" class="abrir-modal-plantillas">
                 <span class="abrir-modal-plantillas" > <?php _e('Click para seleccionar una plantilla y comenzar!','envialo-simple') ?> </span>
-            </div>          
-                   
+            </div>
+
         <?php
             }else{
-         ?>     
+         ?>
           <div id="postdivrich" class="postarea">
-                       
+
             <div data-containername="editorBlocksContainer" data-recordid="88">
                 <div data-containername="templateEditorRuler"><span class="ruler"></span></div>
                     <div data-containername="templateEditorContainer">
                         <div class="savingThrobber" style="display: none; "> <?php _e('Guardando','envialo-simple') ?></div>
                         <div data-containername="templateEditorThrobber" style="display: none; "><?php _e('Cargando','envialo-simple') ?></div>
-                    
+
                         <div data-containername="htmlEditorContainer">
                             <div data-containername="secondaryTemplateEditorNav" style="display:none">
                                 <div data-containername="modifyTemplateBoundaryBackgroundColor"><?php _e('Color de fondo del e-mail','envialo-simple') ?></div>
                                 <div data-containername="modifyTemplateSourceCode"><?php _e('Modificar código fuente','envialo-simple') ?></div>
                             </div>
                             <div data-containername="templateEditorBody" class="restoreNormalCss" style="display: block; ">
-                                
-                                <?php 
-                                    echo $template;                                
-                                ?>
+
+
+
+                                <!--<div class="templateBoundary" >
+                                            <table width="100%" cellspacing="0" cellpadding="0" border="0" class="tobBlock">
+                                                <tbody>
+                                                    <tr>
+                                                        <td valign="top">
+                                                        <center>
+                                                            <div class="tobEditableHtml">-->
+                                                                <?php
+                                                                    echo $template;
+                                                                ?>
+                                                            <!--</div>
+                                                        </center></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>-->
+
+
                             </div>
                         </div>
                         <div data-containername="plainTextEditorContainer">
@@ -430,15 +447,15 @@
                         </div>
                     </div>
             </div>
-                       
-             
+
+
             </div>
-             
-             
+
+
              <div id="templateEditorOriginalContent" style="display:none;">
-                
+
              </div>
-          
+
 
         <?php
         }
@@ -454,7 +471,7 @@
                     <div class="submitbox" id="submitpost">
                         <div id="minor-publishing" style="border:0">
                             <div id="minor-publishing-actions">
-                                <div id="save-action">                                   
+                                <div id="save-action">
                                     <div id="guardar-cambios-bt" style="float:left;font-weight: bold; " class="button-secondary"><?php _e('Guardar cambios','envialo-simple') ?></div>
                                 </div>
                                 <div id="preview-action">
@@ -509,28 +526,28 @@
                                       <?php
                                         $optionSelect= "";
                                         switch ($c["schedule"]["ScheduleType"]) {
-                                            case 'Send Now':                                                            
+                                            case 'Send Now':
                                                 $enviar = __('Enviar <b>Ahora</b>','envialo-simple');
                                                 $optionSelect = '
                                                 <option selected="selected" value="0" >'.__('Enviar Ahora','envialo-simple').'</option>
-                                                <option value="1">'.__('Envío Programado','envialo-simple').'</option>';                                                
+                                                <option value="1">'.__('Envío Programado','envialo-simple').'</option>';
                                                 $programado = "display:none";
                                                 break;
                                             case 'One time scheduled':
                                                 $enviar =  __('Envío <b>Programado</b>','envialo-simple');
                                                 $optionSelect = '
                                                 <option value="0" >'.__('Enviar Ahora','envialo-simple').'</option>
-                                                <option selected="selected" value="1">'.__('Envío Programado','envialo-simple').'</option>';                                                
+                                                <option selected="selected" value="1">'.__('Envío Programado','envialo-simple').'</option>';
                                                 $programado = "display:inline-block;margin: 5px 0 5px 15px;padding-left:27px;";
                                                 break;
-                                            
+
                                             default:
                                                 $enviar = __('Enviar <b>Ahora</b>','envialo-simple');
                                                 $optionSelect = '
                                                 <option selected="selected" value="0" >'.__('Enviar Ahora','envialo-simple').'</option>
-                                                <option value="1">'.__('Envío Programado','envialo-simple').'</option>';                                                
+                                                <option value="1">'.__('Envío Programado','envialo-simple').'</option>';
                                                 $programado = "display:none";
-                                                                                                
+
                                                 break;
                                         } ?>
 
@@ -567,8 +584,8 @@
                             if($c["schedule"]["ScheduleSendDate"] != "0000-00-00 00:00:00" ){
 
                                 list($year,$month,$day,$hour,$minute) = sscanf($c["schedule"]["ScheduleSendDate"], '%04d-%02d-%02d %02d:%02d:%02d');
-                                                                
-                                $dia = $day."/".$month."/".$year;                                
+
+                                $dia = $day."/".$month."/".$year;
                                 $hora = '<option value="'.$hour.'" selected="selected">'.$hour.' </option>';
                                 $min = '<option value="'.$minute.'" selected="selected">'.$minute.' </option>';
 
@@ -635,7 +652,7 @@
                             <div id="publishing-action" style="float:right">
 
                                 <?php if(!$enviada){ ?>
-                                    <a href="#" class="button-primary" id="enviar-campana-bt"  style="width: 60px;display: block;text-align: center;"><?php echo $accion; ?></a>
+                                    <a href="#" class="button-primary" id="enviar-campana-bt"  style="display: block;text-align: center;"><?php echo $accion; ?></a>
                                 <?php } ?>
                             </div>
                             <div class="clear"></div>
@@ -653,7 +670,7 @@
                                 <a style="text-decoration:none"  class="abrir-modal-plantillas" id="seleccionar-plantilla-bt" href="#">
                                     <div class="button-secondary" style="margin: 15px;text-align:center;">
                                         <?php _e('Seleccionar Otra Plantilla','envialo-simple') ?>
-                                    </div> 
+                                    </div>
                                 </a>
                      </div>
                 </div>
@@ -731,93 +748,93 @@
 
 </div><!--wrap-->
 
-    
+
 <div style="display:none">
-    
-    <div id="modal-agregar-email">        
-        <form id="form-agregar-email" action="#" method="post">            
-            <div id="label-error-mail-admin" class="mensaje"></div>            
+
+    <div id="modal-agregar-email">
+        <form id="form-agregar-email" action="#" method="post">
+            <div id="label-error-mail-admin" class="mensaje"></div>
             <label for="nombreEmailAdmin"><?php _e('Nombre:','envialo-simple') ?></label><br />
-            <input type="text"  name="nombreEmailAdmin" id="nombreEmailAdmin"/><br />            
-            
+            <input type="text"  name="nombreEmailAdmin" id="nombreEmailAdmin"/><br />
+
             <label for="emailAdmin"><?php _e('Email:','envialo-simple') ?></label><br />
-            <input type="text"  name="emailAdmin" id="emailAdmin"/><br />            
+            <input type="text"  name="emailAdmin" id="emailAdmin"/><br />
             <input type="submit" value="Agregar" class="button-primary" style="margin-top: 20px;margin-bottom: 10px;"/>
             <input type="reset" value="Cancelar" class="button-secondary" onclick='jQuery("#modal-agregar-email").dialog("close")'/>
-            
+
         </form>
-        
-        
+
+
     </div>
-    
-    <div id="modal-insertar-img">    
-        
+
+    <div id="modal-insertar-img">
+
         <iframe  style="width:660px;height:500px;" id="contenedor-wp-media"></iframe>
-        
+
     </div>
-    
-    <div id="modal-editar-img">        
-        <div class="editar-img-contenedor" >            
+
+    <div id="modal-editar-img">
+        <div class="editar-img-contenedor" >
            <div class="editar-img-campos fl">
                 <p>
                   <label><?php _e('Url de Imagen:','envialo-simple') ?></label><br />
                   <span class="fl" id="urlImagen"></span><input type="submit" style="float: left;width:100px;margin-left: 10px;" class="button-secondary" id="editar-img-cambiar" value="Cambiar Imagen" />
-                </p>  
+                </p>
                 <div style="clear:both;"></div>
                 <p>
                     <label><?php _e('Enlace:','envialo-simple') ?></label><br />
                     <input type="text" name="enlaceImagen"/>
-                </p>                
+                </p>
                 <p>
                     <label><?php _e('Texto Alternativo:','envialo-simple') ?></label><br />
                     <input type="text" name="altImagen"/>
-                </p> 
-               
-           </div> 
-           <div style="clear:both"></div>  
-        <div id="editar-propiedades">            
-            
+                </p>
+
+           </div>
+           <div style="clear:both"></div>
+        <div id="editar-propiedades">
+
                 <p style="text-decoration: underline;"><?php _e('Tama&ntildeo','envialo-simple') ?></p>
                 <input type="hidden" value="" name="isIframe"/>
-                
+
                 <div class="fl">
                     <label><?php _e('Ancho(px):','envialo-simple') ?></label><br />
                     <input type="text" class="editar-img-input"  name="ancho" />
                 </div>
                 <div class="fl" style="margin-left: 20px;">
                     <label><?php _e('Alto(px):','envialo-simple') ?></label><br />
-                    <input type="text" class="editar-img-input" name="alto" />                
+                    <input type="text" class="editar-img-input" name="alto" />
                 </div>
                 <div style="clear:both"></div>
                 <p>
-                    <label><input type="checkbox" name="editar-img-proporcion"/>&nbsp;&nbsp;<?php _e('Mantener proporción','envialo-simple') ?></label>    
+                    <label><input type="checkbox" name="editar-img-proporcion"/>&nbsp;&nbsp;<?php _e('Mantener proporción','envialo-simple') ?></label>
                 </p>
-                                          
-                
+
+
                 <p style="text-decoration: underline;"><?php _e('Alineación','envialo-simple') ?></p>
                 <input type="radio" name="align" id="izq" value="izq"><label for="izq">&nbsp;<?php _e('Izquierda','envialo-simple') ?></label><br />
                 <input type="radio" name="align" id="cen" value="cen"><label for="cen">&nbsp;<?php _e('Centro','envialo-simple') ?></label><br />
                 <input type="radio" name="align" id="der" value="der"><label for="der">&nbsp;<?php _e('Derecha','envialo-simple') ?></label><br />
                 <input type="radio" name="align" id="none" value="none"><label for="der">&nbsp;<?php _e('Ninguna','envialo-simple') ?></label><br />
                 <br /><br />
-                
-        </div> 
+
+        </div>
         <div id="vista-previa-img" ></div>
-        
+
         <div style="clear:both"></div>
         <span style="font-size: 11px;margin-left: 155px;"><?php _e('Para editar el tamaño proporcionalmente, mantenga apretada la tecla Shift al arrastrar.','envialo-simple') ?></span>
         <div class="editar-img-botones">
-                        
+
             <input type="reset" style="float:right;float: right;margin-right: 18px;" value="<?php _e('Cancelar','envialo-simple') ?>" class="button-secondary" onclick="jQuery('#modal-editar-img').dialog('close');return false;"/>
             <input type="submit" style="float:right" id="modal-editar-img-aceptar" value="<?php _e('Aceptar','envialo-simple') ?>" class="button-primary"  />
-            
+
         </div>
-       </div> 
+       </div>
     </div>
-    
-    
-</div>    
-   
+
+
+</div>
+
 
 <?php include_once(ENVIALO_DIR."/paginas/contenidoExtra.php"); ?>
 

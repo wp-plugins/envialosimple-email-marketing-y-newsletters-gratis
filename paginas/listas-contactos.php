@@ -7,27 +7,33 @@ $co = new Contactos();
 $adminUrl = get_admin_url();
 if(isset($_GET["pagina"])){
     $pagina = filter_var($_GET["pagina"], FILTER_SANITIZE_NUMBER_INT);
-} else{
+}else{
     $pagina = 1;
 }
 
 $listas = $co->listarListasContactos($pagina);
+$verContactos = (isset($_GET['verContactos']) && $_GET['verContactos'] == 1 ) ? TRUE : FALSE;
 
 ?>
 
 <?php include_once(ENVIALO_DIR."/paginas/header.php"); ?>
 
-<?php if(isset($_GET['MailListsIds'])): ?>
+<?php if(isset($_GET['MailListsIds']) && !$verContactos): ?>
 
-<?php include_once("importar-contactos.php"); ?>
+    <?php include_once("importar-contactos.php"); ?>
+
+<?php elseif($verContactos): ?>
+
+    <?php include_once("ver-contactos.php");?>
 
 <?php else: ?>
+
 <div class="wrap">
     <div id="listas-contactos">
         <div id="icon-users" class="icon32 ">
             <br/>
         </div>
-        <h2><?php _e('Listas de Contactos', 'envialo-simple'); ?>
+        <h2><?php _e('Listas y Contactos', 'envialo-simple'); ?>
             <a href="#" class="add-new-h2 abrir-modal-lista"><?php _e('Nueva Lista', 'envialo-simple'); ?></a>
         </h2>
 
@@ -81,6 +87,7 @@ $listas = $co->listarListasContactos($pagina);
                                     <a href='#' name='<?php echo $item["MailListID"]; ?>' class='boton-sincronizar button-secondary' title='<?php _e('Agregar los Contactos de Wordpress a la Lista de Envialo Simple', 'envialo-simple'); ?>'><?php _e('Agregar Usuarios de Wordpress', 'envialo-simple'); ?></a>
                                     <a href='#' name='<?php echo $item["MailListID"]; ?>' class='boton-agregar-contacto button-secondary' title='<?php _e('Agregar Contacto a la Lista de Envialo Simple', 'envialo-simple'); ?>'><?php _e('Agregar Contacto', 'envialo-simple'); ?></a>
                                     <a href='<?php echo "{$adminUrl}admin.php?page=envialo-simple-listas&MailListsIds={$item["MailListID"]}"; ?>' name='<?php echo $item["MailListID"]; ?>' class='button-secondary boton-importar-contacto' title='<?php _e('Importar Contactos', 'envialo-simple'); ?>'><?php _e('Importar Contactos', 'envialo-simple'); ?></a>
+                                    <a href='<?php echo "{$adminUrl}admin.php?page=envialo-simple-listas&verContactos=1&MailListsIds={$item["MailListID"]}&MailListName={$item["Name"]}"; ?>' name='<?php echo $item["MailListID"]; ?>' class='button-secondary ' title='<?php _e('Ver Contactos', 'envialo-simple'); ?>'><?php _e('Ver Contactos', 'envialo-simple'); ?></a>
                                 </td>
 
                             </tr>

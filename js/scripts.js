@@ -11,9 +11,18 @@ var imagenModificar;
 var mostrarOver = true;
 
 jQuery(document).ready(function() {
- 
-   
+
+
     inicializar();
+
+    jQuery("#input-filter-news").click(function(event){
+
+        if(jQuery("#input-filter-news:checked").length > 0){
+            window.location = urlAdmin + "admin.php?page=envialo-simple&filter=Newsletter del";
+        }else{
+            window.location = urlAdmin + "admin.php?page=envialo-simple";
+        }
+    });
 
     jQuery("#abrir-modal-creditos").click(function(event) {
         event.preventDefault();
@@ -73,20 +82,20 @@ jQuery(document).ready(function() {
             traerPreciosEnvios()
         }
     });
-    
+
     jQuery("#buscarCampana").click(function(){
-        
+
         if(jQuery(this).val() == l10n.bn){
             jQuery(this).val("");
         }
     });
-    
+
     jQuery("#buscarCampana").blur(function(){
-        
+
         if(jQuery(this).val() == ""){
-            jQuery(this).val(l10n.bn); 
+            jQuery(this).val(l10n.bn);
         }
-        
+
      });
 
     jQuery("#form-agregar-email").submit(function(event) {
@@ -128,14 +137,14 @@ jQuery(document).ready(function() {
     });
 
     jQuery("#contenedor-newsletters").on("click",".checkEstadoCampana",function(event) {
-        
-        
+
+
         var estado = jQuery(this).attr("name");
 
         if (estado == "Sending") {
             event.preventDefault()
             alert(l10n.aEn1);
-            
+
             return false;
         } else if (estado == "Scheduled") {
             event.preventDefault()
@@ -169,45 +178,45 @@ jQuery(document).ready(function() {
     jQuery("#guardar-cambios-bt").click(function(event) {
 
         event.preventDefault();
-   
+
         var selectOK = true;
         jQuery("select[name=FromID],select[name=ReplyToID]").each(function(){
-               
+
                jQuery(this).css("border","1px solid #ddd");
-               
+
                if(jQuery(this).val() == "agregar"){
                     alert(l10n.rvc)
                     jQuery(this).css("border","1px solid red");
                     selectOK = false;
                     return false;
-               } 
-                
+               }
+
             });
-            
+
             if(!selectOK){
                 return false;
-            } 
+            }
                  alertarPageLeave = false;
         guardarCambiosCampana(false);
-        
-        
-        
-        
+
+
+
+
     });
 
     function guardarCambiosCampana(enviar) {
 
         //cerrar editor
         TemplateEditor.releaseWorkingBlock();
-            
+
 
             var datos = jQuery("#form-editar-campana").serialize().replace(/%5B%5D/g, '[]');
 
             datos += "&accion=editarCampana";
 
             jQuery.post(urlHandler, datos, function(json) {
-                    
-                                     
+
+
                 if (json.root.ajaxResponse.success) {
 
                     //exito
@@ -216,15 +225,15 @@ jQuery(document).ready(function() {
                         CampaignID = json.root.ajaxResponse.campaign.CampaignID;
                         jQuery("input[name=CampaignID]").first().val(CampaignID);
                     }
-                    
+
                     if(jQuery("#ifr-vacio").length == 0){
-                        guardarContenidoHTML(enviar);                        
+                        guardarContenidoHTML(enviar);
                     }else{
                         jQuery("#msj-respuesta").hide().show(200).removeClass("msjError").addClass("msjExito").html("Newsletter Guardado Correctamente!");
                         setTimeout(function(){jQuery("#msj-respuesta").hide(300) },4000);
                         jQuery("#cargando").hide();
                     }
-                    
+
 
                 } else if (json.root.ajaxResponse.errors.errorMsg_invalidCampaignDate == "") {
 
@@ -236,7 +245,7 @@ jQuery(document).ready(function() {
 
             }, "json");
 
-        
+
     }
 
 
@@ -259,11 +268,11 @@ jQuery(document).ready(function() {
     });
 
     jQuery("#cargando").ajaxStart(function() {
-        
+
         if(mostrarOver){
-            jQuery(this).show();             
+            jQuery(this).show();
         }
-        
+
     }).ajaxStop(function() {
         jQuery(this).hide();
     });
@@ -277,8 +286,8 @@ jQuery(document).ready(function() {
         event.preventDefault();
 
         var CampaignID = jQuery("input[name=CampaignID]").first().val();
-        
-        
+
+
         jQuery.post(urlHandler, {
             accion : "previsualizar-camp",
             CampaignID : CampaignID
@@ -308,8 +317,8 @@ jQuery(document).ready(function() {
         jQuery("#label-error-mail").hide();
         var CampaignID = jQuery("input[name=CampaignID]").first().val();
         var email = jQuery("input[name=input-email]").val();
-        
-            
+
+
         if (!validarEmail(email)) {
             jQuery("#label-error-mail").show(300);
             return false;
@@ -346,12 +355,12 @@ jQuery(document).ready(function() {
             return false;
 
         }
-        
+
         if(!validarForm(jQuery("#form-editar-campana"))){
             alert(l10n.pfvtlc)
-           return false; 
+           return false;
         }
-        
+
 
         if (jQuery(this).html() == "Enviar!") {
             var msj = l10n.nseal;
@@ -360,7 +369,7 @@ jQuery(document).ready(function() {
         }
 
         if (confirm(msj)) {
-            
+
             alertarPageLeave = false;
             guardarCambiosCampana(true);
 
@@ -381,10 +390,10 @@ jQuery(document).ready(function() {
                 CampaignID : CampaignID
             }, function(json) {
 
-                if (json.root.ajaxResponse.success) {                    
+                if (json.root.ajaxResponse.success) {
                     refrescarNewsletters();
                 } else {
-                    alert(l10n.err1);                   
+                    alert(l10n.err1);
                 }
 
             }, "json");
@@ -403,7 +412,7 @@ jQuery(document).ready(function() {
         var align = jQuery("input[name=align]:checked").val();
         var enlace = jQuery(".editar-img-campos [name=enlaceImagen]").val()
         var altImagen = jQuery(".editar-img-campos [name=altImagen]").val()
-        
+
         switch (align) {
             case "der":
                 imagenModificar.css("float", "right");
@@ -416,27 +425,27 @@ jQuery(document).ready(function() {
                 break;
             case"none":
                 magenModificar.css("margin", "0").css("float", "none");
-                break;    
+                break;
 
         }
-        
-       
+
+
 
         imagenModificar.attr("height", alto).attr("width", ancho).attr("src", url).attr("alt", altImagen);
         imagenModificar.css("height", alto).css("width", ancho);
-        
-        if(enlace != ""){            
+
+        if(enlace != ""){
             if(imagenModificar.parent("a").length == 0){
-                imagenModificar.wrap("<a href='"+enlace+"'/>");    
+                imagenModificar.wrap("<a href='"+enlace+"'/>");
             }else{
                 imagenModificar.parent("a").attr("href",enlace);
-            }            
+            }
         }else{
             if(imagenModificar.parent("a").length > 0){
                 imagenModificar.unwrap("a");
             }
         }
-        
+
         jQuery("#modal-editar-img").dialog("close");
 
         if (isIframe === "true") {
@@ -448,30 +457,30 @@ jQuery(document).ready(function() {
     });
 
     jQuery(".editar-img-input").keypress(function(event){
-                        
+
         if(event.keyCode == 13){
             resizeImgInput(jQuery(this).attr("name"))
-        }      
+        }
     });
-    
+
     jQuery(".editar-img-input").focusout(function(event){
             resizeImgInput(jQuery(this).attr("name"))
     });
-    
+
 
     jQuery("#editar-img-cambiar").click(function(){
-        
-        
+
+
         jQuery("#modal-editar-img").dialog("close");
-        
-        
+
+
         jQuery("#modal-insertar-img").dialog("open");
         jQuery("#contenedor-wp-media").attr("src", urlAdmin + "media-upload.php?type=image&amp;TB_iframe=true");
         jQuery("#contenedor-wp-media").contents().find("body").append('<script>window.send_to_editor = function(html){insertarImagenBloque(html)}</script>');
-        
-        
-        
-        
+
+
+
+
     });
 
 
@@ -490,7 +499,7 @@ jQuery(document).ready(function() {
                     refrescarNewsletters()
                 } else {
                     alert(l10n.err2);
-                   
+
                 }
 
             }, "json");
@@ -541,30 +550,30 @@ jQuery(document).ready(function() {
 
         if (jQuery(this).val() == "1") {
             jQuery("#programacion-envio-alta").show(200);
-            jQuery("#enviar-campana-bt").html(l10n.bt1).css("width", "100px")
+            jQuery("#enviar-campana-bt").html(l10n.bt1)
         } else {
             jQuery("#programacion-envio-alta").hide(200);
-            jQuery("#enviar-campana-bt").html(l10n.bt2).css("width", "50px")
+            jQuery("#enviar-campana-bt").html(l10n.bt2)
         }
     });
 
     jQuery(".previsualizar-news").click(function(event) {
-        
+
         if(jQuery(this).attr("name") == ""){
-            jQuery("#input-campana-id").val(jQuery("input[name=CampaignID]").first().val());    
+            jQuery("#input-campana-id").val(jQuery("input[name=CampaignID]").first().val());
         }else{
-            jQuery("#input-campana-id").val(jQuery(this).attr("name"));    
+            jQuery("#input-campana-id").val(jQuery(this).attr("name"));
         }
-        
-         
-         
-         
+
+
+
+
         if(jQuery("#input-campana-id").val() == "" ){
             alert(l10n.apgc);
             return false;
-        }    
-        
-        jQuery("#modalPrevisualizar").dialog("open");        
+        }
+
+        jQuery("#modalPrevisualizar").dialog("open");
         return false;
 
     });
@@ -601,11 +610,8 @@ jQuery(document).ready(function() {
             offset : 0,
             limit : 9
         }, function(contenido) {
-
             jQuery("#tabla-plantillas").remove();
-
             jQuery("#contenedor-plantillas").html(contenido);
-
         }, "html")
 
     });
@@ -617,13 +623,13 @@ jQuery(document).ready(function() {
         var categoria2 = [];
         categoria[0] = jQuery(".select-categorias").first().val();
         categoria2[0] = jQuery(".select-categorias").last().val()
-        
+
         off = parseInt(jQuery(this).attr("name")) * 9;
 
         jQuery.post(urlHandler, {
             accion : "traerPlantillas",
             filterListByCategory : categoria,
-            filterListByCategory2 : categoria2,            
+            filterListByCategory2 : categoria2,
             offset : off,
             limit : 9
         }, function(contenido) {
@@ -761,22 +767,22 @@ jQuery(document).ready(function() {
         }
 
     })
-    
-    //form suscripcion
-    
 
-    
-    
+    //form suscripcion
+
+
+
+
 });
 
-function cambiarUrlImagen(url) {    
+function cambiarUrlImagen(url) {
     jQuery("#vista-previa-img img").attr("src", url);
 }
 
 function abrirModalInsertarImg() {
-    
+
     alertarPageLeave = true;
-    
+
     jQuery("#modal-insertar-img").dialog("open");
     jQuery("#contenedor-wp-media").attr("src", urlAdmin + "media-upload.php?type=image&amp;TB_iframe=true");
     jQuery("#contenedor-wp-media").contents().find("body").append('<script>window.send_to_editor = function(html){insertarImagenEditor(html)}</script>');
@@ -784,7 +790,7 @@ function abrirModalInsertarImg() {
 }
 
 function insertarImagenEditor(html) {
-    
+
 
     var img = jQuery(html);
     TemplateEditor.getWysiwygObject().insertHtml(img.html());
@@ -799,7 +805,7 @@ function insertarImagenBloque(html){
 function abrirModalEditarImg(imgMaxWidth, currentEditableBlock, sourceImg, imglink, isIframe) {
 
     alertarPageLeave = true;
-    
+
     if (isIframe) {
         jQuery("input[name=isIframe]").val(true)
     } else {
@@ -811,10 +817,10 @@ function abrirModalEditarImg(imgMaxWidth, currentEditableBlock, sourceImg, imgli
 
     jQuery("input[name=alto]").val(sourceImg.css("height").replace("px","")).data("prevVal",sourceImg.css("height").replace("px",""));
     jQuery("input[name=ancho]").val(sourceImg.css("width").replace("px","")).data("prevVal",sourceImg.css("width").replace("px",""));
-    
+
     jQuery(".editar-img-campos [name=enlaceImagen]").val(sourceImg.parent().attr("href"));
     jQuery(".editar-img-campos [name=altImagen]").val(sourceImg.attr("alt"));
-    
+
 
     jQuery("#urlImagen").html(sourceImg.attr("src"));
 
@@ -854,48 +860,48 @@ function bindResizable(imgMaxWidth){
 
 function resizeImgInput(nombreCampo){
          if(jQuery("input[name=editar-img-proporcion]:checked").length == 1){
-                     
+
                 previousImageWidth = jQuery('input[name="ancho"]').data('prevVal') ;
                 previousImageHeight = jQuery('input[name="alto"]').data('prevVal') ;
-        
+
                 if (previousImageWidth > 0 && previousImageHeight > 0) {
-           
+
                     switch(nombreCampo) {
                         case'ancho':
                             proportionsRate = previousImageHeight / previousImageWidth;
                             newVal = jQuery('input[name="ancho"]').val() * proportionsRate;
-                            
+
                             if(newVal < 1){
                                 jQuery('input[name="ancho"]').val(parseInt(previousImageWidth,10));
                                 return;
                             }
-                            
+
                             jQuery('input[name="alto"]').val(Math.round(newVal));
                             jQuery('input[name="alto"]').data('prevVal',parseInt(newVal,10));
                             jQuery('input[name="ancho"]').data('prevVal',parseInt(jQuery('input[name="ancho"]').val(),10));
-                            
+
                             jQuery("#vista-previa-img img").resizable("destroy").css("height",jQuery('input[name="alto"]').val())
                             .css("width",jQuery('input[name="ancho"]').val());
-                            
-                          
+
+
                             break;
                         case'alto':
                             proportionsRate = previousImageWidth / previousImageHeight;
                             newVal = jQuery('input[name="alto"]').val() *  proportionsRate;
-                            
+
                             if(newVal < 1){
                                 jQuery('input[name="alto"]').val(parseInt(previousImageHeight,10));
                                 return;
                             }
-                            
+
                             jQuery('input[name="ancho"]').val(Math.round(newVal));
                             jQuery('input[name="ancho"]').data('prevVal',parseInt(newVal,10));
                             jQuery('input[name="alto"]').data('prevVal',parseInt(jQuery('input[name="alto"]').val(),10));
-                            
+
                             jQuery("#vista-previa-img img").resizable("destroy").css("height",jQuery('input[name="alto"]').val())
                             .css("width",jQuery('input[name="ancho"]').val());
-                            
-                            
+
+
                             break;
                     }
                 } else {
@@ -906,24 +912,24 @@ function resizeImgInput(nombreCampo){
                         case'alto':
                             jQuery('input[name="alto"]').val(parseInt(previousImageHeight,10));
                             break;
-                    }   
+                    }
                     jQuery("#vista-previa-img img").resizable("destroy").css("height",jQuery('input[name="alto"]').val())
                             .css("width",jQuery('input[name="ancho"]').val());
-                            
-                }     
-            
-            
-            
+
+                }
+
+
+
         }else{
             jQuery("#vista-previa-img img").resizable("destroy").css("height",jQuery('input[name="alto"]').val())
                             .css("width",jQuery('input[name="ancho"]').val());
         }
-        
-        
-        
+
+
+
       bindResizable(false)
     }
-    
+
 function traerPreciosEnvios() {
 
     jQuery.post(urlHandler, {
@@ -993,7 +999,7 @@ function crearCuentaGratis() {
 
         jQuery("#cargando").hide();
         if (response) {
-                
+
             window.location.href = "https://dattatec.com/site/sp/mis-compras#continuar";
         } else {
             alert(l10n.err3);
@@ -1116,12 +1122,12 @@ function guardarContenidoHTML(enviar) {
             contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
             dataType : 'json',
             success : function(json) {
-              
+
                 if (json.root.ajaxResponse.success) {
-                    
+
                     if (enviarCampana === true) {
 
-                       
+
                         jQuery.post(urlHandler, {accion : "enviarCampana",CampaignID : idCampana}, function(json) {
 
                             if (json.root.ajaxResponse.success) {
@@ -1154,10 +1160,15 @@ function guardarContenidoHTML(enviar) {
 
 function inicializar() {
 
-    jQuery(".dropeable").not(":last").remove()
+    jQuery(".dropeable").not(":last").remove();
+
+    if(jQuery('[data-containername="templateEditorBody"]').contents().find(".tobBlock.tobClonable").length < 1){
+
+        jQuery('[data-containername="templateEditorBody"]').children().wrap('<div class="templateBoundary" ><table width="100%" cellspacing="0" cellpadding="0" border="0" class="tobBlock"><tbody><tr><td valign="top"><center><div class="tobEditableHtml">');
+    }
 
     //inserto zona dropeable
-    jQuery(".dropeable:first").clone().insertBefore(jQuery('[data-containername="htmlEditorContainer"]').contents().find(".tobBlock.tobClonable:eq(0)"));    
+    jQuery(".dropeable:first").clone().insertBefore(jQuery('[data-containername="htmlEditorContainer"]').contents().find(".tobBlock.tobClonable:eq(0)"));
     jQuery(".dropeable:first").clone().insertAfter(jQuery('[data-containername="htmlEditorContainer"]').contents().find(".tobBlock.tobClonable"));
 
     //drag&drop
@@ -1177,21 +1188,8 @@ function inicializar() {
 
     bindDropeable();
 
-    //obtengo color de bg
-/*
-    if ( typeof jQuery(".tobBlock:eq(1)").css("background-color") != "undefined" && jQuery(".tobBlock:eq(1)").css("background-color") != "rgba(0, 0, 0, 0)") {
-        colorBg = rgb2hex(jQuery(".tobBlock:eq(1)").css("background-color"));
-    }
 
-    if ( typeof jQuery(".tobBlock:eq(2)").css("background-color") != "undefined" && jQuery(".tobBlock:eq(2)").css("background-color") != "rgba(0, 0, 0, 0)") {
-        colorBg1 = rgb2hex(jQuery(".tobBlock:eq(2)").css("background-color"));
-    }
 
-    if ( typeof jQuery(".templateBoundary td").css("background-color") != "undefined" && jQuery(".templateBoundary td").css("background-color") != "rgba(0, 0, 0, 0)") {
-        colorBg2 = rgb2hex(jQuery(".templateBoundary td").css("background-color"));
-    }
-    
-    */
 
 }
 
@@ -1234,7 +1232,7 @@ function dropContenido(idElemento, espacioDrop) {
             break;
 
         case "cont1wp":
-           
+
             formatoACopiar = jQuery("#contenido-1");
             espacioAInsertar = espacioDrop;
             jQuery("#modal-agregar-contenido").dialog("open");
@@ -1269,7 +1267,7 @@ function dropContenido(idElemento, espacioDrop) {
 function agregarContenidoEstatico(contenido, espacioDrop) {
 
     alertarPageLeave = true;
-    
+
     var div = jQuery(contenido.html());
     espacioDrop.before(div);
 
@@ -1278,7 +1276,7 @@ function agregarContenidoEstatico(contenido, espacioDrop) {
 }
 
 function agregarContenidoWP() {
-    
+
     alertarPageLeave = true;
 
     if (jQuery(".checkbox-post:checked").length == 0) {
@@ -1296,10 +1294,10 @@ function agregarContenidoWP() {
         html.find(".titulo-wp").html(jQuery(this).find(".titulo-post").html());
         html.find(".contenido-wp").html(jQuery(this).find(".resumen-post").html());
         html.find(".imagen-wp").attr("src", jQuery(this).find(".slides_control > div :visible").attr("name"));
-        
-        
+
+
         html.find(".imagen-wp").wrap("<a href='"+jQuery(this).find(".ver-mas-post").attr("href")+"' />");
-        
+
         resultado += html.html();
 
         var div = jQuery(resultado);
@@ -1312,7 +1310,7 @@ function agregarContenidoWP() {
 
     bindDropeable();
 
-  
+
     jQuery("#modal-agregar-contenido").dialog("close");
 
 }

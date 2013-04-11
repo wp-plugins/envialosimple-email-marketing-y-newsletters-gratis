@@ -10,15 +10,24 @@
  */
 
  include_once("clases/Widget.php");
- 
+
 define('ENVIALO_DIR', dirname(__FILE__));
 add_action('admin_enqueue_scripts', 'cargarscripts');
 add_action('admin_menu', 'agregar_menues');
 add_action( 'widgets_init', create_function( '', 'register_widget("widgetenvialo");' ) );
 add_action('plugins_loaded', 'cargar_traduccion');
 
+add_action('wp_insert_comment','comentario_insertado',10,2);
 
-function cargar_traduccion() { 
+function comentario_insertado($comment_id, $comment_object) {
+    print_r($comment_object);
+    die();
+}
+
+
+
+
+function cargar_traduccion() {
  load_plugin_textdomain('envialo-simple', false, basename( dirname( __FILE__ ) ) . '/languages' );
 }
 
@@ -38,21 +47,21 @@ function agregar_menues() {
 }
 
 function cargarscripts() {
-    
+
     wp_enqueue_script('jquery');
     wp_enqueue_script('jquery-ui-core');
     wp_enqueue_script('jquery-ui-core');
     wp_enqueue_script('jquery-ui-widget');
     wp_enqueue_script('jquery-ui-mouse');
     wp_enqueue_script('jquery-ui-accordion');
-    wp_enqueue_script('jquery-ui-accordion');    
+    wp_enqueue_script('jquery-ui-accordion');
     wp_enqueue_script('jquery-ui-draggable');
     wp_enqueue_script('jquery-ui-droppable');
     wp_enqueue_script('jquery-ui-datepicker');
     wp_enqueue_script('jquery-ui-resizable');
     wp_enqueue_script('jquery-ui-dialog');
     wp_enqueue_script('jquery-ui-tabs');
-    wp_enqueue_script('media-upload');    
+    wp_enqueue_script('media-upload');
 }
 
 
@@ -81,13 +90,13 @@ function mostrarPagina() {
 
 }
 function mostrarFormSuscripcion(){
-    
+
     if(!isset($_GET['idFormulario'])){
-        require_once (ENVIALO_DIR . "/paginas/form-suscripcion-listado.php");    
+        require_once (ENVIALO_DIR . "/paginas/form-suscripcion-listado.php");
     }else{
         require_once (ENVIALO_DIR . "/paginas/form-suscripcion.php");
     }
-    
+
 }
 
 
