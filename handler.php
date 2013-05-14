@@ -261,7 +261,7 @@ switch ($accion) {
 
          $respuesta = json_decode($fo->guardarRemitenteResponder($FormID, $_POST['EmailID'],$_POST['Name'],
                                                             $_POST['FromName'],$_POST['FromEmail'], $_POST['ReplyToName'],
-                                                            $_POST['ReplyToEmail']),TRUE);
+                                                             $_POST['ReplyToEmail'],$_POST['Content']),TRUE);
 
          if(!isset($respuesta['root']['ajaxResponse']['success'])){
              echo json_encode($respuesta);

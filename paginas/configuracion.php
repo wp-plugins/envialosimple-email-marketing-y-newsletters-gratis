@@ -58,7 +58,7 @@ $keyActiva = $listaContactos[0] == TRUE ? "Activada" : "Desactivada";
                         <div class="row-actions">
                         <span class="inline hide-if-no-js">
                             <span class="trash" id="eliminar-clave-bt" name="<?php echo $token["idClave"];?>">
-                                <a class="submitdelete" title="<?php _e('Eliminar esta Clave', 'envialo-simple'); ?>" href="#"><?php _e('Eliminar', 'envialo-simple'); ?></a>
+                                <a class="submitdelete" style="visibility: visible;" title="<?php _e('Eliminar esta Clave', 'envialo-simple'); ?>" href="#"><?php _e('Eliminar', 'envialo-simple'); ?></a>
                             </span>
                         </span>
                         </div>
