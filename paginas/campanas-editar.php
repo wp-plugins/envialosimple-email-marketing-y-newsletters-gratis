@@ -150,16 +150,17 @@
 	if(isset($_POST['idPlantilla']) && $_POST['idPlantilla']){
 		$idPlantilla = $_POST["idPlantilla"];
 		$template = utf8_encode(file_get_contents("http://v2.envialosimple.com/mailing_templates/".$idPlantilla."/content.htm"));
+		$template = str_replace('-|campaignBaseURL|-',"http://esmt8.com.ar",$template);
 
 	}else{
 
         if($c["contenidoAnterior"]){
 
             $template = stripslashes($_POST["contenidoAnterior"]);
-
+			$template = str_replace('-|campaignBaseURL|-',"http://esmt8.com.ar",$template);
         }elseif(isset($c["Content"]) && $c["Content"]){
 			$template = $ca->traerCuerpoCampana($idCampana);
-
+			$template = str_replace('-|campaignBaseURL|-',"http://esmt8.com.ar",$template);
 		}else{
 			$seleccionarPlantilla = TRUE;
 		}

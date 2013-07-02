@@ -1066,6 +1066,36 @@ function getUrlVars() {
 
 function guardarContenidoHTML(enviar) {
 
+		preHeaderBlock = (['<!-- // PreHeader Contents \\\\ -->'
+	, '<table align="center" width="100%" cellspacing="0" cellpadding="20" border="0" class="preHeaderContainer tobBlock" style="width: 600px; margin: 0 auto;">'
+	, '<tbody><tr>'
+	, '<td align="center" style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; color: #888888;padding: 20px !important;">'
+	, '<span class="tobEditableText">'
+	, 'Si no visualiza correctamente este E-Mail haga'
+	, ' </span>'
+	, '<a href="%HTMLVersion%" target="_blank" class="tobEditableText">'
+	, 'Click Aquí'
+	, '</a>'
+	, '</td>'
+	, '</tr></tbody>'
+	, '</table>'
+	, '<!-- \\\\ PreHeader Contents // -->'
+	]).join('');
+	unsubscribeBlock = (['<!-- // Footer Contents \\\\ -->'
+	, '<table id="unsubscribeBlock" align="center" data-blockType="unsubscribeBlock" cellspacing="0" cellpadding="20" border="0" class="tobBlock" style="width: 600px; margin: 0 auto;">'
+	, '<tbody><tr>'
+	, '<td align="center" style="padding:20px; font-family: Arial,Helvetica,sans-serif; font-size: 11px; color: #888888;">'
+	, '<span class="tobEditableText">'
+	, 'Para desuscribirse de nuestra lista haga'
+	, '</span> '
+	, '<a href="%UnSubscribe%" target="_blank" class="tobEditableText">'
+	, 'Click Aquí'
+	, '</a>'
+	, '</td>'
+	, '</tr></tbody>'
+	, '</table>'
+	, '<!-- \\\\ Footer Contents // -->'
+	]).join('');
     var enviarCampana = enviar;
     jQuery(".preventMouseActionsOverlay").hide();
 
@@ -1079,6 +1109,7 @@ function guardarContenidoHTML(enviar) {
 
         var content = jQuery('[data-containerName=editorBlocksContainer] [data-containerName=templateEditorBody]').html();
         var plainText = jQuery('[data-containerName=editorBlocksContainer][data-containerName=plainTextVersionContent]').val();
+		content = preHeaderBlock + content + unsubscribeBlock;
 
         var advanceEditable = TemplateEditor.advanceEditable ? 1 : 0;
         var autoContentAlternate = TemplateEditor.autoContentAlternate ? 1 : 0;
@@ -1168,8 +1199,8 @@ function inicializar() {
     }
 
     //inserto zona dropeable
-    jQuery(".dropeable:first").clone().insertBefore(jQuery('[data-containername="htmlEditorContainer"]').contents().find(".tobBlock.tobClonable:eq(0)"));
-    jQuery(".dropeable:first").clone().insertAfter(jQuery('[data-containername="htmlEditorContainer"]').contents().find(".tobBlock.tobClonable"));
+    jQuery(".dropeable:first").clone().insertBefore(jQuery('[data-containername="htmlEditorContainer"]').contents().find(".tobBlock"));    
+    jQuery(".dropeable:first").clone().insertAfter(jQuery('[data-containername="htmlEditorContainer"]').contents().find(".tobBlock"));
 
     //drag&drop
     jQuery(".drag-contenido").draggable({
