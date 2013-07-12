@@ -186,9 +186,25 @@ class Campanas extends Curl{
 
     }
 
-
-
-
+    static function loadTag(& $html, $tag)
+    {
+        $iniBody = stripos($html, '<'.$tag);
+        if($iniBody)
+        {
+            $iniBody = stripos($html, '>', $iniBody);
+            $endBody = stripos($html, '</'.$tag, $iniBody);
+            if($endBody)
+            {
+                $html = trim(substr($html, $iniBody+1, $endBody-$iniBody-1));
+            }
+            else
+            {
+                $html = trim(substr($html, $iniBody+1));
+            }
+            return true;
+        }
+        return false;
+    }
 
 }
 ?>

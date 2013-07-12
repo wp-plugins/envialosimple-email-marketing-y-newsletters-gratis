@@ -1193,7 +1193,7 @@ function inicializar() {
 
     jQuery(".dropeable").not(":last").remove();
 
-    if(jQuery('[data-containername="templateEditorBody"]').contents().find(".tobBlock.tobClonable").length < 1){
+    if(jQuery('[data-containername="templateEditorBody"]').contents().find(".tobBlock").length < 1){
 
         jQuery('[data-containername="templateEditorBody"]').children().wrap('<div class="templateBoundary" ><table width="100%" cellspacing="0" cellpadding="0" border="0" class="tobBlock"><tbody><tr><td valign="top"><center><div class="tobEditableHtml">');
     }
