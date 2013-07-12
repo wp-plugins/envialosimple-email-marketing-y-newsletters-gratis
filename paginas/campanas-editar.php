@@ -18,6 +18,7 @@
 	$ev->checkSetup();
     $ca = new Campanas();
     $template = '';
+    $addPreheader = false;
 
 
 	//click desde la lista
@@ -152,6 +153,7 @@
 	if(isset($_POST['idPlantilla']) && $_POST['idPlantilla']){
 		$idPlantilla = $_POST["idPlantilla"];
 		$template = utf8_encode(file_get_contents("http://v2.envialosimple.com/mailing_templates/".$idPlantilla."/content.htm"));
+        $addPreheader = true;
 	}else{
         if($c["contenidoAnterior"]){
             $template = stripslashes($_POST["contenidoAnterior"]);
@@ -162,7 +164,7 @@
 		}
 	}
     Campanas::loadTag( $template, 'body' );
-    $template = str_replace('-|campaignBaseURL|-',"http://esmt8.com.ar",$template);
+    $template = str_replace('-|campaignBaseURL|-',"http://v2.envialosimple.com",$template);
     
     
     ?>
@@ -211,6 +213,7 @@
 
 
         TemplateEditor.setCurrentRecordID(jQuery('input#currentRecordID').val());
+        TemplateEditor.addPreheaderOnTemplateLoad = <?php echo $addPreheader ? '1' : '0'; ?>;
 
         var alertarPageLeave = <?php echo $alertarPageLeave?>;
 

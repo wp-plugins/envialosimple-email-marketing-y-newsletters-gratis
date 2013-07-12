@@ -2218,7 +2218,7 @@ TemplateEditor = {
         string = string.replace(/<\s*a\s+/gi, "\n<a ");
         string = string.replace(/<table[^>]*>|<br[^>]*>|<\/br>|<p[^>]*>|<\/p>|<\/tr>/gi, "\n");
         string = string.replace(/<{1}\s*(?!\/*\s*a){1}\/*(?!a).*?\s*>/ig, "");
-        string = string.replace(/<\s*a.*href="(.*?)".*>\s*(.*?)\s*<\/\s*a\s*>/gi, " jQuery2 (Link->jQuery1) ");
+        string = string.replace(/<\s*a.*href="(.*?)".*>\s*(.*?)\s*<\/\s*a\s*>/gi, " $2 ( Link -> $1 ) ");
         string = string.replace(/<a[^>]*>|<\/a>/gi, "");
         string = string.replace(/ {2,}/gi, " ");
         string = string.replace(/\n+\s*/gi, "\n\n");

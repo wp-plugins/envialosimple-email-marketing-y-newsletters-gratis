@@ -1081,21 +1081,7 @@ function guardarContenidoHTML(enviar) {
 	, '</table>'
 	, '<!-- \\\\ PreHeader Contents // -->'
 	]).join('');
-	unsubscribeBlock = (['<!-- // Footer Contents \\\\ -->'
-	, '<table id="unsubscribeBlock" align="center" data-blockType="unsubscribeBlock" cellspacing="0" cellpadding="20" border="0" class="tobBlock" style="width: 600px; margin: 0 auto;">'
-	, '<tbody><tr>'
-	, '<td align="center" style="padding:20px; font-family: Arial,Helvetica,sans-serif; font-size: 11px; color: #888888;">'
-	, '<span class="tobEditableText">'
-	, 'Para desuscribirse de nuestra lista haga'
-	, '</span> '
-	, '<a href="%UnSubscribe%" target="_blank" class="tobEditableText">'
-	, 'Click Aquí'
-	, '</a>'
-	, '</td>'
-	, '</tr></tbody>'
-	, '</table>'
-	, '<!-- \\\\ Footer Contents // -->'
-	]).join('');
+	unsubscribeBlock = TemplateEditor.unsubscribeBlock;
     var enviarCampana = enviar;
     jQuery(".preventMouseActionsOverlay").hide();
 
@@ -1106,11 +1092,16 @@ function guardarContenidoHTML(enviar) {
         var saveRestorePoint = saveRestorePoint || false;
 
         jQuery(".dropeable").not(":last").remove();
-
+        var hasUnsubscribeLink = jQuery('.templateBoundary').html().match(/%UnSubscribe%/g);
+        
+        
+        if (!hasUnsubscribeLink) {
+            jQuery('.templateBoundary').append(TemplateEditor.unsubscribeBlock);
+        }
+        
         var content = jQuery('[data-containerName=editorBlocksContainer] [data-containerName=templateEditorBody]').html();
         var plainText = jQuery('[data-containerName=editorBlocksContainer][data-containerName=plainTextVersionContent]').val();
-		content = preHeaderBlock + content + unsubscribeBlock;
-
+        
         var advanceEditable = TemplateEditor.advanceEditable ? 1 : 0;
         var autoContentAlternate = TemplateEditor.autoContentAlternate ? 1 : 0;
         var remoteTemplateUrl = TemplateEditor.remoteTemplateUrl || '';
@@ -1196,6 +1187,16 @@ function inicializar() {
     if(jQuery('[data-containername="templateEditorBody"]').contents().find(".tobBlock").length < 1){
 
         jQuery('[data-containername="templateEditorBody"]').children().wrap('<div class="templateBoundary" ><table width="100%" cellspacing="0" cellpadding="0" border="0" class="tobBlock"><tbody><tr><td valign="top"><center><div class="tobEditableHtml">');
+    }
+    var hasUnsubscribeLink = jQuery('.templateBoundary').html().match(/%UnSubscribe%/g);
+
+    if (!hasUnsubscribeLink) {
+        jQuery('.templateBoundary').append(TemplateEditor.unsubscribeBlock);
+    }
+
+    if (!!TemplateEditor.addPreheaderOnTemplateLoad && TemplateEditor.addPreheaderOnTemplateLoad > 0) {
+        jQuery('.templateBoundary').prepend(TemplateEditor.preHeaderBlock);
+        TemplateEditor.addPreheaderOnTemplateLoad = 0;
     }
 
     //inserto zona dropeable
