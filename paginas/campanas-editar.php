@@ -17,7 +17,7 @@
 	$ev = new EnvialoSimple();
 	$ev->checkSetup();
     $ca = new Campanas();
-
+    $template = '';
 
 
 	//click desde la lista
@@ -147,24 +147,24 @@
 
 	$seleccionarPlantilla = FALSE;
     $alertarPageLeave = isset($_POST['idPlantilla']) ? "true" : "false";
+    
+    
 	if(isset($_POST['idPlantilla']) && $_POST['idPlantilla']){
 		$idPlantilla = $_POST["idPlantilla"];
 		$template = utf8_encode(file_get_contents("http://v2.envialosimple.com/mailing_templates/".$idPlantilla."/content.htm"));
-		$template = str_replace('-|campaignBaseURL|-',"http://esmt8.com.ar",$template);
-
 	}else{
-
         if($c["contenidoAnterior"]){
-
             $template = stripslashes($_POST["contenidoAnterior"]);
-			$template = str_replace('-|campaignBaseURL|-',"http://esmt8.com.ar",$template);
         }elseif(isset($c["Content"]) && $c["Content"]){
 			$template = $ca->traerCuerpoCampana($idCampana);
-			$template = str_replace('-|campaignBaseURL|-',"http://esmt8.com.ar",$template);
 		}else{
 			$seleccionarPlantilla = TRUE;
 		}
 	}
+    Campanas::loadTag( $template, 'body' );
+    $template = str_replace('-|campaignBaseURL|-',"http://esmt8.com.ar",$template);
+    
+    
     ?>
     <link rel="stylesheet"  href="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/css/templateEditorRestoreNormalCss.css"); ?>" type="text/css" media="all" />
     <link rel="stylesheet"  href="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/css/templateEditor.css"); ?>" type="text/css" media="all" />
@@ -410,27 +410,7 @@
                                 <div data-containername="modifyTemplateSourceCode"><?php _e('Modificar código fuente','envialo-simple') ?></div>
                             </div>
                             <div data-containername="templateEditorBody" class="restoreNormalCss" style="display: block; ">
-
-
-
-                                <!--<div class="templateBoundary" >
-                                            <table width="100%" cellspacing="0" cellpadding="0" border="0" class="tobBlock">
-                                                <tbody>
-                                                    <tr>
-                                                        <td valign="top">
-                                                        <center>
-                                                            <div class="tobEditableHtml">-->
-                                                                <?php
-                                                                    echo $template;
-                                                                ?>
-                                                            <!--</div>
-                                                        </center></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>-->
-
-
+                                    <?php echo $template; ?>
                             </div>
                         </div>
                         <div data-containername="plainTextEditorContainer">
