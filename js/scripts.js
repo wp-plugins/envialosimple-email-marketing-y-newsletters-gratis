@@ -1182,6 +1182,10 @@ function guardarContenidoHTML(enviar) {
 
 function inicializar() {
 
+    if(jQuery('[data-containername="templateEditorBody"]').size() < 1){
+        return;
+    }
+
     jQuery(".dropeable").not(":last").remove();
 
     if(jQuery('[data-containername="templateEditorBody"]').contents().find(".tobBlock").length < 1){
