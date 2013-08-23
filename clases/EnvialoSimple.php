@@ -11,6 +11,8 @@ class EnvialoSimple extends Curl {
         curl_setopt($this->curlChannel, CURLOPT_TIMEOUT, 60);
         curl_setopt($this->curlChannel, CURLOPT_FOLLOWLOCATION, 0);
         curl_setopt($this->curlChannel, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($this->curlChannel, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($this->curlChannel, CURLOPT_SSL_VERIFYHOST, false); 
         curl_setopt($this->curlChannel, CURLOPT_COOKIEJAR, 'cookie.txt');
     }
 
