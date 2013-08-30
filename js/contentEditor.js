@@ -1248,7 +1248,7 @@ TemplateEditor = {
      */
     blockIsClonable: function(block){
         
-        if(jQuery(block).hasClass('tobClonable')){
+        if(!jQuery(block).is('#unsubscribeBlock')){
             return true;
         }
         return false;
@@ -1260,7 +1260,7 @@ TemplateEditor = {
      */
     blockIsRemovable: function(block){
         
-        if(jQuery(block).hasClass('tobRemovable')){
+        if(!jQuery(block).is('#unsubscribeBlock')){
             return true;
         }
         return false;
