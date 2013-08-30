@@ -2,7 +2,7 @@
 Contributors: dattatec.com
 Tags: email,email marketing,emailing,newsletter,envialosimple,plugin,editor visual,drag,drop,importar,contactos,posts,wysiwyg
 Requires at least: 3.3
-Tested up to: 3.4.2
+Tested up to: 3.5.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
