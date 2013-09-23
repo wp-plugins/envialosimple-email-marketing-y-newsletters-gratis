@@ -4,7 +4,7 @@ class Curl{
 
 
     function curlJson($parametros, $url, $esGet = FALSE, $esArchivo = FALSE) {
-        $cookie = "cookie.txt";
+        $cookie = 'cookiejar/cookie.txt';
 
         $parametros["APIKey"] = $GLOBALS["APIKey"];
 
@@ -16,7 +16,7 @@ class Curl{
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_COOKIEJAR, $cookie);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false); 
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 
          if ($esGet) {
             curl_setopt($ch, CURLOPT_URL, $url."?".http_build_query($parametros));

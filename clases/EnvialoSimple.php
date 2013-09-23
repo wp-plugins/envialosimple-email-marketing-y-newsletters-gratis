@@ -6,14 +6,15 @@ class EnvialoSimple extends Curl {
     var $errorMsg;
     var $curlChannel;
     function EnvialoSimple() {
+        if(is_file('cookie.txt')) @unlink('cookie.txt');
         $this->curlChannel = curl_init();
         curl_setopt($this->curlChannel, CURLOPT_USERAGENT, "WP-Plugin EnvialoSimple");
         curl_setopt($this->curlChannel, CURLOPT_TIMEOUT, 60);
         curl_setopt($this->curlChannel, CURLOPT_FOLLOWLOCATION, 0);
         curl_setopt($this->curlChannel, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($this->curlChannel, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($this->curlChannel, CURLOPT_SSL_VERIFYHOST, false); 
-        curl_setopt($this->curlChannel, CURLOPT_COOKIEJAR, 'cookie.txt');
+        curl_setopt($this->curlChannel, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($this->curlChannel, CURLOPT_COOKIEJAR, 'cookiejar/cookie.txt');
     }
 
     function checkSetup($noRedirect = NULL) {
@@ -52,7 +53,7 @@ class EnvialoSimple extends Curl {
                 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
                 curl_setopt($ch, CURLOPT_REFERER, $url);
                 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false); 
+                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
                 curl_setopt($ch, CURLOPT_HTTPGET, 1);
                 curl_exec($ch);
                 //crear tablas y redir a config
@@ -580,8 +581,8 @@ class EnvialoSimple extends Curl {
         curl_setopt($this->curlChannel, CURLOPT_POSTFIELDS, http_build_query($parametros));
         curl_setopt($this->curlChannel, CURLOPT_POST, 1);
         curl_setopt($this->curlChannel, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($this->curlChannel, CURLOPT_SSL_VERIFYHOST, false); 
-        
+        curl_setopt($this->curlChannel, CURLOPT_SSL_VERIFYHOST, false);
+
         $response = curl_exec($this->curlChannel);
         $jsonResponse = json_decode($response, true);
 
@@ -600,7 +601,7 @@ class EnvialoSimple extends Curl {
 
     function logoutEnvialosimple() {
         //FIXME
-        @unlink('cookie.txt');
+        @unlink('cookiejar/cookie.txt');
         curl_close($this->curlChannel);
     }
 
@@ -612,7 +613,7 @@ class EnvialoSimple extends Curl {
         curl_setopt($this->curlChannel, CURLOPT_HTTPGET, 1);
         curl_setopt($this->curlChannel, CURLOPT_URL, URL_BASE_API . "/key/list/format/json");
         curl_setopt($this->curlChannel, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($this->curlChannel, CURLOPT_SSL_VERIFYHOST, false); 
+        curl_setopt($this->curlChannel, CURLOPT_SSL_VERIFYHOST, false);
         $resultado = curl_exec($this->curlChannel);
         $jsonVar = json_decode($resultado, TRUE);
         if (empty($jsonVar["root"]["ajaxResponse"]["userinfo"]["Username"])) {
@@ -660,7 +661,7 @@ class EnvialoSimple extends Curl {
         curl_setopt($this->curlChannel, CURLOPT_POSTFIELDS, http_build_query($parametros));
         curl_setopt($this->curlChannel, CURLOPT_URL, URL_BASE_API . '/key/edit');
         curl_setopt($this->curlChannel, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($this->curlChannel, CURLOPT_SSL_VERIFYHOST, false); 
+        curl_setopt($this->curlChannel, CURLOPT_SSL_VERIFYHOST, false);
         $resultado = curl_exec($this->curlChannel);
         $jsonVar = json_decode($resultado, TRUE);
         if (empty($jsonVar['root']['ajaxResponse']['userinfo']['Username'])) {
