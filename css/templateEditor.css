@@ -1,6 +1,8 @@
 @charset "iso-8859-1";
 /* CSS Document */
-
+.ui-dialog{
+    z-index: 2000;
+}
 .acciones-container {
 	clear: both;
 	margin: 0;

@@ -809,7 +809,7 @@
         <span style="font-size: 11px;margin-left: 155px;"><?php _e('Para editar el tamaño proporcionalmente, mantenga apretada la tecla Shift al arrastrar.','envialo-simple') ?></span>
         <div class="editar-img-botones">
 
-            <input type="reset" style="float:right;float: right;margin-right: 18px;" value="<?php _e('Cancelar','envialo-simple') ?>" class="button-secondary" onclick="jQuery('#modal-editar-img').dialog('close');return false;"/>
+            <input type="reset" style="float:right;float: right;margin-right: 18px;" id="modal-editar-img-cancelar" value="<?php _e('Cancelar','envialo-simple') ?>" class="button-secondary" onclick="jQuery('#modal-editar-img').dialog('close');return false;"/>
             <input type="submit" style="float:right" id="modal-editar-img-aceptar" value="<?php _e('Aceptar','envialo-simple') ?>" class="button-primary"  />
 
         </div>

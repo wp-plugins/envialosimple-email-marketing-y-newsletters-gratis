@@ -9,11 +9,14 @@ var selectAgregarEmail;
 var formatoACopiar;
 var imagenModificar;
 var mostrarOver = true;
+var modalInsertarImg; 
 
 jQuery(document).ready(function() {
 
 
     inicializar();
+
+
 
     jQuery("#input-filter-news").click(function(event){
 
@@ -65,13 +68,11 @@ jQuery(document).ready(function() {
             var isIframe = jQuery("input[name=isIframe]").val();
             if (isIframe === "true") {
                 jQuery('#editorOverlay').show();
-            } else {
-                jQuery('#editorOverlay').hide();
             }
 
         }
     });
-
+    
     jQuery("#modal-comprar-envios").dialog({
         autoOpen : false,
         height : "auto",
@@ -456,6 +457,17 @@ jQuery(document).ready(function() {
 
     });
 
+    jQuery('body').on('click.closeEditorOverlay','.ui-dialog[aria-describedby$="-img"] #modal-editar-img-aceptar,\n\
+.ui-dialog[aria-describedby$="-img"] #modal-editar-img-cancelar,\n\
+.ui-dialog[aria-describedby$="-img"] .ui-dialog-titlebar-close,\n\
+.ui-dialog[aria-describedby$="-img"] .savesend input[type="submit"].button,\n\
+.ui-dialog[aria-describedby$="-img"] .image-only input#go_button',function (event){
+        
+        cerrarEditorOverlayIfNotIframe();
+        
+    });
+
+
     jQuery(".editar-img-input").keypress(function(event){
 
         if(event.keyCode == 13){
@@ -795,12 +807,27 @@ function insertarImagenEditor(html) {
     var img = jQuery(html);
     TemplateEditor.getWysiwygObject().insertHtml(img.html());
     jQuery("#modal-insertar-img").dialog("close");
+    
+    cerrarEditorOverlayIfNotIframe();
 }
 
 function insertarImagenBloque(html){
     imagenModificar.replaceWith(html);
     jQuery("#modal-insertar-img").dialog("close");
+    
+    cerrarEditorOverlayIfNotIframe();
 }
+
+function cerrarEditorOverlayIfNotIframe(){
+
+    setTimeout(function() {
+        var isIframe = jQuery("input[name=isIframe]").val();
+        if (isIframe !== "true" && !jQuery('#wysiwygContainer').size()) {
+            jQuery('#editorOverlay').hide();
+        }
+    }, 50); 
+}
+
 
 function abrirModalEditarImg(imgMaxWidth, currentEditableBlock, sourceImg, imglink, isIframe) {
 
