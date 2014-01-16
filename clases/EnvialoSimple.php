@@ -9,7 +9,7 @@ class EnvialoSimple extends Curl {
         if(is_file('cookie.txt')) @unlink('cookie.txt');
         $this->curlChannel = curl_init();
         curl_setopt($this->curlChannel, CURLOPT_USERAGENT, "WP-Plugin EnvialoSimple");
-        curl_setopt($this->curlChannel, CURLOPT_TIMEOUT, 60);
+        curl_setopt($this->curlChannel, CURLOPT_TIMEOUT, 180);
         curl_setopt($this->curlChannel, CURLOPT_FOLLOWLOCATION, 0);
         curl_setopt($this->curlChannel, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($this->curlChannel, CURLOPT_SSL_VERIFYPEER, false);
@@ -49,7 +49,7 @@ class EnvialoSimple extends Curl {
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, $url);
                 curl_setopt($ch, CURLOPT_USERAGENT, "WP-Plugin EnvialoSimple");
-                curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+                curl_setopt($ch, CURLOPT_TIMEOUT, 180);
                 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
                 curl_setopt($ch, CURLOPT_REFERER, $url);
                 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);

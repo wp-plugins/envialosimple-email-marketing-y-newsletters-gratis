@@ -1380,7 +1380,15 @@ margin: 0;
 	max-width: inherit;
 }
 
-/** corrects wp3.6 image edition modal z-index */
-.ui-dialog[role="dialog"][aria-describedby="modal-editar-img"]{
-    z-index:1002;
+/** corrects wp3.8 image edition modal z-index */
+.ui-dialog[role="dialog"][aria-describedby="modal-editar-img"],
+.ui-dialog[role="dialog"][aria-describedby="modal-agregar-email"],
+.ui-dialog[role="dialog"][aria-describedby="modal-insertar-img"],
+.ui-dialog[role="dialog"][aria-describedby="modal-editar-img"],
+.ui-dialog[role="dialog"][aria-describedby="modal-plantillas"],
+.ui-dialog[role="dialog"][aria-describedby="modal-agregar-contenido"],
+.ui-dialog[role="dialog"][aria-describedby="modalPrevisualizar"],
+.ui-dialog[role="dialog"][aria-describedby="modal-crear-lista"]
+{
+    z-index: 1600000;
 }

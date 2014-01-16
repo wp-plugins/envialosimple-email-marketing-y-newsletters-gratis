@@ -11,7 +11,7 @@ class Curl{
         $ch = curl_init();
 
         curl_setopt($ch, CURLOPT_USERAGENT, "WP-Plugin EnvialoSimple");
-        curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 180);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_COOKIEJAR, $cookie);
