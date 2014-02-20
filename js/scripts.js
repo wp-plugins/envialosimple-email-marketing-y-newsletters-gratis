@@ -976,7 +976,7 @@ function traerPreciosEnvios() {
             var codigoPais = jQuery("input[name=codigoPais]").val();
 
             jQuery.ajax({
-                url : 'https://dattatec.com/ajax-add-carrito-bulk.php?jsoncallback=?',
+                url : 'https://donweb.com/ajax-add-carrito-bulk.php?jsoncallback=?',
                 dataType : 'json',
                 type : 'POST',
                 data : {
@@ -992,7 +992,7 @@ function traerPreciosEnvios() {
 
                 if (response) {
 
-                    window.location.href = "https://dattatec.com/site/mis-compras";
+                    window.location.href = "https://donweb.com/site/mis-compras";
 
                 } else {
                     alert(l10n.err3);
@@ -1010,7 +1010,7 @@ function crearCuentaGratis() {
     jQuery("#cargando").show();
 
     jQuery.ajax({
-        url : 'https://dattatec.com/ajax-add-carrito-bulk.php?jsoncallback=?',
+        url : 'https://donweb.com/ajax-add-carrito-bulk.php?jsoncallback=?',
         dataType : 'json',
         type : 'POST',
         data : {
@@ -1027,7 +1027,7 @@ function crearCuentaGratis() {
         jQuery("#cargando").hide();
         if (response) {
 
-            window.location.href = "https://dattatec.com/site/sp/mis-compras#continuar";
+            window.location.href = "https://donweb.com/site/sp/mis-compras#continuar";
         } else {
             alert(l10n.err3);
         }
