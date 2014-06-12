@@ -152,7 +152,7 @@
     <div id="feedback-form">
 
         <form id="form-feedback" action="" method="post" target="_blank">
-            <p><?php _e('Este Formulario no es para Soporte Técnico. Para soporte, <a href="https://administracion.dattatec.com/clientes/index.php?modulo=soporte&archivo=asistente" >Click Aquí</a>','envialo-simple') ?></p>
+            <p><?php _e('Este Formulario no es para Soporte Técnico. Para soporte, <a href="https://administracion.donweb.com/clientes/index.php?modulo=soporte&archivo=asistente" >Click Aquí</a>','envialo-simple') ?></p>
             <label for="mensaje-feedback"><?php _e('Mensaje:','envialo-simple') ?></label><br/>
             <textarea style="width: 375px;height: 100px;" name="feedback" id="mensaje-feedback"></textarea><br />
 

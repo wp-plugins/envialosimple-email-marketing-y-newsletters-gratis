@@ -1,5 +1,5 @@
 <?php
-define("URL_BASE_API", 'https://envialosimple.dattatec.com');
+define("URL_BASE_API", 'https://app.envialosimple.com');
 define("TABLA_CLAVES", "ev_claves");
 require_once ("Curl.php");
 class EnvialoSimple extends Curl {
@@ -36,7 +36,7 @@ class EnvialoSimple extends Curl {
                 $version = get_bloginfo('version');
                 $wp_language = get_bloginfo('language');
                 $wp_site_url = site_url();
-                $url = "https://dattatec.com/imgmed/wp_check.php?version={$version}&language={$wp_language}&site_url={$wp_site_url}&img=1";
+                $url = "https://donweb.com/imgmed/wp_check.php?version={$version}&language={$wp_language}&site_url={$wp_site_url}&img=1";
                 if (!extension_loaded('curl')) {
                     $url .= '&curl=error';
                     echo 'Fatal Error: The cURL extension is not loaded.';
