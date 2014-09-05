@@ -148,8 +148,8 @@
 
 	$seleccionarPlantilla = FALSE;
     $alertarPageLeave = isset($_POST['idPlantilla']) ? "true" : "false";
-    
-    
+
+
 	if(isset($_POST['idPlantilla']) && $_POST['idPlantilla']){
 		$idPlantilla = $_POST["idPlantilla"];
 		$template = utf8_encode(file_get_contents("http://v2.envialosimple.com/mailing_templates/".$idPlantilla."/content.htm"));
@@ -165,8 +165,8 @@
 	}
     Campanas::loadTag( $template, 'body' );
     $template = str_replace('-|campaignBaseURL|-',"http://v2.envialosimple.com",$template);
-    
-    
+
+
     ?>
     <link rel="stylesheet"  href="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/css/templateEditorRestoreNormalCss.css"); ?>" type="text/css" media="all" />
     <link rel="stylesheet"  href="<?php echo  plugins_url( "envialosimple-email-marketing-y-newsletters-gratis/css/templateEditor.css"); ?>" type="text/css" media="all" />
@@ -209,78 +209,77 @@
 
     <script xmlns="" language="javascript" type="text/javascript">
 
-        var locale = "<?php echo $locale; ?>"
+            var locale = "<?php echo $locale; ?>"
+
+            TemplateEditor.setCurrentRecordID("<?php echo $c["CampaignID"];?>");
+            TemplateEditor.addPreheaderOnTemplateLoad = <?php echo $addPreheader ? '1' : '0'; ?>;
+
+            var alertarPageLeave = <?php echo $alertarPageLeave?>;
+
+            jQuery(window).bind('beforeunload', function() {
+
+                if (alertarPageLeave) {
+                    return '<?php _e('Al abandonar ésta página, se perderán todos los cambios no guardados.','envialo-simple'); ?>';
+                } else {
+                    return;
+                }
+           });
+
+           jQuery(window).bind('keypress',function(event){
+               alertarPageLeave = true;
+           });
 
 
-        TemplateEditor.setCurrentRecordID(jQuery('input#currentRecordID').val());
-        TemplateEditor.addPreheaderOnTemplateLoad = <?php echo $addPreheader ? '1' : '0'; ?>;
 
-        var alertarPageLeave = <?php echo $alertarPageLeave?>;
+           /**
+             * Translation
+             *
+             * @copyright   Dattatec.com s.r.l.
+             * @author      Javier Valderrama
+             *
+             * @Ver http://jsgettext.berlios.de/doc/html/Gettext.html para mas info de Gettext
+             */
 
-        jQuery(window).bind('beforeunload', function() {
 
-            if (alertarPageLeave) {
-                return '<?php _e('Al abandonar ésta página, se perderán todos los cambios no guardados.','envialo-simple'); ?>';
-            } else {
-                return;
+            var params = {
+                "domain" : 'javascript-'+locale,
+                "locale_data" : json_locale_data
+            };
+            var gt = new Gettext(params);
+
+
+            /**
+             * @param {String} term
+             * @param {Boolean} override
+             * @returns {String} gt.gettext(term) or term if override is true
+             *
+             */
+            function __(term, override){
+
+                term = term ? jQuery.trim(term) : '';
+                override = override || false;
+
+                if(override){
+                    return term;
+                }
+
+                var messageTranslated = gt.gettext(term)
+                , exeptionsList;
+
+                if((term.substring(0, 9) === "errorMsg_" || locale !== 'es' ) && messageTranslated === term)
+                {
+
+                    exeptionsList = ['clicks', 'e-mail', 'etc', 'password', 'spam rating'
+                                    , 'info:', 'info', 'no', 'video tutorial', '¡email marketing!'
+                                    , 'error', 'ok', 'robot', 'hexadecimal', 'links', 'zen', 'spa'
+                                    , 'simple', 'retro', 'newsletter', 'hotel', 'call center'
+                                    , 'general', 'url', 'editor', 'email'
+                                    ];
+
+                  }
+
+                return messageTranslated;
             }
-       });
-
-       jQuery(window).bind('keypress',function(event){
-           alertarPageLeave = true;
-       });
-
-
-
-       /**
-         * Translation
-         *
-         * @copyright   Dattatec.com s.r.l.
-         * @author      Javier Valderrama
-         *
-         * @Ver http://jsgettext.berlios.de/doc/html/Gettext.html para mas info de Gettext
-         */
-
-
-        var params = {
-            "domain" : 'javascript-'+locale,
-            "locale_data" : json_locale_data
-        };
-        var gt = new Gettext(params);
-
-
-        /**
-         * @param {String} term
-         * @param {Boolean} override
-         * @returns {String} gt.gettext(term) or term if override is true
-         *
-         */
-        function __(term, override){
-
-            term = term ? jQuery.trim(term) : '';
-            override = override || false;
-
-            if(override){
-                return term;
-            }
-
-            var messageTranslated = gt.gettext(term)
-            , exeptionsList;
-
-            if((term.substring(0, 9) === "errorMsg_" || locale !== 'es' ) && messageTranslated === term)
-            {
-
-                exeptionsList = ['clicks', 'e-mail', 'etc', 'password', 'spam rating'
-                                , 'info:', 'info', 'no', 'video tutorial', '¡email marketing!'
-                                , 'error', 'ok', 'robot', 'hexadecimal', 'links', 'zen', 'spa'
-                                , 'simple', 'retro', 'newsletter', 'hotel', 'call center'
-                                , 'general', 'url', 'editor', 'email'
-                                ];
-
-              }
-
-            return messageTranslated;
-        }
 
 
     </script>
@@ -401,7 +400,7 @@
          ?>
           <div id="postdivrich" class="postarea">
 
-            <div data-containername="editorBlocksContainer" data-recordid="88">
+            <div data-containername="editorBlocksContainer" data-recordid="<?php echo $c["CampaignID"];?>">
                 <div data-containername="templateEditorRuler"><span class="ruler"></span></div>
                     <div data-containername="templateEditorContainer">
                         <div class="savingThrobber" style="display: none; "> <?php _e('Guardando','envialo-simple') ?></div>

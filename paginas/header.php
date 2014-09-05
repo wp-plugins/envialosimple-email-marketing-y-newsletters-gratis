@@ -169,18 +169,14 @@
     var isFree = "<?php if($envios['role'] == 'free'){echo 'true';}else{echo 'false';}?>;"
 
     function ocultarFeedback(){
-        jQuery("#feedback").animate({"bottom":34},700);
+        jQuery("#feedback").removeClass('open');
     }
 
     jQuery(document).ready(function(){
 
         jQuery("#solapa-click").click(function(event){
             event.preventDefault();
-            jQuery("#feedback").animate({"bottom":350},250,function(){
-                jQuery("#feedback").animate({"bottom":265},250,function(){
-                    jQuery("#feedback").animate({"bottom":283},300);
-                });
-            });
+            jQuery("#feedback").addClass('open');
         });
 
         jQuery("#form-feedback").submit(function(event){
