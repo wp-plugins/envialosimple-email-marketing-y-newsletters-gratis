@@ -9,10 +9,9 @@ var selectAgregarEmail;
 var formatoACopiar;
 var imagenModificar;
 var mostrarOver = true;
-var modalInsertarImg; 
+var modalInsertarImg;
 
 jQuery(document).ready(function() {
-
 
     inicializar();
 
@@ -72,7 +71,7 @@ jQuery(document).ready(function() {
 
         }
     });
-    
+
     jQuery("#modal-comprar-envios").dialog({
         autoOpen : false,
         height : "auto",
@@ -217,7 +216,6 @@ jQuery(document).ready(function() {
 
             jQuery.post(urlHandler, datos, function(json) {
 
-
                 if (json.root.ajaxResponse.success) {
 
                     //exito
@@ -284,6 +282,8 @@ jQuery(document).ready(function() {
 
     jQuery("#prev-navegador-bt").click(function(event) {
 
+        try {
+
         event.preventDefault();
 
         var CampaignID = jQuery("input[name=CampaignID]").first().val();
@@ -297,7 +297,6 @@ jQuery(document).ready(function() {
             if (json.root.ajaxResponse.success) {
 
                 jQuery("#prev-navegador-contenedor").html(json.root.ajaxResponse.campaign.HTML);
-
                 jQuery("#modalPrevisualizar").dialog("option", "width", 700);
                 jQuery("#modalPrevisualizar").dialog("option", "height", 800);
                 jQuery("#modalPrevisualizar").dialog('option', 'position', 'center');
@@ -308,6 +307,10 @@ jQuery(document).ready(function() {
             }
 
         }, "json");
+
+        } catch(e) {
+            console.error(e);
+        }
 
     });
 
@@ -462,9 +465,9 @@ jQuery(document).ready(function() {
 .ui-dialog[aria-describedby$="-img"] .ui-dialog-titlebar-close,\n\
 .ui-dialog[aria-describedby$="-img"] .savesend input[type="submit"].button,\n\
 .ui-dialog[aria-describedby$="-img"] .image-only input#go_button',function (event){
-        
+
         cerrarEditorOverlayIfNotIframe();
-        
+
     });
 
 
@@ -807,14 +810,14 @@ function insertarImagenEditor(html) {
     var img = jQuery(html);
     TemplateEditor.getWysiwygObject().insertHtml(img.html());
     jQuery("#modal-insertar-img").dialog("close");
-    
+
     cerrarEditorOverlayIfNotIframe();
 }
 
 function insertarImagenBloque(html){
     imagenModificar.replaceWith(html);
     jQuery("#modal-insertar-img").dialog("close");
-    
+
     cerrarEditorOverlayIfNotIframe();
 }
 
@@ -825,7 +828,7 @@ function cerrarEditorOverlayIfNotIframe(){
         if (isIframe !== "true" && !jQuery('#wysiwygContainer').size()) {
             jQuery('#editorOverlay').hide();
         }
-    }, 50); 
+    }, 50);
 }
 
 
@@ -1120,15 +1123,15 @@ function guardarContenidoHTML(enviar) {
 
         jQuery(".dropeable").not(":last").remove();
         var hasUnsubscribeLink = jQuery('.templateBoundary').html().match(/%UnSubscribe%/g);
-        
-        
+
         if (!hasUnsubscribeLink) {
             jQuery('.templateBoundary').append(TemplateEditor.unsubscribeBlock);
         }
-        
+
+        TemplateEditor.setCurrentRecordID(jQuery("#form-editar-campana input[name=CampaignID]").val());
+
         var content = jQuery('[data-containerName=editorBlocksContainer] [data-containerName=templateEditorBody]').html();
         var plainText = jQuery('[data-containerName=editorBlocksContainer][data-containerName=plainTextVersionContent]').val();
-        
         var advanceEditable = TemplateEditor.advanceEditable ? 1 : 0;
         var autoContentAlternate = TemplateEditor.autoContentAlternate ? 1 : 0;
         var remoteTemplateUrl = TemplateEditor.remoteTemplateUrl || '';
@@ -1137,6 +1140,7 @@ function guardarContenidoHTML(enviar) {
 
         var contentCopy = content;
         var remoteUnsubscribeBlock = '';
+
 
         if (remoteTemplateUrl.length > 0) {
             var node = jQuery('<div>').append(content);
@@ -1151,7 +1155,8 @@ function guardarContenidoHTML(enviar) {
             content = '';
             advanceEditable = 0;
         }
-        jQuery("#cargando").show()
+
+        jQuery("#cargando").show();
 
         jQuery.ajax({
             data : {
@@ -1231,7 +1236,7 @@ function inicializar() {
     }
 
     //inserto zona dropeable
-    jQuery(".dropeable:first").clone().insertBefore(jQuery('[data-containername="htmlEditorContainer"]').contents().find(".tobBlock"));    
+    jQuery(".dropeable:first").clone().insertBefore(jQuery('[data-containername="htmlEditorContainer"]').contents().find(".tobBlock"));
     jQuery(".dropeable:first").clone().insertAfter(jQuery('[data-containername="htmlEditorContainer"]').contents().find(".tobBlock"));
 
     //drag&drop

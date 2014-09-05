@@ -3,6 +3,8 @@
 .ui-dialog{
     z-index: 2000;
 }
+div.ui-widget-overlay { position: fixed; top: 0; left: 0; bottom: 0; right: 0; }
+
 .acciones-container {
 	clear: both;
 	margin: 0;
@@ -273,7 +275,7 @@
 	width: 800px;
 	height: 45px;
 }
-.restorePointAddedOverlay .title, 
+.restorePointAddedOverlay .title,
 .restorePointAddedOverlay .time{
 	font-size:12px;
 }
@@ -322,7 +324,7 @@
 }
 
 [data-containerName=templateEditorRuler] .ruler.collapsed{
-	margin-left: -293px; 
+	margin-left: -293px;
 }
 
 [data-containerName=secondaryTemplateEditorNav]{
@@ -895,7 +897,7 @@ div#eyeconColorPickerContainer{
 }
 .comboBlock-container[data-name=fontSizeCombo] ul.comboBlock li.comboBlock-item{
 	max-height: none;
-	line-height:normal; 
+	line-height:normal;
 	height:auto;
 }
 .comboBlock-container[data-name=fontSizeCombo] ul.comboBlock li.comboBlock-item label {
@@ -1292,7 +1294,7 @@ background: white;
 }
 
 [data-containerName=templateEditorContainer] > .templateEditorNav > li > .subNav > ul > li{
-	
+
 	font-size: 12px;
 	padding: 8px 20px;
 	margin: 0;
@@ -1321,14 +1323,14 @@ background: white;
 	font-style: italic;
 	color: #999;
 	font-size: 11px;
-		
+
 }
 [data-containerName=templateEditorContainer] > .templateEditorNav > li > .subNav > ul > li.disabled > .info {
 	display: none;
 }
 
 [data-containerName=templateEditorContainer] > .templateEditorNav > li > .subNav.floating{
-	
+
 	width: 316px;
 	height: auto;
 	background: url(../imagenes/content-editor-sprite.png) no-repeat -633px bottom transparent ;
@@ -1392,7 +1394,7 @@ background: white;
 	transition: all .3s ease;
 }
 [data-containerName=templateEditorContainer] > .templateEditorNav > li > .subNav.restoreHistory-list .restoreHistory-items .item:hover{
-	
+
 }
 
 
@@ -1417,7 +1419,7 @@ background: white;
 
 [data-containerName=templateEditorContainer] > .templateEditorNav > li > .subNav.restoreHistory-list .restoreHistory-items .item .title{
 	color: #666;
-	font-size: 11px;	
+	font-size: 11px;
 	display: inline-block !important;
 }
 
