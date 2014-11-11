@@ -9,20 +9,20 @@
     width: 100%;
 }
 .qq-upload-button {
-display: block;
-width: 105px;
-padding: 7px 0;
-text-align: center;
-background: #2583AD;
-border-bottom: 1px solid #DDD;
-border-radius: 16px;
-color: white;
-font-weight: bold;
-margin: 0 auto;
+    display: block;
+    width: 105px;
+    padding: 7px 0;
+    text-align: center;
+    background: #2583AD;
+    border-bottom: 1px solid #DDD;
+    border-radius: 3px;
+    color: white;
+    font-weight: 400;
+    margin: 0 auto;
 }
 .qq-upload-button-hover {
     background: #1275A2;
-    
+
 }
 .qq-upload-button-focus {
     outline: 1px dotted #000000;
@@ -92,7 +92,7 @@ margin: 0 auto;
     color: #000000;
 }
 .qq-upload-cancel {
-	color: #000000;
+    color: #000000;
 }
 .qq-upload-retryable .qq-upload-retry {
     display: inline;
@@ -121,8 +121,8 @@ margin: 0 auto;
 }
 .qq-upload-list li.qq-upload-success {
     background-color: #5DA30C;
-color: white;
-margin-top: 10px;
+    color: white;
+    margin-top: 10px;
 }
 .qq-upload-list li.qq-upload-fail {
     background-color: #D60000;

@@ -11,59 +11,56 @@ var imagenModificar;
 var mostrarOver = true;
 var modalInsertarImg;
 
-jQuery(document).ready(function() {
+jQuery(document).ready(function () {
 
     inicializar();
+    jQuery("#input-filter-news").click(function (event) {
 
-
-
-    jQuery("#input-filter-news").click(function(event){
-
-        if(jQuery("#input-filter-news:checked").length > 0){
+        if (jQuery("#input-filter-news:checked").length > 0) {
             window.location = urlAdmin + "admin.php?page=envialo-simple&filter=Newsletter del";
-        }else{
+        } else {
             window.location = urlAdmin + "admin.php?page=envialo-simple";
         }
     });
 
-    jQuery("#abrir-modal-creditos").click(function(event) {
+    jQuery("#abrir-modal-creditos").click(function (event) {
         event.preventDefault();
         jQuery("#modal-comprar-envios").dialog("open");
     });
 
-    jQuery("#boton-cuenta-nueva").click(function(event) {
+    jQuery("#boton-cuenta-nueva").click(function (event) {
         event.preventDefault();
         crearCuentaGratis();
     });
 
     jQuery("#modal-agregar-email").dialog({
-        autoOpen : false,
-        height : "auto",
-        width : "auto",
-        modal : true,
-        title : l10n.AgregarEmail,
-        close : function(event, ui) {
+        autoOpen: false,
+        height: "auto",
+        width: "auto",
+        modal: true,
+        title: l10n.AgregarEmail,
+        close: function (event, ui) {
             jQuery("#form-agregar-email").find('input:text').val('')
         }
     });
 
     jQuery("#modal-insertar-img").dialog({
-        autoOpen : false,
-        height : "auto",
-        width : "auto",
-        modal : true,
-        title : l10n.InsertarImagen
+        autoOpen: false,
+        height: "auto",
+        width: "auto",
+        modal: true,
+        title: l10n.InsertarImagen
     });
 
     jQuery("#modal-editar-img").dialog({
-        autoOpen : false,
-        height : "auto",
-        width : "auto",
-        modal : true,
-        title : l10n.EditarImagen,
-        open : function() {
+        autoOpen: false,
+        height: "auto",
+        width: "auto",
+        modal: true,
+        title: l10n.EditarImagen,
+        open: function () {
         },
-        close : function() {
+        close: function () {
             var isIframe = jQuery("input[name=isIframe]").val();
             if (isIframe === "true") {
                 jQuery('#editorOverlay').show();
@@ -73,32 +70,32 @@ jQuery(document).ready(function() {
     });
 
     jQuery("#modal-comprar-envios").dialog({
-        autoOpen : false,
-        height : "auto",
-        width : "auto",
-        modal : true,
-        title : "Comprar Envíos",
-        open : function() {
+        autoOpen: false,
+        height: "auto",
+        width: "auto",
+        modal: true,
+        title: l10n.ComprarEnvíos,
+        open: function () {
             traerPreciosEnvios()
         }
     });
 
-    jQuery("#buscarCampana").click(function(){
+    jQuery("#buscarCampana").click(function () {
 
-        if(jQuery(this).val() == l10n.bn){
+        if (jQuery(this).val() == l10n.bn) {
             jQuery(this).val("");
         }
     });
 
-    jQuery("#buscarCampana").blur(function(){
+    jQuery("#buscarCampana").blur(function () {
 
-        if(jQuery(this).val() == ""){
+        if (jQuery(this).val() == "") {
             jQuery(this).val(l10n.bn);
         }
 
-     });
+    });
 
-    jQuery("#form-agregar-email").submit(function(event) {
+    jQuery("#form-agregar-email").submit(function (event) {
         event.preventDefault();
 
         if (!validarEmail(jQuery("input[name=emailAdmin]").val())) {
@@ -109,7 +106,7 @@ jQuery(document).ready(function() {
         var datos = jQuery("#form-agregar-email").serialize();
         datos += "&accion=agregarEmailAdmin"
 
-        jQuery.post(urlHandler, datos, function(json) {
+        jQuery.post(urlHandler, datos, function (json) {
 
             if (json.root.ajaxResponse.success) {
                 var email = json.root.ajaxResponse.email;
@@ -136,7 +133,7 @@ jQuery(document).ready(function() {
 
     });
 
-    jQuery("#contenedor-newsletters").on("click",".checkEstadoCampana",function(event) {
+    jQuery("#contenedor-newsletters").on("click", ".checkEstadoCampana", function (event) {
 
 
         var estado = jQuery(this).attr("name");
@@ -160,7 +157,7 @@ jQuery(document).ready(function() {
         jQuery("#ReplyToID").val(jQuery("#FromID").val());
     }
 
-    jQuery("#responder-check").click(function() {
+    jQuery("#responder-check").click(function () {
 
         if (jQuery(this).attr("checked") == "checked") {
             jQuery("#responder-fila").show(100);
@@ -175,28 +172,28 @@ jQuery(document).ready(function() {
         jQuery("input[name=submit]").hide();
     }
 
-    jQuery("#guardar-cambios-bt").click(function(event) {
+    jQuery("#guardar-cambios-bt").click(function (event) {
 
         event.preventDefault();
 
         var selectOK = true;
-        jQuery("select[name=FromID],select[name=ReplyToID]").each(function(){
+        jQuery("select[name=FromID],select[name=ReplyToID]").each(function () {
 
-               jQuery(this).css("border","1px solid #ddd");
+            jQuery(this).css("border", "1px solid #ddd");
 
-               if(jQuery(this).val() == "agregar"){
-                    alert(l10n.rvc)
-                    jQuery(this).css("border","1px solid red");
-                    selectOK = false;
-                    return false;
-               }
-
-            });
-
-            if(!selectOK){
+            if (jQuery(this).val() == "agregar") {
+                alert(l10n.rvc)
+                jQuery(this).css("border", "1px solid red");
+                selectOK = false;
                 return false;
             }
-                 alertarPageLeave = false;
+
+        });
+
+        if (!selectOK) {
+            return false;
+        }
+        alertarPageLeave = false;
         guardarCambiosCampana(false);
 
 
@@ -210,45 +207,47 @@ jQuery(document).ready(function() {
         TemplateEditor.releaseWorkingBlock();
 
 
-            var datos = jQuery("#form-editar-campana").serialize().replace(/%5B%5D/g, '[]');
+        var datos = jQuery("#form-editar-campana").serialize().replace(/%5B%5D/g, '[]');
 
-            datos += "&accion=editarCampana";
+        datos += "&accion=editarCampana";
 
-            jQuery.post(urlHandler, datos, function(json) {
+        jQuery.post(urlHandler, datos, function (json) {
 
-                if (json.root.ajaxResponse.success) {
+            if (json.root.ajaxResponse.success) {
 
-                    //exito
+                //exito
 
-                    if (jQuery("#form-editar-campana input[name=CampaignID]").val() == "") {
-                        CampaignID = json.root.ajaxResponse.campaign.CampaignID;
-                        jQuery("input[name=CampaignID]").first().val(CampaignID);
-                    }
-
-                    if(jQuery("#ifr-vacio").length == 0){
-                        guardarContenidoHTML(enviar);
-                    }else{
-                        jQuery("#msj-respuesta").hide().show(200).removeClass("msjError").addClass("msjExito").html("Newsletter Guardado Correctamente!");
-                        setTimeout(function(){jQuery("#msj-respuesta").hide(300) },4000);
-                        jQuery("#cargando").hide();
-                    }
-
-
-                } else if (json.root.ajaxResponse.errors.errorMsg_invalidCampaignDate == "") {
-
-                    jQuery("#msj-respuesta").hide().show(200).removeClass("msjExito").addClass("msjError").html(l10n.egnfi);
-
-                } else {
-                    jQuery("#mensaje-campana").show(200).addClass("msjError").html(l10n.egne +json.root.ajaxResponse.errors);
+                if (jQuery("#form-editar-campana input[name=CampaignID]").val() == "") {
+                    CampaignID = json.root.ajaxResponse.campaign.CampaignID;
+                    jQuery("input[name=CampaignID]").first().val(CampaignID);
                 }
 
-            }, "json");
+                if (jQuery("#ifr-vacio").length == 0) {
+                    guardarContenidoHTML(enviar);
+                } else {
+                    jQuery("#msj-respuesta").hide().show(200).removeClass("msjError").addClass("msjExito").html("Newsletter Guardado Correctamente!");
+                    setTimeout(function () {
+                        jQuery("#msj-respuesta").hide(300)
+                    }, 4000);
+                    jQuery("#cargando").hide();
+                }
+
+
+            } else if (json.root.ajaxResponse.errors.errorMsg_invalidCampaignDate == "") {
+
+                jQuery("#msj-respuesta").hide().show(200).removeClass("msjExito").addClass("msjError").html(l10n.egnfi);
+
+            } else {
+                jQuery("#mensaje-campana").show(200).addClass("msjError").html(l10n.egne + json.root.ajaxResponse.errors);
+            }
+
+        }, "json");
 
 
     }
 
 
-    jQuery("#editar-programacion-envio").click(function(event) {
+    jQuery("#editar-programacion-envio").click(function (event) {
 
         event.preventDefault();
 
@@ -258,7 +257,7 @@ jQuery(document).ready(function() {
 
     })
 
-    jQuery("#seleccionar-plantilla-bt").click(function() {
+    jQuery("#seleccionar-plantilla-bt").click(function () {
 
         //jQuery("#form-editar-campana").submit();
         jQuery("#modal-plantillas").dialog("open");
@@ -266,55 +265,55 @@ jQuery(document).ready(function() {
 
     });
 
-    jQuery("#cargando").ajaxStart(function() {
+    jQuery("#cargando").ajaxStart(function () {
 
-        if(mostrarOver){
+        if (mostrarOver) {
             jQuery(this).show();
         }
 
-    }).ajaxStop(function() {
+    }).ajaxStop(function () {
         jQuery(this).hide();
     });
 
-    jQuery(document).on('click', '.ui-widget-overlay', function() {
+    jQuery(document).on('click', '.ui-widget-overlay', function () {
         jQuery(".ui-dialog-titlebar-close").trigger('click');
     });
 
-    jQuery("#prev-navegador-bt").click(function(event) {
+    jQuery("#prev-navegador-bt").click(function (event) {
 
         try {
 
-        event.preventDefault();
+            event.preventDefault();
 
-        var CampaignID = jQuery("input[name=CampaignID]").first().val();
+            var CampaignID = jQuery("input[name=CampaignID]").first().val();
 
 
-        jQuery.post(urlHandler, {
-            accion : "previsualizar-camp",
-            CampaignID : CampaignID
-        }, function(json) {
+            jQuery.post(urlHandler, {
+                accion: "previsualizar-camp",
+                CampaignID: CampaignID
+            }, function (json) {
 
-            if (json.root.ajaxResponse.success) {
+                if (json.root.ajaxResponse.success) {
 
-                jQuery("#prev-navegador-contenedor").html(json.root.ajaxResponse.campaign.HTML);
-                jQuery("#modalPrevisualizar").dialog("option", "width", 700);
-                jQuery("#modalPrevisualizar").dialog("option", "height", 800);
-                jQuery("#modalPrevisualizar").dialog('option', 'position', 'center');
-                jQuery("#form-previsualizar-contenedor").hide();
+                    jQuery("#prev-navegador-contenedor").html(json.root.ajaxResponse.campaign.HTML);
+                    jQuery("#modalPrevisualizar").dialog("option", "width", 700);
+                    jQuery("#modalPrevisualizar").dialog("option", "height", 800);
+                    jQuery("#modalPrevisualizar").dialog('option', 'position', 'center');
+                    jQuery("#form-previsualizar-contenedor").hide();
 
-            } else {
-                jQuery("#prev-navegador-contenedor").html(l10n.eaop);
-            }
+                } else {
+                    jQuery("#prev-navegador-contenedor").html(l10n.eaop);
+                }
 
-        }, "json");
+            }, "json");
 
-        } catch(e) {
+        } catch (e) {
             console.error(e);
         }
 
     });
 
-    jQuery("#prev-email-bt").click(function(event) {
+    jQuery("#prev-email-bt").click(function (event) {
 
         event.preventDefault();
 
@@ -329,12 +328,12 @@ jQuery(document).ready(function() {
         }
 
         jQuery.post(urlHandler, {
-            accion : "previsualizar-camp",
-            Email : email,
-            CampaignID : CampaignID
-        }, function(json) {
+            accion: "previsualizar-camp",
+            Email: email,
+            CampaignID: CampaignID
+        }, function (json) {
 
-             if (json.root.ajaxResponse.success) {
+            if (json.root.ajaxResponse.success) {
                 alert("Previsualización Enviada Correctamente!");
                 jQuery("#modalPrevisualizar").dialog("close");
             } else {
@@ -345,13 +344,13 @@ jQuery(document).ready(function() {
 
     });
 
-    jQuery(".prev-cancelar").click(function() {
+    jQuery(".prev-cancelar").click(function () {
         jQuery("#modalPrevisualizar").dialog("close");
     });
 
     jQuery("#MailListsIds").chosen();
 
-    jQuery("#enviar-campana-bt").click(function() {
+    jQuery("#enviar-campana-bt").click(function () {
 
         if (jQuery("#ifr-vacio").length == 1) {
 
@@ -360,9 +359,9 @@ jQuery(document).ready(function() {
 
         }
 
-        if(!validarForm(jQuery("#form-editar-campana"))){
+        if (!validarForm(jQuery("#form-editar-campana"))) {
             alert(l10n.pfvtlc)
-           return false;
+            return false;
         }
 
 
@@ -383,16 +382,16 @@ jQuery(document).ready(function() {
 
     })
 
-    jQuery(document).on("click",".pausar-campana-bt",function() {
+    jQuery(document).on("click", ".pausar-campana-bt", function () {
 
         CampaignID = jQuery(this).attr("name");
 
         if (confirm(l10n.conf2)) {
 
             jQuery.post(urlHandler, {
-                accion : "pausarCampana",
-                CampaignID : CampaignID
-            }, function(json) {
+                accion: "pausarCampana",
+                CampaignID: CampaignID
+            }, function (json) {
 
                 if (json.root.ajaxResponse.success) {
                     refrescarNewsletters();
@@ -407,7 +406,7 @@ jQuery(document).ready(function() {
 
     });
 
-    jQuery("#modal-editar-img-aceptar").click(function(event) {
+    jQuery("#modal-editar-img-aceptar").click(function (event) {
         event.preventDefault();
         var alto = parseInt(jQuery(".editar-img-input[name=alto]").val());
         var ancho = parseInt(jQuery(".editar-img-input[name='ancho']").val());
@@ -438,14 +437,14 @@ jQuery(document).ready(function() {
         imagenModificar.attr("height", alto).attr("width", ancho).attr("src", url).attr("alt", altImagen);
         imagenModificar.css("height", alto).css("width", ancho);
 
-        if(enlace != ""){
-            if(imagenModificar.parent("a").length == 0){
-                imagenModificar.wrap("<a href='"+enlace+"'/>");
-            }else{
-                imagenModificar.parent("a").attr("href",enlace);
+        if (enlace != "") {
+            if (imagenModificar.parent("a").length == 0) {
+                imagenModificar.wrap("<a href='" + enlace + "'/>");
+            } else {
+                imagenModificar.parent("a").attr("href", enlace);
             }
-        }else{
-            if(imagenModificar.parent("a").length > 0){
+        } else {
+            if (imagenModificar.parent("a").length > 0) {
                 imagenModificar.unwrap("a");
             }
         }
@@ -460,30 +459,30 @@ jQuery(document).ready(function() {
 
     });
 
-    jQuery('body').on('click.closeEditorOverlay','.ui-dialog[aria-describedby$="-img"] #modal-editar-img-aceptar,\n\
+    jQuery('body').on('click.closeEditorOverlay', '.ui-dialog[aria-describedby$="-img"] #modal-editar-img-aceptar,\n\
 .ui-dialog[aria-describedby$="-img"] #modal-editar-img-cancelar,\n\
 .ui-dialog[aria-describedby$="-img"] .ui-dialog-titlebar-close,\n\
 .ui-dialog[aria-describedby$="-img"] .savesend input[type="submit"].button,\n\
-.ui-dialog[aria-describedby$="-img"] .image-only input#go_button',function (event){
+.ui-dialog[aria-describedby$="-img"] .image-only input#go_button', function (event) {
 
         cerrarEditorOverlayIfNotIframe();
 
     });
 
 
-    jQuery(".editar-img-input").keypress(function(event){
+    jQuery(".editar-img-input").keypress(function (event) {
 
-        if(event.keyCode == 13){
+        if (event.keyCode == 13) {
             resizeImgInput(jQuery(this).attr("name"))
         }
     });
 
-    jQuery(".editar-img-input").focusout(function(event){
-            resizeImgInput(jQuery(this).attr("name"))
+    jQuery(".editar-img-input").focusout(function (event) {
+        resizeImgInput(jQuery(this).attr("name"))
     });
 
 
-    jQuery("#editar-img-cambiar").click(function(){
+    jQuery("#editar-img-cambiar").click(function () {
 
 
         jQuery("#modal-editar-img").dialog("close");
@@ -499,16 +498,16 @@ jQuery(document).ready(function() {
     });
 
 
-    jQuery(document).on("click",".reanudar-campana-bt",function() {
+    jQuery(document).on("click", ".reanudar-campana-bt", function () {
 
         CampaignID = jQuery(this).attr("name");
 
         if (confirm(l10n.conf3)) {
 
             jQuery.post(urlHandler, {
-                accion : "enviarCampana",
-                CampaignID : CampaignID
-            }, function(json) {
+                accion: "enviarCampana",
+                CampaignID: CampaignID
+            }, function (json) {
 
                 if (json.root.ajaxResponse.success) {
                     refrescarNewsletters()
@@ -537,17 +536,17 @@ jQuery(document).ready(function() {
     today = dd + '/' + mm + '/' + yyyy;
 
     jQuery("#input-fecha").datepicker({
-        dateFormat : "dd/mm/yy",
-        minDate : today
+        dateFormat: "dd/mm/yy",
+        minDate: today
     });
 
-    jQuery("#opciones-avanzadas-bt").click(function() {
+    jQuery("#opciones-avanzadas-bt").click(function () {
 
         jQuery("#opciones-avanzadas").toggle(100);
         return false;
     });
 
-    jQuery("#contenedor-plantillas").on("click", ".plantilla-click", function(event) {
+    jQuery("#contenedor-plantillas").on("click", ".plantilla-click", function (event) {
 
         event.preventDefault();
 
@@ -561,7 +560,7 @@ jQuery(document).ready(function() {
         }
     })
 
-    jQuery("#programacion-envio-select").change(function() {
+    jQuery("#programacion-envio-select").change(function () {
 
         if (jQuery(this).val() == "1") {
             jQuery("#programacion-envio-alta").show(200);
@@ -572,18 +571,18 @@ jQuery(document).ready(function() {
         }
     });
 
-    jQuery(".previsualizar-news").click(function(event) {
+    jQuery(".previsualizar-news").click(function (event) {
 
-        if(jQuery(this).attr("name") == ""){
+        if (jQuery(this).attr("name") == "") {
             jQuery("#input-campana-id").val(jQuery("input[name=CampaignID]").first().val());
-        }else{
+        } else {
             jQuery("#input-campana-id").val(jQuery(this).attr("name"));
         }
 
 
 
 
-        if(jQuery("#input-campana-id").val() == "" ){
+        if (jQuery("#input-campana-id").val() == "") {
             alert(l10n.apgc);
             return false;
         }
@@ -593,7 +592,7 @@ jQuery(document).ready(function() {
 
     });
 
-    jQuery("#FromID").change(function() {
+    jQuery("#FromID").change(function () {
 
         if (jQuery(this).val() == "agregar") {
             jQuery("#modal-agregar-email").dialog("open");
@@ -604,7 +603,7 @@ jQuery(document).ready(function() {
         }
     });
 
-    jQuery("#ReplyToID").change(function() {
+    jQuery("#ReplyToID").change(function () {
 
         if (jQuery(this).val() == "agregar") {
             jQuery("#modal-agregar-email").dialog("open");
@@ -613,25 +612,25 @@ jQuery(document).ready(function() {
 
     });
 
-    jQuery("#contenedor-plantillas").on("change", ".select-categorias", function() {
+    jQuery("#contenedor-plantillas").on("change", ".select-categorias", function () {
 
         var idCampana = CampaignID;
         var categoria = [];
         categoria[0] = jQuery(this).val();
 
         jQuery.post(urlHandler, {
-            accion : "traerPlantillas",
-            filterListByCategory : categoria,
-            offset : 0,
-            limit : 9
-        }, function(contenido) {
+            accion: "traerPlantillas",
+            filterListByCategory: categoria,
+            offset: 0,
+            limit: 9
+        }, function (contenido) {
             jQuery("#tabla-plantillas").remove();
             jQuery("#contenedor-plantillas").html(contenido);
         }, "html")
 
     });
 
-    jQuery("#contenedor-plantillas").on("click", ".pag-plantilla", function() {
+    jQuery("#contenedor-plantillas").on("click", ".pag-plantilla", function () {
 
         var idCampana = CampaignID;
         var categoria = [];
@@ -642,12 +641,12 @@ jQuery(document).ready(function() {
         off = parseInt(jQuery(this).attr("name")) * 9;
 
         jQuery.post(urlHandler, {
-            accion : "traerPlantillas",
-            filterListByCategory : categoria,
-            filterListByCategory2 : categoria2,
-            offset : off,
-            limit : 9
-        }, function(contenido) {
+            accion: "traerPlantillas",
+            filterListByCategory: categoria,
+            filterListByCategory2: categoria2,
+            offset: off,
+            limit: 9
+        }, function (contenido) {
 
             jQuery("#tabla-plantillas").remove();
 
@@ -658,13 +657,13 @@ jQuery(document).ready(function() {
     })
 
     jQuery("#acordeon").accordion({
-        heightStyle : "content",
-        collapsible : true
+        heightStyle: "content",
+        collapsible: true
     });
     jQuery("#contenedor-wp").css("height", "auto");
     jQuery("#contenedor-estatico").css("height", "auto");
 
-    jQuery("#modal-agregar-ok").click(function(event) {
+    jQuery("#modal-agregar-ok").click(function (event) {
 
         event.preventDefault();
 
@@ -673,103 +672,129 @@ jQuery(document).ready(function() {
     });
 
     jQuery("#modal-plantillas").dialog({
-        autoOpen : false,
-        height : "auto",
-        width : "auto",
-        modal : true,
-        title : "Seleccione una Plantilla"
+        autoOpen: false,
+        height: "auto",
+        width: "auto",
+        modal: true,
+        title: l10n.SeleccioneUnaPlantilla
 
     });
 
-    jQuery(".abrir-modal-plantillas").click(function() {
+    jQuery(".abrir-modal-plantillas").click(function () {
 
         jQuery("#modal-plantillas").dialog("open");
 
     });
 
-    jQuery("#contenedor-plantillas").on("click", "#cerrar-modal-plantillas", function() {
+    jQuery("#contenedor-plantillas").on("click", "#cerrar-modal-plantillas", function () {
 
         jQuery("#modal-plantillas").dialog("close");
     });
 
     jQuery("#modal-agregar-contenido").dialog({
-        autoOpen : false,
-        height : "auto",
-        width : 680,
-        modal : true,
-        open : function() {
-
+        autoOpen: false,
+        height: "auto",
+        width: 680,
+        modal: true,
+        open: function () {
             jQuery(".contenedor-checkbox-post input[type=checkbox]").attr("checked", false);
             jQuery.post(urlHandler, {
-                accion : "mostrarPostsWP",
-                category : "",
-                numberposts : 10,
-                offset : 0
-            }, function(html) {
-
+                accion: "mostrarPostsWP",
+                category: "",
+                numberposts: 10,
+                offset: 1
+            }, function (html) {
                 jQuery("#contenedor-posts").html(html);
                 jQuery("#modal-agregar-contenido").dialog().scrollTop(jQuery("#contenedor-posts").offset().top);
 
             }, "html");
 
         },
-        title : l10n.tit1
+        title: l10n.tit1
 
     });
 
-    jQuery("#modal-agregar-cancelar").click(function() {
+    jQuery("#modal-agregar-cancelar").click(function () {
 
         jQuery("#modal-agregar-contenido").dialog("close");
 
     })
 
-    jQuery(".boton-modal.cancelar").click(function() {
+    jQuery(".boton-modal.cancelar").click(function () {
 
         jQuery("#modal-agregar-contenido").dialog("close");
 
     });
 
-    jQuery("#select-categoria-post").change(function(event) {
+    jQuery("#select-categoria-post").change(function (event) {
 
         event.preventDefault();
 
-        categoria = jQuery(this).attr("value");
+       var  categoria = jQuery(this).attr("value");
 
         jQuery.post(urlHandler, {
-            accion : "mostrarPostsWP",
-            category : categoria,
-            numberposts : 10,
-            offset : 0
-        }, function(html) {
+            accion: "mostrarPostsWP",
+            category: categoria,
+            numberposts: 10,
+            offset: 1
+        }, function (html) {
 
             jQuery("#contenedor-posts").html(html);
             jQuery("#modal-agregar-contenido").dialog().scrollTop(jQuery("#contenedor-posts").offset().top);
+            jQuery('#contenedor-posts').scrollTop(0)
+        }, "html");
 
+    });
+
+    jQuery('#seleccion-posts').on('click','.paginacion-wp',function (event) {
+
+        event.preventDefault();
+
+        var pagina_ir = parseInt(jQuery(this).attr('data-pag-ir'));
+
+        if (isNaN(pagina_ir)) {
+            pagina_ir = 0;
+        }
+        
+        var categoria =  jQuery("#select-categoria-post").val();
+
+
+        jQuery.post(urlHandler, {
+            accion: "mostrarPostsWP",
+            category: categoria,
+            numberposts: 10,
+            offset: pagina_ir
+        }, function (html) {
+
+            jQuery("#contenedor-posts").html(html);
+            jQuery("#modal-agregar-contenido").dialog().scrollTop(jQuery("#contenedor-posts").offset().top);
+            
+            jQuery('#contenedor-posts').scrollTop(0)
         }, "html");
 
     });
 
     jQuery("#modalPrevisualizar").dialog({
-        autoOpen : false,
-        height : "auto",
-        width : "auto",
-        modal : true,
-        title : l10n.tit2,
-        open: function(event,ui){
+        autoOpen: false,
+        height: "auto",
+        width: "auto",
+        modal: true,
+        title: l10n.tit2,
+        open: function (event, ui) {
             jQuery("body").unbind();
         },
-        close : function(event, ui) {
+        close: function (event, ui) {
             jQuery("#prev-navegador-contenedor").html("");
             jQuery("#modalPrevisualizar").dialog("option", "width", "auto");
             jQuery("#modalPrevisualizar").dialog("option", "height", "auto");
             jQuery("#modalPrevisualizar").dialog('option', 'position', 'center');
             jQuery("#form-previsualizar-contenedor").show();
-            TemplateEditor.init();
+            //TemplateEditor.init();
 
         }
     });
 
-    jQuery(document).on("click", ".contenido-post", function() {
+    jQuery(document).on("click", ".contenido-post", function () {
 
         var check = jQuery(this).parents().find(".contenedor-checkbox-post input[type=checkbox]").first().attr("checked");
 
@@ -814,16 +839,16 @@ function insertarImagenEditor(html) {
     cerrarEditorOverlayIfNotIframe();
 }
 
-function insertarImagenBloque(html){
+function insertarImagenBloque(html) {
     imagenModificar.replaceWith(html);
     jQuery("#modal-insertar-img").dialog("close");
 
     cerrarEditorOverlayIfNotIframe();
 }
 
-function cerrarEditorOverlayIfNotIframe(){
+function cerrarEditorOverlayIfNotIframe() {
 
-    setTimeout(function() {
+    setTimeout(function () {
         var isIframe = jQuery("input[name=isIframe]").val();
         if (isIframe !== "true" && !jQuery('#wysiwygContainer').size()) {
             jQuery('#editorOverlay').hide();
@@ -845,8 +870,8 @@ function abrirModalEditarImg(imgMaxWidth, currentEditableBlock, sourceImg, imgli
     jQuery("#modal-editar-img").dialog("open");
     jQuery("#vista-previa-img").html("");
 
-    jQuery("input[name=alto]").val(sourceImg.css("height").replace("px","")).data("prevVal",sourceImg.css("height").replace("px",""));
-    jQuery("input[name=ancho]").val(sourceImg.css("width").replace("px","")).data("prevVal",sourceImg.css("width").replace("px",""));
+    jQuery("input[name=alto]").val(sourceImg.css("height").replace("px", "")).data("prevVal", sourceImg.css("height").replace("px", ""));
+    jQuery("input[name=ancho]").val(sourceImg.css("width").replace("px", "")).data("prevVal", sourceImg.css("width").replace("px", ""));
 
     jQuery(".editar-img-campos [name=enlaceImagen]").val(sourceImg.parent().attr("href"));
     jQuery(".editar-img-campos [name=altImagen]").val(sourceImg.attr("alt"));
@@ -864,111 +889,110 @@ function abrirModalEditarImg(imgMaxWidth, currentEditableBlock, sourceImg, imgli
     imagenModificar = sourceImg;
 }
 
-function bindResizable(imgMaxWidth){
+function bindResizable(imgMaxWidth) {
     if (imgMaxWidth) {
         jQuery("#vista-previa-img img").resizable({
-            maxWidth : imgMaxWidth,
-            helper : "ui-resizable-helper",
-            resize : function(event, ui) {
-                jQuery(".editar-img-input[name=alto]").val(ui.size.height).data("prevVal",ui.size.height);
-                jQuery(".editar-img-input[name=ancho]").val(ui.size.width).data("prevVal",ui.size.width );
+            maxWidth: imgMaxWidth,
+            helper: "ui-resizable-helper",
+            resize: function (event, ui) {
+                jQuery(".editar-img-input[name=alto]").val(ui.size.height).data("prevVal", ui.size.height);
+                jQuery(".editar-img-input[name=ancho]").val(ui.size.width).data("prevVal", ui.size.width);
 
             }
         });
     } else {
         jQuery("#vista-previa-img img").resizable({
+            helper: "ui-resizable-helper",
+            resize: function (event, ui) {
 
-            helper : "ui-resizable-helper",
-            resize : function(event, ui) {
-
-                jQuery(".editar-img-input[name=alto]").val(ui.size.height).data("prevVal",ui.size.height);
-                jQuery(".editar-img-input[name=ancho]").val(ui.size.width).data("prevVal",ui.size.width);
+                jQuery(".editar-img-input[name=alto]").val(ui.size.height).data("prevVal", ui.size.height);
+                jQuery(".editar-img-input[name=ancho]").val(ui.size.width).data("prevVal", ui.size.width);
             }
         });
     }
 }
 
-function resizeImgInput(nombreCampo){
-         if(jQuery("input[name=editar-img-proporcion]:checked").length == 1){
+function resizeImgInput(nombreCampo) {
+    if (jQuery("input[name=editar-img-proporcion]:checked").length == 1) {
 
-                previousImageWidth = jQuery('input[name="ancho"]').data('prevVal') ;
-                previousImageHeight = jQuery('input[name="alto"]').data('prevVal') ;
+        previousImageWidth = jQuery('input[name="ancho"]').data('prevVal');
+        previousImageHeight = jQuery('input[name="alto"]').data('prevVal');
 
-                if (previousImageWidth > 0 && previousImageHeight > 0) {
+        if (previousImageWidth > 0 && previousImageHeight > 0) {
 
-                    switch(nombreCampo) {
-                        case'ancho':
-                            proportionsRate = previousImageHeight / previousImageWidth;
-                            newVal = jQuery('input[name="ancho"]').val() * proportionsRate;
+            switch (nombreCampo) {
+                case'ancho':
+                    proportionsRate = previousImageHeight / previousImageWidth;
+                    newVal = jQuery('input[name="ancho"]').val() * proportionsRate;
 
-                            if(newVal < 1){
-                                jQuery('input[name="ancho"]').val(parseInt(previousImageWidth,10));
-                                return;
-                            }
-
-                            jQuery('input[name="alto"]').val(Math.round(newVal));
-                            jQuery('input[name="alto"]').data('prevVal',parseInt(newVal,10));
-                            jQuery('input[name="ancho"]').data('prevVal',parseInt(jQuery('input[name="ancho"]').val(),10));
-
-                            jQuery("#vista-previa-img img").resizable("destroy").css("height",jQuery('input[name="alto"]').val())
-                            .css("width",jQuery('input[name="ancho"]').val());
-
-
-                            break;
-                        case'alto':
-                            proportionsRate = previousImageWidth / previousImageHeight;
-                            newVal = jQuery('input[name="alto"]').val() *  proportionsRate;
-
-                            if(newVal < 1){
-                                jQuery('input[name="alto"]').val(parseInt(previousImageHeight,10));
-                                return;
-                            }
-
-                            jQuery('input[name="ancho"]').val(Math.round(newVal));
-                            jQuery('input[name="ancho"]').data('prevVal',parseInt(newVal,10));
-                            jQuery('input[name="alto"]').data('prevVal',parseInt(jQuery('input[name="alto"]').val(),10));
-
-                            jQuery("#vista-previa-img img").resizable("destroy").css("height",jQuery('input[name="alto"]').val())
-                            .css("width",jQuery('input[name="ancho"]').val());
-
-
-                            break;
+                    if (newVal < 1) {
+                        jQuery('input[name="ancho"]').val(parseInt(previousImageWidth, 10));
+                        return;
                     }
-                } else {
-                    switch(jQuery(this).attr("name")) {
-                        case'ancho':
-                            jQuery('input[name="ancho"]').val(parseInt(previousImageWidth,10));
-                            break;
-                        case'alto':
-                            jQuery('input[name="alto"]').val(parseInt(previousImageHeight,10));
-                            break;
+
+                    jQuery('input[name="alto"]').val(Math.round(newVal));
+                    jQuery('input[name="alto"]').data('prevVal', parseInt(newVal, 10));
+                    jQuery('input[name="ancho"]').data('prevVal', parseInt(jQuery('input[name="ancho"]').val(), 10));
+
+                    jQuery("#vista-previa-img img").resizable("destroy").css("height", jQuery('input[name="alto"]').val())
+                            .css("width", jQuery('input[name="ancho"]').val());
+
+
+                    break;
+                case'alto':
+                    proportionsRate = previousImageWidth / previousImageHeight;
+                    newVal = jQuery('input[name="alto"]').val() * proportionsRate;
+
+                    if (newVal < 1) {
+                        jQuery('input[name="alto"]').val(parseInt(previousImageHeight, 10));
+                        return;
                     }
-                    jQuery("#vista-previa-img img").resizable("destroy").css("height",jQuery('input[name="alto"]').val())
-                            .css("width",jQuery('input[name="ancho"]').val());
 
-                }
+                    jQuery('input[name="ancho"]').val(Math.round(newVal));
+                    jQuery('input[name="ancho"]').data('prevVal', parseInt(newVal, 10));
+                    jQuery('input[name="alto"]').data('prevVal', parseInt(jQuery('input[name="alto"]').val(), 10));
+
+                    jQuery("#vista-previa-img img").resizable("destroy").css("height", jQuery('input[name="alto"]').val())
+                            .css("width", jQuery('input[name="ancho"]').val());
 
 
+                    break;
+            }
+        } else {
+            switch (jQuery(this).attr("name")) {
+                case'ancho':
+                    jQuery('input[name="ancho"]').val(parseInt(previousImageWidth, 10));
+                    break;
+                case'alto':
+                    jQuery('input[name="alto"]').val(parseInt(previousImageHeight, 10));
+                    break;
+            }
+            jQuery("#vista-previa-img img").resizable("destroy").css("height", jQuery('input[name="alto"]').val())
+                    .css("width", jQuery('input[name="ancho"]').val());
 
-        }else{
-            jQuery("#vista-previa-img img").resizable("destroy").css("height",jQuery('input[name="alto"]').val())
-                            .css("width",jQuery('input[name="ancho"]').val());
         }
 
 
 
-      bindResizable(false)
+    } else {
+        jQuery("#vista-previa-img img").resizable("destroy").css("height", jQuery('input[name="alto"]').val())
+                .css("width", jQuery('input[name="ancho"]').val());
     }
+
+
+
+    bindResizable(false)
+}
 
 function traerPreciosEnvios() {
 
     jQuery.post(urlHandler, {
-        accion : "traerPreciosEnvios"
-    }, function(html) {
+        accion: "traerPreciosEnvios"
+    }, function (html) {
 
         jQuery("#contenedor-precios").html(html);
 
-        jQuery("#form-comprar-envios").submit(function(event) {
+        jQuery("#form-comprar-envios").submit(function (event) {
             event.preventDefault();
             if (jQuery("input[name=plan]:checked").length < 1) {
                 alert("Debe Seleccionar Algna Opcion para Continuar");
@@ -979,18 +1003,18 @@ function traerPreciosEnvios() {
             var codigoPais = jQuery("input[name=codigoPais]").val();
 
             jQuery.ajax({
-                url : 'https://donweb.com/ajax-add-carrito-bulk.php?jsoncallback=?',
-                dataType : 'json',
-                type : 'POST',
-                data : {
-                    pais : codigoPais, // services requires string
-                    origen : 'wp-plugin-envialosimple', // services requires string
-                    periodo : [12000], // service requires array
-                    plan : [plan],
-                    cantidad : [1] // service requires array
-                    // service requires string
+                url: 'https://donweb.com/ajax-add-carrito-bulk.php?jsoncallback=?',
+                dataType: 'json',
+                type: 'POST',
+                data: {
+                    pais: codigoPais, // services requires string
+                    origen: 'wp-plugin-envialosimple', // services requires string
+                    periodo: [12000], // service requires array
+                    plan: [plan],
+                    cantidad: [1] // service requires array
+                            // service requires string
                 }
-            }).done(function(data) {
+            }).done(function (data) {
                 var response = data && data.root && data.root.site && data.root.site.ok, a, e;
 
                 if (response) {
@@ -1001,7 +1025,7 @@ function traerPreciosEnvios() {
                     alert(l10n.err3);
                 }
 
-            }).fail(function(jqXHR, status, errorMSG) {
+            }).fail(function (jqXHR, status, errorMSG) {
                 alert(l10n.err3);
             });
         });
@@ -1013,18 +1037,18 @@ function crearCuentaGratis() {
     jQuery("#cargando").show();
 
     jQuery.ajax({
-        url : 'https://donweb.com/ajax-add-carrito-bulk.php?jsoncallback=?',
-        dataType : 'json',
-        type : 'POST',
-        data : {
-            origen : 'wp-plugin-envialosimple', // services requires string
-            periodo : [12000], // service requires array
-            plan : ["envialosimple_500"],
-            cantidad : [1], // service requires array
-            comentario : [dominio]
-            // service requires string
+        url: 'https://donweb.com/ajax-add-carrito-bulk.php?jsoncallback=?',
+        dataType: 'json',
+        type: 'POST',
+        data: {
+            origen: 'wp-plugin-envialosimple', // services requires string
+            periodo: [12000], // service requires array
+            plan: ["envialosimple_500"],
+            cantidad: [1], // service requires array
+            comentario: [dominio]
+                    // service requires string
         }
-    }).done(function(data) {
+    }).done(function (data) {
         var response = data && data.root && data.root.site && data.root.site.ok, a, e;
 
         jQuery("#cargando").hide();
@@ -1035,26 +1059,26 @@ function crearCuentaGratis() {
             alert(l10n.err3);
         }
 
-    }).fail(function(jqXHR, status, errorMSG) {
+    }).fail(function (jqXHR, status, errorMSG) {
         alert(l10n.err3);
     });
 
 }
 
-jQuery(function(jQuery) {
+jQuery(function (jQuery) {
     jQuery.datepicker.regional['es'] = {
-        closeText : 'Cerrar',
-        prevText : '&#x3c;Ant',
-        nextText : 'Sig&#x3e;',
-        currentText : 'Hoy',
-        monthNames : ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-        monthNamesShort : ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-        dayNames : ['Domingo', 'Lunes', 'Martes', 'Mi&eacute;rcoles', 'Jueves', 'Viernes', 'S&aacute;bado'],
-        dayNamesShort : ['Dom', 'Lun', 'Mar', 'Mi&eacute;', 'Juv', 'Vie', 'S&aacute;b'],
-        dayNamesMin : ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'S&aacute;'],
-        dateFormat : 'dd/mm/yy',
-        firstDay : 0,
-        isRTL : false
+        closeText: 'Cerrar',
+        prevText: '&#x3c;Ant',
+        nextText: 'Sig&#x3e;',
+        currentText: 'Hoy',
+        monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+        monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+        dayNames: ['Domingo', 'Lunes', 'Martes', 'Mi&eacute;rcoles', 'Jueves', 'Viernes', 'S&aacute;bado'],
+        dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mi&eacute;', 'Juv', 'Vie', 'S&aacute;b'],
+        dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'S&aacute;'],
+        dateFormat: 'dd/mm/yy',
+        firstDay: 0,
+        isRTL: false
     };
     jQuery.datepicker.setDefaults(jQuery.datepicker.regional['es']);
 });
@@ -1062,7 +1086,7 @@ jQuery(function(jQuery) {
 function validarForm(form, msjForm) {
 
     var valido = true;
-    form.find("input.validar,select.validar").each(function() {
+    form.find("input.validar,select.validar").each(function () {
 
         jQuery(this).css("border", "1px solid #DFDFDF");
         jQuery(".chzn-choices").css("border", "1px solid #DFDFDF");
@@ -1088,7 +1112,7 @@ function validarEmail(email) {
 
 function getUrlVars() {
     var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
         vars[key] = value;
     });
     return vars;
@@ -1096,22 +1120,22 @@ function getUrlVars() {
 
 function guardarContenidoHTML(enviar) {
 
-		preHeaderBlock = (['<!-- // PreHeader Contents \\\\ -->'
-	, '<table align="center" width="100%" cellspacing="0" cellpadding="20" border="0" class="preHeaderContainer tobBlock" style="width: 600px; margin: 0 auto;">'
-	, '<tbody><tr>'
-	, '<td align="center" style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; color: #888888;padding: 20px !important;">'
-	, '<span class="tobEditableText">'
-	, 'Si no visualiza correctamente este E-Mail haga'
-	, ' </span>'
-	, '<a href="%HTMLVersion%" target="_blank" class="tobEditableText">'
-	, 'Click Aquí'
-	, '</a>'
-	, '</td>'
-	, '</tr></tbody>'
-	, '</table>'
-	, '<!-- \\\\ PreHeader Contents // -->'
-	]).join('');
-	unsubscribeBlock = TemplateEditor.unsubscribeBlock;
+    preHeaderBlock = (['<!-- // PreHeader Contents \\\\ -->'
+                , '<table align="center" width="100%" cellspacing="0" cellpadding="20" border="0" class="preHeaderContainer tobBlock" style="width: 600px; margin: 0 auto;">'
+                , '<tbody><tr>'
+                , '<td align="center" style="font-family: Arial,Helvetica,sans-serif; font-size: 11px; color: #888888;padding: 20px !important;">'
+                , '<span class="tobEditableText">'
+                , 'Si no visualiza correctamente este E-Mail haga'
+                , ' </span>'
+                , '<a href="%HTMLVersion%" target="_blank" class="tobEditableText">'
+                , 'Click Aquí'
+                , '</a>'
+                , '</td>'
+                , '</tr></tbody>'
+                , '</table>'
+                , '<!-- \\\\ PreHeader Contents // -->'
+    ]).join('');
+    unsubscribeBlock = TemplateEditor.unsubscribeBlock;
     var enviarCampana = enviar;
     jQuery(".preventMouseActionsOverlay").hide();
 
@@ -1159,34 +1183,33 @@ function guardarContenidoHTML(enviar) {
         jQuery("#cargando").show();
 
         jQuery.ajax({
-            data : {
-                accion : "guardarContenidoHTML",
-                HTML : content,
-                AdvanceEditable : advanceEditable,
-                URL : remoteTemplateUrl,
-                PlainText : plainTextContent,
-                CampaignID : idCampana,
-                RemoteUnsubscribeBlock : remoteUnsubscribeBlock,
-                AutoContentAlternate : autoContentAlternate
+            data: {
+                accion: "guardarContenidoHTML",
+                HTML: content,
+                AdvanceEditable: advanceEditable,
+                URL: remoteTemplateUrl,
+                PlainText: plainTextContent,
+                CampaignID: idCampana,
+                RemoteUnsubscribeBlock: remoteUnsubscribeBlock,
+                AutoContentAlternate: autoContentAlternate
             },
-            type : "POST",
-            url : urlHandler,
-            timeout : 20000,
-
-            contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
-            dataType : 'json',
-            success : function(json) {
+            type: "POST",
+            url: urlHandler,
+            timeout: 20000,
+            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+            dataType: 'json',
+            success: function (json) {
 
                 if (json.root.ajaxResponse.success) {
 
                     if (enviarCampana === true) {
 
 
-                        jQuery.post(urlHandler, {accion : "enviarCampana",CampaignID : idCampana}, function(json) {
+                        jQuery.post(urlHandler, {accion: "enviarCampana", CampaignID: idCampana}, function (json) {
 
                             if (json.root.ajaxResponse.success) {
                                 window.location = urlAdmin + "admin.php?page=envialo-simple&camp-enviada=1";
-                            } else if(json.root.ajaxResponse.errors) {
+                            } else if (json.root.ajaxResponse.errors) {
                                 alert(l10n.err4);
                             }
 
@@ -1194,13 +1217,15 @@ function guardarContenidoHTML(enviar) {
 
                     } else {
                         jQuery("#msj-respuesta").hide().show(200).removeClass("msjError").addClass("msjExito").html(l10n.ok1);
-                        setTimeout(function(){jQuery("#msj-respuesta").hide(300) },4000);
+                        setTimeout(function () {
+                            jQuery("#msj-respuesta").hide(300)
+                        }, 4000);
                         jQuery("#cargando").hide();
                         return true;
                     }
                 }
             },
-            error : function() {
+            error: function () {
                 jQuery("#cargando").hide();
                 return false;
             }
@@ -1214,13 +1239,13 @@ function guardarContenidoHTML(enviar) {
 
 function inicializar() {
 
-    if(jQuery('[data-containername="templateEditorBody"]').size() < 1){
+    if (jQuery('[data-containername="templateEditorBody"]').size() < 1) {
         return;
     }
 
     jQuery(".dropeable").not(":last").remove();
 
-    if(jQuery('[data-containername="templateEditorBody"]').contents().find(".tobBlock").length < 1){
+    if (jQuery('[data-containername="templateEditorBody"]').contents().find(".tobBlock").length < 1) {
 
         jQuery('[data-containername="templateEditorBody"]').children().wrap('<div class="templateBoundary" ><table width="100%" cellspacing="0" cellpadding="0" border="0" class="tobBlock"><tbody><tr><td valign="top"><center><div class="tobEditableHtml">');
     }
@@ -1236,20 +1261,19 @@ function inicializar() {
     }
 
     //inserto zona dropeable
-    jQuery(".dropeable:first").clone().insertBefore(jQuery('[data-containername="htmlEditorContainer"]').contents().find(".tobBlock"));
+    //jQuery(".dropeable:first").clone().insertBefore(jQuery('[data-containername="htmlEditorContainer"]').contents().find(".tobBlock"));
     jQuery(".dropeable:first").clone().insertAfter(jQuery('[data-containername="htmlEditorContainer"]').contents().find(".tobBlock"));
 
     //drag&drop
     jQuery(".drag-contenido").draggable({
-        tolerance : "touch",
-        helper : "clone",
-        revert : "invalid",
-        iframeFix : true,
-
-        start : function(event, ui) {
+        tolerance: "touch",
+        helper: "clone",
+        revert: "invalid",
+        iframeFix: true,
+        start: function (event, ui) {
 
         },
-        stop : function(event, ui) {
+        stop: function (event, ui) {
 
         }
     });
@@ -1263,7 +1287,7 @@ function inicializar() {
 
 function dropContenido(idElemento, espacioDrop) {
 
-    switch(idElemento) {
+    switch (idElemento) {
 
         case "cont1":
             agregarContenidoEstatico(jQuery("#contenido-1:first"), espacioDrop);
@@ -1354,7 +1378,7 @@ function agregarContenidoWP() {
 
     var posts = jQuery(".checkbox-post:checked").parents(".post");
 
-    posts.each(function() {
+    posts.each(function () {
         var resultado = "";
 
         var html = formatoACopiar.clone();
@@ -1364,7 +1388,7 @@ function agregarContenidoWP() {
         html.find(".imagen-wp").attr("src", jQuery(this).find(".slides_control > div :visible").attr("name"));
 
 
-        html.find(".imagen-wp").wrap("<a href='"+jQuery(this).find(".ver-mas-post").attr("href")+"' />");
+        html.find(".imagen-wp").wrap("<a href='" + jQuery(this).find(".ver-mas-post").attr("href") + "' />");
 
         resultado += html.html();
 
@@ -1385,16 +1409,15 @@ function agregarContenidoWP() {
 
 function bindDropeable() {
     jQuery(".dropeable").droppable({
-
-        drop : function(event, ui) {
+        drop: function (event, ui) {
 
             dropContenido(jQuery(ui.draggable).attr("id"), jQuery(this));
 
         },
-        accept : ".drag-contenido",
-        hoverClass : "dropHover",
-        activeClass : "dropActivo",
-        tolerance : "touch"
+        accept: ".drag-contenido",
+        hoverClass: "dropHover",
+        activeClass: "dropActivo",
+        tolerance: "touch"
     });
 }
 
@@ -1410,5 +1433,6 @@ function rgb2hex(color) {
 
     var rgb = blue | (green << 8) | (red << 16);
     return digits[1] + '#' + rgb.toString(16);
-};
+}
+;
 

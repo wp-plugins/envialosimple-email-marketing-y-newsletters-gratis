@@ -1,12 +1,17 @@
 <?php
+
 define("URL_BASE_API", 'https://app.envialosimple.com');
 define("TABLA_CLAVES", "ev_claves");
 require_once ("Curl.php");
+
 class EnvialoSimple extends Curl {
+
     var $errorMsg;
     var $curlChannel;
+
     function EnvialoSimple() {
-        if(is_file('cookie.txt')) @unlink('cookie.txt');
+        if (is_file('cookie.txt'))
+            @unlink('cookie.txt');
         $this->curlChannel = curl_init();
         curl_setopt($this->curlChannel, CURLOPT_USERAGENT, "WP-Plugin EnvialoSimple");
         curl_setopt($this->curlChannel, CURLOPT_TIMEOUT, 180);
@@ -140,25 +145,35 @@ class EnvialoSimple extends Curl {
      * @param $parametros["numberposts"]
      * @param $parametros[" offset"]
      */
-    function mostrarPostsWP($category, $numberposts, $offset) {
+    function mostrarPostsWP($category, $numberposts, $pagina) {
+
+    
         $parametros = array();
         $parametros["orderby"] = "post_date";
         $parametros["order"] = "DESC";
         $parametros["post_type"] = "post";
-        $parametros["suppress_filters"] = TRUE;
         $parametros["post_status"] = "publish";
-        $parametros["category"] = $category;
-        $parametros["numberposts"] = $numberposts;
-        $posts = get_posts($parametros);
+        $parametros["cat"] = $category;
+        $parametros["posts_per_page"] = 10;
+        $parametros["paged"] = isset($pagina) ? $pagina : 1;
+        
+
+        wp_reset_query();
+
+        $posts = new WP_Query($parametros);
+        //$posts = get_posts($parametros);
         $html = "";
         $i = 1;
-        foreach ($posts as $p) {
-            $fecha = mysql2date(get_option("date_format"), $p->post_date);
+
+        while ($posts->have_posts()) {
+            $posts->the_post();
+
+            $fecha = mysql2date(get_option("date_format"), get_the_time());
             $htmlImg = "";
-            if ($images = get_posts(array('post_parent' => $p->ID, 'post_type' => 'attachment', 'numberposts' => -1, 'post_mime_type' => 'image', ))) {
+            if ($images = get_posts(array('post_parent' => get_the_ID(), 'post_type' => 'attachment', 'numberposts' => -1, 'post_mime_type' => 'image',))) {
                 foreach ($images as $image) {
                     $attachmenturl = wp_get_attachment_url($image->ID);
-                    $attachmentimage = wp_get_attachment_image_src($image->ID, thumbnail);
+                    $attachmentimage = wp_get_attachment_image_src($image->ID, "thumbnail");
                     $imageDescription = apply_filters('the_description', $image->post_content);
                     $imageTitle = apply_filters('the_title', $image->post_title);
                     $htmlImg .= '<div><img name="' . $attachmenturl . '" src="' . $attachmentimage[0] . '" alt=""  /></a></div>';
@@ -166,10 +181,10 @@ class EnvialoSimple extends Curl {
             } else {
                 $htmlImg .= '<div><img src="' . plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/300x200.jpg') . '" alt="" height="150" width="150" /></a></div>';
             }
-            $postContentResumido = wp_trim_words($p->post_content, 30, "...<br /><a target='_blank' style='text-decoration:underline' class='ver-mas-post' href='{$p->guid}'>" . __('Ver Más', 'envialo-simple') . "</a><br /><br />");
+            $postContentResumido = wp_trim_words(get_the_content(), 30, "...<br /><a target='_blank' style='text-decoration:underline' class='ver-mas-post' href='" . get_the_permalink() . "'>" . __('Ver Más', 'envialo-simple') . "</a><br /><br />");
             $html .= "  <div class='post'>
                             <div class='contenedor-checkbox-post fl'>
-                                <input type='checkbox' name='{$p->ID}' class='checkbox-post' />
+                                <input type='checkbox' name='" . get_the_ID() . "' class='checkbox-post' />
                             </div>
                             <div class='contenido-post fl'>
                                 <div class='contenedor-slider'>
@@ -178,13 +193,37 @@ class EnvialoSimple extends Curl {
                                     </div>
                                 </div>
                                 <div class='fecha-post'>{$fecha}</div>
-                                <div class='titulo-post'>{$p->post_title}</div>
+                                <div class='titulo-post'>" . get_the_title() . "</div>
                                 <div class='resumen-post'>{$postContentResumido}</div>
                             </div>
                         </div>
                         <script>jQuery('#slide_{$i}').slides()</script>";
             $i++;
         }
+        
+        $prev_post ="";
+        $next_post ="";
+        
+        if ($posts->max_num_pages > 1) {
+            //paginacion
+
+            if ($pagina >= 2) {
+                $pagina_ir = $pagina - 1;
+                $prev_post = "<a href='#' class='paginacion-wp' data-pag-actual='{$pagina}' data-pag-ir='{$pagina_ir}'>Anterior</a>";
+            }
+
+            if ($pagina < $posts->max_num_pages) {
+                $pagina_ir_n = $pagina + 1;
+                $next_post = "<a href='#' class='paginacion-wp' data-pag-actual='{$pagina}' data-pag-ir='{$pagina_ir_n}'>Siguiente</a>";
+            }
+            $html .= "<div class='post-pagination'>{$prev_post} | {$next_post} </div>";
+        }
+        
+
+        
+
+        wp_reset_postdata();
+        wp_reset_query();
         return $html;
     }
 
@@ -718,4 +757,5 @@ class EnvialoSimple extends Curl {
     }
 
 }
+
 ?>

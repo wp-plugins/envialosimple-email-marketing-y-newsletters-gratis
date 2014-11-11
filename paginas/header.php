@@ -30,6 +30,7 @@
     wp_localize_script('script', 'l10n',
         array(
             'AgregarEmail' => __('Agregar Email','envialo-simple'),
+            'SeleccioneUnaPlantilla' => __('Seleccione una Plantilla','envialo-simple'),
             'InsertarImagen'=> __('Insertar Imagen','envialo-simple'),
             'EditarImagen' => __('Editar Imagen','envialo-simple'),
             'ComprarEnvíos' => __('Comprar Envíos','envialo-simple'),
@@ -73,10 +74,12 @@
 
 
 <div id="header">
-    <a href="<?php echo get_admin_url()."admin.php?page=envialo-simple"?>"><div id="logo-ev"></div></a>
+    <a href="<?php echo get_admin_url()."admin.php?page=envialo-simple"?>"><div id="logo-ev">
+        <img src="<?php echo plugins_url("envialosimple-email-marketing-y-newsletters-gratis/imagenes/logo.png"); ?>"/>
+        </div></a>
 	<?php if(isset($envios)): ?>
 		<div id="envios">
-		    <div><?php printf(__('Tienes %d Envíos Disponibles','envialo-simple'),$envios['credits']["availableCredits"]); if($envios['role'] == 'free'){_e('para este mes.','envialo-simple');} ?></div>
+		    <div><?php printf(__('Tienes %d Envíos Disponibles','envialo-simple'),$envios['credits']["availableCredits"]); if($envios['role'] == 'free'){_e(' para este mes.','envialo-simple');} ?></div>
 			<?php if(!$envios['white_label']): ?>
 				<?php if($envios['role'] == 'free'): ?>
 					<a href="#" id="abrir-modal-creditos"class="button-secondary"><?php _e('Actualizar a Versión PREMIUM','envialo-simple') ?></a>

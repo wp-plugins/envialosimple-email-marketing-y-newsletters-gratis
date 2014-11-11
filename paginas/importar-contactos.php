@@ -33,7 +33,9 @@ foreach($listas[0]['item'] as $l){
     <div id="icon-users" class="icon32">
         <br/>
     </div>
-    <h2><?php _e('Importar Contactos a la Lista', 'envialo-simple');?></h2>
+    <h2><?php _e('Importar Contactos a la Lista', 'envialo-simple');?></h2> 
+    
+    <p><?php _e('Desde aquí puedes importar contactos a la lista seleccionada, utilizando los siguentes métodos:', 'envialo-simple');?></p>
 
     <div class="tool-box" id="contenedor-1">
         <?php if(!$co->importarSelectSource($MailListsIds)):?>

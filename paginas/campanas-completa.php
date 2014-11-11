@@ -82,13 +82,13 @@
         <div id="postbox-container-1" class="postbox-container" style="float: right;margin-right: -300px;width: 280px;">
 		        <div id="side-sortables" class="meta-box-sortables ui-sortable">
 		          <div id="acciones" class="postbox ">
-               <h3><span><?php _e('Acciones','envialo-simple') ?></span></h3>
+               <h3 class="hndle"><span><?php _e('Acciones','envialo-simple') ?></span></h3>
                 <div class="inside">
                     <div class="submitbox" id="submitpost">
                         <div >                            
                             <div>                                
                                 <div class="misc-pub-section curtime" style="border-bottom:0;">                                                                     
-                                    <input type="submit" class="button-primary" value="<?php _e('Crear nuevo newsletter a partir de este','envialo-simple') ?>" />
+                                    <input type="submit" class="button-primary" value="<?php _e('Duplicar Campaña','envialo-simple') ?>" />
                                 </div>                             
 
                             </div>
@@ -99,7 +99,7 @@
                 </div>
                 
                  <div id="acciones" class="postbox ">
-                    <h3><span><?php _e('Detalles','envialo-simple') ?></span></h3>
+                    <h3 class="hndle"><span><?php _e('Detalles','envialo-simple') ?></span></h3>
                     <div class="inside">
                         <div class="submitbox" id="submitpost">
                             <div>                            
