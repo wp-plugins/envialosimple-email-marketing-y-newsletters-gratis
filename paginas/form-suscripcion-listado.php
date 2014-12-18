@@ -27,8 +27,8 @@
                     
           jQuery("#modal-obtener-codigo").dialog({
                 autoOpen : false,
-                height : "auto",
-                width : "auto",
+                height : "500",
+                width : "999",
                 modal : true,
                 position:"top",              
                 title : "Obtener Código",
@@ -36,6 +36,8 @@
                     jQuery("#modal-obtener-codigo textarea").html('')
                 }
             })
+            
+              
           
           jQuery(".eliminar-form").click(function(event){
                 event.preventDefault();
@@ -62,10 +64,13 @@
           
           jQuery(".obtener-codigo").click(function(event){
                 event.preventDefault();
+                
+                jQuery("#modal-obtener-codigo").dialog("option", "position", {my: "center", at: "center", of: window});                
+                jQuery("#modal-obtener-codigo textarea").text(jQuery(this).attr("name"));                
                 jQuery("#modal-obtener-codigo").dialog("open");
                 
-                jQuery("#modal-obtener-codigo").dialog( "option", "position", 100 );
-                jQuery("#modal-obtener-codigo textarea").text(jQuery(this).attr("name"));
+                
+                
            });
                     
       });      
@@ -113,7 +118,7 @@
     </div>      
 <div style="display:none">
 
-        <div id="modal-obtener-codigo" style="top:50%">
+        <div id="modal-obtener-codigo">
           <p><?php _e('Copia y pega éste código en el lugar de tu blog donde desees visualizar el Formulario de Suscripción.','envialo-simple') ?></p>
         
         <textarea style="width: 555px;height: 70px;">        

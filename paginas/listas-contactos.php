@@ -154,89 +154,78 @@ $verContactos = (isset($_GET['verContactos']) && $_GET['verContactos'] == 1 ) ? 
         </div>
     </div>
     <script type="text/javascript">
-        jQuery(".boton-sincronizar").click(function (event) {
-            event.preventDefault();
-            if (confirm("<?php _e('Está Seguro?', 'envialo-simple'); ?>")) {
-                var idLista = jQuery(this).attr("name");
-                jQuery.post("<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/handler.php') ?>", {accion: "sincronizarContactos", MailListID: idLista}, function (json) {
-                    if (json.success) {
-                        alert("<?php _e('Se Sincronizaron Correctamente tus Contactos de Wordpress con la Lista seleccionada.', 'envialo-simple'); ?>");
-                        window.location = "<?php echo "{$adminUrl}admin.php?page=envialo-simple-listas"; ?>";
-                    } else {
-                        alert("Error");
-                    }
-                }, "json");
-            }
-        });
-        jQuery(".boton-agregar-contacto").click(function (event) {
-            event.preventDefault();
-            jQuery("input[name=MailListID]").val(jQuery(this).attr("name"));
-            jQuery("#modal-agregar-contacto").dialog("open");
-        });
-        jQuery("#form-crear-lista").submit(function (event) {
-            event.preventDefault();
-            if (checkVacio(jQuery("input[name=nombre-lista]"))) {
-                return false;
-            } else {
-                var nombre = jQuery("input[name=nombre-lista]").val();
-                jQuery.post(urlHandler, {accion: "crearLista", nombreLista: nombre}, function (json) {
-                    if (json.root.ajaxResponse.success) {
-                        jQuery("#modal-crear-lista").dialog("close");
-                        window.location = "<?php echo "{$adminUrl}admin.php?page=envialo-simple-listas&listaCreada=1"; ?>";
-                    }
-                }, "json");
-            }
-        });
-        jQuery("#form-agregar-contacto").submit(function (event) {
-            jQuery("#msj-agregar-contacto").hide(150);
-            event.preventDefault();
-            var campos = [];
-            var check = true;
-            jQuery("input[name=Email]").css("border-color", "#DFDFDF");
-            if (!validarEmail(jQuery("input[name=Email]").val())) {
-                jQuery("input[name=Email]").css("border-color", "red");
-                check = false;
-                jQuery("#msj-agregar-contacto").show(150).removeClass("msjError").removeClass("msjExito").addClass("msjError").html("<?php _e('Por favor Ingresa un Email Válido.', 'envialo-simple') ?>");
-                return false;
-            }
-            jQuery("#form-agregar-contacto input[type=text]").not("input[name=Email]").each(function () {
-                campos.push(jQuery(this).val());
+
+        jQuery(document).ready(function () {
+
+            jQuery(".boton-sincronizar").click(function (event) {
+                event.preventDefault();
+                if (confirm("<?php _e('Está Seguro?', 'envialo-simple'); ?>")) {
+                    var idLista = jQuery(this).attr("name");
+                    jQuery.post("<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/handler.php') ?>", {accion: "sincronizarContactos", MailListID: idLista}, function (json) {
+                        if (json.success) {
+                            alert("<?php _e('Se Sincronizaron Correctamente tus Contactos de Wordpress con la Lista seleccionada.', 'envialo-simple'); ?>");
+                            window.location = "<?php echo "{$adminUrl}admin.php?page=envialo-simple-listas"; ?>";
+                        } else {
+                            alert("Error");
+                        }
+                    }, "json");
+                }
             });
-            if (check) {
-                jQuery.post(urlHandler, {accion: "agregarContactoLista",
-                    campos: campos,
-                    Email: jQuery("input[name=Email]").val(),
-                    MailListID: jQuery("input[name=MailListID]").val()
-                }, function (json) {
-                    if (json.root.ajaxResponse.success) {
-                        jQuery("#modal-agregar-contacto").dialog("close");
-                        window.location = "<?php echo "{$adminUrl}admin.php?page=envialo-simple-listas&contactoCreado=1"; ?>";
-                    } else {
-                        alert("<?php _e('Error al Agregar Contacto. Por favor revise los campos e intente nuevamente', 'envialo-simple'); ?>");
-                    }
-                }, "json");
-            }
-        });
+            jQuery(".boton-agregar-contacto").click(function (event) {
+                event.preventDefault();
+                jQuery("input[name=MailListID]").val(jQuery(this).attr("name"));
+                jQuery("#modal-agregar-contacto").dialog("open");
+            });
+            jQuery("#form-crear-lista").submit(function (event) {
+                event.preventDefault();
+                if (checkVacio(jQuery("input[name=nombre-lista]"))) {
+                    return false;
+                } else {
+                    var nombre = jQuery("input[name=nombre-lista]").val();
+                    jQuery.post(urlHandler, {accion: "crearLista", nombreLista: nombre}, function (json) {
+                        if (json.root.ajaxResponse.success) {
+                            jQuery("#modal-crear-lista").dialog("close");
+                            window.location = "<?php echo "{$adminUrl}admin.php?page=envialo-simple-listas&listaCreada=1"; ?>";
+                        }
+                    }, "json");
+                }
+            });
+            jQuery("#form-agregar-contacto").submit(function (event) {
+                jQuery("#msj-agregar-contacto").hide(150);
+                event.preventDefault();
+                var campos = [];
+                var check = true;
+                jQuery("input[name=Email]").css("border-color", "#DFDFDF");
+                if (!validarEmail(jQuery("input[name=Email]").val())) {
+                    jQuery("input[name=Email]").css("border-color", "red");
+                    check = false;
+                    jQuery("#msj-agregar-contacto").show(150).removeClass("msjError").removeClass("msjExito").addClass("msjError").html("<?php _e('Por favor Ingresa un Email Válido.', 'envialo-simple') ?>");
+                    return false;
+                }
+                jQuery("#form-agregar-contacto input[type=text]").not("input[name=Email]").each(function () {
+                    campos.push(jQuery(this).val());
+                });
+                if (check) {
+                    jQuery.post(urlHandler, {accion: "agregarContactoLista",
+                        campos: campos,
+                        Email: jQuery("input[name=Email]").val(),
+                        MailListID: jQuery("input[name=MailListID]").val()
+                    }, function (json) {
+                        if (json.root.ajaxResponse.success) {
+                            jQuery("#modal-agregar-contacto").dialog("close");
+                            window.location = "<?php echo "{$adminUrl}admin.php?page=envialo-simple-listas&contactoCreado=1"; ?>";
+                        } else {
+                            alert("<?php _e('Error al Agregar Contacto. Por favor revise los campos e intente nuevamente', 'envialo-simple'); ?>");
+                        }
+                    }, "json");
+                }
+            });
 
-        function checkVacio(obj) {
-            if (obj.val() == "") {
-                obj.css("border", "1px solid red");
-                return true;
-            } else {
-                obj.css("border", "1px solid #DFDFDF");
-                return false;
-            }
-        }
 
-        function validarEmail(email) {
-            return /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))$/i.test(email);
-        }
-
-        jQuery(function () {
             jQuery("#dialog:ui-dialog").dialog("destroy");
             jQuery("#modal-crear-lista").dialog({
                 autoOpen: false,
-                height: 180,
+                height: 260,
                 width: 320,
                 dialogClass: 'fixed-dialog',
                 modal: true,
@@ -255,7 +244,25 @@ $verContactos = (isset($_GET['verContactos']) && $_GET['verContactos'] == 1 ) ? 
             jQuery("#cerrar-modal").click(function () {
                 jQuery("#modal-crear-lista").dialog("close");
             });
+
         });
+
+
+        function checkVacio(obj) {
+            if (obj.val() == "") {
+                obj.css("border", "1px solid red");
+                return true;
+            } else {
+                obj.css("border", "1px solid #DFDFDF");
+                return false;
+            }
+        }
+
+        function validarEmail(email) {
+            return /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))$/i.test(email);
+        }
+
+
     </script>
 
 <?php endif; ?>
