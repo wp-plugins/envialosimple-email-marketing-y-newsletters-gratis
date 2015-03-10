@@ -121,7 +121,7 @@ jQuery("#tipo-campo").ddslick({
             jQuery("#valorPorDefectoCampo").show();
             break;     
             
-            case "Seleccionar..":
+            case "select":
             break;
                         
             default:

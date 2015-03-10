@@ -94,7 +94,7 @@ class WidgetEnvialo extends WP_Widget {
          <input type="hidden" name="<?php echo $this->get_field_name('AdministratorID'); ?>" value="<?php echo $AdministratorID; ?>" />
          <label for="<?php echo $this->get_field_id( 'FormID' ); ?>"><?php _e('Formularios Disponibles:','envialo-simple')?></label>
          <select id="<?php echo $this->get_field_id( 'FormID' ); ?>" name="<?php echo $this->get_field_name('FormID'); ?>">
-             <option>Seleccionar..</option>
+             <option><?php _e("Seleccionar..", 'envialo-simple') ?></option>
              <?php
                 $htmlOption = "";
                 foreach ($forms['list']['item'] as $f) {

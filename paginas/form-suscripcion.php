@@ -371,17 +371,17 @@ $urlImg = plugins_url("envialosimple-email-marketing-y-newsletters-gratis/imagen
             <label for="tipo-campo" style="margin-top:15px;display:block;"><?php _e("Tipo de Campo Personalizado:", 'envialo-simple') ?></label>
 
             <select id="tipo-campo">
-                <option>Seleccionar..</option>
-                <option data-imagesrc='<?php echo $urlImg ?>formP8.png' value="Text field">Campo de texto</option>
-                <option data-imagesrc='<?php echo $urlImg ?>formP1.png' value="Password field">Password</option>
-                <option data-imagesrc='<?php echo $urlImg ?>formP9.png' value="Hidden field">Campo oculto</option>
-                <option data-imagesrc='<?php echo $urlImg ?>formP7.png' value="Text area">Area de texto</option>
-                <option data-imagesrc='<?php echo $urlImg ?>formPe.png' value="Drop list">Listado</option>
-                <option data-imagesrc='<?php echo $urlImg ?>formPe.png' value="Drop list">Listado de paises</option>
-                <option data-imagesrc='<?php echo $urlImg ?>formP5.png' value="List">Listado con selección múltiple</option>
-                <option data-imagesrc='<?php echo $urlImg ?>formPa.png' value="Check box">Checkbox</option>
-                <option data-imagesrc='<?php echo $urlImg ?>formP2.png' value="Radio button">Radio</option>
-                <option data-imagesrc='<?php echo $urlImg ?>formP6.png' value="Notice">Nota al pié</option>
+                <option value="select"><?php _e("Seleccionar..", 'envialo-simple') ?></option>
+                <option data-imagesrc='<?php echo $urlImg ?>formP8.png' value="Text field"><?php _e("Campo de texto", 'envialo-simple') ?></option>
+                <option data-imagesrc='<?php echo $urlImg ?>formP1.png' value="Password field"><?php _e("Contraseña", 'envialo-simple') ?></option>
+                <option data-imagesrc='<?php echo $urlImg ?>formP9.png' value="Hidden field"><?php _e("Campo oculto", 'envialo-simple') ?></option>
+                <option data-imagesrc='<?php echo $urlImg ?>formP7.png' value="Text area"><?php _e("Area de texto", 'envialo-simple') ?></option>
+                <option data-imagesrc='<?php echo $urlImg ?>formPe.png' value="Drop list"><?php _e("Listado", 'envialo-simple') ?></option>
+                <option data-imagesrc='<?php echo $urlImg ?>formPe.png' value="Drop list"><?php _e("Listado de paises", 'envialo-simple') ?></option>
+                <option data-imagesrc='<?php echo $urlImg ?>formP5.png' value="List"><?php _e("Listado con selección múltiple", 'envialo-simple') ?></option>
+                <option data-imagesrc='<?php echo $urlImg ?>formPa.png' value="Check box"><?php _e("Checkbox", 'envialo-simple') ?></option>
+                <option data-imagesrc='<?php echo $urlImg ?>formP2.png' value="Radio button"><?php _e("Radio", 'envialo-simple') ?></option>
+                <option data-imagesrc='<?php echo $urlImg ?>formP6.png' value="Notice"><?php _e("Nota al pié", 'envialo-simple') ?></option>
 
 
             </select>
@@ -394,36 +394,36 @@ $urlImg = plugins_url("envialosimple-email-marketing-y-newsletters-gratis/imagen
             <div id="validacionCampo" class="formPerOcultar">
                 <label for="validacion-campo"><?php _e('Validación:', 'envialo-simple') ?></label><br />
                 <select id="validacion-campo">
-                    <option value="Do not Apply" selected="">Desactivado</option>
-                    <option value="Numeric Only">Aceptar solo dígitos (sin espacios)</option>
-                    <option value="Alpha Only">Aceptar solo letras y espacios</option>
-                    <option value="Alpha Numeric Only">Aceptar solo letras, números y espacios</option>
-                    <option value="Email Format Check">Aceptar solo direcciones de Email</option>
-                    <option value="Custom">Personalizado</option>
+                    <option value="Do not Apply" selected=""><?php _e("Desactivado", 'envialo-simple') ?></option>
+                    <option value="Numeric Only"><?php _e("Aceptar solo dígitos (sin espacios)", 'envialo-simple') ?></option>
+                    <option value="Alpha Only"><?php _e("Aceptar solo letras y espacios", 'envialo-simple') ?></option>
+                    <option value="Alpha Numeric Only"><?php _e("Aceptar solo letras, números y espacios", 'envialo-simple') ?></option>
+                    <option value="Email Format Check"><?php _e("Aceptar solo direcciones de Email", 'envialo-simple') ?></option>
+                    <option value="Custom"><?php _e("Personalizado", 'envialo-simple') ?></option>
                 </select><br />
 
             </div>
 
 
             <div id="listadoValores" class="formPerOcultar">
-                <span>Listado:</span>
+                <span><?php _e("Listado:", 'envialo-simple') ?></span>
 
                 <ul>
 
                 </ul>
-                <div id="agregarValor" class="button-secondary">Agregar Valor</div>
+                <div id="agregarValor" class="button-secondary"><?php _e("Agregar Valor", 'envialo-simple') ?></div>
             </div>
 
             <div id="contenedorCamposValores" class="formPerOcultar">
-                <label id="label-text-valor">Texto:</label>
+                <label id="label-text-valor"><?php _e("Texto:", 'envialo-simple') ?></label>
                 <input name="input-opcion-texto" class='input-opcion' type="text" style="width:100px"/>
 
-                <label style="margin-left: 20px">Valor:</label>
+                <label style="margin-left: 20px"><?php _e("Valor:", 'envialo-simple') ?></label>
                 <input name="input-opcion-valor" class='input-opcion' type="text" style="width:90px" /><br />
 
 
                 <div class="button-secondary" id="cancelar-agregar-valor-bt" style ="float: right;margin: 10px 37px 10px 0;"> Cancelar</div>
-                <div class="button" id="agregar-valor-bt" style="float: right;margin: 10px 5px 10px 0;" >Agregar Opción</div>
+                <div class="button" id="agregar-valor-bt" style="float: right;margin: 10px 5px 10px 0;" ><?php _e("Agregar Opción", 'envialo-simple') ?></div>
                 <br />
             </div>
             <div style="clear:both"></div>
@@ -948,7 +948,7 @@ $urlImg = plugins_url("envialosimple-email-marketing-y-newsletters-gratis/imagen
             valor = parseInt(jQuery(this).val())
 
             if (valor == -1) {
-                if (isFree == 'true') {
+                if (rolUsuario == 'free') {
                     alert("<?php _e('Esta opción es solamente para cuentas Premium. Actualiza tu cuenta para poder utilizarla.', 'envialo-simple') ?>")
                     return false;
                 } else {

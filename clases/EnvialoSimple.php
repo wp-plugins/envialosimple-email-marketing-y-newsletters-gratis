@@ -147,7 +147,7 @@ class EnvialoSimple extends Curl {
      */
     function mostrarPostsWP($category, $numberposts, $pagina) {
 
-    
+
         $parametros = array();
         $parametros["orderby"] = "post_date";
         $parametros["order"] = "DESC";
@@ -156,7 +156,7 @@ class EnvialoSimple extends Curl {
         $parametros["cat"] = $category;
         $parametros["posts_per_page"] = 10;
         $parametros["paged"] = isset($pagina) ? $pagina : 1;
-        
+
 
         wp_reset_query();
 
@@ -200,10 +200,10 @@ class EnvialoSimple extends Curl {
                         <script>jQuery('#slide_{$i}').slides()</script>";
             $i++;
         }
-        
+
         $prev_post ="";
         $next_post ="";
-        
+
         if ($posts->max_num_pages > 1) {
             //paginacion
 
@@ -218,9 +218,9 @@ class EnvialoSimple extends Curl {
             }
             $html .= "<div class='post-pagination'>{$prev_post} | {$next_post} </div>";
         }
-        
 
-        
+
+
 
         wp_reset_postdata();
         wp_reset_query();
@@ -523,7 +523,7 @@ class EnvialoSimple extends Curl {
         if (isset($respuesta['root']['ajaxResponse']['success'])) {
             return $respuesta['root']['ajaxResponse']['customField'];
         } else {
-            return array();
+            return $respuesta['root'];
         }
     }
 
@@ -592,7 +592,7 @@ class EnvialoSimple extends Curl {
                     $html .= "<option value='{$c['CustomFieldID']}' >{$c['Title']}</option>";
                 }
             }
-            $html .= "<option class='selectCrear' value='-1'>+ Crear Nuevo Campo...</option>
+            $html .= "<option class='selectCrear' value='-1'>".  __('+ Crear Nuevo Campo...', 'envialo-simple')."</option>
                         </select>
                           </td>
                         <td>

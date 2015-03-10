@@ -1056,6 +1056,8 @@ tr.tr-paginacion:hover {
     margin-top: 50px;
 }
 
+
+
 #topBlockClonWrapper .simplemodal-title, [data-containername="templateEditorContainer"] .simplemodal-title, #fileUploader .simplemodal-container .simplemodal-title {
     background: #DDD;
     color: black;
@@ -1223,6 +1225,13 @@ dl{
 
 /*formulario suscripcion personalizado*/
 
+.ui-widget-overlay{
+    position: fixed;
+}
+
+#form-agregar-campo input[type=reset]{
+    margin-top: 20px;
+}
 
 .formPerOcultar{
     margin-top:15px;
