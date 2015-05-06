@@ -92,7 +92,7 @@ if (isset($_GET["idCampana"])) {
     $c = array();
     $c["CampaignID"] = isset($_POST["CampaignID"]) ? $_POST["CampaignID"] : '';
     date_default_timezone_set("America/Buenos_Aires"); //TODO: ESTO HAY QUE VER COMO FUNCIONA EN OTrOS SERVIDORES
-    $c["Name"] = isset($_POST["CampaignName"]) ? $_POST["CampaignName"] : "Newsletter del " . date("d-m-Y H:i");
+    $c["Name"] = isset($_POST["CampaignName"]) ? $_POST["CampaignName"] : "Newsletter " . date("d-m-Y H:i");
     $c["From"]["EmailID"] = isset($_POST["FromID"]) ? $_POST["FromID"] : 0;
     $c["From"]["EmailAddress"] = 0;
     $c["From"]["Name"] = 0;
@@ -657,25 +657,25 @@ switch ($locale) {
                                                                                                                     <div id="cont1wp" class="drag-contenido">
                                                                                                                         <span class="drag-contenido-icon">
                                                                                                                             <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon1.png') ?>" />
-                                                                                                                        </span>                                                                                                                        
+                                                                                                                        </span>
                                                                                                                         <span>img + texto</span>
                                                                                                                     </div>
                                                                                                                     <div id="cont2wp" class="drag-contenido">
                                                                                                                         <span class="drag-contenido-icon">
                                                                                                                             <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon2.png') ?>" />
-                                                                                                                        </span>                                                                                                                        
+                                                                                                                        </span>
                                                                                                                         <span>img + texto</span>
                                                                                                                     </div>
                                                                                                                     <div id="cont3wp" class="drag-contenido">
                                                                                                                         <span class="drag-contenido-icon">
                                                                                                                             <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon3.png') ?>" />
-                                                                                                                        </span>                                                                                                                        
+                                                                                                                        </span>
                                                                                                                         <span>texto</span>
                                                                                                                     </div>
                                                                                                                     <div id="cont4wp" class="drag-contenido">
                                                                                                                         <span class="drag-contenido-icon">
                                                                                                                             <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon4.png') ?>" />
-                                                                                                                        </span>                                                                                                                        
+                                                                                                                        </span>
                                                                                                                         <span>texto + img</span>
                                                                                                                     </div>
 
@@ -685,50 +685,50 @@ switch ($locale) {
                                                                                                                     <div id="cont1" class="drag-contenido">
                                                                                                                         <span class="drag-contenido-icon">
                                                                                                                             <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon1.png') ?>" />
-                                                                                                                        </span>                                                                                                                        
+                                                                                                                        </span>
                                                                                                                         <span>img + texto</span>
                                                                                                                     </div>
                                                                                                                     <div id="cont2" class="drag-contenido">
                                                                                                                         <span class="drag-contenido-icon">
                                                                                                                             <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon2.png') ?>" />
-                                                                                                                        </span>                                                                                                                        
+                                                                                                                        </span>
                                                                                                                         <span>img + texto</span>
                                                                                                                     </div>
                                                                                                                     <div id="cont3" class="drag-contenido">
                                                                                                                         <span class="drag-contenido-icon">
                                                                                                                             <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon3.png') ?>" />
-                                                                                                                        </span>                                                                                                                        
+                                                                                                                        </span>
                                                                                                                         <span>texto</span>
                                                                                                                     </div>
 
                                                                                                                     <div id="cont4" class="drag-contenido">
                                                                                                                         <span class="drag-contenido-icon">
                                                                                                                             <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon4.png') ?>" />
-                                                                                                                        </span>                                                                                                                        
+                                                                                                                        </span>
                                                                                                                         <span>texto + img</span>
                                                                                                                     </div>
                                                                                                                     <div id="cont5" class="drag-contenido">
                                                                                                                         <span class="drag-contenido-icon">
                                                                                                                             <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon5.png') ?>" />
-                                                                                                                        </span>                                                                                                                        
+                                                                                                                        </span>
                                                                                                                         <span>texto</span>
                                                                                                                     </div>
                                                                                                                     <div id="cont6" class="drag-contenido">
                                                                                                                         <span class="drag-contenido-icon">
                                                                                                                             <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon6.png') ?>" />
-                                                                                                                        </span>                                                                                                                        
+                                                                                                                        </span>
                                                                                                                         <span>imagen</span>
                                                                                                                     </div>
                                                                                                                     <div id="cont7" class="drag-contenido">
                                                                                                                         <span class="drag-contenido-icon">
                                                                                                                             <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon7.png') ?>" />
-                                                                                                                        </span>                                                                                                                        
+                                                                                                                        </span>
                                                                                                                         <span>imagen</span>
                                                                                                                     </div>
                                                                                                                     <div id="cont8" class="drag-contenido">
                                                                                                                         <span class="drag-contenido-icon">
                                                                                                                             <img src="<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/imagenes/icon8.png') ?>" />
-                                                                                                                        </span>                                                                                                                        
+                                                                                                                        </span>
                                                                                                                         <span>separador</span>
                                                                                                                     </div>
                                                                                                                 </div>
