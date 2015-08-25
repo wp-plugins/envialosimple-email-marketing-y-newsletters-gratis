@@ -248,6 +248,7 @@ class EnvialoSimple extends Curl {
 
     function eliminarTokenBD($idClave) {
         global $wpdb;
+        $GLOBALS["APIKey"] = '';
         if ($this->tablasCreadas()) {
             $nombre_tabla = $wpdb->prefix . TABLA_CLAVES;
             $resultado = $wpdb->query($wpdb->prepare("DELETE FROM $nombre_tabla WHERE idClave = %d;", $idClave));

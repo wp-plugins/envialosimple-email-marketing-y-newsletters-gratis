@@ -1,23 +1,23 @@
 <?php
 include_once (ENVIALO_DIR . "/paginas/header.php");
 
-$version = get_bloginfo( 'version' ); 
+$version = get_bloginfo( 'version' );
 ?>
 
 
 
 <div class="wrap">
-    
-    
-    
-    <?php  if ( version_compare( $version, '3.3', '<' ) ) { ?>        
-        <div class="mensaje" style="display: block">        
-            
-            <?php printf(__('El plugin de EnvialoSimple requiere la versión 3.3 de Wordpress para funcionar Correctamente. Tú tienes la Versión %s . Por favor Actualiza Wordpress a la Última Versión.','envialo-simple'),$version); ?>        
-        </div>    
+
+
+
+    <?php  if ( version_compare( $version, '3.3', '<' ) ) { ?>
+        <div class="mensaje" style="display: block">
+
+            <?php printf(__('El plugin de EnvialoSimple requiere la versión 3.3 de Wordpress para funcionar Correctamente. Tú tienes la Versión %s . Por favor Actualiza Wordpress a la Última Versión.','envialo-simple'),$version); ?>
+        </div>
     <?php } ?>
-    
-    
+
+
     <div id="icon-tools" class="icon32">
         <br>
     </div><h2><?php _e('Configuración Inicial','envialo-simple') ?></h2>
@@ -39,7 +39,7 @@ $version = get_bloginfo( 'version' );
 
             </div>
         </div>
-        
+
        <div id="tengo-cuenta" class="conf-inicial">
 
             <div class="tool-box" id="contenedor-2">
@@ -58,7 +58,7 @@ $version = get_bloginfo( 'version' );
                         <?php _e('Ya puedes comenzar a utilizar el Plugin !','envialo-simple') ?>
                     </p>
                     <p>
-                        <a href="<?php echo get_admin_url().'/admin.php?page=envialo-simple'?>" class="button-secondary" ><?php _e('Comenzar','envialo-simple') ?></a>
+                        <a href="<?php echo get_admin_url().'/admin.php?page=envialo-simple'?>" class="button-primary" ><?php _e('Comenzar','envialo-simple') ?></a>
                     </p>
 
                 </div>
@@ -83,7 +83,7 @@ $version = get_bloginfo( 'version' );
                                 <input name="password" type="password" id="password" value="">
                                 </td>
                             </tr>
- 
+
                         </tbody>
                     </table>
                     <p class="submit">
@@ -93,8 +93,52 @@ $version = get_bloginfo( 'version' );
 
             </div>
         </div>
+       <div id="api-key" class="conf-inicial">
 
-       
+            <div class="tool-box" id="contenedor-3">
+                <h3 class="title"><?php _e('Usuario avanzado','envialo-simple') ?></h3>
+                <p>
+                   <?php _e('Si deseas puedes configurar el plugin utilizando una clave de API. Ingresa tu clave de API para utilizar el plugin','envialo-simple') ?>
+                </p>
+                <div id="msj-respuesta-api" class="mensaje">
+
+                </div>
+                <div id="msj-respuesta" class="mensaje">
+
+                </div>
+                <div id="contenedor-exito3" style="display:none">
+                    <p>
+                        <?php _e('Ya puedes comenzar a utilizar el Plugin !','envialo-simple') ?>
+                    </p>
+                    <p>
+                        <a href="<?php echo get_admin_url().'admin.php?page=envialo-simple'?>" class="button-primary" ><?php _e('Comenzar','envialo-simple') ?></a>
+                    </p>
+
+                </div>
+
+                <form action="#" method="post" id="form-token" class="add:users: validate">
+
+                    <input type="hidden"  name="admin_url" value="<?php echo get_admin_url() ?>"/>
+                    <table class="form-table">
+                        <tbody>
+                            <tr class="form-field form-required">
+                                <th scope="row"><label for="APIKey"><?php _e('Clave API','envialo-simple') ?> <span class="description"><?php _e('(requerido)','envialo-simple') ?></span></label></th>
+                                <td>
+                                <input name="APIKey" type="text" id="APIKey" value="" aria-required="true">
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <p class="submit">
+                        <input type="submit" name="createuser" id="traer-api" class="button-primary" value="<?php _e('Aceptar y Configurar','envialo-simple') ?>">
+                    </p>
+                </form>
+
+            </div>
+        </div>
+
+
 
     </div>
     <!--tabs-->
@@ -116,34 +160,33 @@ $version = get_bloginfo( 'version' );
 
     jQuery("#form-token").submit(function (event) {
 
-        if (checkVacio(jQuery("input[name=token]"))) {
+        if (checkVacio(jQuery("input[name=APIKey]"))) {
 
             event.preventDefault();
 
         } else {
 
             event.preventDefault();
-            var clave = jQuery.trim(jQuery("input[name=token]").val());
+            var clave = jQuery.trim(jQuery("input[name=APIKey]").val());
 
             jQuery.post(urlHandler, {
                 accion: "testToken",
-                token: clave
+                APIKey: clave
             }, function (json) {
 
                 if (json.success) {
 
                     //todo ok , redirijo al index
-                    window.location = "<?php echo get_admin_url() ."admin.php?page=envialo-simple"; ?>";
+                    //window.location = "<?php echo get_admin_url() ."admin.php?page=envialo-simple"; ?>";
 
-                    jQuery("#msj-respuesta-token").removeClass("msjError").addClass("msjExito").show(300).html(json.mensaje);
+                    jQuery("#msj-respuesta-api").removeClass("msjError").addClass("msjExito").show(300).html(json.mensaje);
 
                     jQuery("#contenedor-2").hide(300);
-                    jQuery("#contenedor-3").hide(300);
-                    jQuery("form[name=form-token]").hide(300);
-                    jQuery("#contenedor-exito1").show(300);
+                    jQuery("#form-token , #tengo-cuenta , #tengo-nada").hide(300);
+                    jQuery("#contenedor-exito3").show(300);
                 } else {
-                    jQuery("#msj-respuesta-token").addClass("msjError").show(300).html(json.mensaje);
-                    jQuery("input[name=token]").css("border", "1px solid red");
+                    jQuery("#msj-respuesta-api").addClass("msjError").show(300).html(json.mensaje);
+                    jQuery("input[name=APIKey]").css("border", "1px solid red");
                 }
 
             }, "json");
@@ -151,7 +194,7 @@ $version = get_bloginfo( 'version' );
     });
 
     jQuery("#form-conf").submit(function (event) {
-        
+
         event.preventDefault();
         jQuery("#msj-respuesta").hide();
         jQuery("#generar-clave").hide();
@@ -161,9 +204,9 @@ $version = get_bloginfo( 'version' );
             return false;
         }
 
-        
-        usuario = jQuery("input[name=username]").val()
-        pass = jQuery("input[name=password]").val()
+
+        usuario = jQuery("input[name=username]").val();
+        pass = jQuery("input[name=password]").val();
 
         jQuery.post("<?php echo plugins_url('envialosimple-email-marketing-y-newsletters-gratis/handler.php')?>", {
             accion: "traerToken",
@@ -178,7 +221,7 @@ $version = get_bloginfo( 'version' );
 
                 jQuery("form[name=form-conf]").hide(300);
                 jQuery("#contenedor-1").hide(300);
-                jQuery("#contenedor-3").hide(300);
+                jQuery("#contenedor-3 , #api-key , #tengo-nada").hide(300);
                 jQuery("#contenedor-exito2").show(300);
 
             } else {

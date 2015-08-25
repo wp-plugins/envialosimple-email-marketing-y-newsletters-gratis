@@ -2,7 +2,7 @@
 Contributors: dattatec.com
 Tags: email,email marketing,emailing,newsletter,envialosimple,plugin,editor visual,drag,drop,importar,contactos,posts,wysiwyg
 Requires at least: 3.3
-Tested up to: 4.0
+Tested up to: 4.3
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -15,7 +15,7 @@ El plugin de EnvialoSimple te permitirá crear y enviar Newsletters de calidad p
 
 ✔ Edición "Arrastrar y Soltar"
 
-✔Más de 200 Templates profesionales
+✔ Más de 200 Templates profesionales
 
 ✔ Newsletters personalizables
 

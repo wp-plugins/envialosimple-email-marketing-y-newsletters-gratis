@@ -28,6 +28,10 @@ switch ($accion) {
         traerGenerarGuardarTokenMedianteAPI($usuario, $password);
         break;
 
+    case 'testToken':
+        $APIKey = $_POST["APIKey"];
+        echo configurarTokenES($APIKey);
+        break;
     case 'eliminarToken':
         $idClave = $_POST["idClave"];
         $ev = new EnvialoSimple();
@@ -61,7 +65,7 @@ switch ($accion) {
 
 
             $respuesta_array = json_decode($respuesta, TRUE);
-            
+
             if (!$respuesta_array["root"]["ajaxResponse"]["success"]) {
                 echo $respuesta;
             }
@@ -353,6 +357,12 @@ function traerGenerarGuardarTokenMedianteAPI($usuario, $password) {
         echo error(__("Se ha encontrado una clave previamente generada. Lamentablemente un error de Base de Datos ha ocurrido al intentar utilizarla.", 'envialo-simple'));
     }
     return true;
+}
+
+function configurarTokenES($APIKey) {
+    $GLOBALS["APIKey"] = $APIKey;
+    $ev = new EnvialoSimple();
+    return json_encode($ev->testToken());
 }
 
 function error($mensaje, $parametrosAdicionales = array()) {
